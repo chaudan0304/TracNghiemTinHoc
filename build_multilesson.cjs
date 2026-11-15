@@ -31,4 +31,38 @@ html = html.replaceAll('Ket_Qua_Tin_Hoc_4_Bai_6.csv', 'Ket_Qua_${lessonId}.csv')
 html = html.replace('link.download = "Ket_Qua_${lessonId}.csv";', 'link.download = `Ket_Qua_${lessonId}.csv`;');
 html = html.replace('"Đã tải xuống tệp Ket_Qua_${lessonId}.csv thành công!"', '`Đã tải xuống tệp Ket_Qua_${lessonId}.csv thành công!`');
 html = html.replace('    window.addEventListener("DOMContentLoaded", initApp);', '    if (document.readyState === "loading") window.addEventListener("DOMContentLoaded", initApp); else initApp();');
+html = html.replace('onclick="openTeacherPortal()"', 'onclick="location.href=\'/teacher.html\'"');
+html = html.replace('      timedOut: false\n', '      timedOut: false,\n      submitted: false\n');
+html = html.replace('      state.timedOut = false;', '      state.timedOut = false;\n      state.submitted = false;');
+html = html.replace('    async function showResults() {\n      stopTimer();', '    async function showResults() {\n      if (state.submitted) return;\n      state.submitted = true;\n      stopTimer();');
+const oldSubmit = `    async function saveStudentRecordCloud(record) {
+      try {
+        await cloudReadyPromise;
+        if (!db || !currentUser) return false;
+        await addDoc(getResultsCollectionRef(), record);
+        return true;
+      } catch (e) {
+        console.error("Không thể lưu kết quả học sinh lên đám mây:", e);
+        return false;
+      }
+    }`;
+const newSubmit = `    async function saveStudentRecordCloud(record) {
+      try {
+        const response = await fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            id: crypto.randomUUID(), lessonId, name: record.name,
+            className: record.className,
+            answers: QUESTIONS.map((_, i) => state.userAnswers[i]?.selectedIndex ?? null)
+          })
+        });
+        return response.ok;
+      } catch (e) {
+        console.error('Không thể gửi kết quả:', e);
+        return false;
+      }
+    }`;
+if (!html.includes(oldSubmit)) throw new Error('Không tìm thấy hàm nộp bài cũ');
+html = html.replace(oldSubmit, newSubmit);
 fs.writeFileSync('quiz.html', html);

@@ -713,7 +713,7 @@
     <span class="text-[#6ee7b7]">•</span>
     <button
       type="button"
-      onclick="openTeacherPortal()"
+      onclick="location.href='/teacher.html'"
       class="text-[#047857]/75 hover:text-[#064e3b] underline decoration-[#6ee7b7] underline-offset-2 inline-flex items-center gap-1 cursor-pointer transition-colors"
     >
       <span>🔒</span>
@@ -926,7 +926,8 @@
       reviewVisible: false,
       timeLeft: LESSON_CONFIG.timeLimitSeconds,
       timerInterval: null,
-      timedOut: false
+      timedOut: false,
+      submitted: false
     };
 
     const OPTION_LABELS = ["A", "B", "C", "D"];
@@ -1058,6 +1059,7 @@
       state.reviewVisible = false;
       state.timeLeft = LESSON_CONFIG.timeLimitSeconds;
       state.timedOut = false;
+      state.submitted = false;
 
       document.getElementById("quiz-student-badge").textContent = `👤 ${state.studentName} • Lớp ${state.studentClass}`;
       document.getElementById("review-container").classList.add("hidden");
@@ -1214,6 +1216,8 @@
     }
 
     async function showResults() {
+      if (state.submitted) return;
+      state.submitted = true;
       stopTimer();
       showScreen("screen-result");
       soundFX.playVictory();
@@ -1343,12 +1347,18 @@
      */
     async function saveStudentRecordCloud(record) {
       try {
-        await cloudReadyPromise;
-        if (!db || !currentUser) return false;
-        await addDoc(getResultsCollectionRef(), record);
-        return true;
+        const response = await fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            id: crypto.randomUUID(), lessonId, name: record.name,
+            className: record.className,
+            answers: QUESTIONS.map((_, i) => state.userAnswers[i]?.selectedIndex ?? null)
+          })
+        });
+        return response.ok;
       } catch (e) {
-        console.error("Không thể lưu kết quả học sinh lên đám mây:", e);
+        console.error('Không thể gửi kết quả:', e);
         return false;
       }
     }

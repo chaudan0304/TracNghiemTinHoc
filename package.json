@@ -1,0 +1,7 @@
+{
+  "name": "trac-nghiem-tin-hoc",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test" },
+  "dependencies": { "@neondatabase/serverless": "^1.0.0" }
+}

@@ -13,11 +13,13 @@
   <main>
     <h1>Chọn bài để luyện tập</h1>
     <p class="intro">Em hãy chọn bài học, nhập họ tên và lớp rồi bắt đầu làm bài. Mỗi bài có bộ câu hỏi và bảng kết quả riêng.</p>
-    <p class="intro"><strong>Bản thử nghiệm:</strong> Kết quả hiện lưu trên thiết bị làm bài và chưa đồng bộ tới giáo viên. Học sinh hãy chụp màn hình kết quả để gửi thầy cô.</p>
+    <p id="storage-status" class="intro">Đang kiểm tra trạng thái lưu kết quả...</p>
     <div id="lessons" class="grid" aria-live="polite"></div>
     <p id="error" role="alert"></p>
   </main>
   <script type="module">
+    try { const status = await (await fetch('/api/status')).json(); document.getElementById('storage-status').textContent = status.ready ? 'Kết quả sẽ được gửi đến bảng giáo viên sau khi nộp bài.' : 'Bản thử nghiệm: Kết quả hiện chỉ lưu trên thiết bị làm bài. Hãy chụp màn hình kết quả để gửi thầy cô.'; }
+    catch { document.getElementById('storage-status').textContent = 'Chưa xác nhận được trạng thái lưu kết quả. Hãy chụp màn hình kết quả để gửi thầy cô.'; }
     try {
       const response = await fetch('/lessons/index.json');
       if (!response.ok) throw new Error('Không tải được danh sách bài học');
