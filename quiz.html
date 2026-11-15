@@ -210,7 +210,7 @@
               </span>
             </div>
             <p class="text-xs sm:text-sm font-bold text-[#047857]">
-              Bài 6. Bản quyền sử dụng phần mềm • Tin học Lớp 4
+              Kết quả bài trắc nghiệm
             </p>
           </div>
         </div>
@@ -345,7 +345,7 @@
             TIN HỌC LỚP 4
           </span>
           <h1 id="header-lesson-title" class="text-[#064e3b] font-extrabold text-sm sm:text-lg md:text-xl truncate leading-tight">
-            Bài 6. Bản quyền sử dụng phần mềm
+            Đang tải bài học...
           </h1>
         </div>
       </div>
@@ -387,12 +387,12 @@
 
         <!-- Khung tên bài học -->
         <div class="bg-[#ecfdf5] border-2 border-[#a7f3d0] text-[#059669] font-extrabold text-base sm:text-xl md:text-2xl px-6 sm:px-8 py-2 rounded-2xl mb-6 shadow-2xs">
-          <span id="welcome-lesson-subtitle">Bài 6. Bản quyền sử dụng phần mềm</span>
+          <span id="welcome-lesson-subtitle">Đang tải bài học...</span>
         </div>
 
         <!-- Hình minh họa Vector Học sinh & Laptop có biểu tượng bản quyền (©) -->
         <div class="w-56 sm:w-64 bg-[#dcfce7]/80 border-2 border-[#bbf7d0] rounded-3xl p-4 sm:p-5 mb-6 flex items-center justify-center shadow-inner">
-          <svg class="w-full h-auto" viewBox="0 0 260 185" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Minh họa học sinh sử dụng phần mềm có bản quyền">
+          <svg class="w-full h-auto" viewBox="0 0 260 185" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Minh họa học sinh sử dụng máy tính">
             <circle cx="48" cy="40" r="14" fill="#a7f3d0" fill-opacity="0.65"/>
             <circle cx="215" cy="128" r="18" fill="#a7f3d0" fill-opacity="0.5"/>
 
@@ -636,7 +636,7 @@
           Chúc mừng em đã hoàn thành!
         </h2>
         <p id="result-subtitle" class="text-[#047857] font-bold text-sm sm:text-base max-w-xl mx-auto mb-5">
-          Em đã nắm được những kiến thức quan trọng về bản quyền sử dụng phần mềm.
+          Em đã hoàn thành bài trắc nghiệm.
         </p>
 
         <!-- Phiếu ghi nhận kết quả học sinh -->
@@ -1247,11 +1247,11 @@
       const titleEl = document.getElementById("result-title");
       const subtitleEl = document.getElementById("result-subtitle");
 
-      if (state.score >= 8) {
+      if (state.score >= maxScore * 0.8) {
         starsEl.innerHTML = "⭐⭐⭐";
         titleEl.textContent = `Xuất sắc! Chúc mừng ${state.studentName}!`;
-        subtitleEl.textContent = "Em đã nắm rất vững kiến thức về bản quyền sử dụng phần mềm và luôn biết tôn trọng sản phẩm trí tuệ!";
-      } else if (state.score >= 5) {
+        subtitleEl.textContent = "Em đã nắm rất vững nội dung bài học!";
+      } else if (state.score >= maxScore * 0.5) {
         starsEl.innerHTML = "⭐⭐<span class='opacity-30'>⭐</span>";
         titleEl.textContent = `Giỏi lắm! ${state.studentName} làm bài rất tốt!`;
         subtitleEl.textContent = "Em đã hiểu được nhiều nội dung quan trọng. Hãy xem lại các câu chưa đúng để đạt điểm 10 tối đa nhé!";

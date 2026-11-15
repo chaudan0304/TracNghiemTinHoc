@@ -31,6 +31,13 @@ html = html.replaceAll('Ket_Qua_Tin_Hoc_4_Bai_6.csv', 'Ket_Qua_${lessonId}.csv')
 html = html.replace('link.download = "Ket_Qua_${lessonId}.csv";', 'link.download = `Ket_Qua_${lessonId}.csv`;');
 html = html.replace('"Đã tải xuống tệp Ket_Qua_${lessonId}.csv thành công!"', '`Đã tải xuống tệp Ket_Qua_${lessonId}.csv thành công!`');
 html = html.replace('    window.addEventListener("DOMContentLoaded", initApp);', '    if (document.readyState === "loading") window.addEventListener("DOMContentLoaded", initApp); else initApp();');
+html = html.replaceAll('Bài 6. Bản quyền sử dụng phần mềm • Tin học Lớp 4', 'Kết quả bài trắc nghiệm');
+html = html.replace('aria-label="Minh họa học sinh sử dụng phần mềm có bản quyền"', 'aria-label="Minh họa học sinh sử dụng máy tính"');
+html = html.replace('Em đã nắm được những kiến thức quan trọng về bản quyền sử dụng phần mềm.', 'Em đã hoàn thành bài trắc nghiệm.');
+html = html.replace('Em đã nắm rất vững kiến thức về bản quyền sử dụng phần mềm và luôn biết tôn trọng sản phẩm trí tuệ!', 'Em đã nắm rất vững nội dung bài học!');
+html = html.replaceAll('Bài 6. Bản quyền sử dụng phần mềm', 'Đang tải bài học...');
+html = html.replace('if (state.score >= 8)', 'if (state.score >= maxScore * 0.8)');
+html = html.replace('else if (state.score >= 5)', 'else if (state.score >= maxScore * 0.5)');
 html = html.replace('onclick="openTeacherPortal()"', 'onclick="location.href=\'/teacher.html\'"');
 html = html.replace('      timedOut: false\n', '      timedOut: false,\n      submitted: false\n');
 html = html.replace('      state.timedOut = false;', '      state.timedOut = false;\n      state.submitted = false;');
