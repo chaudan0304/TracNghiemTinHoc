@@ -4,7 +4,7 @@ export default async function handler(request, response) {
   if (request.method !== 'POST') return json(response, 405, { error: 'METHOD_NOT_ALLOWED' });
   try {
     const { id, lessonId, name, className, answers } = request.body || {};
-    if (typeof id !== 'string' || !/^[0-9a-f-]{36}$/i.test(id) || typeof name !== 'string' || !name.trim() || name.length > 100 || typeof className !== 'string' || !className.trim() || className.length > 30) return json(response, 400, { error: 'INVALID_SUBMISSION' });
+    if (typeof id !== 'string' || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id) || typeof name !== 'string' || !name.trim() || name.length > 100 || typeof className !== 'string' || !className.trim() || className.length > 30) return json(response, 400, { error: 'INVALID_SUBMISSION' });
     const lesson = await loadLesson(lessonId);
     const result = grade(lesson, answers);
     const sql = database();
