@@ -1,0 +1,34 @@
+const fs = require('fs');
+const vm = require('vm');
+
+const source = fs.readFileSync('source/trangchu.html', 'utf8');
+const start = source.indexOf('    const LESSON_CONFIG = {');
+const end = source.indexOf('    ];', source.indexOf('    const QUESTIONS = [', start)) + 6;
+if (start < 0 || end < 6) throw new Error('Không tìm thấy dữ liệu bài 6');
+const data = vm.runInNewContext(source.slice(start, end).replace('const LESSON_CONFIG', 'var LESSON_CONFIG').replace('const QUESTIONS', 'var QUESTIONS') + '\n({LESSON_CONFIG, QUESTIONS})');
+fs.mkdirSync('lessons', { recursive: true });
+fs.writeFileSync('lessons/lop-4-bai-6.json', JSON.stringify({ id: 'lop-4-bai-6', ...data.LESSON_CONFIG, questions: data.QUESTIONS }, null, 2));
+
+const replacement = `    const lessonId = new URLSearchParams(location.search).get("bai") || "lop-4-bai-6";
+    if (!/^[a-z0-9-]+$/.test(lessonId)) throw new Error("Mã bài học không hợp lệ");
+    const lessonResponse = await fetch(\`/lessons/\${lessonId}.json\`);
+    if (!lessonResponse.ok) throw new Error("Không tải được bài học");
+    const lesson = await lessonResponse.json();
+    if (!Array.isArray(lesson.questions) || !lesson.questions.length || lesson.questions.some(q => !Array.isArray(q.options) || q.correctIndex < 0 || q.correctIndex >= q.options.length)) throw new Error("Dữ liệu câu hỏi không hợp lệ");
+    const LESSON_CONFIG = lesson;
+    const QUESTIONS = lesson.questions;`;
+let html = source.slice(0, start) + '    const LESSON_CONFIG = lesson;\n    const QUESTIONS = lesson.questions;' + source.slice(end);
+html = html.replace('    const appId = ', replacement.slice(0, replacement.indexOf('    const LESSON_CONFIG = lesson;')) + '    const appId = ');
+html = html.replace(/<title>[^<]*<\/title>/, '<title>Chinh phục Tin học</title>');
+html = html.replace('"tinhoc4-bai6-quiz"', '"trac-nghiem-tin-hoc"');
+html = html.replace('"tinhoc4_bai6_records_backup_v1"', '`records_${lessonId}_v1`');
+html = html.replace('"tinhoc4_bai6_teacher_pin_v1"', '`teacher_pin_${lessonId}_v1`');
+html = html.replace('"student_results");', '"student_results", lessonId, "attempts");');
+html = html.replace('"teacher_settings", "config");', '"teacher_settings", lessonId);');
+html = html.replaceAll('"student_results", docId)', '"student_results", lessonId, "attempts", docId)');
+html = html.replaceAll('"student_results", r.id)', '"student_results", lessonId, "attempts", r.id)');
+html = html.replaceAll('Ket_Qua_Tin_Hoc_4_Bai_6.csv', 'Ket_Qua_${lessonId}.csv');
+html = html.replace('link.download = "Ket_Qua_${lessonId}.csv";', 'link.download = `Ket_Qua_${lessonId}.csv`;');
+html = html.replace('"Đã tải xuống tệp Ket_Qua_${lessonId}.csv thành công!"', '`Đã tải xuống tệp Ket_Qua_${lessonId}.csv thành công!`');
+html = html.replace('    window.addEventListener("DOMContentLoaded", initApp);', '    if (document.readyState === "loading") window.addEventListener("DOMContentLoaded", initApp); else initApp();');
+fs.writeFileSync('quiz.html', html);

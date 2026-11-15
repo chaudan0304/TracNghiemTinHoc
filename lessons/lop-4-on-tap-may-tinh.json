@@ -1,0 +1,15 @@
+{
+  "id": "lop-4-on-tap-may-tinh",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Ôn tập: Sử dụng máy tính an toàn",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
+  "pointsPerQuestion": 2,
+  "timeLimitSeconds": 300,
+  "questions": [
+    {"question":"Khi dùng máy tính ở trường, em nên làm gì trước khi cài phần mềm mới?","options":["Hỏi ý kiến thầy cô.","Tự cài ngay.","Tắt phần mềm bảo vệ.","Cho bạn mượn mật khẩu."],"correctIndex":0,"explanation":"Hãy xin phép thầy cô trước khi cài phần mềm trên máy tính của trường."},
+    {"question":"Mật khẩu của em nên được chia sẻ với ai?","options":["Tất cả bạn trong lớp.","Người lạ trên mạng.","Không chia sẻ tùy tiện.","Người hỏi đầu tiên."],"correctIndex":2,"explanation":"Giữ bí mật mật khẩu giúp bảo vệ tài khoản của em."},
+    {"question":"Nếu thấy liên kết lạ yêu cầu nhập mật khẩu, em nên làm gì?","options":["Nhập ngay.","Nhờ thầy cô hoặc người lớn kiểm tra.","Gửi cho cả lớp.","Tải mọi tệp đính kèm."],"correctIndex":1,"explanation":"Liên kết lạ có thể là trang giả mạo. Hãy nhờ người lớn kiểm tra."},
+    {"question":"Tư thế nào phù hợp khi học với máy tính?","options":["Ngồi quá sát màn hình.","Nằm trên bàn phím.","Ngồi ngay ngắn và giữ khoảng cách phù hợp với màn hình.","Dùng máy liên tục không nghỉ."],"correctIndex":2,"explanation":"Ngồi đúng tư thế và nghỉ giải lao giúp bảo vệ sức khỏe."},
+    {"question":"Khi không còn dùng máy tính ở phòng học, em nên làm gì?","options":["Để nguyên tài khoản đang mở.","Đăng xuất và làm theo hướng dẫn tắt máy của thầy cô.","Rút dây điện ngay.","Xóa bài của bạn."],"correctIndex":1,"explanation":"Đăng xuất để bảo vệ tài khoản và làm theo hướng dẫn của thầy cô."}
+  ]
+}

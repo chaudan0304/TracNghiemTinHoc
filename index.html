@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chinh phục Tin học</title>
+  <style>
+    :root{font-family:system-ui,sans-serif;color:#064e3b;background:#ecfdf5}*{box-sizing:border-box}body{margin:0}header{background:white;border-bottom:1px solid #a7f3d0;padding:22px max(20px,calc((100vw - 1100px)/2))}main{max-width:1100px;margin:48px auto;padding:0 20px}h1{font-size:clamp(2rem,5vw,3.5rem);margin:0 0 12px}p{line-height:1.6}.intro{max-width:650px;color:#475569}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}.card{display:block;background:#fff;border:1px solid #a7f3d0;border-radius:18px;padding:24px;color:inherit;text-decoration:none;box-shadow:0 8px 24px #064e3b10}.card:hover,.card:focus-visible{outline:3px solid #10b981;outline-offset:2px}.card h2{margin:10px 0;font-size:1.25rem}.tag{font-weight:700;color:#059669;font-size:.85rem}.meta{color:#64748b;font-size:.9rem}#error{color:#b91c1c}
+  </style>
+</head>
+<body>
+  <header><strong>💻 CHINH PHỤC TIN HỌC</strong></header>
+  <main>
+    <h1>Chọn bài để luyện tập</h1>
+    <p class="intro">Em hãy chọn bài học, nhập họ tên và lớp rồi bắt đầu làm bài. Mỗi bài có bộ câu hỏi và bảng kết quả riêng.</p>
+    <div id="lessons" class="grid" aria-live="polite"></div>
+    <p id="error" role="alert"></p>
+  </main>
+  <script type="module">
+    try {
+      const response = await fetch('/lessons/index.json');
+      if (!response.ok) throw new Error('Không tải được danh sách bài học');
+      const ids = await response.json();
+      const lessons = await Promise.all(ids.map(async id => {
+        if (!/^[a-z0-9-]+$/.test(id)) throw new Error('Mã bài học không hợp lệ');
+        const result = await fetch(`/lessons/${id}.json`);
+        if (!result.ok) throw new Error(`Không tải được bài ${id}`);
+        return result.json();
+      }));
+      const grid = document.getElementById('lessons');
+      for (const lesson of lessons) {
+        const card = document.createElement('a');
+        card.className = 'card';
+        card.href = `/quiz.html?bai=${encodeURIComponent(lesson.id)}`;
+        const tag = document.createElement('div'); tag.className = 'tag'; tag.textContent = lesson.subjectBadge;
+        const title = document.createElement('h2'); title.textContent = lesson.lessonTitle;
+        const meta = document.createElement('div'); meta.className = 'meta'; meta.textContent = `${lesson.questions.length} câu hỏi • ${Math.ceil(lesson.timeLimitSeconds / 60)} phút`;
+        card.append(tag, title, meta); grid.append(card);
+      }
+    } catch (error) { document.getElementById('error').textContent = error.message; }
+  </script>
+</body>
+</html>
