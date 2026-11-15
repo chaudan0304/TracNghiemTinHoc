@@ -3,47 +3,363 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chinh phục Tin học</title>
+  <title>Chinh phục Tin học - Trắc nghiệm Tiểu học</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    :root{font-family:system-ui,sans-serif;color:#064e3b;background:#ecfdf5}*{box-sizing:border-box}body{margin:0}header{background:white;border-bottom:1px solid #a7f3d0;padding:16px max(20px,calc((100vw - 1100px)/2));display:flex;justify-content:space-between;align-items:center}main{max-width:1100px;margin:48px auto;padding:0 20px}h1{font-size:clamp(2rem,5vw,3.5rem);margin:0 0 12px}p{line-height:1.6}.intro{max-width:650px;color:#475569}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}.card{display:block;background:#fff;border:1px solid #a7f3d0;border-radius:18px;padding:24px;color:inherit;text-decoration:none;box-shadow:0 8px 24px #064e3b10}.card:hover,.card:focus-visible{outline:3px solid #10b981;outline-offset:2px}.card h2{margin:10px 0;font-size:1.25rem}.tag{font-weight:700;color:#059669;font-size:.85rem}.meta{color:#64748b;font-size:.9rem}#error{color:#b91c1c}.teacher-link{text-decoration:none;color:#059669;font-weight:800;font-size:0.9rem;background:#ecfdf5;border:1px solid #a7f3d0;padding:8px 14px;border-radius:10px;transition:all 0.2s}.teacher-link:hover{background:#d1fae5}
+    :root {
+      font-family: 'Nunito', system-ui, sans-serif;
+      color: #064e3b;
+      background: #ecfdf5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background-color: #e6f9f0;
+      background-image: radial-gradient(#a7f3d0 2px, transparent 2px);
+      background-size: 24px 24px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: white;
+      border-bottom: 2px solid #a7f3d0;
+      padding: 16px max(20px, calc((100vw - 1100px)/2));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(6, 78, 59, 0.05);
+    }
+    .brand {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #064e3b;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .teacher-link {
+      text-decoration: none;
+      color: #059669;
+      font-weight: 800;
+      font-size: 0.9rem;
+      background: #ecfdf5;
+      border: 1.5px solid #a7f3d0;
+      padding: 8px 16px;
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+    .teacher-link:hover {
+      background: #d1fae5;
+      transform: translateY(-1px);
+    }
+    main {
+      max-width: 1100px;
+      width: 100%;
+      margin: 36px auto;
+      padding: 0 20px;
+      flex: 1;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin: 0 0 10px;
+      font-weight: 900;
+      color: #064e3b;
+    }
+    .intro {
+      max-width: 700px;
+      color: #475569;
+      line-height: 1.6;
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #d1fae5;
+      color: #065f46;
+      font-size: 0.85rem;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      border: 1px solid #a7f3d0;
+    }
+    /* Toolbar: Tabs & Search */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      font: inherit;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 8px 18px;
+      border-radius: 12px;
+      border: 2px solid #a7f3d0;
+      background: white;
+      color: #047857;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .tab-btn:hover {
+      background: #ecfdf5;
+    }
+    .tab-btn.active {
+      background: #059669;
+      color: white;
+      border-color: #047857;
+      box-shadow: 0 3px 0 #047857;
+    }
+    .search-input {
+      font: inherit;
+      padding: 9px 16px;
+      border-radius: 12px;
+      border: 2px solid #cbd5e1;
+      font-size: 0.95rem;
+      outline: none;
+      min-width: 250px;
+      background: white;
+      transition: border-color 0.2s;
+    }
+    .search-input:focus {
+      border-color: #10b981;
+    }
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 10px;
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #fff;
+      border: 2px solid #a7f3d0;
+      border-radius: 22px;
+      padding: 24px;
+      color: inherit;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(6, 78, 59, 0.06);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card:hover, .card:focus-visible {
+      transform: translateY(-4px);
+      outline: none;
+      border-color: #10b981;
+      box-shadow: 0 14px 32px rgba(6, 78, 59, 0.12);
+    }
+    .card h2 {
+      margin: 12px 0;
+      font-size: 1.3rem;
+      font-weight: 800;
+      line-height: 1.4;
+      color: #064e3b;
+    }
+    .tag {
+      font-weight: 800;
+      color: #059669;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      background: #ecfdf5;
+      display: inline-block;
+      align-self: flex-start;
+      padding: 4px 10px;
+      border-radius: 8px;
+      border: 1px solid #a7f3d0;
+    }
+    .meta {
+      color: #64748b;
+      font-size: 0.92rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px dashed #e2e8f0;
+    }
+    .btn-start {
+      margin-top: 14px;
+      background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      box-shadow: 0 3px 0 #047857;
+      transition: all 0.15s;
+    }
+    .card:hover .btn-start {
+      background: #047857;
+      transform: translateY(-1px);
+    }
+    #error {
+      color: #b91c1c;
+      font-weight: 800;
+      text-align: center;
+      margin-top: 30px;
+    }
+    .empty-msg {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 40px;
+      color: #64748b;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.85rem;
+      color: #059669;
+      font-weight: 700;
+    }
   </style>
 </head>
 <body>
   <header>
-    <strong>💻 CHINH PHỤC TIN HỌC</strong>
+    <div class="brand">💻 CHINH PHỤC TIN HỌC</div>
     <a href="/teacher" class="teacher-link">🔒 Khu vực giáo viên</a>
   </header>
+
   <main>
     <h1>Chọn bài để luyện tập</h1>
     <p class="intro">Em hãy chọn bài học, nhập họ tên và lớp rồi bắt đầu làm bài. Mỗi bài có bộ câu hỏi và bảng kết quả riêng.</p>
-    <p id="storage-status" class="intro">Đang kiểm tra trạng thái lưu kết quả...</p>
+    <div id="storage-status" class="status-badge">Đang kiểm tra trạng thái máy chủ...</div>
+
+    <div class="controls">
+      <div class="tabs" id="grade-tabs">
+        <button class="tab-btn active" data-grade="all">Tất cả bài học</button>
+        <button class="tab-btn" data-grade="lop-3">Lớp 3</button>
+        <button class="tab-btn" data-grade="lop-4">Lớp 4</button>
+        <button class="tab-btn" data-grade="lop-5">Lớp 5</button>
+      </div>
+      <input type="search" id="search-lesson" class="search-input" placeholder="🔍 Tìm kiếm bài học...">
+    </div>
+
     <div id="lessons" class="grid" aria-live="polite"></div>
     <p id="error" role="alert"></p>
   </main>
+
+  <footer>
+    Học mà chơi – Chơi mà học • Chương trình Tin học Tiểu học (GDPT 2018)
+  </footer>
+
   <script type="module">
-    try { const status = await (await fetch('/api/status')).json(); document.getElementById('storage-status').textContent = status.ready ? 'Kết quả sẽ được gửi đến bảng giáo viên sau khi nộp bài.' : 'Bản thử nghiệm: Kết quả hiện chỉ lưu trên thiết bị làm bài. Hãy chụp màn hình kết quả để gửi thầy cô.'; }
-    catch { document.getElementById('storage-status').textContent = 'Chưa xác nhận được trạng thái lưu kết quả. Hãy chụp màn hình kết quả để gửi thầy cô.'; }
+    const grid = document.getElementById('lessons');
+    const tabs = document.querySelectorAll('.tab-btn');
+    const searchInput = document.getElementById('search-lesson');
+    let loadedLessons = [];
+    let currentGrade = 'all';
+
+    // Kiểm tra trạng thái máy chủ
+    try {
+      const status = await (await fetch('/api/status')).json();
+      document.getElementById('storage-status').innerHTML = status.ready
+        ? '🟢 <strong>Hệ thống sẵn sàng:</strong> Kết quả nộp bài sẽ tự động gửi tới thầy/cô giáo.'
+        : '🟡 <strong>Lưu ý:</strong> Kết quả hiện lưu trên thiết bị làm bài.';
+    } catch {
+      document.getElementById('storage-status').textContent = 'Chưa xác nhận được trạng thái lưu trữ.';
+    }
+
+    // Tải danh sách bài học
     try {
       const response = await fetch('/lessons/index.json');
       if (!response.ok) throw new Error('Không tải được danh sách bài học');
       const ids = await response.json();
-      const lessons = await Promise.all(ids.map(async id => {
+
+      loadedLessons = await Promise.all(ids.map(async id => {
         if (!/^[a-z0-9-]+$/.test(id)) throw new Error('Mã bài học không hợp lệ');
-        const result = await fetch(`/lessons/${id}.json`);
-        if (!result.ok) throw new Error(`Không tải được bài ${id}`);
-        return result.json();
+        const res = await fetch(`/lessons/${id}.json`);
+        if (!res.ok) throw new Error(`Không tải được bài ${id}`);
+        return res.json();
       }));
-      const grid = document.getElementById('lessons');
-      for (const lesson of lessons) {
+
+      renderLessons();
+    } catch (error) {
+      document.getElementById('error').textContent = error.message;
+    }
+
+    function renderLessons() {
+      const keyword = searchInput.value.trim().toLowerCase();
+
+      const filtered = loadedLessons.filter(lesson => {
+        const matchGrade = (currentGrade === 'all') || (lesson.id && lesson.id.startsWith(currentGrade));
+        const matchText = !keyword || (
+          (lesson.lessonTitle && lesson.lessonTitle.toLowerCase().includes(keyword)) ||
+          (lesson.subjectBadge && lesson.subjectBadge.toLowerCase().includes(keyword))
+        );
+        return matchGrade && matchText;
+      });
+
+      grid.replaceChildren();
+
+      if (!filtered.length) {
+        const empty = document.createElement('div');
+        empty.className = 'empty-msg';
+        empty.textContent = 'Không tìm thấy bài học nào phù hợp.';
+        grid.append(empty);
+        return;
+      }
+
+      for (const lesson of filtered) {
         const card = document.createElement('a');
         card.className = 'card';
         card.href = `/quiz?bai=${encodeURIComponent(lesson.id)}`;
-        const tag = document.createElement('div'); tag.className = 'tag'; tag.textContent = lesson.subjectBadge;
-        const title = document.createElement('h2'); title.textContent = lesson.lessonTitle;
-        const meta = document.createElement('div'); meta.className = 'meta'; meta.textContent = `${lesson.questions.length} câu hỏi • ${Math.ceil(lesson.timeLimitSeconds / 60)} phút`;
-        card.append(tag, title, meta); grid.append(card);
+
+        const top = document.createElement('div');
+        const tag = document.createElement('div');
+        tag.className = 'tag';
+        tag.textContent = lesson.subjectBadge || 'TIN HỌC TIỂU HỌC';
+
+        const title = document.createElement('h2');
+        title.textContent = lesson.lessonTitle;
+        top.append(tag, title);
+
+        const bottom = document.createElement('div');
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        meta.textContent = `🎯 ${lesson.questions.length} câu hỏi • ⏱️ ${Math.ceil(lesson.timeLimitSeconds / 60)} phút`;
+
+        const btn = document.createElement('div');
+        btn.className = 'btn-start';
+        btn.textContent = '🚀 Bắt đầu làm bài';
+
+        bottom.append(meta, btn);
+        card.append(top, bottom);
+        grid.append(card);
       }
-    } catch (error) { document.getElementById('error').textContent = error.message; }
+    }
+
+    // Sự kiện chuyển Tab
+    tabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabs.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentGrade = btn.dataset.grade;
+        renderLessons();
+      });
+    });
+
+    // Sự kiện tìm kiếm
+    searchInput.addEventListener('input', renderLessons);
   </script>
 </body>
 </html>
