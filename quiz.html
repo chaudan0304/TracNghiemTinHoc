@@ -350,8 +350,16 @@
         </div>
       </div>
 
-      <!-- Cụm bên phải: Nút Âm thanh -->
+      <!-- Cụm bên phải: Nút Trang chủ & Âm thanh -->
       <div class="flex items-center gap-2 shrink-0">
+        <a
+          href="/"
+          class="bg-white hover:bg-[#ecfdf5] text-[#065f46] border-2 border-[#a7f3d0] font-extrabold text-xs sm:text-sm px-3 sm:px-3.5 py-2 rounded-full flex items-center gap-1.5 shadow-[0_3px_0_#a7f3d0] active:translate-y-0.5 transition-all"
+          title="Về danh sách bài học"
+        >
+          <span>🏠</span>
+          <span class="hidden sm:inline">Trang chủ</span>
+        </a>
         <button
           id="sound-toggle-btn"
           type="button"
@@ -692,6 +700,14 @@
             <span>🔄</span>
             <span>Làm lại bài</span>
           </button>
+
+          <a
+            href="/"
+            class="bg-white hover:bg-[#ecfdf5] border-2 border-[#a7f3d0] text-[#065f46] font-extrabold text-sm sm:text-base px-6 py-3 rounded-2xl inline-flex items-center gap-2 cursor-pointer transition-colors shadow-sm"
+          >
+            <span>🏠</span>
+            <span>Chọn bài khác</span>
+          </a>
         </div>
 
         <!-- Danh sách xem lại chi tiết từng câu -->

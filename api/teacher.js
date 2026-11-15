@@ -2,6 +2,10 @@ import { database, ensureTable, equalSecret, isTeacher, json, loginClientKey, se
 
 export default async function handler(request, response) {
   if (request.method === 'POST') {
+    if (request.body?.action === 'logout') {
+      response.setHeader('Set-Cookie', 'teacher_session=; HttpOnly; Secure; SameSite=Strict; Path=/api; Max-Age=0');
+      return json(response, 200, { ok: true });
+    }
     const password = process.env.TEACHER_PASSWORD;
     const secret = process.env.SESSION_SECRET;
     if (!password || !secret) return json(response, 503, { error: 'TEACHER_LOGIN_NOT_CONFIGURED' });

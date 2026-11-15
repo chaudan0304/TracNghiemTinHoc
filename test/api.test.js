@@ -30,3 +30,11 @@ test('teacher records stay private without login', async () => {
   await teacher({ method: 'GET', headers: {}, url: '/api/teacher?lessonId=lop-4-bai-6' }, result);
   assert.equal(result.code, 401);
 });
+
+test('teacher logout clears session cookie', async () => {
+  const result = response();
+  await teacher({ method: 'POST', body: { action: 'logout' } }, result);
+  assert.equal(result.code, 200);
+  assert.equal(result.body.ok, true);
+  assert.match(result.headers['Set-Cookie'], /Max-Age=0/);
+});

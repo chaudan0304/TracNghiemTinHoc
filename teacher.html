@@ -597,8 +597,15 @@
       const logoutBtn = document.createElement('button');
       logoutBtn.className = 'logout-btn';
       logoutBtn.textContent = '🚪 Đăng xuất';
-      logoutBtn.onclick = () => {
-        document.cookie = 'teacher_session=; Path=/api; Max-Age=0';
+      logoutBtn.onclick = async () => {
+        try {
+          await api('/api/teacher', {
+            method: 'POST',
+            body: JSON.stringify({ action: 'logout' })
+          });
+        } catch (e) {
+          console.error('Logout error:', e);
+        }
         location.reload();
       };
       authActions.replaceChildren(logoutBtn);
