@@ -1,0 +1,70 @@
+{
+  "id": "lop-3-thong-tin-va-quyet-dinh",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Bài 1. Thông tin và quyết định",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
+  "questions": [
+    {
+      "question": "Mắt giúp con người thu nhận thông tin dạng nào dưới đây?",
+      "options": ["Âm thanh tiếng chim hót", "Hình ảnh, màu sắc và chữ viết", "Mùi thơm của bông hoa", "Vị ngọt của quả táo"],
+      "correctIndex": 1,
+      "explanation": "Thị giác (mắt) giúp chúng ta tiếp nhận hình ảnh, màu sắc và chữ viết từ môi trường xung quanh."
+    },
+    {
+      "question": "Khi nghe thấy tiếng còi xe cứu thương từ phía sau, người tham gia giao thông thường làm gì?",
+      "options": ["Đạp ga tăng tốc chạy nhanh hơn", "Dừng lại giữa đường nghe nhạc", "Nhường đường cho xe cứu thương đi qua", "Bấm còi to hơn để tranh đường"],
+      "correctIndex": 2,
+      "explanation": "Tiếng còi xe cứu thương là thông tin giúp người lái xe ra quyết định nhường đường ưu tiên."
+    },
+    {
+      "question": "Thấy trời nhiều mây đen và gió thổi mạnh, em ra quyết định gì trước khi ra khỏi nhà?",
+      "options": ["Đem theo áo mưa hoặc ô", "Mặc quần áo cộc tay đi bơi", "Tắt hết đèn trong nhà", "Rủ bạn ra sân đá bóng"],
+      "correctIndex": 0,
+      "explanation": "Mây đen và gió mạnh là dấu hiệu trời sắp mưa, giúp em quyết định mang theo áo mưa hoặc ô che."
+    },
+    {
+      "question": "Tai (thính giác) giúp con người thu nhận dạng thông tin nào?",
+      "options": ["Chữ in trên sách", "Hình vẽ trên bảng", "Âm thanh tiếng trống trường", "Màu sắc của bức tranh"],
+      "correctIndex": 2,
+      "explanation": "Tai giúp tiếp nhận các âm thanh như tiếng giảng bài, tiếng trống trường, tiếng nhạc."
+    },
+    {
+      "question": "Trong lớp học, biển báo 'Giữ trật tự' mang lại thông tin gì cho các bạn học sinh?",
+      "options": ["Yêu cầu học sinh hát to", "Nhắc nhở học sinh không làm ồn để tập trung học", "Thông báo giờ ra chơi", "Hướng dẫn cách mở máy tính"],
+      "correctIndex": 1,
+      "explanation": "Biển báo mang thông tin nhắc nhở mọi người giữ yên lặng, tránh làm ảnh hưởng lớp học."
+    },
+    {
+      "question": "Khi nhìn thấy đèn tín hiệu giao thông chuyển sang màu đỏ, người đi đường cần làm gì?",
+      "options": ["Dừng xe lại trước vạch dừng", "Tăng tốc chạy thật nhanh", "Rẽ phải bất chấp nguy hiểm", "Xuống dắt xe qua ngã tư"],
+      "correctIndex": 0,
+      "explanation": "Đèn đỏ là thông tin báo hiệu người tham gia giao thông phải dừng lại."
+    },
+    {
+      "question": "Đâu là ví dụ về việc thu nhận thông tin qua xúc giác (da, bàn tay)?",
+      "options": ["Nghe tiếng mưa rơi trên mái tôn", "Chạm tay vào cốc nước nóng và cảm thấy ấm", "Nhìn thấy cầu vồng sau cơn mưa", "Đọc một mẩu truyện tranh"],
+      "correctIndex": 1,
+      "explanation": "Chạm tay vào đồ vật giúp xúc giác nhận biết nhiệt độ nóng, lạnh hoặc bề mặt nhẵn, ráp."
+    },
+    {
+      "question": "Nhờ đâu mà con người có thể đưa ra quyết định phù hợp trong cuộc sống hằng ngày?",
+      "options": ["Chỉ cần đoán bừa không cần suy nghĩ", "Nhờ thu nhận và xử lý các thông tin xung quanh", "Chỉ làm theo cảm tính mà không quan sát", "Không cần quan sát hay lắng nghe ai"],
+      "correctIndex": 1,
+      "explanation": "Bộ não con người tiếp nhận và xử lý thông tin để đưa ra những quyết định đúng đắn."
+    },
+    {
+      "question": "Buổi sáng nghe tiếng chuông báo thức reo, quyết định đúng đắn của em là gì?",
+      "options": ["Tắt chuông và tiếp tục ngủ đến trưa", "Thức dậy, vệ sinh cá nhân và chuẩn bị đi học", "Ném đồng hồ báo thức đi", "Khóc nhè không chịu dậy"],
+      "correctIndex": 1,
+      "explanation": "Tiếng chuông là thông tin báo giờ thức dậy để chuẩn bị một ngày học tập mới."
+    },
+    {
+      "question": "Thiết bị nào sau đây là công cụ hỗ trợ con người xử lý và lưu trữ thông tin hiệu quả nhất?",
+      "options": ["Cái quạt máy", "Máy vi tính", "Bếp ga", "Bàn là"],
+      "correctIndex": 1,
+      "explanation": "Máy vi tính là thiết bị điện tử giúp con người thu nhận, xử lý, lưu trữ và trao đổi thông tin nhanh chóng."
+    }
+  ]
+}

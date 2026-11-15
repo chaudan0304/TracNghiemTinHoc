@@ -38,7 +38,7 @@ html = html.replace('Em đã nắm rất vững kiến thức về bản quyền
 html = html.replaceAll('Bài 6. Bản quyền sử dụng phần mềm', 'Đang tải bài học...');
 html = html.replace('if (state.score >= 8)', 'if (state.score >= maxScore * 0.8)');
 html = html.replace('else if (state.score >= 5)', 'else if (state.score >= maxScore * 0.5)');
-html = html.replace('onclick="openTeacherPortal()"', 'onclick="location.href=\'/teacher.html\'"');
+html = html.replace('onclick="openTeacherPortal()"', 'onclick="location.href=\'/teacher\'"');
 html = html.replace('      timedOut: false\n', '      timedOut: false,\n      submitted: false\n');
 html = html.replace('      state.timedOut = false;', '      state.timedOut = false;\n      state.submitted = false;');
 html = html.replace('    async function showResults() {\n      stopTimer();', '    async function showResults() {\n      if (state.submitted) return;\n      state.submitted = true;\n      stopTimer();');

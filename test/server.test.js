@@ -1,9 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import { grade, loadLesson, sessionToken, isTeacher } from '../lib/server.js';
 
 test('each listed lesson loads and has valid grading', async () => {
-  for (const id of ['lop-4-bai-6', 'lop-4-on-tap-may-tinh']) {
+  const ids = JSON.parse(await readFile(join(process.cwd(), 'lessons', 'index.json'), 'utf8'));
+  for (const id of ids) {
     const lesson = await loadLesson(id);
     assert.equal(lesson.id, id);
     assert.ok(lesson.questions.length > 0);
