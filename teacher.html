@@ -215,6 +215,12 @@
     #lesson-grade { min-width: 100px; }
     #lesson-search { width: 180px; min-width: 150px; }
     #lesson-select { width: min(320px, 72vw); min-width: 180px; max-width: 320px; }
+    .selected-lesson-name {
+      margin: -8px 0 16px;
+      color: var(--primary-dark);
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
     /* Table */
     .table-responsive {
       overflow-x: auto;
@@ -470,6 +476,7 @@
             <button id="export-btn" type="button" class="btn btn-primary">📥 Xuất file Excel (CSV)</button>
           </div>
         </div>
+        <p id="selected-lesson-name" class="selected-lesson-name" aria-live="polite"></p>
 
         <!-- Bảng kết quả -->
         <div class="table-responsive">
@@ -625,6 +632,7 @@
     const lessonGrade = document.getElementById('lesson-grade');
     const lessonSearch = document.getElementById('lesson-search');
     const lessonSelect = document.getElementById('lesson-select');
+    const selectedLessonName = document.getElementById('selected-lesson-name');
     const classFilter = document.getElementById('class-filter');
     const searchInput = document.getElementById('search-input');
     const refreshBtn = document.getElementById('refresh-btn');
@@ -1095,6 +1103,7 @@
         empty.value = '';
         empty.textContent = 'Không tìm thấy bài';
         lessonSelect.append(empty);
+        selectedLessonName.textContent = '';
         return;
       }
       for (const lesson of matches) {
@@ -1104,6 +1113,13 @@
         lessonSelect.append(option);
       }
       if (matches.some(lesson => lesson.id === selectedId)) lessonSelect.value = selectedId;
+      updateSelectedLessonName();
+    }
+
+    function updateSelectedLessonName() {
+      selectedLessonName.textContent = lessonSelect.value
+        ? `Bài đang xem: ${lessonSelect.selectedOptions[0].textContent}`
+        : '';
     }
 
     async function loadLessonList() {
@@ -1369,7 +1385,10 @@
         fetchResults(true);
       }, 250);
     });
-    lessonSelect.addEventListener('change', () => fetchResults(true));
+    lessonSelect.addEventListener('change', () => {
+      updateSelectedLessonName();
+      fetchResults(true);
+    });
     refreshBtn.addEventListener('click', () => fetchResults(true));
     classFilter.addEventListener('change', () => { renderTable(); fetchStats(); });
     searchInput.addEventListener('input', () => {
