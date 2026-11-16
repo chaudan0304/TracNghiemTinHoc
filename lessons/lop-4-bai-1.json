@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 1. Phần cứng và phần mềm máy tính",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Bộ phận nào là phần cứng máy tính?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Chức năng phần mềm có phù hợp nhu cầu không."
+    },
+    {
+      "question": "Màn hình là phần cứng vì sao?",
+      "options": [
+        "Là trang web",
+        "Là tệp dữ liệu",
+        "Là thiết bị có thể nhìn và chạm được",
+        "Là một chương trình"
+      ],
+      "correctIndex": 2,
+      "explanation": "Là thiết bị có thể nhìn và chạm được."
+    },
+    {
+      "question": "Phần mềm nào giúp em trình bày các trang chiếu?",
+      "options": [
+        "Máy in",
+        "Phần mềm trình chiếu",
+        "Chuột",
+        "Màn hình"
+      ],
+      "correctIndex": 1,
+      "explanation": "Phần mềm trình chiếu."
+    },
+    {
+      "question": "Khi muốn nghe âm thanh từ chương trình, thiết bị phần cứng nào cần có?",
+      "options": [
+        "Loa hoặc tai nghe",
+        "Máy in",
+        "Bàn phím",
+        "Máy quét"
+      ],
+      "correctIndex": 0,
+      "explanation": "Loa hoặc tai nghe."
+    },
+    {
+      "question": "Nếu không có chương trình vẽ, máy có tự mở công cụ vẽ theo ý em không?",
+      "options": [
+        "Có luôn",
+        "Chỉ cần máy in",
+        "Chỉ cần loa",
+        "Không"
+      ],
+      "correctIndex": 3,
+      "explanation": "Không."
+    },
+    {
+      "question": "Phần mềm hệ điều hành có vai trò nào?",
+      "options": [
+        "In ảnh không cần máy in",
+        "Tạo màn hình mới",
+        "Giúp quản lí hoạt động máy tính",
+        "Thay dây nguồn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Giúp quản lí hoạt động máy tính."
+    },
+    {
+      "question": "Tệp văn bản em tạo có phải là phần cứng không?",
+      "options": [
+        "Có, vì mở được",
+        "Không, đó là dữ liệu",
+        "Có, vì có tên",
+        "Có, vì nằm trên màn hình"
+      ],
+      "correctIndex": 1,
+      "explanation": "Không, đó là dữ liệu."
+    },
+    {
+      "question": "Bàn phím và chuột giống nhau ở điểm nào?",
+      "options": [
+        "Đều là thiết bị phần cứng đưa thao tác vào máy",
+        "Đều là phần mềm",
+        "Đều in ra giấy",
+        "Đều chỉ phát âm thanh"
+      ],
+      "correctIndex": 0,
+      "explanation": "Đều là thiết bị phần cứng đưa thao tác vào máy."
+    },
+    {
+      "question": "Khi máy tính bật nhưng ứng dụng chưa mở, em muốn soạn bài thì làm gì?",
+      "options": [
+        "Chỉ tăng âm lượng",
+        "Chỉ cắm máy in",
+        "Chỉ đổi chuột",
+        "Mở phần mềm soạn thảo phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Mở phần mềm soạn thảo phù hợp."
+    },
+    {
+      "question": "Trình duyệt web thuộc loại gì?",
+      "options": [
+        "Dây cáp",
+        "Thiết bị lưu trữ giấy",
+        "Phần mềm",
+        "Phần cứng"
+      ],
+      "correctIndex": 2,
+      "explanation": "Phần mềm."
+    },
+    {
+      "question": "Phần cứng và phần mềm phối hợp để làm gì?",
+      "options": [
+        "Đảm bảo mọi thông tin đúng",
+        "Giúp máy tính thực hiện công việc",
+        "Tạo điện từ không khí",
+        "Thay con người mọi việc"
+      ],
+      "correctIndex": 1,
+      "explanation": "Giúp máy tính thực hiện công việc."
     }
   ]
 }

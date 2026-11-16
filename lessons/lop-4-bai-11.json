@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 11. Chỉnh sửa văn bản",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Muốn sửa một từ đã gõ sai, em nên làm gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Chèn hình ảnh."
+    },
+    {
+      "question": "Muốn chọn một đoạn văn, em có thể dùng gì?",
+      "options": [
+        "Chỉ đổi nền",
+        "Chỉ nhấn phím nguồn",
+        "Kéo chuột qua đoạn cần chọn",
+        "Chỉ tăng âm lượng"
+      ],
+      "correctIndex": 2,
+      "explanation": "Kéo chuột qua đoạn cần chọn."
+    },
+    {
+      "question": "Sao chép và dán làm gì với đoạn gốc?",
+      "options": [
+        "Tắt ứng dụng",
+        "Giữ đoạn gốc và tạo bản ở chỗ khác",
+        "Xóa đoạn gốc",
+        "Đổi nội dung gốc"
+      ],
+      "correctIndex": 1,
+      "explanation": "Giữ đoạn gốc và tạo bản ở chỗ khác."
+    },
+    {
+      "question": "Cắt rồi dán làm gì với đoạn văn?",
+      "options": [
+        "Chuyển đoạn tới vị trí mới",
+        "Tạo bản sao tại chỗ cũ",
+        "In văn bản",
+        "Đổi tên tệp"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chuyển đoạn tới vị trí mới."
+    },
+    {
+      "question": "Nếu dán sai vị trí, em nên làm gì?",
+      "options": [
+        "Xóa cả máy",
+        "Giữ nguyên",
+        "Đổi bàn phím",
+        "Hoàn tác rồi chọn đúng vị trí"
+      ],
+      "correctIndex": 3,
+      "explanation": "Hoàn tác rồi chọn đúng vị trí."
+    },
+    {
+      "question": "Muốn chèn hình ảnh vào bài viết, em chọn chức năng nào?",
+      "options": [
+        "Xóa văn bản",
+        "Đổi mật khẩu",
+        "Chèn hình ảnh",
+        "Tắt máy"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chèn hình ảnh."
+    },
+    {
+      "question": "Sau khi thêm ảnh, em cần kiểm tra gì?",
+      "options": [
+        "Âm lượng loa",
+        "Ảnh không che chữ và phù hợp nội dung",
+        "Màu dây nguồn",
+        "Tên bàn phím"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ảnh không che chữ và phù hợp nội dung."
+    },
+    {
+      "question": "Khi muốn thay một từ sai, em cần xác định gì?",
+      "options": [
+        "Vị trí từ đó",
+        "Giá máy",
+        "Số tệp",
+        "Tên loa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Vị trí từ đó."
+    },
+    {
+      "question": "Nếu vừa xóa nhầm, chức năng nào giúp quay lại bước trước?",
+      "options": [
+        "Lưu đè",
+        "Đóng máy",
+        "In ngay",
+        "Hoàn tác"
+      ],
+      "correctIndex": 3,
+      "explanation": "Hoàn tác."
+    },
+    {
+      "question": "Vì sao nên lưu sau khi chỉnh sửa?",
+      "options": [
+        "Tăng số trang",
+        "Đổi kiểu chuột",
+        "Giữ nội dung mới",
+        "Xóa nội dung cũ bắt buộc"
+      ],
+      "correctIndex": 2,
+      "explanation": "Giữ nội dung mới."
+    },
+    {
+      "question": "Một đoạn văn đang ở cuối bài nhưng cần chuyển lên đầu mà không để lại bản trùng. Thao tác nào đúng?",
+      "options": [
+        "Xóa đoạn và không dán lại",
+        "Chọn đoạn, cắt, đặt con trỏ ở đầu rồi dán",
+        "Chọn đoạn, sao chép rồi dán ở đầu",
+        "Chỉ đổi màu đoạn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cắt rồi dán di chuyển đoạn; sao chép rồi dán sẽ để lại thêm một bản ở cuối."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 4. Cây thư mục",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Trong cây thư mục, thư mục con nằm ở đâu?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Công cụ tìm kiếm tệp."
+    },
+    {
+      "question": "Thư mục gốc trong một cây thư mục là gì?",
+      "options": [
+        "Bàn phím",
+        "Ổ điện",
+        "Thư mục ở đầu hệ thống phân cấp đang xét",
+        "Tệp cuối cùng"
+      ],
+      "correctIndex": 2,
+      "explanation": "Thư mục ở đầu hệ thống phân cấp đang xét."
+    },
+    {
+      "question": "Nếu Học tập chứa Toán, Toán chứa Bài 1, thứ tự đường dẫn là gì?",
+      "options": [
+        "Loa → Toán",
+        "Học tập → Toán → Bài 1",
+        "Bài 1 → Học tập → Toán",
+        "Toán → Bài 1 → Học tập"
+      ],
+      "correctIndex": 1,
+      "explanation": "Học tập → Toán → Bài 1."
+    },
+    {
+      "question": "Thư mục cha của thư mục Bài 1 trong ví dụ trên là gì?",
+      "options": [
+        "Toán",
+        "Học tập luôn",
+        "Bài 1",
+        "Màn hình"
+      ],
+      "correctIndex": 0,
+      "explanation": "Toán."
+    },
+    {
+      "question": "Muốn tìm tệp khi không nhớ thư mục, em dùng gì?",
+      "options": [
+        "Nút âm lượng",
+        "Ổ cắm",
+        "Máy in",
+        "Công cụ tìm kiếm tệp trên máy"
+      ],
+      "correctIndex": 3,
+      "explanation": "Công cụ tìm kiếm tệp trên máy."
+    },
+    {
+      "question": "Nếu hai tệp cùng tên ở hai thư mục khác nhau, điều gì giúp phân biệt?",
+      "options": [
+        "Màu chuột",
+        "Giá máy",
+        "Đường dẫn đầy đủ",
+        "Tên phím Space"
+      ],
+      "correctIndex": 2,
+      "explanation": "Đường dẫn đầy đủ."
+    },
+    {
+      "question": "Khi tìm kiếm tệp, từ khóa nào hữu ích?",
+      "options": [
+        "Tên loa",
+        "Một phần tên tệp dễ nhớ",
+        "Mật khẩu",
+        "Màu dây điện"
+      ],
+      "correctIndex": 1,
+      "explanation": "Một phần tên tệp dễ nhớ."
+    },
+    {
+      "question": "Vì sao cây thư mục giúp quản lí tệp?",
+      "options": [
+        "Tệp được phân nhóm theo cấp bậc",
+        "Tệp tự đúng nội dung",
+        "Máy không cần điện",
+        "Chuột nhanh hơn"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tệp được phân nhóm theo cấp bậc."
+    },
+    {
+      "question": "Muốn mở tệp nằm trong ba thư mục lồng nhau, em nên làm gì?",
+      "options": [
+        "Chỉ nháy loa",
+        "Đổi tên máy",
+        "Xóa thư mục đầu",
+        "Mở lần lượt các thư mục trên đường dẫn"
+      ],
+      "correctIndex": 3,
+      "explanation": "Mở lần lượt các thư mục trên đường dẫn."
+    },
+    {
+      "question": "Nếu kết quả tìm kiếm có nhiều tệp, em cần kiểm tra gì?",
+      "options": [
+        "Chỉ âm lượng",
+        "Chỉ số trang web",
+        "Tên và vị trí để chọn đúng tệp",
+        "Chỉ màu biểu tượng"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tên và vị trí để chọn đúng tệp."
+    },
+    {
+      "question": "Có hai tệp cùng tên Bài 1 trong Toán và Tiếng Việt. Em muốn mở bài Toán. Cách nào chắc chắn hơn?",
+      "options": [
+        "Xóa thư mục Tiếng Việt",
+        "Kiểm tra đường dẫn và chọn tệp trong thư mục Toán",
+        "Chọn tệp hiện đầu tiên bất kể vị trí",
+        "Đổi tên cả hai tệp giống nhau"
+      ],
+      "correctIndex": 1,
+      "explanation": "Đường dẫn phân biệt các tệp cùng tên nằm ở những thư mục khác nhau."
     }
   ]
 }

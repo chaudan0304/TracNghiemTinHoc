@@ -6,6 +6,7 @@ Each row: title, question rows (prompt, correct choice, three distractors).
 
 import json
 from pathlib import Path
+from lesson_bank_20 import GRADE3 as MORE3, GRADE4 as MORE4, GRADE5 as MORE5, LEGACY, DEEP
 
 ROOT = Path(__file__).parent / "lessons"
 
@@ -727,18 +728,24 @@ GRADE5 = [
 def write_grade(grade, rows):
     ids = []
     additional = {3: EXTRA3, 4: EXTRA4, 5: EXTRA5}[grade]
+    more = {3: MORE3, 4: MORE4, 5: MORE5}[grade]
     for number, title, questions in rows:
         lesson_id = f"lop-{grade}-bai-{number.lower()}"
         items = []
-        all_questions = questions + additional[number]
-        assert len(all_questions) == 10, (lesson_id, len(all_questions))
-        for i, (prompt, correct, *wrong) in enumerate(all_questions):
+        all_questions = questions + additional[number] + more[number]
+        assert len(all_questions) == 20, (lesson_id, len(all_questions))
+        if (grade, number) in DEEP:
+            all_questions[-1] = DEEP[(grade, number)]
+        for i, row in enumerate(all_questions):
+            prompt, correct, *remaining = row
+            wrong = remaining[:3]
+            explanation = remaining[3] if len(remaining) == 4 else correct + "."
             assert len(wrong) == 3 and len({correct, *wrong}) == 4, (lesson_id, i)
             choices = [correct, *wrong]
             shift = i % 4
             choices = choices[shift:] + choices[:shift]
-            items.append({"question": prompt, "options": choices, "correctIndex": choices.index(correct), "explanation": f"{correct}." if not correct.endswith(".") else correct})
-        payload = {"id": lesson_id, "subjectBadge": f"TIN HỌC LỚP {grade}", "lessonTitle": f"Bài {number}. {title}", "gameTitle": f"CHINH PHỤC TIN HỌC LỚP {grade}", "pointsPerQuestion": 1, "timeLimitSeconds": 600, "questions": items}
+            items.append({"question": prompt, "options": choices, "correctIndex": choices.index(correct), "explanation": explanation})
+        payload = {"id": lesson_id, "subjectBadge": f"TIN HỌC LỚP {grade}", "lessonTitle": f"Bài {number}. {title}", "gameTitle": f"CHINH PHỤC TIN HỌC LỚP {grade}", "pointsPerQuestion": 0.5, "timeLimitSeconds": 900, "questions": items}
         (ROOT / f"{lesson_id}.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         ids.append(lesson_id)
     return ids
@@ -770,3 +777,27 @@ Trước khi rời máy tính dùng chung, em nên làm gì?|Lưu công việc v
         review["pointsPerQuestion"] = 1
         review["timeLimitSeconds"] = 600
         review_path.write_text(json.dumps(review, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    for lesson_id, new_questions in LEGACY.items():
+        lesson_path = ROOT / f"{lesson_id}.json"
+        lesson = json.loads(lesson_path.read_text(encoding="utf-8"))
+        if len(lesson["questions"]) == 10:
+            for i, (prompt, correct, *wrong) in enumerate(new_questions, start=10):
+                assert len(wrong) == 3 and len({correct, *wrong}) == 4, (lesson_id, i)
+                choices = [correct, *wrong]
+                shift = i % 4
+                choices = choices[shift:] + choices[:shift]
+                lesson["questions"].append({"question": prompt, "options": choices, "correctIndex": choices.index(correct), "explanation": correct + "."})
+            lesson["pointsPerQuestion"] = 0.5
+            lesson["timeLimitSeconds"] = 900
+            lesson_path.write_text(json.dumps(lesson, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        assert len(lesson["questions"]) == 20, (lesson_id, len(lesson["questions"]))
+    lesson_path = ROOT / "lop-4-bai-6.json"
+    lesson = json.loads(lesson_path.read_text(encoding="utf-8"))
+    prompt, correct, *remaining = DEEP[(4, "6")]
+    wrong, explanation = remaining[:3], remaining[3]
+    choices = [correct, *wrong]
+    shift = 19 % 4
+    choices = choices[shift:] + choices[:shift]
+    lesson["questions"][-1] = {"question": prompt, "options": choices, "correctIndex": choices.index(correct), "explanation": explanation}
+    lesson["timeLimitSeconds"] = 900
+    lesson_path.write_text(json.dumps(lesson, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

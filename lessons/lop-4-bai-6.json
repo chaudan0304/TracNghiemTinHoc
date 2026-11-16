@@ -4,7 +4,7 @@
   "lessonTitle": "Bài 6. Sử dụng phần mềm khi được phép",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
   "pointsPerQuestion": 0.5,
-  "timeLimitSeconds": 600,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Bản quyền phần mềm thuộc về ai?",
@@ -216,15 +216,15 @@
       "explanation": "Phần mềm bản quyền luôn nhận được các bản vá lỗi bảo mật, tính năng mới và sự hỗ trợ chính thức từ nhà sản xuất."
     },
     {
-      "question": "Cách sử dụng phần mềm nào tôn trọng quyền của tác giả?",
+      "question": "Một phần mềm được cho dùng miễn phí ở nhà nhưng điều khoản không cho cài trên máy của trường. Em nên làm gì khi muốn dùng ở phòng Tin học?",
       "options": [
-        "Chỉ sử dụng phần mềm có bản quyền hoặc phần mềm miễn phí hợp pháp; không sao chép, bẻ khóa trái phép.",
-        "Càng tải nhiều phần mềm bẻ khóa trên mạng càng tiết kiệm chi phí.",
-        "Chỉ cần tôn trọng bản quyền với sách giấy, còn phần mềm thì không cần.",
-        "Mọi phần mềm trên máy tính đều thuộc quyền sở hữu của người mua máy."
+        "Xóa tên tác giả rồi cài",
+        "Hỏi giáo viên và chỉ cài khi điều khoản cho phép",
+        "Tự cài vì phần mềm miễn phí",
+        "Sao chép từ máy nhà sang mọi máy ở trường"
       ],
-      "correctIndex": 0,
-      "explanation": "Sử dụng phần mềm hợp pháp, tôn trọng quyền tác giả và không dùng phần mềm bẻ khóa là trách nhiệm của mỗi người dùng máy tính văn minh."
+      "correctIndex": 1,
+      "explanation": "Miễn phí không đồng nghĩa được dùng ở mọi nơi; phải tuân thủ điều khoản sử dụng và quy định phòng máy."
     }
   ]
 }

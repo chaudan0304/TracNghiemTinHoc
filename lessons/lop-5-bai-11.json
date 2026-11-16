@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 11. Cấu trúc lặp",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Cấu trúc lặp dùng để làm gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Kiểm tra số lần và kết quả chạy."
+    },
+    {
+      "question": "Khối lặp 6 lần làm nhóm lệnh bên trong chạy mấy lần?",
+      "options": [
+        "5 lần",
+        "12 lần",
+        "6 lần",
+        "1 lần"
+      ],
+      "correctIndex": 2,
+      "explanation": "6 lần."
+    },
+    {
+      "question": "Nếu lệnh di chuyển 10 bước lặp 3 lần, tổng quãng đường theo cùng hướng là bao nhiêu?",
+      "options": [
+        "3 bước",
+        "30 bước",
+        "10 bước",
+        "13 bước"
+      ],
+      "correctIndex": 1,
+      "explanation": "30 bước."
+    },
+    {
+      "question": "Vì sao khối lặp làm chương trình gọn hơn?",
+      "options": [
+        "Không cần viết lại cùng nhóm lệnh nhiều lần",
+        "Xóa mọi hành động",
+        "Tự sửa lỗi",
+        "Thay máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Không cần viết lại cùng nhóm lệnh nhiều lần."
+    },
+    {
+      "question": "Lệnh ở ngoài khối lặp có chạy theo số lần của khối đó không?",
+      "options": [
+        "Có luôn",
+        "Chỉ khi cờ xanh",
+        "Chỉ khi có nhạc",
+        "Không"
+      ],
+      "correctIndex": 3,
+      "explanation": "Không."
+    },
+    {
+      "question": "Muốn nhân vật nói ba lần, số lần lặp đặt bao nhiêu?",
+      "options": [
+        "2",
+        "4",
+        "3",
+        "1"
+      ],
+      "correctIndex": 2,
+      "explanation": "3."
+    },
+    {
+      "question": "Nếu khối lặp 0 lần được chương trình cho phép, lệnh bên trong chạy mấy lần?",
+      "options": [
+        "Vô hạn",
+        "0 lần",
+        "1 lần",
+        "2 lần"
+      ],
+      "correctIndex": 1,
+      "explanation": "0 lần."
+    },
+    {
+      "question": "Khi lặp nhiều quá, nhân vật có thể thế nào?",
+      "options": [
+        "Làm hành động quá nhiều so với ý muốn",
+        "Tự dừng đúng ý luôn",
+        "Tự đổi tên",
+        "Không chạy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Làm hành động quá nhiều so với ý muốn."
+    },
+    {
+      "question": "Trước khi dùng lặp, em nên xác định gì?",
+      "options": [
+        "Màu vỏ máy",
+        "Giá chuột",
+        "Tên loa",
+        "Nhóm lệnh và số lần cần lặp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nhóm lệnh và số lần cần lặp."
+    },
+    {
+      "question": "Nếu mỗi vòng lặp gồm nói rồi chờ, hai lệnh được làm thế nào?",
+      "options": [
+        "Ngẫu nhiên",
+        "Chỉ chờ",
+        "Theo thứ tự đó ở mỗi vòng",
+        "Chỉ một lần tất cả"
+      ],
+      "correctIndex": 2,
+      "explanation": "Theo thứ tự đó ở mỗi vòng."
+    },
+    {
+      "question": "Trong khối lặp 4 lần có lệnh tăng điểm thêm 2. Điểm bắt đầu là 1. Điểm cuối là bao nhiêu?",
+      "options": [
+        "5",
+        "9",
+        "8",
+        "3"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mỗi vòng tăng 2 điểm; bốn vòng tăng 8, cộng điểm ban đầu 1 được 9."
     }
   ]
 }

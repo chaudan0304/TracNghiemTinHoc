@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 10. Bảo vệ thông tin khi dùng máy tính",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Vì sao cần lưu lại tệp sau khi chỉnh sửa?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Lưu tệp định kì."
+    },
+    {
+      "question": "Khi tạo một tệp bài tập mới, thao tác nào giúp giữ nó để hôm sau mở lại?",
+      "options": [
+        "Tắt màn hình",
+        "Xóa thư mục",
+        "Lưu tệp",
+        "Chỉ đóng cửa sổ"
+      ],
+      "correctIndex": 2,
+      "explanation": "Lưu tệp."
+    },
+    {
+      "question": "Nếu mật khẩu quá dễ đoán, điều gì có thể xảy ra?",
+      "options": [
+        "Bàn phím đổi màu",
+        "Người khác dễ vào tài khoản",
+        "Máy tự sáng hơn",
+        "Loa tự to"
+      ],
+      "correctIndex": 1,
+      "explanation": "Người khác dễ vào tài khoản."
+    },
+    {
+      "question": "Khi dùng máy công cộng, đăng xuất giúp gì?",
+      "options": [
+        "Ngăn người sau dùng tài khoản của em",
+        "Xóa Internet",
+        "Tăng dung lượng",
+        "Tắt điện"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ngăn người sau dùng tài khoản của em."
+    },
+    {
+      "question": "Bản sao lưu của bài quan trọng có tác dụng gì?",
+      "options": [
+        "Làm bài tự đúng",
+        "Thay màn hình",
+        "Thay mật khẩu",
+        "Giúp khôi phục nếu bản chính bị mất"
+      ],
+      "correctIndex": 3,
+      "explanation": "Giúp khôi phục nếu bản chính bị mất."
+    },
+    {
+      "question": "Em có nên đưa mật khẩu cho người tự nhận là bạn trên mạng không?",
+      "options": [
+        "Chỉ khi họ hứa quà",
+        "Chỉ khi họ gửi ảnh",
+        "Không",
+        "Có luôn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Không."
+    },
+    {
+      "question": "Nếu có thông báo tệp lạ cần cài gấp, em nên làm gì?",
+      "options": [
+        "Chia sẻ cho bạn",
+        "Hỏi người lớn đáng tin trước khi mở",
+        "Cài ngay",
+        "Tắt phần mềm bảo vệ"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hỏi người lớn đáng tin trước khi mở."
+    },
+    {
+      "question": "Khi sao chép một tệp sang USB, tệp gốc còn ở máy không?",
+      "options": [
+        "Có, nếu thao tác là sao chép",
+        "Không bao giờ",
+        "Chỉ khi máy in bật",
+        "Chỉ khi loa bật"
+      ],
+      "correctIndex": 0,
+      "explanation": "Có, nếu thao tác là sao chép."
+    },
+    {
+      "question": "Thông tin cá nhân nào cần giữ kín?",
+      "options": [
+        "Tên môn học",
+        "Tên bài Tin học",
+        "Tên loài cây",
+        "Mật khẩu tài khoản"
+      ],
+      "correctIndex": 3,
+      "explanation": "Mật khẩu tài khoản."
+    },
+    {
+      "question": "Để không mất nội dung đang làm, em nên lưu khi nào?",
+      "options": [
+        "Không cần lưu",
+        "Sau khi xóa tệp",
+        "Định kì trong quá trình làm",
+        "Chỉ khi mất điện"
+      ],
+      "correctIndex": 2,
+      "explanation": "Định kì trong quá trình làm."
+    },
+    {
+      "question": "Mai sắp sửa bài trình chiếu quan trọng trên máy dùng chung. Việc nào giúp tránh mất bản cũ nếu sửa nhầm?",
+      "options": [
+        "Đăng mật khẩu lên bảng",
+        "Tạo một bản sao trước khi chỉnh sửa",
+        "Chỉ đổi màu tên tệp",
+        "Xóa bản cũ rồi mới sửa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bản sao là bản dự phòng để khôi phục khi việc chỉnh sửa không như ý."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 7. Thực hành soạn thảo văn bản",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Trước khi soạn một văn bản, em nên xác định gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Mở lại và kiểm tra nội dung."
+    },
+    {
+      "question": "Khi soạn văn bản nhiều đoạn, các ý nên thế nào?",
+      "options": [
+        "Chỉ một từ",
+        "Không liên quan nhau",
+        "Theo trình tự rõ ràng",
+        "Ngẫu nhiên"
+      ],
+      "correctIndex": 2,
+      "explanation": "Theo trình tự rõ ràng."
+    },
+    {
+      "question": "Muốn giữ đoạn gốc và có thêm ở vị trí khác, em dùng gì?",
+      "options": [
+        "Đóng tệp",
+        "Sao chép rồi dán",
+        "Cắt rồi dán",
+        "Xóa rồi dán"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sao chép rồi dán."
+    },
+    {
+      "question": "Muốn chuyển đoạn văn đi nơi khác, em dùng gì?",
+      "options": [
+        "Cắt rồi dán",
+        "Chỉ sao chép",
+        "Chỉ in",
+        "Chỉ đổi tên"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cắt rồi dán."
+    },
+    {
+      "question": "Nếu dán đoạn sai chỗ, thao tác nào có thể giúp?",
+      "options": [
+        "Xóa máy",
+        "Rút điện",
+        "Đổi bàn phím",
+        "Hoàn tác rồi dán đúng vị trí"
+      ],
+      "correctIndex": 3,
+      "explanation": "Hoàn tác rồi dán đúng vị trí."
+    },
+    {
+      "question": "Ảnh chèn vào bài viết nên thế nào?",
+      "options": [
+        "Không cần nguồn",
+        "Chỉ làm nền rối",
+        "Phù hợp và không che chữ",
+        "Luôn phủ kín trang"
+      ],
+      "correctIndex": 2,
+      "explanation": "Phù hợp và không che chữ."
+    },
+    {
+      "question": "Vì sao phải đọc lại bài trước khi nộp?",
+      "options": [
+        "Tạo dung lượng",
+        "Phát hiện lỗi nội dung và chính tả",
+        "Tăng tốc máy",
+        "Đổi màu phím"
+      ],
+      "correctIndex": 1,
+      "explanation": "Phát hiện lỗi nội dung và chính tả."
+    },
+    {
+      "question": "Khi lưu bài nhiều lần, thao tác nào giữ nội dung mới nhất?",
+      "options": [
+        "Lưu sau khi chỉnh sửa",
+        "Chỉ đóng cửa sổ",
+        "Xóa bản cũ trước",
+        "Tắt nguồn"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lưu sau khi chỉnh sửa."
+    },
+    {
+      "question": "Tên tệp 'Bài giới thiệu gia đình' có ưu điểm gì?",
+      "options": [
+        "Tự sửa lỗi",
+        "Tăng số trang",
+        "Tạo mật khẩu",
+        "Dễ nhận biết nội dung"
+      ],
+      "correctIndex": 3,
+      "explanation": "Dễ nhận biết nội dung."
+    },
+    {
+      "question": "Nếu muốn thêm một câu vào giữa đoạn, em đặt con trỏ ở đâu?",
+      "options": [
+        "Trên loa",
+        "Trong tên tệp",
+        "Đúng vị trí cần chèn",
+        "Chỉ cuối tệp"
+      ],
+      "correctIndex": 2,
+      "explanation": "Đúng vị trí cần chèn."
+    },
+    {
+      "question": "Em cần đưa đoạn mở đầu xuống cuối văn bản và không để bản sao ở đầu. Em chọn cách nào?",
+      "options": [
+        "Chỉ thay phông chữ",
+        "Cắt đoạn rồi dán ở cuối",
+        "Sao chép đoạn rồi dán ở cuối",
+        "Chỉ in văn bản"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cắt rồi dán di chuyển đoạn; sao chép sẽ giữ bản cũ và tạo bản mới."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 11. Bài trình chiếu của em",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Một bài trình chiếu thường gồm những gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Để phát hiện lỗi chữ và bố cục."
+    },
+    {
+      "question": "Một bài trình chiếu dùng để làm gì?",
+      "options": [
+        "Tạo điện",
+        "Sửa chuột hỏng",
+        "Trình bày thông tin theo các trang",
+        "Thay dây mạng"
+      ],
+      "correctIndex": 2,
+      "explanation": "Trình bày thông tin theo các trang."
+    },
+    {
+      "question": "Trang chiếu có tiêu đề 'Các loài cây' nên chứa gì?",
+      "options": [
+        "Giá bàn phím",
+        "Thông tin và hình ảnh về cây",
+        "Mật khẩu",
+        "Tệp hệ thống"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thông tin và hình ảnh về cây."
+    },
+    {
+      "question": "Muốn người xem đọc chữ dễ hơn, em chọn cỡ chữ thế nào?",
+      "options": [
+        "Đủ lớn và rõ",
+        "Càng nhỏ càng tốt",
+        "Trùng màu nền",
+        "Không cần chữ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Đủ lớn và rõ."
+    },
+    {
+      "question": "Một hình minh họa nên đặt thế nào?",
+      "options": [
+        "Che hết chữ",
+        "Nằm ngoài trang",
+        "Luôn phủ kín nền",
+        "Không che nội dung quan trọng"
+      ],
+      "correctIndex": 3,
+      "explanation": "Không che nội dung quan trọng."
+    },
+    {
+      "question": "Để thêm ảnh vào trang chiếu, em chọn chức năng nào?",
+      "options": [
+        "Tắt trình chiếu",
+        "Đổi mật khẩu",
+        "Chèn hình ảnh",
+        "Xóa bài"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chèn hình ảnh."
+    },
+    {
+      "question": "Trước khi trình chiếu, em nên kiểm tra gì?",
+      "options": [
+        "Màu dây điện",
+        "Thứ tự trang và lỗi nội dung",
+        "Giá máy",
+        "Số phím"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thứ tự trang và lỗi nội dung."
+    },
+    {
+      "question": "Nếu trang có quá nhiều chữ, em nên làm gì?",
+      "options": [
+        "Rút gọn ý chính hoặc chia trang",
+        "Thu nhỏ chữ tối đa",
+        "Che chữ bằng ảnh",
+        "Bỏ tiêu đề"
+      ],
+      "correctIndex": 0,
+      "explanation": "Rút gọn ý chính hoặc chia trang."
+    },
+    {
+      "question": "Trang cuối có thể dùng để làm gì?",
+      "options": [
+        "Cất chuột",
+        "Đổi nguồn điện",
+        "Xóa bài",
+        "Kết thúc hoặc cảm ơn người xem"
+      ],
+      "correctIndex": 3,
+      "explanation": "Kết thúc hoặc cảm ơn người xem."
+    },
+    {
+      "question": "Khi lưu tệp trình chiếu, tên nào hợp lí?",
+      "options": [
+        "a",
+        "123",
+        "Bài giới thiệu quê em",
+        "Mới"
+      ],
+      "correctIndex": 2,
+      "explanation": "Bài giới thiệu quê em."
+    },
+    {
+      "question": "Khi nói trước lớp, trang chiếu giúp em điều gì?",
+      "options": [
+        "Tự in bài",
+        "Nhắc các ý và minh họa",
+        "Thay hoàn toàn lời nói",
+        "Tự trả lời mọi câu hỏi"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nhắc các ý và minh họa."
     }
   ]
 }

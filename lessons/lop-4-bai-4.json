@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 4. Tìm kiếm thông tin trên Internet",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Muốn tìm thông tin về vòng đời của bướm, từ khóa nào phù hợp nhất?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Ghi lại ý cần dùng và nguồn."
+    },
+    {
+      "question": "Nếu muốn tìm thông tin về lịch học của trường, từ khóa nào cụ thể?",
+      "options": [
+        "trường",
+        "học",
+        "lịch học Trường Tiểu học Quỳnh Lộc",
+        "lịch"
+      ],
+      "correctIndex": 2,
+      "explanation": "lịch học Trường Tiểu học Quỳnh Lộc."
+    },
+    {
+      "question": "Kết quả tìm kiếm thường gồm gì?",
+      "options": [
+        "Chỉ tên bàn phím",
+        "Tiêu đề, đoạn mô tả và liên kết",
+        "Chỉ mật khẩu",
+        "Chỉ dây cáp"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tiêu đề, đoạn mô tả và liên kết."
+    },
+    {
+      "question": "Khi từ khóa gõ sai chính tả, kết quả có thể thế nào?",
+      "options": [
+        "Kém phù hợp hoặc khó tìm",
+        "Luôn đúng nhất",
+        "Máy tự tắt",
+        "Không ảnh hưởng bao giờ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Kém phù hợp hoặc khó tìm."
+    },
+    {
+      "question": "Nếu tìm 'cây' ra quá nhiều kết quả, em nên thêm gì?",
+      "options": [
+        "Mật khẩu",
+        "Tên chuột",
+        "Số phím",
+        "Đặc điểm hoặc tên cây cụ thể"
+      ],
+      "correctIndex": 3,
+      "explanation": "Đặc điểm hoặc tên cây cụ thể."
+    },
+    {
+      "question": "Sau khi mở một kết quả, em nên kiểm tra gì?",
+      "options": [
+        "Âm lượng loa",
+        "Giá màn hình",
+        "Nội dung và nguồn có phù hợp không",
+        "Màu máy in"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nội dung và nguồn có phù hợp không."
+    },
+    {
+      "question": "Thông tin trên trang chính thức của bảo tàng về giờ mở cửa thường đáng tin hơn gì?",
+      "options": [
+        "Hướng dẫn của nhân viên",
+        "Bình luận không rõ người viết",
+        "Thông báo chính thức khác",
+        "Bảng giờ trong sảnh bảo tàng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bình luận không rõ người viết."
+    },
+    {
+      "question": "Khi hai kết quả mâu thuẫn, em nên làm gì?",
+      "options": [
+        "Đối chiếu thêm nguồn đáng tin",
+        "Chọn ngẫu nhiên",
+        "Chia sẻ cả hai như đúng",
+        "Chỉ xem hình"
+      ],
+      "correctIndex": 0,
+      "explanation": "Đối chiếu thêm nguồn đáng tin."
+    },
+    {
+      "question": "Vì sao không nên nhập thông tin cá nhân vào kết quả tìm kiếm lạ?",
+      "options": [
+        "Làm màn hình sáng",
+        "Làm chuột nặng",
+        "Làm loa nhỏ",
+        "Có thể bị thu thập và sử dụng sai"
+      ],
+      "correctIndex": 3,
+      "explanation": "Có thể bị thu thập và sử dụng sai."
+    },
+    {
+      "question": "Từ khóa tốt có đặc điểm gì?",
+      "options": [
+        "Chỉ một chữ bất kì",
+        "Luôn là mật khẩu",
+        "Ngắn gọn nhưng đủ ý cần tìm",
+        "Càng mơ hồ càng tốt"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ngắn gọn nhưng đủ ý cần tìm."
+    },
+    {
+      "question": "Em cần tìm giờ mở cửa hiện nay của một bảo tàng. Kết quả đầu là bài viết từ nhiều năm trước, kết quả sau là trang chính thức mới cập nhật. Nên dùng kết quả nào?",
+      "options": [
+        "Không cần xem ngày đăng",
+        "Trang chính thức mới cập nhật",
+        "Bài cũ vì xuất hiện đầu tiên",
+        "Chọn ngẫu nhiên một kết quả"
+      ],
+      "correctIndex": 1,
+      "explanation": "Giờ mở cửa có thể thay đổi, nên ưu tiên thông tin mới trên nguồn chính thức."
     }
   ]
 }

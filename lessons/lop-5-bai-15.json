@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 15. Sử dụng biểu thức trong chương trình",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Biểu thức 4 + 3 cho kết quả nào?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "5."
+    },
+    {
+      "question": "Nếu biến Cạnh bằng 5, biểu thức 4 × Cạnh cho kết quả gì?",
+      "options": [
+        "1",
+        "25",
+        "20",
+        "9"
+      ],
+      "correctIndex": 2,
+      "explanation": "20."
+    },
+    {
+      "question": "Biểu thức 10 / 2 cho giá trị nào?",
+      "options": [
+        "20",
+        "5",
+        "8",
+        "12"
+      ],
+      "correctIndex": 1,
+      "explanation": "5."
+    },
+    {
+      "question": "Nếu a = 3 và b = 4, a + b bằng gì?",
+      "options": [
+        "7",
+        "12",
+        "1",
+        "34"
+      ],
+      "correctIndex": 0,
+      "explanation": "7."
+    },
+    {
+      "question": "Nếu a = 3 và b = 4, a × b bằng gì?",
+      "options": [
+        "7",
+        "1",
+        "34",
+        "12"
+      ],
+      "correctIndex": 3,
+      "explanation": "12."
+    },
+    {
+      "question": "Biểu thức 'điểm > 10' với điểm = 8 là gì?",
+      "options": [
+        "10",
+        "8",
+        "Sai",
+        "Đúng"
+      ],
+      "correctIndex": 2,
+      "explanation": "Sai."
+    },
+    {
+      "question": "Biểu thức so sánh dùng khi nào?",
+      "options": [
+        "Khi mở loa",
+        "Khi cần kiểm tra điều kiện",
+        "Khi đổi dây nguồn",
+        "Khi in giấy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Khi cần kiểm tra điều kiện."
+    },
+    {
+      "question": "Muốn tính diện tích hình vuông cạnh Cạnh, biểu thức nào đúng?",
+      "options": [
+        "Cạnh × Cạnh",
+        "4 × Cạnh",
+        "Cạnh + 4",
+        "Cạnh / 4"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cạnh × Cạnh."
+    },
+    {
+      "question": "Nếu x = 6, biểu thức x - 2 bằng bao nhiêu?",
+      "options": [
+        "8",
+        "12",
+        "2",
+        "4"
+      ],
+      "correctIndex": 3,
+      "explanation": "4."
+    },
+    {
+      "question": "Trong Scratch, các khối phép toán dùng để gì?",
+      "options": [
+        "Đổi máy in",
+        "Xóa dự án",
+        "Tạo biểu thức tính và so sánh",
+        "Thay bàn phím"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tạo biểu thức tính và so sánh."
+    },
+    {
+      "question": "Biến Cạnh bằng 6. Muốn chương trình tính chu vi hình vuông, biểu thức nào đúng và cho kết quả bao nhiêu?",
+      "options": [
+        "Cạnh / 4, kết quả 1,5",
+        "4 × Cạnh, kết quả 24",
+        "Cạnh × Cạnh, kết quả 36",
+        "Cạnh + 4, kết quả 10"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chu vi hình vuông bằng bốn lần độ dài cạnh: 4 × 6 = 24."
     }
   ]
 }

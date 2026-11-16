@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 9A. Sử dụng phần mềm đồ họa tạo sản phẩm số",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Trước khi tạo một tấm thiệp số, em nên làm gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Chỉnh bố cục hoặc chữ cho rõ hơn."
+    },
+    {
+      "question": "Trước khi làm thiệp số, em nên chọn gì?",
+      "options": [
+        "Mật khẩu",
+        "Tên ổ điện",
+        "Chủ đề, lời chúc và hình phù hợp",
+        "Màu ngẫu nhiên"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chủ đề, lời chúc và hình phù hợp."
+    },
+    {
+      "question": "Để lời chúc dễ đọc, em cần gì?",
+      "options": [
+        "Ảnh che chữ",
+        "Chữ tương phản với nền",
+        "Chữ trùng màu nền",
+        "Chữ thật nhỏ"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chữ tương phản với nền."
+    },
+    {
+      "question": "Nếu hai hình chồng lên nhau không đẹp, em làm gì?",
+      "options": [
+        "Sắp xếp lại vị trí hoặc kích thước",
+        "Xóa máy",
+        "Đổi chuột",
+        "Tăng âm lượng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sắp xếp lại vị trí hoặc kích thước."
+    },
+    {
+      "question": "Muốn thêm họa tiết vào thiệp, em có thể dùng gì?",
+      "options": [
+        "Máy in tắt",
+        "Ổ cắm",
+        "Dây mạng",
+        "Công cụ vẽ và hình phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Công cụ vẽ và hình phù hợp."
+    },
+    {
+      "question": "Vì sao cần xem toàn bộ sản phẩm trước khi lưu?",
+      "options": [
+        "Để tăng mạng",
+        "Để xóa màu",
+        "Để phát hiện lỗi bố cục và nội dung",
+        "Để thay máy"
+      ],
+      "correctIndex": 2,
+      "explanation": "Để phát hiện lỗi bố cục và nội dung."
+    },
+    {
+      "question": "Ảnh của người khác dùng trong thiệp cần gì?",
+      "options": [
+        "Chỉ tăng sáng",
+        "Quyền sử dụng phù hợp",
+        "Chỉ đổi tên tệp",
+        "Chỉ cắt ảnh"
+      ],
+      "correctIndex": 1,
+      "explanation": "Quyền sử dụng phù hợp."
+    },
+    {
+      "question": "Nếu lời chúc bị sai chính tả, em nên làm gì?",
+      "options": [
+        "Sửa chữ trước khi chia sẻ",
+        "Giữ nguyên",
+        "Che bằng hình",
+        "Xóa phần mềm"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sửa chữ trước khi chia sẻ."
+    },
+    {
+      "question": "Khi cần in sản phẩm số, em nên kiểm tra gì?",
+      "options": [
+        "Tên loa",
+        "Mật khẩu bạn",
+        "Giá chuột",
+        "Kích thước và bố cục phù hợp trang in"
+      ],
+      "correctIndex": 3,
+      "explanation": "Kích thước và bố cục phù hợp trang in."
+    },
+    {
+      "question": "Muốn tấm thiệp có chủ đề mùa xuân, hình nào hợp hơn?",
+      "options": [
+        "Ảnh che hết lời chúc",
+        "Ảnh rất mờ",
+        "Hoa và cảnh mùa xuân",
+        "Hình ngẫu nhiên không liên quan"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hoa và cảnh mùa xuân."
+    },
+    {
+      "question": "Sản phẩm số hoàn thiện nên được làm gì?",
+      "options": [
+        "Đổi bàn phím",
+        "Lưu lại và chia sẻ theo cách phù hợp",
+        "Đóng không lưu",
+        "Xóa ngay"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lưu lại và chia sẻ theo cách phù hợp."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 8. Định dạng văn bản trên trang chiếu",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Định dạng nào giúp nhấn mạnh một từ trên trang chiếu?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Chữ vẫn rõ và bố cục cân đối."
+    },
+    {
+      "question": "Văn bản trên trang chiếu muốn nổi bật, em có thể đổi gì?",
+      "options": [
+        "Tên chuột",
+        "Ổ điện",
+        "Màu, cỡ hoặc kiểu chữ",
+        "Dây nguồn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Màu, cỡ hoặc kiểu chữ."
+    },
+    {
+      "question": "Khi chọn một đoạn và nhấn in đậm, điều gì đổi?",
+      "options": [
+        "Số trang",
+        "Kiểu hiển thị của đoạn chữ",
+        "Nội dung tự biến mất",
+        "Tên tệp"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kiểu hiển thị của đoạn chữ."
+    },
+    {
+      "question": "Tiêu đề nên có cỡ chữ thế nào so với phần giải thích?",
+      "options": [
+        "Thường lớn hơn",
+        "Luôn nhỏ hơn",
+        "Bằng 0",
+        "Không cần chữ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Thường lớn hơn."
+    },
+    {
+      "question": "Chữ đen trên nền trắng có đặc điểm gì?",
+      "options": [
+        "Luôn vô hình",
+        "Luôn sai chính tả",
+        "Tự tạo hiệu ứng",
+        "Tương phản rõ, dễ đọc"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tương phản rõ, dễ đọc."
+    },
+    {
+      "question": "Để liệt kê ba ý ngắn, em có thể dùng gì?",
+      "options": [
+        "Chỉ lệnh tắt",
+        "Chỉ hiệu ứng",
+        "Danh sách dấu đầu dòng",
+        "Chỉ một ảnh lớn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Danh sách dấu đầu dòng."
+    },
+    {
+      "question": "Nếu toàn bộ chữ đều in đậm, việc nhấn mạnh từng ý có thể thế nào?",
+      "options": [
+        "Tệp bị xóa",
+        "Kém rõ hơn",
+        "Luôn rõ hơn",
+        "Máy tự sửa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kém rõ hơn."
+    },
+    {
+      "question": "Muốn đổi màu riêng tiêu đề, em cần chọn gì trước?",
+      "options": [
+        "Phần chữ tiêu đề",
+        "Toàn bộ máy tính",
+        "Dây cáp",
+        "Loa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Phần chữ tiêu đề."
+    },
+    {
+      "question": "Vì sao không nên dùng quá nhiều màu chữ trong một trang?",
+      "options": [
+        "Làm Internet chậm",
+        "Làm máy hết pin ngay",
+        "Làm chuột hỏng",
+        "Dễ rối mắt và khó tập trung"
+      ],
+      "correctIndex": 3,
+      "explanation": "Dễ rối mắt và khó tập trung."
+    },
+    {
+      "question": "Khi chữ bị hình che, em nên làm gì?",
+      "options": [
+        "Thu nhỏ chữ hơn",
+        "Tắt loa",
+        "Sắp lại vị trí chữ hoặc hình",
+        "Để nguyên"
+      ],
+      "correctIndex": 2,
+      "explanation": "Sắp lại vị trí chữ hoặc hình."
+    },
+    {
+      "question": "Sau khi định dạng, bước kiểm tra hữu ích là gì?",
+      "options": [
+        "Xóa trang",
+        "Trình chiếu thử để xem có dễ đọc không",
+        "Chỉ nhìn tên tệp",
+        "Rút điện"
+      ],
+      "correctIndex": 1,
+      "explanation": "Trình chiếu thử để xem có dễ đọc không."
     }
   ]
 }

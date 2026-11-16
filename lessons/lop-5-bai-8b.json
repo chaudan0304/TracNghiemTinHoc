@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 8B. Làm sản phẩm thủ công theo video hướng dẫn",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Trước khi làm theo video hướng dẫn, em nên làm gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Sử dụng an toàn theo hướng dẫn người lớn."
+    },
+    {
+      "question": "Trước khi theo video làm đồ thủ công, em cần chuẩn bị gì?",
+      "options": [
+        "Chỉ đổi nền máy",
+        "Không chuẩn bị",
+        "Vật liệu và dụng cụ được hướng dẫn",
+        "Chỉ bật loa"
+      ],
+      "correctIndex": 2,
+      "explanation": "Vật liệu và dụng cụ được hướng dẫn."
+    },
+    {
+      "question": "Nếu video chạy nhanh, em có thể làm gì?",
+      "options": [
+        "Bỏ qua bước",
+        "Tạm dừng ở mỗi bước",
+        "Làm bừa",
+        "Xóa video"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tạm dừng ở mỗi bước."
+    },
+    {
+      "question": "Khi video dùng kéo, em nên nhớ gì?",
+      "options": [
+        "Cầm và sử dụng an toàn, nhờ người lớn khi cần",
+        "Đùa nghịch",
+        "Đưa kéo sát mặt",
+        "Chạy quanh phòng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cầm và sử dụng an toàn, nhờ người lớn khi cần."
+    },
+    {
+      "question": "Nếu vật liệu không phù hợp, em nên làm gì?",
+      "options": [
+        "Dùng thứ nguy hiểm",
+        "Bỏ mọi bước",
+        "Xóa hướng dẫn",
+        "Hỏi về vật liệu thay thế an toàn"
+      ],
+      "correctIndex": 3,
+      "explanation": "Hỏi về vật liệu thay thế an toàn."
+    },
+    {
+      "question": "Vì sao cần xem kết quả sau từng bước?",
+      "options": [
+        "Để đổi màu giao diện",
+        "Để tắt loa",
+        "Phát hiện sai trước khi làm tiếp",
+        "Để máy nhanh"
+      ],
+      "correctIndex": 2,
+      "explanation": "Phát hiện sai trước khi làm tiếp."
+    },
+    {
+      "question": "Khi chưa hiểu một thao tác, em nên gì?",
+      "options": [
+        "Dùng lực mạnh hơn",
+        "Xem lại đoạn và hỏi người lớn",
+        "Đoán rồi làm ngay",
+        "Bỏ bước"
+      ],
+      "correctIndex": 1,
+      "explanation": "Xem lại đoạn và hỏi người lớn."
+    },
+    {
+      "question": "Video hướng dẫn thường gồm gì?",
+      "options": [
+        "Các thao tác theo thứ tự",
+        "Chỉ ảnh bìa",
+        "Chỉ nhạc nền",
+        "Chỉ quảng cáo"
+      ],
+      "correctIndex": 0,
+      "explanation": "Các thao tác theo thứ tự."
+    },
+    {
+      "question": "Sau khi hoàn thành, em nên so sánh gì?",
+      "options": [
+        "Màu bàn phím",
+        "Tên tệp nhạc",
+        "Giá máy",
+        "Sản phẩm với yêu cầu và cách dùng"
+      ],
+      "correctIndex": 3,
+      "explanation": "Sản phẩm với yêu cầu và cách dùng."
+    },
+    {
+      "question": "Nếu sản phẩm cần dùng hằng ngày, điều gì quan trọng?",
+      "options": [
+        "Chỉ giống ảnh bìa",
+        "Chỉ làm nhanh",
+        "Độ bền và an toàn",
+        "Chỉ màu thật chói"
+      ],
+      "correctIndex": 2,
+      "explanation": "Độ bền và an toàn."
+    },
+    {
+      "question": "Khi chia sẻ video gốc, em nên làm gì?",
+      "options": [
+        "Đăng lại tùy ý",
+        "Nêu nguồn và tôn trọng quyền sử dụng",
+        "Nhận là của mình",
+        "Xóa tên người tạo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nêu nguồn và tôn trọng quyền sử dụng."
     }
   ]
 }

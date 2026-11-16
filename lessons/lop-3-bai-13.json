@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 13. Luyện tập sử dụng chuột",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Thao tác nháy chuột là gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Cầm nhẹ, di chuyển thoải mái."
+    },
+    {
+      "question": "Nháy chuột trái một lần khác nháy đúp ở điểm nào?",
+      "options": [
+        "Kích thước màn hình",
+        "Nguồn điện",
+        "Số lần nhấn thả nhanh",
+        "Màu chuột"
+      ],
+      "correctIndex": 2,
+      "explanation": "Số lần nhấn thả nhanh."
+    },
+    {
+      "question": "Trong bài luyện chuột, muốn nhắm đúng mục tiêu, em cần điều khiển gì?",
+      "options": [
+        "Máy in",
+        "Con trỏ chuột",
+        "Loa",
+        "Ổ đĩa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Con trỏ chuột."
+    },
+    {
+      "question": "Khi kéo thả một hình, em thả nút chuột lúc nào?",
+      "options": [
+        "Khi hình đến vị trí mong muốn",
+        "Ngay trước khi kéo",
+        "Sau khi tắt máy",
+        "Khi con trỏ biến mất"
+      ],
+      "correctIndex": 0,
+      "explanation": "Khi hình đến vị trí mong muốn."
+    },
+    {
+      "question": "Nút chuột phải thường mở bảng gì?",
+      "options": [
+        "Bảng điểm giấy",
+        "Bảng tính tự động",
+        "Bảng điện",
+        "Bảng chọn ngữ cảnh"
+      ],
+      "correctIndex": 3,
+      "explanation": "Bảng chọn ngữ cảnh."
+    },
+    {
+      "question": "Để cuộn xuống phần cuối trang, em có thể dùng gì?",
+      "options": [
+        "Máy in",
+        "Micro",
+        "Bánh xe chuột",
+        "Phím nguồn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Bánh xe chuột."
+    },
+    {
+      "question": "Phần mềm luyện chuột báo trượt mục tiêu, em nên làm gì?",
+      "options": [
+        "Tắt bàn phím",
+        "Di chuyển chính xác hơn rồi thử lại",
+        "Đập chuột",
+        "Bỏ qua mãi"
+      ],
+      "correctIndex": 1,
+      "explanation": "Di chuyển chính xác hơn rồi thử lại."
+    },
+    {
+      "question": "Khi con trỏ ra khỏi mục tiêu trước khi nháy, điều gì dễ xảy ra?",
+      "options": [
+        "Chọn sai vị trí",
+        "Máy tự tắt",
+        "Tệp tự lưu",
+        "Loa ngừng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chọn sai vị trí."
+    },
+    {
+      "question": "Muốn mở một thư mục bằng chuột, thao tác thường dùng là gì?",
+      "options": [
+        "Lăn bánh xe liên tục",
+        "Chỉ cầm chuột",
+        "Nhấn nút nguồn",
+        "Nháy đúp vào biểu tượng"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nháy đúp vào biểu tượng."
+    },
+    {
+      "question": "Khi luyện nháy đúp, hai lần nhấn nên thế nào?",
+      "options": [
+        "Giữ nút luôn",
+        "Dùng hai chuột",
+        "Liên tiếp tương đối nhanh",
+        "Cách nhau nhiều phút"
+      ],
+      "correctIndex": 2,
+      "explanation": "Liên tiếp tương đối nhanh."
+    },
+    {
+      "question": "Cầm chuột nhẹ và đặt trên mặt phẳng giúp gì?",
+      "options": [
+        "Thay bàn phím",
+        "Điều khiển con trỏ chính xác hơn",
+        "Tăng dung lượng máy",
+        "Đổi hình nền"
+      ],
+      "correctIndex": 1,
+      "explanation": "Điều khiển con trỏ chính xác hơn."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 12A. Thực hành sử dụng công cụ đa phương tiện",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Công cụ đa phương tiện có thể giúp em làm việc với gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Phù hợp chủ đề và rõ ràng."
+    },
+    {
+      "question": "Video về lễ hội có thể giúp em biết thêm gì?",
+      "options": [
+        "Tên bàn phím",
+        "Giá dây điện",
+        "Hình ảnh, âm thanh và hoạt động văn hóa",
+        "Mật khẩu người xem"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hình ảnh, âm thanh và hoạt động văn hóa."
+    },
+    {
+      "question": "Muốn quan sát lại một phong tục vừa xuất hiện trong video, em làm gì?",
+      "options": [
+        "Đổi máy in",
+        "Tua lại hoặc phát lại đoạn đó",
+        "Xóa tệp",
+        "Tắt màn hình"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tua lại hoặc phát lại đoạn đó."
+    },
+    {
+      "question": "Nếu nghe lời thuyết minh chưa rõ, em có thể làm gì?",
+      "options": [
+        "Tạm dừng, nghe lại với âm lượng phù hợp",
+        "Tăng tối đa không cần thiết",
+        "Xóa video",
+        "Đóng ứng dụng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tạm dừng, nghe lại với âm lượng phù hợp."
+    },
+    {
+      "question": "Một sản phẩm đa phương tiện có thể kết hợp gì?",
+      "options": [
+        "Chỉ dây cáp",
+        "Chỉ giấy in",
+        "Chỉ ổ điện",
+        "Chữ, hình, âm thanh và video"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chữ, hình, âm thanh và video."
+    },
+    {
+      "question": "Sau khi xem video lịch sử, em nên kể lại gì?",
+      "options": [
+        "Chỉ tên tệp",
+        "Chỉ số phím",
+        "Những thông tin mới quan sát và hiểu được",
+        "Chỉ màu giao diện"
+      ],
+      "correctIndex": 2,
+      "explanation": "Những thông tin mới quan sát và hiểu được."
+    },
+    {
+      "question": "Vì sao video hữu ích khi tìm hiểu văn hóa?",
+      "options": [
+        "Tự tạo hiện vật thật",
+        "Cho thấy hình và âm thanh sinh động",
+        "Luôn đúng trong mọi trường hợp",
+        "Thay mọi nguồn khác"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cho thấy hình và âm thanh sinh động."
+    },
+    {
+      "question": "Nếu video quá dài, em có thể dùng thanh thời gian để làm gì?",
+      "options": [
+        "Chuyển đến đoạn muốn xem",
+        "Đổi tên máy",
+        "Tăng dung lượng",
+        "Xóa hình"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chuyển đến đoạn muốn xem."
+    },
+    {
+      "question": "Trước khi xem video thầy cô cung cấp, em nên xác định gì?",
+      "options": [
+        "Mật khẩu lớp",
+        "Giá tai nghe",
+        "Tên ổ cắm",
+        "Chủ đề và điều muốn tìm hiểu"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chủ đề và điều muốn tìm hiểu."
+    },
+    {
+      "question": "Khi video có phụ đề, phụ đề giúp gì?",
+      "options": [
+        "Thay âm thanh hoàn toàn luôn",
+        "Tạo điện",
+        "Hỗ trợ hiểu lời nói và nội dung",
+        "Tự sửa hình ảnh"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hỗ trợ hiểu lời nói và nội dung."
+    },
+    {
+      "question": "Nếu kể lại điều học được, em nên dựa vào gì?",
+      "options": [
+        "Màu nút phát",
+        "Nội dung thực sự đã xem và ghi nhớ",
+        "Ảnh bìa ngẫu nhiên",
+        "Quảng cáo bên cạnh"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nội dung thực sự đã xem và ghi nhớ."
     }
   ]
 }

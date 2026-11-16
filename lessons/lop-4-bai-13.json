@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 13. Chơi với máy tính",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Trong trò chơi rô-bốt, chỉ dẫn 'quay trái 90 độ' làm rô-bốt thay đổi gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Mở tệp từ máy tính."
+    },
+    {
+      "question": "Trong Scratch, lệnh 'di chuyển 10 bước' làm gì?",
+      "options": [
+        "Tắt loa",
+        "Xóa dự án",
+        "Cho nhân vật tiến theo hướng hiện tại",
+        "Đổi tên nhân vật"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cho nhân vật tiến theo hướng hiện tại."
+    },
+    {
+      "question": "Trong trò chơi rô-bốt, 'quay phải 90 độ' thay đổi điều gì?",
+      "options": [
+        "Số người xem",
+        "Hướng của rô-bốt",
+        "Màu sân",
+        "Tên bạn chơi"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hướng của rô-bốt."
+    },
+    {
+      "question": "Khi có nhiều chỉ dẫn, rô-bốt thực hiện thế nào?",
+      "options": [
+        "Theo thứ tự đã cho",
+        "Ngẫu nhiên",
+        "Chỉ lệnh cuối",
+        "Chỉ lệnh dài nhất"
+      ],
+      "correctIndex": 0,
+      "explanation": "Theo thứ tự đã cho."
+    },
+    {
+      "question": "Muốn chạy dự án Scratch, em thường nháy biểu tượng nào?",
+      "options": [
+        "Thùng rác",
+        "Máy in",
+        "Loa",
+        "Cờ xanh"
+      ],
+      "correctIndex": 3,
+      "explanation": "Cờ xanh."
+    },
+    {
+      "question": "Muốn dừng dự án đang chạy, em nháy gì?",
+      "options": [
+        "Phím cách luôn",
+        "Nút in",
+        "Nút dừng",
+        "Cờ xanh lần nữa bắt buộc"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nút dừng."
+    },
+    {
+      "question": "Sân khấu Scratch có vai trò gì?",
+      "options": [
+        "Gõ văn bản ngoài máy",
+        "Hiển thị hoạt động của nhân vật",
+        "Lưu mật khẩu",
+        "Cắm điện"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hiển thị hoạt động của nhân vật."
+    },
+    {
+      "question": "Nhân vật Scratch được điều khiển bằng gì?",
+      "options": [
+        "Các câu lệnh trong chương trình",
+        "Màu vỏ máy",
+        "Tên ổ đĩa",
+        "Giá bàn phím"
+      ],
+      "correctIndex": 0,
+      "explanation": "Các câu lệnh trong chương trình."
+    },
+    {
+      "question": "Muốn mở dự án đã lưu, em tìm chức năng gì?",
+      "options": [
+        "Xóa mọi tệp",
+        "Tắt máy",
+        "Đổi phông nền máy",
+        "Mở tệp hoặc dự án"
+      ],
+      "correctIndex": 3,
+      "explanation": "Mở tệp hoặc dự án."
+    },
+    {
+      "question": "Vì sao trò chơi máy tính cần chương trình?",
+      "options": [
+        "Để tự in giấy",
+        "Để mọi kết quả đúng",
+        "Chương trình quy định cách trò chơi hoạt động",
+        "Để thay dây nguồn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chương trình quy định cách trò chơi hoạt động."
+    },
+    {
+      "question": "Rô-bốt cần đi theo hình vuông. Bạn lập trình lặp bốn lần 'đi 100 bước, quay 90 độ' nhưng đặt lệnh quay trước lệnh đi. Điều gì thay đổi?",
+      "options": [
+        "Thứ tự lệnh không ảnh hưởng đường đi",
+        "Rô-bốt bắt đầu đi theo hướng đã quay, dù vẫn có bốn cạnh",
+        "Rô-bốt chắc chắn đứng yên",
+        "Chương trình tự xóa lệnh quay"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thay thứ tự lệnh làm thay đổi hướng của bước đi đầu tiên và vị trí đường vẽ."
     }
   ]
 }

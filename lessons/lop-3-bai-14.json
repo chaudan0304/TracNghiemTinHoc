@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 14. Em thực hiện công việc như thế nào?",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Để hoàn thành việc đánh răng, em cần làm gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Thực hiện thử theo các bước."
+    },
+    {
+      "question": "Nếu vẽ ngôi nhà, bước nào nên làm trước khi tô màu?",
+      "options": [
+        "Xé giấy",
+        "Tắt đèn",
+        "Vẽ các nét chính",
+        "Cất bút"
+      ],
+      "correctIndex": 2,
+      "explanation": "Vẽ các nét chính."
+    },
+    {
+      "question": "Một công việc theo trình tự được mô tả bằng gì?",
+      "options": [
+        "Chỉ tên dụng cụ",
+        "Các bước có thứ tự rõ ràng",
+        "Chỉ mục tiêu cuối",
+        "Các bước ngẫu nhiên"
+      ],
+      "correctIndex": 1,
+      "explanation": "Các bước có thứ tự rõ ràng."
+    },
+    {
+      "question": "Nếu bước 2 cần kết quả của bước 1, em có thể đảo hai bước không?",
+      "options": [
+        "Không nên",
+        "Luôn được",
+        "Chỉ khi nhanh",
+        "Chỉ khi có máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Không nên."
+    },
+    {
+      "question": "Khi hướng dẫn bạn gấp giấy, em nên làm gì?",
+      "options": [
+        "Chỉ đưa tờ giấy",
+        "Nói bước cuối trước",
+        "Bỏ bước gấp đầu",
+        "Nêu từng thao tác theo thứ tự"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nêu từng thao tác theo thứ tự."
+    },
+    {
+      "question": "Để kiểm tra mô tả đã đủ chưa, em có thể làm gì?",
+      "options": [
+        "Đổi tên bài",
+        "Xóa bước giữa",
+        "Thử làm theo từng bước",
+        "Chỉ đếm chữ"
+      ],
+      "correctIndex": 2,
+      "explanation": "Thử làm theo từng bước."
+    },
+    {
+      "question": "Một bước trong kế hoạch nên rõ đến mức nào?",
+      "options": [
+        "Chỉ có một chữ bất kì",
+        "Người thực hiện biết phải làm gì",
+        "Càng mơ hồ càng tốt",
+        "Không liên quan mục tiêu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Người thực hiện biết phải làm gì."
+    },
+    {
+      "question": "Trong việc tưới cây, bước nào nên sau khi chuẩn bị bình nước?",
+      "options": [
+        "Mang bình đến cây và tưới",
+        "Cất bình trước",
+        "Uống hết nước",
+        "Xóa lịch"
+      ],
+      "correctIndex": 0,
+      "explanation": "Mang bình đến cây và tưới."
+    },
+    {
+      "question": "Nếu thiếu một bước cần thiết, em nên làm gì?",
+      "options": [
+        "Bỏ luôn công việc",
+        "Đảo ngẫu nhiên",
+        "Chỉ đổi tên",
+        "Bổ sung bước đúng chỗ"
+      ],
+      "correctIndex": 3,
+      "explanation": "Bổ sung bước đúng chỗ."
+    },
+    {
+      "question": "Máy tính thực hiện chuỗi lệnh theo gì?",
+      "options": [
+        "Giá thiết bị",
+        "Số loa",
+        "Thứ tự lệnh đã được chỉ dẫn",
+        "Màu vỏ"
+      ],
+      "correctIndex": 2,
+      "explanation": "Thứ tự lệnh đã được chỉ dẫn."
+    },
+    {
+      "question": "Vì sao việc lên kế hoạch từng bước hữu ích?",
+      "options": [
+        "Tạo điện",
+        "Giúp thực hiện công việc dễ và ít bỏ sót",
+        "Làm máy tự chạy",
+        "Thay mọi dụng cụ"
+      ],
+      "correctIndex": 1,
+      "explanation": "Giúp thực hiện công việc dễ và ít bỏ sót."
     }
   ]
 }

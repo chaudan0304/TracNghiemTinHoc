@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 10. Cấu trúc tuần tự",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Trong cấu trúc tuần tự, các lệnh được thực hiện như thế nào?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Sắp lại các khối lệnh rồi chạy thử."
+    },
+    {
+      "question": "Trong chuỗi lệnh A rồi B rồi C, lệnh nào chạy đầu?",
+      "options": [
+        "C",
+        "Không lệnh nào",
+        "A",
+        "B"
+      ],
+      "correctIndex": 2,
+      "explanation": "A."
+    },
+    {
+      "question": "Nếu lệnh 'nói Xin chào' đứng trước 'di chuyển', người xem thấy gì trước?",
+      "options": [
+        "Đổi nền",
+        "Lời chào",
+        "Di chuyển",
+        "Kết thúc"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lời chào."
+    },
+    {
+      "question": "Vì sao thứ tự lệnh trong cấu trúc tuần tự quan trọng?",
+      "options": [
+        "Ảnh hưởng thứ tự hành động và kết quả",
+        "Chỉ làm đẹp mã",
+        "Thay phần cứng",
+        "Tạo điện"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ảnh hưởng thứ tự hành động và kết quả."
+    },
+    {
+      "question": "Khi bước sau cần kết quả bước trước, em nên đặt thế nào?",
+      "options": [
+        "Bước sau chạy trước",
+        "Ngẫu nhiên",
+        "Chỉ bước cuối",
+        "Bước trước chạy trước"
+      ],
+      "correctIndex": 3,
+      "explanation": "Bước trước chạy trước."
+    },
+    {
+      "question": "Chương trình tuần tự có bắt buộc chứa vòng lặp không?",
+      "options": [
+        "Chỉ khi có loa",
+        "Chỉ khi mở mạng",
+        "Không",
+        "Có luôn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Không."
+    },
+    {
+      "question": "Muốn vẽ đường rồi đổi màu sau, em đặt lệnh nào trước?",
+      "options": [
+        "Lệnh xóa",
+        "Lệnh vẽ đường",
+        "Lệnh đổi màu sau",
+        "Lệnh dừng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lệnh vẽ đường."
+    },
+    {
+      "question": "Nếu nhân vật đứng sai vị trí trước khi bắt đầu, em nên thêm gì đầu chương trình?",
+      "options": [
+        "Lệnh đặt vị trí ban đầu",
+        "Chỉ lệnh nói",
+        "Chỉ lệnh dừng",
+        "Chỉ đổi tên"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lệnh đặt vị trí ban đầu."
+    },
+    {
+      "question": "Sau khi chạy thử thấy hành động đảo ngược, em cần gì?",
+      "options": [
+        "Đổi máy in",
+        "Tắt loa",
+        "Xóa mạng",
+        "Kiểm tra thứ tự các lệnh"
+      ],
+      "correctIndex": 3,
+      "explanation": "Kiểm tra thứ tự các lệnh."
+    },
+    {
+      "question": "Ba bước 'mở tệp → chỉnh sửa → lưu' là ví dụ của gì?",
+      "options": [
+        "Chỉ rẽ nhánh",
+        "Không có trình tự",
+        "Cấu trúc tuần tự",
+        "Cấu trúc lặp vô hạn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cấu trúc tuần tự."
+    },
+    {
+      "question": "Chương trình đặt điểm về 0 rồi cộng 1. Nếu đổi thứ tự hai lệnh, điểm cuối là bao nhiêu khi bắt đầu từ 5?",
+      "options": [
+        "6",
+        "0",
+        "1",
+        "5"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cộng 1 trước đưa điểm từ 5 lên 6, sau đó lệnh đặt về 0 ghi đè kết quả."
     }
   ]
 }

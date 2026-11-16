@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 2. Xử lí thông tin",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Bộ phận nào giúp con người suy nghĩ để xử lí thông tin?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Suy nghĩ và chọn câu trả lời phù hợp."
+    },
+    {
+      "question": "Em nhìn thấy biển báo thư viện rồi đi nhẹ, bước suy nghĩ nằm giữa việc nhìn và đi là gì?",
+      "options": [
+        "Xóa thông tin",
+        "Tắt thông tin",
+        "Xử lí thông tin",
+        "In thông tin"
+      ],
+      "correctIndex": 2,
+      "explanation": "Xử lí thông tin."
+    },
+    {
+      "question": "Khi máy tính hiển thị kết quả phép tính, màn hình đóng vai trò gì?",
+      "options": [
+        "Lưu mật khẩu",
+        "Đưa thông tin ra",
+        "Nhập thông tin vào",
+        "Tạo điện"
+      ],
+      "correctIndex": 1,
+      "explanation": "Đưa thông tin ra."
+    },
+    {
+      "question": "Khi em nhấn phím để đưa chữ vào máy, bàn phím đóng vai trò gì?",
+      "options": [
+        "Đưa thông tin vào",
+        "Đưa âm thanh ra",
+        "In thông tin",
+        "Kết nối điện"
+      ],
+      "correctIndex": 0,
+      "explanation": "Đưa thông tin vào."
+    },
+    {
+      "question": "Thông tin đầu vào của việc chọn áo mưa có thể là gì?",
+      "options": [
+        "Màu bàn học",
+        "Tên ổ đĩa",
+        "Số phím",
+        "Dự báo trời mưa"
+      ],
+      "correctIndex": 3,
+      "explanation": "Dự báo trời mưa."
+    },
+    {
+      "question": "Quyết định nào hợp lí khi nghe cô nhắc giờ vào lớp?",
+      "options": [
+        "Tắt đèn lớp",
+        "Giấu sách",
+        "Đi vào lớp",
+        "Tiếp tục chơi xa trường"
+      ],
+      "correctIndex": 2,
+      "explanation": "Đi vào lớp."
+    },
+    {
+      "question": "Máy tính có thể xử lí các số để tạo kết quả nào?",
+      "options": [
+        "Độ ấm tay",
+        "Kết quả phép tính",
+        "Mùi hoa",
+        "Vị thức ăn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kết quả phép tính."
+    },
+    {
+      "question": "Khi nghe một câu hỏi, em cần làm gì trước khi trả lời?",
+      "options": [
+        "Hiểu và suy nghĩ về câu hỏi",
+        "Nói ngẫu nhiên",
+        "Bịt tai",
+        "Xóa vở"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hiểu và suy nghĩ về câu hỏi."
+    },
+    {
+      "question": "Thông tin từ mắt và tai có thể giúp em làm gì?",
+      "options": [
+        "Tự tạo máy tính",
+        "Tự thay loa",
+        "Tự in sách",
+        "Đưa ra quyết định phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Đưa ra quyết định phù hợp."
+    },
+    {
+      "question": "Nếu thông tin nhận được chưa rõ, em nên làm gì?",
+      "options": [
+        "Bỏ qua mọi thứ",
+        "Trả lời ngay bất kì",
+        "Hỏi lại hoặc quan sát thêm",
+        "Đoán chắc chắn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hỏi lại hoặc quan sát thêm."
+    },
+    {
+      "question": "Lan nghe cô dặn 'nếu trời mưa thì chuyển buổi tập vào phòng'. Trời bắt đầu mưa. Chuỗi nào mô tả đúng việc Lan làm?",
+      "options": [
+        "Thấy mưa nhưng vẫn tập ngoài trời",
+        "Nghe thông tin, nhận ra trời mưa, rồi vào phòng tập",
+        "Vào phòng trước khi nghe và quan sát",
+        "Chỉ nghe dặn nhưng không kiểm tra thời tiết"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lan tiếp nhận lời dặn và tình trạng thời tiết, xử lí điều kiện rồi mới quyết định chuyển vào phòng."
     }
   ]
 }

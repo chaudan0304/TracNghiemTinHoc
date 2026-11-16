@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 14. Khám phá môi trường lập trình trực quan",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Trong lập trình trực quan, em thường tạo chương trình bằng cách nào?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Sân khấu hoặc vùng hiển thị."
+    },
+    {
+      "question": "Trong Scratch, các khối lệnh được sắp ở đâu để tạo chương trình?",
+      "options": [
+        "Trong máy in",
+        "Trên vỏ chuột",
+        "Vùng tạo chương trình",
+        "Trên ổ điện"
+      ],
+      "correctIndex": 2,
+      "explanation": "Vùng tạo chương trình."
+    },
+    {
+      "question": "Nhóm lệnh Chuyển động thường điều khiển gì?",
+      "options": [
+        "Nguồn điện",
+        "Vị trí và hướng nhân vật",
+        "Mật khẩu",
+        "Tệp âm thanh giấy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vị trí và hướng nhân vật."
+    },
+    {
+      "question": "Khối lệnh bắt đầu 'khi bấm cờ xanh' thuộc vai trò gì?",
+      "options": [
+        "Xác định sự kiện chạy chương trình",
+        "Tô màu màn hình",
+        "In văn bản",
+        "Xóa tệp"
+      ],
+      "correctIndex": 0,
+      "explanation": "Xác định sự kiện chạy chương trình."
+    },
+    {
+      "question": "Để nhân vật nói một câu, em tìm khối lệnh ở nhóm nào phù hợp?",
+      "options": [
+        "Ổ điện",
+        "Bàn phím",
+        "Máy in",
+        "Hiển thị"
+      ],
+      "correctIndex": 3,
+      "explanation": "Hiển thị."
+    },
+    {
+      "question": "Vì sao cần ghép các khối lệnh đúng chỗ?",
+      "options": [
+        "Để loa sáng",
+        "Để tăng dung lượng",
+        "Để chương trình thực hiện theo ý tưởng",
+        "Để màn hình lớn hơn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Để chương trình thực hiện theo ý tưởng."
+    },
+    {
+      "question": "Muốn quan sát nhân vật chạy, em nhìn ở đâu?",
+      "options": [
+        "Tên tệp",
+        "Sân khấu",
+        "Thùng rác",
+        "Ổ điện"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sân khấu."
+    },
+    {
+      "question": "Nếu khối lệnh nằm rời không nối vào chuỗi chạy, nó thường thế nào?",
+      "options": [
+        "Không được thực hiện trong chuỗi đó",
+        "Luôn chạy trước",
+        "Tự in giấy",
+        "Tự xóa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Không được thực hiện trong chuỗi đó."
+    },
+    {
+      "question": "Khi đổi một giá trị trong khối lệnh di chuyển, điều gì có thể đổi?",
+      "options": [
+        "Tên máy tính",
+        "Giá chuột",
+        "Màu dây điện",
+        "Quãng đường di chuyển"
+      ],
+      "correctIndex": 3,
+      "explanation": "Quãng đường di chuyển."
+    },
+    {
+      "question": "Muốn biết một nhóm lệnh dùng làm gì, em nên làm gì?",
+      "options": [
+        "Xóa mọi khối",
+        "Tắt phần mềm",
+        "Xem tên nhóm và thử khối phù hợp",
+        "Chọn ngẫu nhiên"
+      ],
+      "correctIndex": 2,
+      "explanation": "Xem tên nhóm và thử khối phù hợp."
+    },
+    {
+      "question": "Để tìm lỗi chương trình đơn giản, em có thể làm gì?",
+      "options": [
+        "Rút chuột",
+        "Chạy thử và đối chiếu từng bước",
+        "Chỉ đổi hình nền",
+        "Đóng máy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chạy thử và đối chiếu từng bước."
     }
   ]
 }

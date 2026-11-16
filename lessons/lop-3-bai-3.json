@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 3. Máy tính và em",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Bộ phận nào hiển thị hình ảnh và chữ từ máy tính?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Màn hình cảm ứng."
+    },
+    {
+      "question": "Trong máy tính để bàn, thiết bị nào thường đặt trên bàn và hiển thị bài học?",
+      "options": [
+        "Chuột",
+        "Bàn phím",
+        "Màn hình",
+        "Thân máy"
+      ],
+      "correctIndex": 2,
+      "explanation": "Màn hình."
+    },
+    {
+      "question": "Em muốn nghe bài hát trên máy, thiết bị đầu ra nào cần hoạt động?",
+      "options": [
+        "Máy quét",
+        "Loa hoặc tai nghe",
+        "Bàn phím",
+        "Chuột"
+      ],
+      "correctIndex": 1,
+      "explanation": "Loa hoặc tai nghe."
+    },
+    {
+      "question": "Muốn nhập một câu bằng chữ, em thường sử dụng gì?",
+      "options": [
+        "Bàn phím",
+        "Máy in",
+        "Loa",
+        "Màn hình thường"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bàn phím."
+    },
+    {
+      "question": "Máy tính bảng thường nhận thao tác của em qua đâu?",
+      "options": [
+        "Máy in",
+        "Ổ cắm",
+        "Loa",
+        "Màn hình cảm ứng"
+      ],
+      "correctIndex": 3,
+      "explanation": "Màn hình cảm ứng."
+    },
+    {
+      "question": "Để chọn nút trên màn hình máy tính để bàn, em thường điều khiển gì?",
+      "options": [
+        "Loa",
+        "Máy in",
+        "Con trỏ chuột",
+        "Dây nguồn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Con trỏ chuột."
+    },
+    {
+      "question": "Nếu màn hình tắt còn thân máy bật, em có nhìn thấy hình ảnh máy tạo ra không?",
+      "options": [
+        "Chỉ cần bàn phím",
+        "Không",
+        "Có luôn",
+        "Chỉ cần loa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Không."
+    },
+    {
+      "question": "Thiết bị nào có thể in bài viết em đã lưu?",
+      "options": [
+        "Máy in",
+        "Micro",
+        "Chuột",
+        "Bàn phím"
+      ],
+      "correctIndex": 0,
+      "explanation": "Máy in."
+    },
+    {
+      "question": "Thân máy của máy tính để bàn có vai trò gì?",
+      "options": [
+        "Chỉ phát tiếng",
+        "Chỉ nhập chữ",
+        "Chỉ in ảnh",
+        "Chứa bộ phận xử lí và lưu trữ chính"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chứa bộ phận xử lí và lưu trữ chính."
+    },
+    {
+      "question": "Tai nghe đưa thông tin dạng nào tới em?",
+      "options": [
+        "Mùi hương",
+        "Vị ngọt",
+        "Âm thanh",
+        "Hình ảnh"
+      ],
+      "correctIndex": 2,
+      "explanation": "Âm thanh."
+    },
+    {
+      "question": "Máy quét giúp đưa loại thông tin nào từ giấy vào máy?",
+      "options": [
+        "Mùi giấy",
+        "Hình ảnh tài liệu",
+        "Âm thanh loa",
+        "Nhiệt độ phòng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hình ảnh tài liệu."
     }
   ]
 }

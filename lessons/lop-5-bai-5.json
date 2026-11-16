@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 5. Bản quyền nội dung thông tin",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Ai thường có quyền đối với một bức ảnh do mình sáng tạo?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Vì không trung thực và xâm phạm quyền của người tạo."
+    },
+    {
+      "question": "Một bài hát trên mạng có thể có quyền của ai?",
+      "options": [
+        "Người tải đầu tiên",
+        "Người đổi tên tệp",
+        "Tác giả hoặc chủ sở hữu hợp pháp",
+        "Người nghe đầu tiên"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tác giả hoặc chủ sở hữu hợp pháp."
+    },
+    {
+      "question": "Khi lấy ảnh cho bài trình bày, bước nào đúng?",
+      "options": [
+        "Đăng lại tùy ý",
+        "Kiểm tra quyền sử dụng và ghi nguồn phù hợp",
+        "Xóa tên người chụp",
+        "Nhận là mình chụp"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kiểm tra quyền sử dụng và ghi nguồn phù hợp."
+    },
+    {
+      "question": "Nội dung được chia sẻ miễn phí có nghĩa là gì?",
+      "options": [
+        "Có thể dùng theo điều kiện được công bố",
+        "Không có tác giả",
+        "Được bán lại luôn",
+        "Được xóa nguồn luôn"
+      ],
+      "correctIndex": 0,
+      "explanation": "Có thể dùng theo điều kiện được công bố."
+    },
+    {
+      "question": "Nếu tác giả ghi 'không được sửa đổi', em nên làm gì?",
+      "options": [
+        "Sửa rồi nhận là của mình",
+        "Xóa điều kiện",
+        "Chia sẻ bản sửa",
+        "Tuân thủ điều kiện hoặc chọn tư liệu khác"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tuân thủ điều kiện hoặc chọn tư liệu khác."
+    },
+    {
+      "question": "Vì sao cần dẫn nguồn khi dùng thông tin?",
+      "options": [
+        "Tạo mật khẩu",
+        "Thay trang web",
+        "Tôn trọng người tạo và giúp kiểm tra",
+        "Làm máy nhanh"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tôn trọng người tạo và giúp kiểm tra."
+    },
+    {
+      "question": "Nếu muốn dùng toàn bộ video của người khác, em nên làm gì?",
+      "options": [
+        "Đổi màu video",
+        "Xem điều kiện sử dụng hoặc xin phép",
+        "Đăng lại ngay",
+        "Xóa tên tác giả"
+      ],
+      "correctIndex": 1,
+      "explanation": "Xem điều kiện sử dụng hoặc xin phép."
+    },
+    {
+      "question": "Bản quyền áp dụng cho nội dung nào?",
+      "options": [
+        "Nhiều loại tác phẩm như ảnh, chữ, nhạc và video",
+        "Chỉ phần mềm có phí",
+        "Chỉ tệp giấy",
+        "Chỉ ảnh đen trắng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nhiều loại tác phẩm như ảnh, chữ, nhạc và video."
+    },
+    {
+      "question": "Việc sao chép bài bạn và nộp như bài mình là gì?",
+      "options": [
+        "Cách ghi nguồn",
+        "Cách xin phép",
+        "Cách học đúng",
+        "Không trung thực và không tôn trọng công sức bạn"
+      ],
+      "correctIndex": 3,
+      "explanation": "Không trung thực và không tôn trọng công sức bạn."
+    },
+    {
+      "question": "Khi không rõ một ảnh có được dùng không, em nên gì?",
+      "options": [
+        "Che tên tác giả",
+        "Đổi đuôi tệp",
+        "Tìm điều kiện hoặc chọn ảnh có quyền dùng rõ ràng",
+        "Dùng ngay"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tìm điều kiện hoặc chọn ảnh có quyền dùng rõ ràng."
+    },
+    {
+      "question": "Lan muốn đưa ảnh của một tác giả vào bài trình chiếu. Trang ảnh cho phép dùng khi ghi tên tác giả. Lan nên làm gì?",
+      "options": [
+        "Không cần đọc điều kiện vì ảnh xem được",
+        "Dùng ảnh và ghi tên tác giả theo điều kiện",
+        "Dùng ảnh rồi xóa tên tác giả",
+        "Nói mình chụp ảnh"
+      ],
+      "correctIndex": 1,
+      "explanation": "Quyền sử dụng do tác giả nêu cần được tuân thủ, kể cả khi ảnh được dùng miễn phí."
     }
   ]
 }

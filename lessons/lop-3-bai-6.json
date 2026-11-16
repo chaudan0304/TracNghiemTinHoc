@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 6. Khám phá thông tin trên Internet",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Internet giúp em thực hiện việc nào?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Xem tài liệu phù hợp và trao đổi với thầy cô."
+    },
+    {
+      "question": "Muốn xem một trang web học tập, máy thường cần kết nối gì?",
+      "options": [
+        "Thẻ nhớ trống",
+        "Loa ngoài",
+        "Internet",
+        "Máy in"
+      ],
+      "correctIndex": 2,
+      "explanation": "Internet."
+    },
+    {
+      "question": "Khi trình duyệt mở, em nhập địa chỉ website vào đâu?",
+      "options": [
+        "Tên tệp",
+        "Thanh địa chỉ",
+        "Ô âm lượng",
+        "Thùng rác"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thanh địa chỉ."
+    },
+    {
+      "question": "Liên kết trên trang web có thể đưa em tới đâu?",
+      "options": [
+        "Trang hoặc nội dung khác",
+        "Ổ điện",
+        "Bàn phím khác",
+        "Máy in khác"
+      ],
+      "correctIndex": 0,
+      "explanation": "Trang hoặc nội dung khác."
+    },
+    {
+      "question": "Nếu video học tập phát quá nhanh, em nên làm gì?",
+      "options": [
+        "Xóa trình duyệt",
+        "Rút mạng",
+        "Tắt loa luôn",
+        "Tạm dừng hoặc xem lại"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tạm dừng hoặc xem lại."
+    },
+    {
+      "question": "Khi gặp trang hỏi địa chỉ nhà, em nên làm gì?",
+      "options": [
+        "Đăng lên nhóm",
+        "Gửi cho người lạ",
+        "Hỏi người lớn trước, không tự cung cấp",
+        "Nhập ngay"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hỏi người lớn trước, không tự cung cấp."
+    },
+    {
+      "question": "Nội dung Internet nào có thể hỗ trợ bài học?",
+      "options": [
+        "Tệp không rõ nguồn",
+        "Hình ảnh và video phù hợp",
+        "Mọi quảng cáo lạ",
+        "Mật khẩu người khác"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hình ảnh và video phù hợp."
+    },
+    {
+      "question": "Nếu thấy thông tin kỳ lạ trên web, cách nào hợp lí?",
+      "options": [
+        "Kiểm tra với thầy cô hoặc nguồn đáng tin",
+        "Tin ngay",
+        "Chia sẻ khắp nơi",
+        "Xóa mọi dữ liệu máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Kiểm tra với thầy cô hoặc nguồn đáng tin."
+    },
+    {
+      "question": "Trình duyệt web có chức năng nào?",
+      "options": [
+        "Tạo điện",
+        "Thay chuột hỏng",
+        "In giấy không cần máy in",
+        "Hiển thị và điều hướng trang web"
+      ],
+      "correctIndex": 3,
+      "explanation": "Hiển thị và điều hướng trang web."
+    },
+    {
+      "question": "Để trở lại trang trước, em thường chọn gì?",
+      "options": [
+        "Nút Nguồn",
+        "Nút In",
+        "Nút Quay lại",
+        "Nút Xóa tệp"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nút Quay lại."
+    },
+    {
+      "question": "Vì sao cần dùng Internet có hướng dẫn ở lứa tuổi tiểu học?",
+      "options": [
+        "Vì máy luôn tự bảo vệ",
+        "Để chọn nội dung phù hợp và tránh rủi ro",
+        "Vì mọi trang đều giống nhau",
+        "Vì không có gì cần kiểm tra"
+      ],
+      "correctIndex": 1,
+      "explanation": "Để chọn nội dung phù hợp và tránh rủi ro."
     }
   ]
 }

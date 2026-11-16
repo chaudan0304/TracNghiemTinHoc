@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 14. Sử dụng biến trong chương trình",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Biến trong chương trình dùng để làm gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Giá trị biến điểm."
+    },
+    {
+      "question": "Trong Scratch, biến 'trả lời' lưu gì sau lệnh hỏi và đợi?",
+      "options": [
+        "Màu nền",
+        "Số phím",
+        "Nội dung người dùng nhập",
+        "Tên máy in"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nội dung người dùng nhập."
+    },
+    {
+      "question": "Khi người dùng gõ 'An' rồi Enter, biến trả lời có giá trị gì?",
+      "options": [
+        "Tên nhân vật",
+        "An",
+        "Enter",
+        "0 luôn"
+      ],
+      "correctIndex": 1,
+      "explanation": "An."
+    },
+    {
+      "question": "Muốn tạo biến tự đặt tên, em chọn gì?",
+      "options": [
+        "Tạo một biến",
+        "Tạo phông nền",
+        "Xóa sân khấu",
+        "Đổi loa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tạo một biến."
+    },
+    {
+      "question": "Muốn biến điểm ban đầu bằng 0, em dùng lệnh nào?",
+      "options": [
+        "Thay đổi điểm một lượng 1",
+        "Xóa nhân vật",
+        "Đổi tên dự án",
+        "Đặt điểm thành 0"
+      ],
+      "correctIndex": 3,
+      "explanation": "Đặt điểm thành 0."
+    },
+    {
+      "question": "Nếu điểm đang 4 và tăng một lượng 3, điểm mới là gì?",
+      "options": [
+        "4",
+        "12",
+        "7",
+        "1"
+      ],
+      "correctIndex": 2,
+      "explanation": "7."
+    },
+    {
+      "question": "Nếu muốn thấy giá trị biến trên sân khấu, em có thể làm gì?",
+      "options": [
+        "Đổi chuột",
+        "Bật hiển thị biến",
+        "Tắt màn hình",
+        "Xóa biến"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bật hiển thị biến."
+    },
+    {
+      "question": "Biến lưu giá trị có thể thay đổi khi nào?",
+      "options": [
+        "Khi chương trình cập nhật",
+        "Chỉ khi in giấy",
+        "Không bao giờ",
+        "Chỉ khi tắt máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Khi chương trình cập nhật."
+    },
+    {
+      "question": "Vì sao đặt tên biến 'số điểm' hữu ích?",
+      "options": [
+        "Làm máy nhanh",
+        "Tạo điện",
+        "Đổi giao diện",
+        "Cho biết biến dùng để lưu gì"
+      ],
+      "correctIndex": 3,
+      "explanation": "Cho biết biến dùng để lưu gì."
+    },
+    {
+      "question": "Nếu chương trình hỏi tên rồi nói lời chào có tên, cần dùng gì?",
+      "options": [
+        "Chỉ nút dừng",
+        "Chỉ âm lượng",
+        "Giá trị biến trả lời",
+        "Chỉ hình nền"
+      ],
+      "correctIndex": 2,
+      "explanation": "Giá trị biến trả lời."
+    },
+    {
+      "question": "Chương trình đặt biến điểm thành 0, rồi thay đổi điểm một lượng 3 hai lần. Giá trị cuối là gì?",
+      "options": [
+        "9",
+        "6",
+        "3",
+        "0"
+      ],
+      "correctIndex": 1,
+      "explanation": "Biến bắt đầu ở 0; mỗi lần tăng 3 nên sau hai lần có giá trị 6."
     }
   ]
 }

@@ -3,68 +3,228 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Luyện tập bổ sung: Tìm kiếm thông tin trên Internet",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Phần mềm nào sau đây là trình duyệt web giúp em truy cập các trang tin trên Internet?",
-      "options": ["Microsoft Word", "Google Chrome", "Paint", "Calculator"],
+      "options": [
+        "Microsoft Word",
+        "Google Chrome",
+        "Paint",
+        "Calculator"
+      ],
       "correctIndex": 1,
       "explanation": "Google Chrome (cùng với Cốc Cốc, Microsoft Edge, Firefox...) là trình duyệt web dùng để duyệt Internet."
     },
     {
       "question": "Website nào dưới đây là một máy tìm kiếm (Search Engine) phổ biến nhất hiện nay?",
-      "options": ["www.google.com", "www.youtube.com", "paint.exe", "notepad.exe"],
+      "options": [
+        "www.google.com",
+        "www.youtube.com",
+        "paint.exe",
+        "notepad.exe"
+      ],
       "correctIndex": 0,
       "explanation": "Google là máy tìm kiếm phổ biến hàng đầu thế giới giúp tra cứu thông tin theo từ khóa."
     },
     {
       "question": "Khi muốn tìm kiếm thông tin về 'loài gấu trúc', cụm từ nào là từ khóa tìm kiếm tốt nhất?",
-      "options": ["Tôi muốn hỏi con gấu trúc sống ở đâu", "gấu trúc", "tìm kiếm thông tin nhanh nhất", "con gì thích ăn tre trúc"],
+      "options": [
+        "Tôi muốn hỏi con gấu trúc sống ở đâu",
+        "gấu trúc",
+        "tìm kiếm thông tin nhanh nhất",
+        "con gì thích ăn tre trúc"
+      ],
       "correctIndex": 1,
       "explanation": "Từ khóa tìm kiếm nên ngắn gọn, chứa nội dung trọng tâm như 'gấu trúc' để kết quả tìm kiếm chính xác nhất."
     },
     {
       "question": "Để tìm chính xác cụm từ 'Vườn quốc gia Cúc Phương', em nên đặt cụm từ trong cặp dấu nào?",
-      "options": ["Dấu ngoặc đơn ( )", "Dấu ngoặc kép \" \"", "Dấu ngoặc vuông [ ]", "Dấu ngoặc nhọn { }"],
+      "options": [
+        "Dấu ngoặc đơn ( )",
+        "Dấu ngoặc kép \" \"",
+        "Dấu ngoặc vuông [ ]",
+        "Dấu ngoặc nhọn { }"
+      ],
       "correctIndex": 1,
       "explanation": "Đặt từ khóa trong dấu ngoặc kép \" \" giúp máy tìm kiếm tra cứu chính xác thứ tự các từ trong cụm từ đó."
     },
     {
       "question": "Khi tìm kiếm thông tin trên Internet, kết quả trả về thường hiển thị dưới dạng nào?",
-      "options": ["Danh sách các liên kết (đường link) kèm tiêu đề và đoạn tóm tắt", "Một tệp văn bản in sẵn trên máy in", "Một cuộc gọi video", "Một bài hát tự động phát"],
+      "options": [
+        "Danh sách các liên kết (đường link) kèm tiêu đề và đoạn tóm tắt",
+        "Một tệp văn bản in sẵn trên máy in",
+        "Một cuộc gọi video",
+        "Một bài hát tự động phát"
+      ],
       "correctIndex": 0,
       "explanation": "Máy tìm kiếm trả về danh sách liên kết dẫn đến các trang web liên quan đến từ khóa em cần tìm."
     },
     {
       "question": "Trước khi tin tưởng và sử dụng một thông tin tìm thấy trên mạng, em cần làm gì?",
-      "options": ["Tin ngay lập tức vì cái gì trên mạng cũng đúng", "Kiểm tra nguồn gốc trang web và hỏi ý kiến thầy cô, cha mẹ", "Chia sẻ ngay cho tất cả bạn bè", "Xóa hết sách giáo khoa"],
+      "options": [
+        "Tin ngay lập tức vì cái gì trên mạng cũng đúng",
+        "Kiểm tra nguồn gốc trang web và hỏi ý kiến thầy cô, cha mẹ",
+        "Chia sẻ ngay cho tất cả bạn bè",
+        "Xóa hết sách giáo khoa"
+      ],
       "correctIndex": 1,
       "explanation": "Thông tin trên mạng có thể chưa chính xác, em nên đối chiếu với các nguồn uy tín và tham khảo thầy cô, người lớn."
     },
     {
       "question": "Em muốn tìm hình ảnh minh họa về 'máy tính để bàn', em nên chọn thẻ nào trên trang kết quả Google?",
-      "options": ["Tất cả (All)", "Hình ảnh (Images)", "Bản đồ (Maps)", "Tài chính (Finance)"],
+      "options": [
+        "Tất cả (All)",
+        "Hình ảnh (Images)",
+        "Bản đồ (Maps)",
+        "Tài chính (Finance)"
+      ],
       "correctIndex": 1,
       "explanation": "Thẻ 'Hình ảnh' (Images) lọc riêng các tệp tranh, ảnh theo từ khóa em đã nhập."
     },
     {
       "question": "Thao tác nào giúp em mở nhanh một liên kết trong trang kết quả tìm kiếm?",
-      "options": ["Nháy đúp chuột phải", "Nháy chuột trái vào dòng tiêu đề liên kết màu xanh", "Kéo thanh cuộn lên xuống liên tục", "Nhấn tổ hợp phím Alt + F4"],
+      "options": [
+        "Nháy đúp chuột phải",
+        "Nháy chuột trái vào dòng tiêu đề liên kết màu xanh",
+        "Kéo thanh cuộn lên xuống liên tục",
+        "Nhấn tổ hợp phím Alt + F4"
+      ],
       "correctIndex": 1,
       "explanation": "Nháy chuột trái vào liên kết sẽ mở trang web chứa thông tin chi tiết."
     },
     {
       "question": "Nếu từ khóa tìm kiếm cho ra quá nhiều kết quả không liên quan, em nên làm gì?",
-      "options": ["Từ bỏ không tìm kiếm nữa", "Thêm các từ khóa mô tả chi tiết hơn hoặc dùng dấu ngoặc kép", "Tắt máy tính đi ngủ", "Khởi động lại máy tính"],
+      "options": [
+        "Từ bỏ không tìm kiếm nữa",
+        "Thêm các từ khóa mô tả chi tiết hơn hoặc dùng dấu ngoặc kép",
+        "Tắt máy tính đi ngủ",
+        "Khởi động lại máy tính"
+      ],
       "correctIndex": 1,
       "explanation": "Thu hẹp phạm vi tìm kiếm bằng cách bổ sung thêm từ khóa cụ thể hoặc đặt trong dấu ngoặc kép."
     },
     {
       "question": "Hành động nào sau đây là an toàn khi lướt web tìm kiếm tài liệu học tập?",
-      "options": ["Nhấp vào các quảng cáo trúng thưởng hoặc link mời gọi hấp dẫn", "Tải về các tệp có đuôi .exe lạ khi chưa hỏi người lớn", "Chỉ truy cập các trang web giáo dục, trang học tập uy tín", "Nhập thông tin cá nhân và số điện thoại khi có trang web yêu cầu"],
+      "options": [
+        "Nhấp vào các quảng cáo trúng thưởng hoặc link mời gọi hấp dẫn",
+        "Tải về các tệp có đuôi .exe lạ khi chưa hỏi người lớn",
+        "Chỉ truy cập các trang web giáo dục, trang học tập uy tín",
+        "Nhập thông tin cá nhân và số điện thoại khi có trang web yêu cầu"
+      ],
       "correctIndex": 2,
       "explanation": "Chỉ truy cập các trang thông tin giáo dục chính thống, không bấm vào quảng cáo hay liên kết đáng ngờ."
+    },
+    {
+      "question": "Từ khóa nào phù hợp để tìm vòng đời của bướm?",
+      "options": [
+        "màu sắc",
+        "máy tính",
+        "vòng đời của bướm",
+        "động vật"
+      ],
+      "correctIndex": 2,
+      "explanation": "vòng đời của bướm."
+    },
+    {
+      "question": "Nếu kết quả tìm kiếm quá nhiều, em nên làm gì?",
+      "options": [
+        "Nhập mật khẩu",
+        "Dùng từ khóa cụ thể hơn",
+        "Xóa trình duyệt",
+        "Tắt màn hình"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dùng từ khóa cụ thể hơn."
+    },
+    {
+      "question": "Trước khi tin một kết quả, em cần kiểm tra gì?",
+      "options": [
+        "Nội dung và nguồn đăng",
+        "Màu chuột",
+        "Giá máy",
+        "Số phím"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nội dung và nguồn đăng."
+    },
+    {
+      "question": "Tìm giờ mở cửa bảo tàng, nguồn nào đáng tin hơn?",
+      "options": [
+        "Bình luận không rõ người viết",
+        "Quảng cáo bất kì",
+        "Tin nhắn lạ",
+        "Website chính thức của bảo tàng"
+      ],
+      "correctIndex": 3,
+      "explanation": "Website chính thức của bảo tàng."
+    },
+    {
+      "question": "Nếu gõ sai chính tả từ khóa, em nên làm gì?",
+      "options": [
+        "Đổi loa",
+        "Tắt Internet luôn",
+        "Sửa lại từ khóa",
+        "Xóa máy"
+      ],
+      "correctIndex": 2,
+      "explanation": "Sửa lại từ khóa."
+    },
+    {
+      "question": "Liên kết trong kết quả tìm kiếm dẫn tới gì?",
+      "options": [
+        "Máy in",
+        "Trang chứa thông tin liên quan",
+        "Ổ điện",
+        "Bàn phím"
+      ],
+      "correctIndex": 1,
+      "explanation": "Trang chứa thông tin liên quan."
+    },
+    {
+      "question": "Khi hai trang đưa thông tin khác nhau, em nên làm gì?",
+      "options": [
+        "Đối chiếu thêm nguồn đáng tin",
+        "Chọn ngẫu nhiên",
+        "Chia sẻ cả hai như đúng",
+        "Chỉ xem ảnh"
+      ],
+      "correctIndex": 0,
+      "explanation": "Đối chiếu thêm nguồn đáng tin."
+    },
+    {
+      "question": "Vì sao nên xem ngày đăng khi tìm lịch sự kiện?",
+      "options": [
+        "Để đổi phông chữ",
+        "Để tăng mạng",
+        "Để xóa tệp",
+        "Lịch có thể đã thay đổi"
+      ],
+      "correctIndex": 3,
+      "explanation": "Lịch có thể đã thay đổi."
+    },
+    {
+      "question": "Khi tìm thấy bài phù hợp, em có thể ghi lại gì?",
+      "options": [
+        "Tên dây điện",
+        "Số phím",
+        "Ý chính và nguồn",
+        "Mật khẩu người khác"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ý chính và nguồn."
+    },
+    {
+      "question": "Từ khóa tốt nên thế nào?",
+      "options": [
+        "Luôn là mật khẩu",
+        "Nêu đủ ý cần tìm và không quá mơ hồ",
+        "Luôn là một chữ bất kì",
+        "Càng dài vô nghĩa càng tốt"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nêu đủ ý cần tìm và không quá mơ hồ."
     }
   ]
 }

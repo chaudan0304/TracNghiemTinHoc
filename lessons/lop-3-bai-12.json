@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 12. Tìm hiểu về thế giới tự nhiên",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Trong phần mềm mô phỏng Hệ Mặt Trời, em có thể tìm hiểu gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Cách thể hiện đối tượng hoặc hiện tượng để học và quan sát."
+    },
+    {
+      "question": "Trong mô phỏng Hệ Mặt Trời, Mặt Trời là gì?",
+      "options": [
+        "Một vệ tinh của Trái Đất",
+        "Một chiếc máy",
+        "Một ngôi sao",
+        "Một hành tinh"
+      ],
+      "correctIndex": 2,
+      "explanation": "Một ngôi sao."
+    },
+    {
+      "question": "Trái Đất thuộc nhóm nào trong Hệ Mặt Trời?",
+      "options": [
+        "Vệ tinh nhân tạo duy nhất",
+        "Hành tinh",
+        "Ngôi sao",
+        "Dây cáp"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hành tinh."
+    },
+    {
+      "question": "Mặt Trăng là vệ tinh tự nhiên của thiên thể nào?",
+      "options": [
+        "Trái Đất",
+        "Mặt Trời",
+        "Sao Hỏa",
+        "Sao Mộc"
+      ],
+      "correctIndex": 0,
+      "explanation": "Trái Đất."
+    },
+    {
+      "question": "Khi phần mềm cho xoay góc nhìn, em có thể làm gì?",
+      "options": [
+        "Đổi hành tinh thật",
+        "Tắt Internet toàn cầu",
+        "Xóa ngôi sao",
+        "Quan sát mô hình từ hướng khác"
+      ],
+      "correctIndex": 3,
+      "explanation": "Quan sát mô hình từ hướng khác."
+    },
+    {
+      "question": "Hình mô phỏng quỹ đạo giúp em thấy điều gì?",
+      "options": [
+        "Tốc độ gõ phím",
+        "Giá máy",
+        "Đường chuyển động biểu diễn của thiên thể",
+        "Mật khẩu phần mềm"
+      ],
+      "correctIndex": 2,
+      "explanation": "Đường chuyển động biểu diễn của thiên thể."
+    },
+    {
+      "question": "Nếu phần mềm hiện tên hành tinh khi nháy vào, thao tác nào giúp biết tên?",
+      "options": [
+        "Đóng ứng dụng",
+        "Nháy chọn hành tinh",
+        "Tắt màn hình",
+        "Rút chuột"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nháy chọn hành tinh."
+    },
+    {
+      "question": "Khi mô phỏng chạy nhanh, em có thể làm gì để quan sát kĩ?",
+      "options": [
+        "Tạm dừng hoặc giảm tốc nếu có chức năng",
+        "Xóa mô hình",
+        "Đổi tên máy",
+        "Tăng âm lượng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tạm dừng hoặc giảm tốc nếu có chức năng."
+    },
+    {
+      "question": "Vì sao cần phân biệt mô phỏng và vật thật?",
+      "options": [
+        "Mô phỏng luôn giống kích thước thật",
+        "Mô phỏng tạo ra thiên thể",
+        "Không có khác biệt nào",
+        "Mô phỏng giúp học nhưng không phải vật thật"
+      ],
+      "correctIndex": 3,
+      "explanation": "Mô phỏng giúp học nhưng không phải vật thật."
+    },
+    {
+      "question": "Muốn kể lại điều vừa học từ phần mềm, em nên dựa vào gì?",
+      "options": [
+        "Tên tệp bất kì",
+        "Mật khẩu",
+        "Điều đã quan sát và thông tin đi kèm",
+        "Màu bàn phím"
+      ],
+      "correctIndex": 2,
+      "explanation": "Điều đã quan sát và thông tin đi kèm."
+    },
+    {
+      "question": "Một mô phỏng cho thấy các hành tinh quay quanh Mặt Trời nhưng kích thước được vẽ lớn để dễ nhìn. Em nên hiểu hình đó thế nào?",
+      "options": [
+        "Không thể học gì từ mô phỏng",
+        "Dùng mô phỏng để học chuyển động, không coi kích thước vẽ là kích thước thật",
+        "Mọi hành tinh ngoài đời lớn đúng bằng hình",
+        "Mô phỏng tạo ra các hành tinh thật"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mô phỏng giúp quan sát hiện tượng; hình vẽ có thể thay đổi tỉ lệ để dễ học."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 12B. Phần mềm luyện gõ bàn phím",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Phần mềm luyện gõ bàn phím giúp em làm gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Tốc độ và độ chính xác để cải thiện."
+    },
+    {
+      "question": "Phần mềm luyện gõ giúp theo dõi gì?",
+      "options": [
+        "Giá bàn phím",
+        "Số trang web",
+        "Tốc độ và độ chính xác",
+        "Độ cao ghế tự động"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tốc độ và độ chính xác."
+    },
+    {
+      "question": "Khi bài luyện yêu cầu phím A, em nên dùng ngón nào theo hàng cơ sở?",
+      "options": [
+        "Ngón giữa phải",
+        "Ngón út trái",
+        "Ngón trỏ phải",
+        "Ngón cái"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ngón út trái."
+    },
+    {
+      "question": "Khi bài luyện yêu cầu phím L, em nên dùng ngón nào theo hàng cơ sở?",
+      "options": [
+        "Ngón áp út phải",
+        "Ngón trỏ trái",
+        "Ngón cái",
+        "Ngón út trái"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ngón áp út phải."
+    },
+    {
+      "question": "Nếu phần mềm báo sai nhiều ở một hàng phím, em nên làm gì?",
+      "options": [
+        "Bỏ qua mọi lỗi",
+        "Gõ nhanh hơn",
+        "Đập phím",
+        "Luyện lại hàng phím đó chậm và đúng"
+      ],
+      "correctIndex": 3,
+      "explanation": "Luyện lại hàng phím đó chậm và đúng."
+    },
+    {
+      "question": "Tư thế nào phù hợp khi luyện gõ lâu?",
+      "options": [
+        "Gồng vai",
+        "Nằm gõ",
+        "Ngồi thẳng và nghỉ ngắn khi cần",
+        "Cúi sát"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ngồi thẳng và nghỉ ngắn khi cần."
+    },
+    {
+      "question": "Vì sao không nên nhìn bàn phím liên tục?",
+      "options": [
+        "Tệp mất",
+        "Khó rèn thói quen gõ bằng vị trí ngón",
+        "Máy tự tắt",
+        "Loa ngừng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Khó rèn thói quen gõ bằng vị trí ngón."
+    },
+    {
+      "question": "Phím F và J có gờ giúp gì?",
+      "options": [
+        "Định vị ngón trỏ",
+        "Tăng âm lượng",
+        "Đổi màn hình",
+        "Mở máy in"
+      ],
+      "correctIndex": 0,
+      "explanation": "Định vị ngón trỏ."
+    },
+    {
+      "question": "Khi tốc độ tăng nhưng lỗi nhiều, em nên ưu tiên gì?",
+      "options": [
+        "Tốc độ bằng mọi giá",
+        "Màu phím",
+        "Âm lượng",
+        "Độ chính xác"
+      ],
+      "correctIndex": 3,
+      "explanation": "Độ chính xác."
+    },
+    {
+      "question": "Nếu muốn tập bài dễ trước, em chọn gì trong phần mềm?",
+      "options": [
+        "Nút xóa",
+        "Nút thoát ngay",
+        "Bài tập phù hợp trình độ hiện tại",
+        "Bài bất kì khó nhất"
+      ],
+      "correctIndex": 2,
+      "explanation": "Bài tập phù hợp trình độ hiện tại."
+    },
+    {
+      "question": "Sau buổi luyện, em có thể nhìn kết quả để làm gì?",
+      "options": [
+        "Xóa bài",
+        "Biết điểm cần cải thiện",
+        "Đổi tên máy",
+        "Tăng dung lượng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Biết điểm cần cải thiện."
     }
   ]
 }

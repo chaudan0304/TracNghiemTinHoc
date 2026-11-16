@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 3. Tìm kiếm thông tin trong giải quyết vấn đề",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Trước khi tìm thông tin để giải quyết vấn đề, em nên làm gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Để người khác kiểm tra thông tin."
+    },
+    {
+      "question": "Để giải quyết việc trồng cây nơi ít nắng, em cần thông tin nào?",
+      "options": [
+        "Màu bàn phím",
+        "Tên phần mềm nhạc",
+        "Loại cây chịu bóng và cách chăm sóc",
+        "Giá chuột"
+      ],
+      "correctIndex": 2,
+      "explanation": "Loại cây chịu bóng và cách chăm sóc."
+    },
+    {
+      "question": "Trước khi gõ từ khóa, em nên xác định gì?",
+      "options": [
+        "Số phím",
+        "Câu hỏi cụ thể cần trả lời",
+        "Màu nền web",
+        "Âm lượng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Câu hỏi cụ thể cần trả lời."
+    },
+    {
+      "question": "Nguồn nào phù hợp để tìm hướng dẫn sức khỏe học đường?",
+      "options": [
+        "Nguồn chính thức hoặc thầy cô đáng tin",
+        "Bình luận lạ",
+        "Quảng cáo không rõ nguồn",
+        "Tin nhắn ngẫu nhiên"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nguồn chính thức hoặc thầy cô đáng tin."
+    },
+    {
+      "question": "Khi hai nguồn nói khác nhau, em nên làm gì?",
+      "options": [
+        "Chọn ngẫu nhiên",
+        "Tin nguồn dài hơn",
+        "Chia sẻ ngay",
+        "Đối chiếu thêm và hỏi người có hiểu biết"
+      ],
+      "correctIndex": 3,
+      "explanation": "Đối chiếu thêm và hỏi người có hiểu biết."
+    },
+    {
+      "question": "Thông tin chỉ hữu ích cho giải pháp khi nào?",
+      "options": [
+        "Có nhiều quảng cáo",
+        "Có tiêu đề dài",
+        "Liên quan đến vấn đề và điều kiện thực tế",
+        "Có ảnh đẹp"
+      ],
+      "correctIndex": 2,
+      "explanation": "Liên quan đến vấn đề và điều kiện thực tế."
+    },
+    {
+      "question": "Nếu cần chọn đường đi đến bảo tàng, em cần biết gì?",
+      "options": [
+        "Tên tệp nhạc",
+        "Địa chỉ, phương tiện và thời gian phù hợp",
+        "Màu chuột",
+        "Số loa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Địa chỉ, phương tiện và thời gian phù hợp."
+    },
+    {
+      "question": "Sau khi tìm được nhiều ý, em nên làm gì?",
+      "options": [
+        "Chọn và sắp xếp ý liên quan",
+        "Chép tất cả",
+        "Xóa nguồn",
+        "Bỏ câu hỏi ban đầu"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chọn và sắp xếp ý liên quan."
+    },
+    {
+      "question": "Vì sao cần kiểm tra ngày cập nhật khi tìm lịch sự kiện?",
+      "options": [
+        "Màu web đổi",
+        "Máy tự tắt",
+        "Phím Enter hỏng",
+        "Lịch có thể thay đổi"
+      ],
+      "correctIndex": 3,
+      "explanation": "Lịch có thể thay đổi."
+    },
+    {
+      "question": "Khi trình bày cách giải quyết, em nên nêu gì?",
+      "options": [
+        "Tên ổ điện",
+        "Giá bàn phím",
+        "Lí do chọn thông tin và nguồn tham khảo",
+        "Mật khẩu"
+      ],
+      "correctIndex": 2,
+      "explanation": "Lí do chọn thông tin và nguồn tham khảo."
+    },
+    {
+      "question": "Hai trang đưa cách chăm một cây khác nhau. Trang thứ nhất không ghi nguồn, trang thứ hai là hướng dẫn của đơn vị chuyên môn và hợp điều kiện nhà em. Em nên làm gì?",
+      "options": [
+        "Bỏ qua điều kiện thực tế của nhà",
+        "Ưu tiên kiểm tra và vận dụng hướng dẫn từ nguồn chuyên môn phù hợp",
+        "Tin trang không ghi nguồn vì ngắn hơn",
+        "Chép cả hai mà không đối chiếu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Giải pháp cần dựa trên nguồn đáng tin và phù hợp điều kiện áp dụng."
     }
   ]
 }

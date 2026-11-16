@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 4. Làm việc với máy tính",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Khi ngồi làm việc với máy tính, lưng em nên như thế nào?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Nghỉ định kì và nhìn ra xa."
+    },
+    {
+      "question": "Khi mắt cách màn hình quá gần, em nên làm gì?",
+      "options": [
+        "Tăng sáng",
+        "Nhắm một mắt",
+        "Ngồi lùi ra khoảng cách phù hợp",
+        "Cúi sát hơn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ngồi lùi ra khoảng cách phù hợp."
+    },
+    {
+      "question": "Nếu chân không chạm sàn khi ngồi học máy, em nên làm gì?",
+      "options": [
+        "Đứng sát màn hình",
+        "Điều chỉnh ghế hoặc dùng chỗ kê chân phù hợp",
+        "Vắt chân lên bàn",
+        "Quỳ trên ghế"
+      ],
+      "correctIndex": 1,
+      "explanation": "Điều chỉnh ghế hoặc dùng chỗ kê chân phù hợp."
+    },
+    {
+      "question": "Tư thế nào giúp giữ cổ và vai thoải mái?",
+      "options": [
+        "Đầu thẳng, vai thả lỏng",
+        "Cúi gập cổ",
+        "Nghiêng hẳn một bên",
+        "Gồng vai liên tục"
+      ],
+      "correctIndex": 0,
+      "explanation": "Đầu thẳng, vai thả lỏng."
+    },
+    {
+      "question": "Khi cần tắt máy sau giờ học, em chọn gì?",
+      "options": [
+        "Rút phích điện ngay",
+        "Đóng nắp màn hình bằng lực",
+        "Xóa tệp hệ thống",
+        "Lệnh tắt máy đúng quy trình"
+      ],
+      "correctIndex": 3,
+      "explanation": "Lệnh tắt máy đúng quy trình."
+    },
+    {
+      "question": "Vì sao không để nước gần bàn phím và ổ điện?",
+      "options": [
+        "Làm chuột chậm hơn",
+        "Làm trang web mất màu",
+        "Có thể làm hỏng thiết bị và gây nguy hiểm điện",
+        "Làm chữ nhỏ hơn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Có thể làm hỏng thiết bị và gây nguy hiểm điện."
+    },
+    {
+      "question": "Nếu ánh sáng chiếu thẳng gây chói màn hình, em nên làm gì?",
+      "options": [
+        "Bỏ qua",
+        "Điều chỉnh vị trí màn hình hoặc ánh sáng",
+        "Nhìn sát hơn",
+        "Tăng sáng tối đa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Điều chỉnh vị trí màn hình hoặc ánh sáng."
+    },
+    {
+      "question": "Sau một thời gian sử dụng, em nên nhìn đâu để mắt nghỉ?",
+      "options": [
+        "Nhìn xa khỏi màn hình",
+        "Nhìn sát vào chữ nhỏ",
+        "Nhìn đèn sáng",
+        "Nhìn liên tục màn hình"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nhìn xa khỏi màn hình."
+    },
+    {
+      "question": "Khi tay đang ướt, em có nên chạm ổ cắm máy tính không?",
+      "options": [
+        "Có",
+        "Chỉ khi vội",
+        "Chỉ lúc chơi",
+        "Không"
+      ],
+      "correctIndex": 3,
+      "explanation": "Không."
+    },
+    {
+      "question": "Nếu giáo viên đang bảo trì máy, em nên làm gì?",
+      "options": [
+        "Bật tất cả công tắc",
+        "Rút mọi dây",
+        "Chờ hướng dẫn trước khi dùng",
+        "Tự mở nắp máy"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chờ hướng dẫn trước khi dùng."
+    },
+    {
+      "question": "Ngồi đúng tư thế có lợi ích nào?",
+      "options": [
+        "Thay được phần mềm",
+        "Giảm mỏi mắt và cơ thể",
+        "Làm mạng nhanh hơn",
+        "Tăng dung lượng máy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Giảm mỏi mắt và cơ thể."
     }
   ]
 }

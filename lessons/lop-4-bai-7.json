@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 7. Tạo bài trình chiếu",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Bài trình chiếu gồm các thành phần nào?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Giới thiệu lớp 4A."
+    },
+    {
+      "question": "Muốn giới thiệu một chủ đề bằng các ý nối tiếp, em nên dùng gì?",
+      "options": [
+        "Chỉ ảnh nền",
+        "Chỉ âm thanh",
+        "Nhiều trang chiếu theo trình tự",
+        "Một trang đầy kín chữ"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nhiều trang chiếu theo trình tự."
+    },
+    {
+      "question": "Trang đầu của bài trình chiếu thường chứa gì?",
+      "options": [
+        "Tên dây cáp",
+        "Tên chủ đề và người trình bày",
+        "Mật khẩu",
+        "Đường dẫn hệ thống"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tên chủ đề và người trình bày."
+    },
+    {
+      "question": "Nếu một trang chỉ có ảnh không liên quan, em nên làm gì?",
+      "options": [
+        "Thay ảnh phù hợp",
+        "Giữ nguyên",
+        "Thêm hiệu ứng",
+        "Xóa tiêu đề"
+      ],
+      "correctIndex": 0,
+      "explanation": "Thay ảnh phù hợp."
+    },
+    {
+      "question": "Muốn thêm trang để nói ý tiếp theo, em chọn gì?",
+      "options": [
+        "Xóa bài",
+        "Tắt máy",
+        "Đổi tên tệp",
+        "Trang chiếu mới"
+      ],
+      "correctIndex": 3,
+      "explanation": "Trang chiếu mới."
+    },
+    {
+      "question": "Vì sao cần lưu bài trong khi làm?",
+      "options": [
+        "Tăng âm lượng",
+        "Đổi chuột",
+        "Tránh mất nội dung đã tạo",
+        "Làm máy tự in"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tránh mất nội dung đã tạo."
+    },
+    {
+      "question": "Khi bài có nhiều trang, thứ tự cần thế nào?",
+      "options": [
+        "Không quan trọng",
+        "Phù hợp mạch trình bày",
+        "Ngẫu nhiên",
+        "Chỉ trang cuối trước"
+      ],
+      "correctIndex": 1,
+      "explanation": "Phù hợp mạch trình bày."
+    },
+    {
+      "question": "Muốn xem bài như lúc giới thiệu trước lớp, em chọn gì?",
+      "options": [
+        "Trình chiếu",
+        "Xóa trang",
+        "Đổi nền máy",
+        "Đóng ứng dụng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Trình chiếu."
+    },
+    {
+      "question": "Một tiêu đề tốt trên trang chiếu nên thế nào?",
+      "options": [
+        "Thật dài và khó đọc",
+        "Không liên quan",
+        "Trùng với mật khẩu",
+        "Nêu rõ ý chính của trang"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nêu rõ ý chính của trang."
+    },
+    {
+      "question": "Nếu chữ quá nhỏ, em nên làm gì?",
+      "options": [
+        "Che bằng hình",
+        "Tắt màn hình",
+        "Tăng cỡ chữ hoặc giảm bớt nội dung",
+        "Thêm chữ nữa"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tăng cỡ chữ hoặc giảm bớt nội dung."
+    },
+    {
+      "question": "Khi lưu bài về lớp học, tên nào rõ nhất?",
+      "options": [
+        "1",
+        "Giới thiệu lớp em",
+        "Mới",
+        "abc"
+      ],
+      "correctIndex": 1,
+      "explanation": "Giới thiệu lớp em."
     }
   ]
 }

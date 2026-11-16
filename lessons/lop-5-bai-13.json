@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 13. Cấu trúc rẽ nhánh",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Cấu trúc rẽ nhánh cho phép chương trình làm gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Biểu thức điều kiện và các lệnh trong từng nhánh."
+    },
+    {
+      "question": "Trong câu 'nếu chạm cạnh thì quay lại', điều kiện là gì?",
+      "options": [
+        "Nhân vật",
+        "Sân khấu",
+        "Chạm cạnh",
+        "Quay lại"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chạm cạnh."
+    },
+    {
+      "question": "Nếu điều kiện sai trong lệnh 'nếu ... thì', lệnh bên trong chạy không?",
+      "options": [
+        "Chỉ khi có loa",
+        "Không",
+        "Có luôn",
+        "Chỉ khi mạng nhanh"
+      ],
+      "correctIndex": 1,
+      "explanation": "Không."
+    },
+    {
+      "question": "Nhánh 'nếu không thì' chạy lúc nào?",
+      "options": [
+        "Khi điều kiện không đúng",
+        "Khi điều kiện đúng",
+        "Luôn trước điều kiện",
+        "Không bao giờ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Khi điều kiện không đúng."
+    },
+    {
+      "question": "Nếu điểm bằng 7, điều kiện 'điểm > 5' có đúng không?",
+      "options": [
+        "Sai",
+        "Không có kết quả",
+        "Chỉ đúng khi điểm = 5",
+        "Đúng"
+      ],
+      "correctIndex": 3,
+      "explanation": "Đúng."
+    },
+    {
+      "question": "Muốn nói 'Thắng' khi đủ điểm và 'Thử lại' khi chưa đủ, dùng gì?",
+      "options": [
+        "Chỉ lệnh di chuyển",
+        "Chỉ đổi nền",
+        "Rẽ nhánh hai trường hợp",
+        "Chỉ lệnh nói một câu"
+      ],
+      "correctIndex": 2,
+      "explanation": "Rẽ nhánh hai trường hợp."
+    },
+    {
+      "question": "Vì sao cần chạy thử cả hai trường hợp của rẽ nhánh?",
+      "options": [
+        "Để tạo ảnh",
+        "Để kiểm tra mỗi nhánh hoạt động đúng",
+        "Để tăng dung lượng",
+        "Để đổi loa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Để kiểm tra mỗi nhánh hoạt động đúng."
+    },
+    {
+      "question": "Nếu điều kiện kiểm tra sai dấu so sánh, điều gì có thể xảy ra?",
+      "options": [
+        "Chương trình chọn nhánh không đúng ý",
+        "Máy tự sửa hết",
+        "Bàn phím đổi màu",
+        "Loa tắt"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chương trình chọn nhánh không đúng ý."
+    },
+    {
+      "question": "Khi đèn xanh, theo quy tắc 'nếu đèn đỏ thì dừng', lệnh dừng có chạy do quy tắc đó không?",
+      "options": [
+        "Có luôn",
+        "Chỉ khi trời mưa",
+        "Chỉ khi có nhân vật",
+        "Không"
+      ],
+      "correctIndex": 3,
+      "explanation": "Không."
+    },
+    {
+      "question": "Cấu trúc rẽ nhánh khác tuần tự ở đâu?",
+      "options": [
+        "Chỉ phát nhạc",
+        "Chỉ đổi tên",
+        "Có lựa chọn hành động theo điều kiện",
+        "Không có lệnh nào"
+      ],
+      "correctIndex": 2,
+      "explanation": "Có lựa chọn hành động theo điều kiện."
+    },
+    {
+      "question": "Chương trình: nếu điểm ≥ 10 thì nói 'Thắng', nếu không thì nói 'Thử lại'. Điểm đang là 9. Nhân vật nói gì?",
+      "options": [
+        "Không câu nào dù có nhánh nếu không",
+        "Thử lại",
+        "Thắng",
+        "Cả hai câu cùng lúc"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vì 9 chưa đạt 10, chương trình chạy nhánh 'nếu không'."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 2. Gõ bàn phím đúng cách",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Khi gõ bàn phím đúng cách, em nên dùng bao nhiêu bàn tay?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Ngồi thẳng và thả lỏng vai."
+    },
+    {
+      "question": "Khi ngón trỏ trái đặt ở F, ngón trỏ phải nên đặt ở đâu?",
+      "options": [
+        "Q",
+        "Z",
+        "J",
+        "A"
+      ],
+      "correctIndex": 2,
+      "explanation": "J."
+    },
+    {
+      "question": "Gõ văn bản ngắn đúng cách giúp rèn gì?",
+      "options": [
+        "Chỉ dùng một ngón",
+        "Sử dụng ngón tay đúng vị trí",
+        "Đập phím thật mạnh",
+        "Nhìn sát bàn phím"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sử dụng ngón tay đúng vị trí."
+    },
+    {
+      "question": "Khi gõ một phím ở hàng dưới, ngón tay sau đó về đâu?",
+      "options": [
+        "Hàng phím cơ sở",
+        "Trên chuột",
+        "Trên màn hình",
+        "Ngoài bàn"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hàng phím cơ sở."
+    },
+    {
+      "question": "Vì sao nên giữ vai thả lỏng khi gõ?",
+      "options": [
+        "Tăng âm lượng",
+        "Tự sửa lỗi gõ",
+        "Làm phím to hơn",
+        "Giảm mỏi và giữ tư thế thoải mái"
+      ],
+      "correctIndex": 3,
+      "explanation": "Giảm mỏi và giữ tư thế thoải mái."
+    },
+    {
+      "question": "Nếu chữ xuất hiện sai nhiều, em nên ưu tiên gì?",
+      "options": [
+        "Bỏ qua lỗi",
+        "Đổi màu bàn phím",
+        "Độ chính xác trước khi tăng tốc",
+        "Gõ nhanh hơn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Độ chính xác trước khi tăng tốc."
+    },
+    {
+      "question": "Phím Space được gõ bằng ngón nào khi gõ đúng cách?",
+      "options": [
+        "Ngón giữa",
+        "Ngón cái",
+        "Ngón trỏ",
+        "Ngón út"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ngón cái."
+    },
+    {
+      "question": "Nếu phải gõ dấu tiếng Việt, em nên làm gì?",
+      "options": [
+        "Sử dụng kiểu gõ đã được hướng dẫn",
+        "Nhấn ngẫu nhiên",
+        "Chỉ dùng phím số",
+        "Tắt phần mềm gõ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sử dụng kiểu gõ đã được hướng dẫn."
+    },
+    {
+      "question": "Khi mắt chỉ nhìn phím và không nhìn kết quả, dễ xảy ra gì?",
+      "options": [
+        "Máy tự sửa hết",
+        "Loa ngừng",
+        "Tệp tự xóa",
+        "Khó phát hiện lỗi trong văn bản"
+      ],
+      "correctIndex": 3,
+      "explanation": "Khó phát hiện lỗi trong văn bản."
+    },
+    {
+      "question": "Luyện gõ đều đặn có lợi ích nào?",
+      "options": [
+        "Tăng dung lượng máy",
+        "Tạo thêm phím",
+        "Tăng tốc và độ chính xác theo thời gian",
+        "Không cần hiểu chữ"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tăng tốc và độ chính xác theo thời gian."
+    },
+    {
+      "question": "Khi tay bị mỏi, em nên làm gì?",
+      "options": [
+        "Tiếp tục liên tục",
+        "Nghỉ ngắn và chỉnh tư thế",
+        "Gõ mạnh hơn",
+        "Gồng tay"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nghỉ ngắn và chỉnh tư thế."
     }
   ]
 }

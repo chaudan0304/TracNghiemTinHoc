@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 15. Tạo chương trình máy tính để diễn tả ý tưởng",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Trước khi ghép lệnh để thể hiện ý tưởng, em nên làm gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Thay phông nền sân khấu."
+    },
+    {
+      "question": "Muốn kể chuyện bằng Scratch, em cần xác định gì trước?",
+      "options": [
+        "Tên ổ cắm",
+        "Giá máy",
+        "Nhân vật, bối cảnh và các hành động",
+        "Màu dây nguồn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nhân vật, bối cảnh và các hành động."
+    },
+    {
+      "question": "Nếu câu chuyện cần hai nhân vật, em nên làm gì?",
+      "options": [
+        "Chỉ đổi tên máy",
+        "Thêm nhân vật phù hợp",
+        "Chỉ đổi loa",
+        "Xóa sân khấu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thêm nhân vật phù hợp."
+    },
+    {
+      "question": "Phông nền sân khấu có tác dụng gì?",
+      "options": [
+        "Tạo bối cảnh cho câu chuyện",
+        "Lưu mật khẩu",
+        "Tăng tốc mạng",
+        "Thay bàn phím"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tạo bối cảnh cho câu chuyện."
+    },
+    {
+      "question": "Khi nhân vật cần nói lời chào, em dùng loại lệnh nào?",
+      "options": [
+        "Lệnh tắt máy",
+        "Lệnh in giấy",
+        "Lệnh đổi mật khẩu",
+        "Lệnh hiển thị lời nói"
+      ],
+      "correctIndex": 3,
+      "explanation": "Lệnh hiển thị lời nói."
+    },
+    {
+      "question": "Muốn nhân vật đi từ đầu đến cuối cảnh, em cần gì?",
+      "options": [
+        "Chỉ âm thanh",
+        "Chỉ tên tệp",
+        "Các lệnh chuyển động phù hợp",
+        "Chỉ ảnh nền"
+      ],
+      "correctIndex": 2,
+      "explanation": "Các lệnh chuyển động phù hợp."
+    },
+    {
+      "question": "Vì sao cần xác định trình tự sự kiện trong câu chuyện?",
+      "options": [
+        "Để tệp tự lưu",
+        "Để chương trình diễn ra đúng ý",
+        "Để màn hình sáng",
+        "Để chuột nhanh"
+      ],
+      "correctIndex": 1,
+      "explanation": "Để chương trình diễn ra đúng ý."
+    },
+    {
+      "question": "Nếu bối cảnh không hợp câu chuyện, em nên làm gì?",
+      "options": [
+        "Đổi phông nền phù hợp",
+        "Giữ nguyên luôn",
+        "Xóa nhân vật",
+        "Tắt loa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Đổi phông nền phù hợp."
+    },
+    {
+      "question": "Sau khi ghép các lệnh, em nên làm gì?",
+      "options": [
+        "Chỉ nhìn tên dự án",
+        "Xóa lệnh",
+        "Đóng không lưu",
+        "Chạy thử câu chuyện"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chạy thử câu chuyện."
+    },
+    {
+      "question": "Khi lời thoại xuất hiện quá nhanh, em có thể chỉnh gì?",
+      "options": [
+        "Số loa",
+        "Màu dây điện",
+        "Thời gian hiển thị lời nói",
+        "Tên bàn phím"
+      ],
+      "correctIndex": 2,
+      "explanation": "Thời gian hiển thị lời nói."
+    },
+    {
+      "question": "Kịch bản cần mèo nói lời chào ở sân trường rồi chuyển sang lớp học. Em nên tổ chức chương trình thế nào?",
+      "options": [
+        "Chỉ đổi tên nhân vật",
+        "Chọn nền sân trường, cho mèo nói, rồi đổi sang nền lớp học",
+        "Đổi nền lớp học trước rồi mới cho mèo nói ở sân trường",
+        "Chỉ thêm hai nền mà không có lệnh"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thứ tự lệnh cần bám kịch bản: bối cảnh sân trường và lời chào trước, chuyển cảnh sau."
     }
   ]
 }

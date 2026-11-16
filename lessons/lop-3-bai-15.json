@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 15. Công việc được thực hiện theo điều kiện",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Câu nào mô tả công việc phụ thuộc điều kiện?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Bài đã xong chưa."
+    },
+    {
+      "question": "Trong câu 'Nếu hết giờ thì nộp bài', điều kiện là gì?",
+      "options": [
+        "Quyển vở",
+        "Bàn học",
+        "Hết giờ",
+        "Nộp bài"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hết giờ."
+    },
+    {
+      "question": "Trong câu 'Nếu bút hết mực thì thay bút', hành động khi điều kiện đúng là gì?",
+      "options": [
+        "Đóng sách",
+        "Thay bút",
+        "Bút hết mực",
+        "Viết tiếp bằng bút hỏng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thay bút."
+    },
+    {
+      "question": "Khi điều kiện sai, hành động gắn sau 'thì' có bắt buộc làm không?",
+      "options": [
+        "Không",
+        "Có luôn",
+        "Chỉ khi mạng yếu",
+        "Chỉ khi có máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Không."
+    },
+    {
+      "question": "Muốn biết có cần mang ô theo chỉ dẫn 'Nếu trời mưa thì mang ô', em cần kiểm tra gì?",
+      "options": [
+        "Ô màu gì",
+        "Tên lớp",
+        "Số phím",
+        "Trời có mưa không"
+      ],
+      "correctIndex": 3,
+      "explanation": "Trời có mưa không."
+    },
+    {
+      "question": "Chỉ dẫn nào là theo điều kiện?",
+      "options": [
+        "Đếm 1 đến 5",
+        "Gấp giấy theo ba bước",
+        "Nếu vở đầy thì dùng vở mới",
+        "Mở sách rồi đọc"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nếu vở đầy thì dùng vở mới."
+    },
+    {
+      "question": "Nếu đèn tín hiệu đỏ, theo quy tắc giao thông em làm gì?",
+      "options": [
+        "Đổi màu đèn",
+        "Dừng lại trước vạch dừng",
+        "Đi thật nhanh",
+        "Băng qua ngay"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dừng lại trước vạch dừng."
+    },
+    {
+      "question": "Nếu đất chưa khô, trong chỉ dẫn 'Nếu đất khô thì tưới' em làm gì?",
+      "options": [
+        "Chưa tưới theo chỉ dẫn đó",
+        "Tưới bắt buộc",
+        "Thay cây ngay",
+        "Tắt đèn"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chưa tưới theo chỉ dẫn đó."
+    },
+    {
+      "question": "Khi điều kiện thay đổi từ sai sang đúng, hành động có thể thế nào?",
+      "options": [
+        "Luôn bị xóa",
+        "Không thay đổi trong mọi trường hợp",
+        "Tự in giấy",
+        "Được thực hiện theo chỉ dẫn"
+      ],
+      "correctIndex": 3,
+      "explanation": "Được thực hiện theo chỉ dẫn."
+    },
+    {
+      "question": "Một câu điều kiện gồm những phần cơ bản nào?",
+      "options": [
+        "Chỉ màu vật",
+        "Chỉ thời gian",
+        "Điều kiện và việc cần làm khi điều kiện đúng",
+        "Chỉ tên người"
+      ],
+      "correctIndex": 2,
+      "explanation": "Điều kiện và việc cần làm khi điều kiện đúng."
+    },
+    {
+      "question": "Cô dặn 'Nếu trời mưa thì mang áo mưa; nếu không mưa thì đội mũ'. Hôm nay trời nắng. Em làm gì theo chỉ dẫn?",
+      "options": [
+        "Không làm gì dù có nhánh nếu không",
+        "Đội mũ",
+        "Mang áo mưa",
+        "Mang cả hai vì có hai câu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Điều kiện trời mưa sai nên thực hiện nhánh còn lại: đội mũ."
     }
   ]
 }

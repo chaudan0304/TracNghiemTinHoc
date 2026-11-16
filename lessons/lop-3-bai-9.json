@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 9. Thực hành với tệp và thư mục trong máy tính",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Để lưu các bài tập cùng một môn, em nên tạo gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Báo giáo viên hoặc người lớn để được hỗ trợ."
+    },
+    {
+      "question": "Muốn tạo thư mục chứa bài tập, bước đầu tiên là gì?",
+      "options": [
+        "Tắt máy",
+        "Đổi bàn phím",
+        "Mở nơi muốn tạo thư mục",
+        "Xóa ổ đĩa"
+      ],
+      "correctIndex": 2,
+      "explanation": "Mở nơi muốn tạo thư mục."
+    },
+    {
+      "question": "Khi đặt tên tệp bài văn, tên nào dễ nhận biết?",
+      "options": [
+        "a",
+        "Bài văn tả trường em",
+        "Mới",
+        "123"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bài văn tả trường em."
+    },
+    {
+      "question": "Trước khi di chuyển tệp, em nên xác định gì?",
+      "options": [
+        "Tệp cần chuyển và thư mục đích",
+        "Màu màn hình",
+        "Âm lượng",
+        "Giá chuột"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tệp cần chuyển và thư mục đích."
+    },
+    {
+      "question": "Nếu tệp không xuất hiện trong thư mục đang mở, em nên làm gì?",
+      "options": [
+        "Xóa mọi thư mục",
+        "Rút điện",
+        "Đổi màn hình",
+        "Kiểm tra lại đường dẫn hoặc thư mục lưu"
+      ],
+      "correctIndex": 3,
+      "explanation": "Kiểm tra lại đường dẫn hoặc thư mục lưu."
+    },
+    {
+      "question": "Đổi tên một thư mục có xóa các tệp bên trong không?",
+      "options": [
+        "Chỉ khi tên dài",
+        "Chỉ khi có ảnh",
+        "Không, nếu chỉ đổi tên đúng cách",
+        "Có luôn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Không, nếu chỉ đổi tên đúng cách."
+    },
+    {
+      "question": "Nếu một thư mục đã có tên Toán, em có thể tạo thư mục con nào?",
+      "options": [
+        "Ổ điện",
+        "Bài tập tuần 1",
+        "Loa",
+        "Bàn phím"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bài tập tuần 1."
+    },
+    {
+      "question": "Muốn xem nội dung của tệp, em thường làm gì?",
+      "options": [
+        "Mở tệp bằng ứng dụng phù hợp",
+        "Chỉ đổi tên tệp",
+        "Rút chuột",
+        "Tắt máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Mở tệp bằng ứng dụng phù hợp."
+    },
+    {
+      "question": "Khi xóa nhầm tệp, em nên báo ai trong giờ học?",
+      "options": [
+        "Người lạ trên mạng",
+        "Không ai",
+        "Máy in",
+        "Giáo viên"
+      ],
+      "correctIndex": 3,
+      "explanation": "Giáo viên."
+    },
+    {
+      "question": "Tệp có phần mở rộng .png thường là loại nào?",
+      "options": [
+        "Thư mục",
+        "Dây mạng",
+        "Tệp hình ảnh",
+        "Tệp âm thanh"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tệp hình ảnh."
+    },
+    {
+      "question": "Vì sao cần lưu tệp vào nơi nhớ được?",
+      "options": [
+        "Để loa to",
+        "Để dễ mở lại khi cần",
+        "Để máy không cần điện",
+        "Để tăng số phím"
+      ],
+      "correctIndex": 1,
+      "explanation": "Để dễ mở lại khi cần."
     }
   ]
 }

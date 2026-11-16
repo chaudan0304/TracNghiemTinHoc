@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 2. Tìm kiếm thông tin trên website",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Để tìm nội dung trong một website có ô tìm kiếm, em cần làm gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Tên trang hoặc địa chỉ phù hợp."
+    },
+    {
+      "question": "Trên website có ô tìm kiếm riêng, từ khóa được nhập vào đâu?",
+      "options": [
+        "Ổ điện",
+        "Nút âm lượng",
+        "Ô tìm kiếm của website",
+        "Tên tệp"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ô tìm kiếm của website."
+    },
+    {
+      "question": "Nếu website có mục 'Động vật', muốn tìm bài về voi em nên làm gì?",
+      "options": [
+        "Xóa trình duyệt",
+        "Mở mục Động vật rồi tìm bài liên quan",
+        "Bấm quảng cáo",
+        "Tắt trang"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mở mục Động vật rồi tìm bài liên quan."
+    },
+    {
+      "question": "Khi từ khóa không có kết quả, em có thể làm gì?",
+      "options": [
+        "Thử từ khóa khác gần nghĩa hoặc cụ thể hơn",
+        "Nhập mật khẩu",
+        "Xóa website",
+        "Tắt máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Thử từ khóa khác gần nghĩa hoặc cụ thể hơn."
+    },
+    {
+      "question": "Kết quả tìm trong website giúp em đến đâu?",
+      "options": [
+        "Bàn phím mới",
+        "Máy in",
+        "Ổ điện",
+        "Trang hoặc nội dung liên quan trong website"
+      ],
+      "correctIndex": 3,
+      "explanation": "Trang hoặc nội dung liên quan trong website."
+    },
+    {
+      "question": "Muốn tìm một nhân vật lịch sử, từ khóa nào phù hợp?",
+      "options": [
+        "Máy tính",
+        "Trò chơi",
+        "Tên nhân vật lịch sử đó",
+        "Lịch sử bất kì"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tên nhân vật lịch sử đó."
+    },
+    {
+      "question": "Vì sao nên xem danh mục của website?",
+      "options": [
+        "Để xóa tệp",
+        "Giúp xác định khu vực thông tin cần tìm",
+        "Để thay mật khẩu",
+        "Để máy sáng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Giúp xác định khu vực thông tin cần tìm."
+    },
+    {
+      "question": "Nếu tiêu đề kết quả phù hợp, em vẫn cần làm gì?",
+      "options": [
+        "Mở và đọc nội dung",
+        "Sao chép tiêu đề làm đáp án",
+        "Tin ngay không đọc",
+        "Đóng trang"
+      ],
+      "correctIndex": 0,
+      "explanation": "Mở và đọc nội dung."
+    },
+    {
+      "question": "Khi thông tin tìm được ghi ngày quá cũ, em nên làm gì?",
+      "options": [
+        "Dùng luôn cho mọi việc",
+        "Xóa trang",
+        "Đổi tên máy",
+        "Kiểm tra còn phù hợp hay không"
+      ],
+      "correctIndex": 3,
+      "explanation": "Kiểm tra còn phù hợp hay không."
+    },
+    {
+      "question": "Nếu website có nhiều trang kết quả, em nên làm gì?",
+      "options": [
+        "Tắt Internet",
+        "Xóa từ khóa",
+        "Xem thêm trang khi cần",
+        "Chỉ trang đầu luôn đủ"
+      ],
+      "correctIndex": 2,
+      "explanation": "Xem thêm trang khi cần."
+    },
+    {
+      "question": "Sau khi tìm được bài hữu ích, em có thể lưu gì?",
+      "options": [
+        "Số phím",
+        "Địa chỉ hoặc tên trang để tìm lại",
+        "Mật khẩu người khác",
+        "Tên loa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Địa chỉ hoặc tên trang để tìm lại."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 16. Chương trình của em",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Một chương trình trực quan được tạo từ gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Chạy thử lại."
+    },
+    {
+      "question": "Chương trình Scratch muốn chạy cần có gì?",
+      "options": [
+        "Chỉ tên tệp",
+        "Chỉ màu nền",
+        "Khối lệnh bắt đầu phù hợp",
+        "Chỉ ảnh nhân vật"
+      ],
+      "correctIndex": 2,
+      "explanation": "Khối lệnh bắt đầu phù hợp."
+    },
+    {
+      "question": "Nếu nhân vật phải làm hai việc liên tiếp, em nên làm gì?",
+      "options": [
+        "Xóa sân khấu",
+        "Ghép hai lệnh theo đúng thứ tự",
+        "Chỉ ghép một lệnh",
+        "Để lệnh rời rạc"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ghép hai lệnh theo đúng thứ tự."
+    },
+    {
+      "question": "Một khối lệnh sai có thể làm gì?",
+      "options": [
+        "Kết quả khác điều mong muốn",
+        "Máy tự sửa hết",
+        "Chuột đổi màu",
+        "Tệp tự đúng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Kết quả khác điều mong muốn."
+    },
+    {
+      "question": "Vì sao nên lưu chương trình thường xuyên?",
+      "options": [
+        "Tạo điện",
+        "Đổi phím",
+        "Tự kiểm tra mọi lỗi",
+        "Giữ công việc đã làm"
+      ],
+      "correctIndex": 3,
+      "explanation": "Giữ công việc đã làm."
+    },
+    {
+      "question": "Nếu bạn không hiểu mục đích dự án, em có thể làm gì?",
+      "options": [
+        "Xóa lệnh",
+        "Đổi chuột",
+        "Giới thiệu ý tưởng và cách chạy",
+        "Chỉ gửi tên tệp"
+      ],
+      "correctIndex": 2,
+      "explanation": "Giới thiệu ý tưởng và cách chạy."
+    },
+    {
+      "question": "Khi chương trình kết thúc quá sớm, em nên kiểm tra gì?",
+      "options": [
+        "Tên máy in",
+        "Các lệnh và điều kiện dừng",
+        "Màu ổ điện",
+        "Giá màn hình"
+      ],
+      "correctIndex": 1,
+      "explanation": "Các lệnh và điều kiện dừng."
+    },
+    {
+      "question": "Một chương trình có thể điều khiển bao nhiêu nhân vật?",
+      "options": [
+        "Một hoặc nhiều nhân vật tùy dự án",
+        "Đúng một luôn",
+        "Không nhân vật nào",
+        "Chỉ hai luôn"
+      ],
+      "correctIndex": 0,
+      "explanation": "Một hoặc nhiều nhân vật tùy dự án."
+    },
+    {
+      "question": "Khi chạy thử phát hiện lỗi, em nên sửa thế nào?",
+      "options": [
+        "Xóa mọi tệp",
+        "Bỏ qua lỗi",
+        "Tắt máy",
+        "Sửa lệnh liên quan rồi thử lại"
+      ],
+      "correctIndex": 3,
+      "explanation": "Sửa lệnh liên quan rồi thử lại."
+    },
+    {
+      "question": "Sau khi hoàn thành, em nên đặt tên dự án thế nào?",
+      "options": [
+        "abc",
+        "Không tên",
+        "Rõ nghĩa, dễ tìm lại",
+        "Mới"
+      ],
+      "correctIndex": 2,
+      "explanation": "Rõ nghĩa, dễ tìm lại."
+    },
+    {
+      "question": "Để bạn khác chạy chương trình, em cần chia sẻ gì?",
+      "options": [
+        "Máy in",
+        "Tệp dự án hoặc cách mở dự án phù hợp",
+        "Mật khẩu riêng",
+        "Dây điện"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tệp dự án hoặc cách mở dự án phù hợp."
     }
   ]
 }

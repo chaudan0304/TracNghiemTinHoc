@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 3. Thông tin trên trang web",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Trang web có thể chứa dạng thông tin nào?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Chỉ xem và chia sẻ theo hướng dẫn phù hợp."
+    },
+    {
+      "question": "Trang web nào thường có liên kết tới các mục khác?",
+      "options": [
+        "Bàn phím",
+        "Loa",
+        "Trang chủ của một website",
+        "Ổ cắm điện"
+      ],
+      "correctIndex": 2,
+      "explanation": "Trang chủ của một website."
+    },
+    {
+      "question": "Khi chữ màu xanh có gạch chân và hoạt động khi nháy, đó có thể là gì?",
+      "options": [
+        "Phím nguồn",
+        "Liên kết",
+        "Dây cáp",
+        "Tên máy in"
+      ],
+      "correctIndex": 1,
+      "explanation": "Liên kết."
+    },
+    {
+      "question": "Thông tin dạng video trên web kết hợp gì?",
+      "options": [
+        "Hình chuyển động và có thể có âm thanh",
+        "Chỉ chữ in giấy",
+        "Chỉ mùi",
+        "Chỉ vị"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hình chuyển động và có thể có âm thanh."
+    },
+    {
+      "question": "Muốn xem phần đầu của trang dài, em có thể làm gì?",
+      "options": [
+        "Rút mạng",
+        "Xóa trình duyệt",
+        "Đổi tên máy",
+        "Cuộn lên"
+      ],
+      "correctIndex": 3,
+      "explanation": "Cuộn lên."
+    },
+    {
+      "question": "Nếu nháy liên kết dẫn tới trang khác, em có thể quay về bằng gì?",
+      "options": [
+        "Máy in",
+        "Ổ điện",
+        "Nút Quay lại của trình duyệt",
+        "Phím nguồn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nút Quay lại của trình duyệt."
+    },
+    {
+      "question": "Địa chỉ web thường xuất hiện ở đâu?",
+      "options": [
+        "Trong nút nguồn",
+        "Thanh địa chỉ của trình duyệt",
+        "Trên loa",
+        "Trên bàn phím giấy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thanh địa chỉ của trình duyệt."
+    },
+    {
+      "question": "Hình minh họa trên trang web có vai trò gì?",
+      "options": [
+        "Giúp hiểu nội dung khi phù hợp",
+        "Luôn chứng minh mọi chữ đúng",
+        "Thay địa chỉ web",
+        "Tạo mật khẩu"
+      ],
+      "correctIndex": 0,
+      "explanation": "Giúp hiểu nội dung khi phù hợp."
+    },
+    {
+      "question": "Khi trang web hiển thị quảng cáo lạ, em nên làm gì?",
+      "options": [
+        "Bấm mọi quảng cáo",
+        "Nhập thông tin cá nhân",
+        "Tải mọi tệp",
+        "Không bấm tùy tiện"
+      ],
+      "correctIndex": 3,
+      "explanation": "Không bấm tùy tiện."
+    },
+    {
+      "question": "Vì sao cần xem cả chữ và hình trên trang?",
+      "options": [
+        "Vì chữ luôn sai",
+        "Để tăng dung lượng",
+        "Để hiểu đầy đủ nội dung được trình bày",
+        "Vì hình luôn đủ"
+      ],
+      "correctIndex": 2,
+      "explanation": "Để hiểu đầy đủ nội dung được trình bày."
+    },
+    {
+      "question": "Nam nháy vào liên kết có tên 'Sơ đồ trường' nhưng trang mới yêu cầu mật khẩu tài khoản. Nam nên làm gì?",
+      "options": [
+        "Tắt phần mềm bảo vệ",
+        "Dừng lại, kiểm tra địa chỉ trang và hỏi giáo viên",
+        "Nhập mật khẩu để xem tiếp",
+        "Gửi liên kết cho cả lớp trước"
+      ],
+      "correctIndex": 1,
+      "explanation": "Liên kết có thể dẫn sang trang khác; yêu cầu mật khẩu bất thường cần được kiểm tra trước."
     }
   ]
 }

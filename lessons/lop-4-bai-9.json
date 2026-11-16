@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 9. Hiệu ứng chuyển trang",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Hiệu ứng chuyển trang xuất hiện khi nào?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Chọn trang rồi chọn hiệu ứng khác."
+    },
+    {
+      "question": "Hiệu ứng chuyển trang dùng vào lúc nào?",
+      "options": [
+        "Lưu tệp",
+        "Mở chuột",
+        "Đổi từ trang chiếu này sang trang khác",
+        "Gõ một phím"
+      ],
+      "correctIndex": 2,
+      "explanation": "Đổi từ trang chiếu này sang trang khác."
+    },
+    {
+      "question": "Nếu trang đổi quá nhanh khiến người xem chưa kịp đọc, em nên làm gì?",
+      "options": [
+        "Đổi bàn phím",
+        "Điều chỉnh cách hoặc thời gian chuyển trang",
+        "Xóa toàn bộ nội dung",
+        "Tăng nhạc nền"
+      ],
+      "correctIndex": 1,
+      "explanation": "Điều chỉnh cách hoặc thời gian chuyển trang."
+    },
+    {
+      "question": "Một bài trình chiếu nghiêm túc nên chọn hiệu ứng thế nào?",
+      "options": [
+        "Đơn giản và phù hợp",
+        "Càng rối càng tốt",
+        "Mỗi chữ một hiệu ứng",
+        "Chỉ chọn dài nhất"
+      ],
+      "correctIndex": 0,
+      "explanation": "Đơn giản và phù hợp."
+    },
+    {
+      "question": "Hiệu ứng có làm thay nội dung chữ trên trang không?",
+      "options": [
+        "Có, luôn sửa chữ",
+        "Có, luôn xóa chữ",
+        "Có, luôn in giấy",
+        "Không, nó điều khiển cách chuyển trang"
+      ],
+      "correctIndex": 3,
+      "explanation": "Không, nó điều khiển cách chuyển trang."
+    },
+    {
+      "question": "Để biết hiệu ứng nhìn ra sao, em làm gì?",
+      "options": [
+        "Rút chuột",
+        "Đổi ổ điện",
+        "Xem trước hoặc trình chiếu thử",
+        "Chỉ xem tên tệp"
+      ],
+      "correctIndex": 2,
+      "explanation": "Xem trước hoặc trình chiếu thử."
+    },
+    {
+      "question": "Nếu một hiệu ứng không phù hợp, em có thể làm gì?",
+      "options": [
+        "In trang trắng",
+        "Chọn hiệu ứng khác hoặc bỏ hiệu ứng",
+        "Xóa máy",
+        "Đổi tên bạn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chọn hiệu ứng khác hoặc bỏ hiệu ứng."
+    },
+    {
+      "question": "Chuyển trang mượt giúp người xem điều gì?",
+      "options": [
+        "Theo dõi mạch trình bày",
+        "Đọc chữ tự động",
+        "Tăng tốc máy",
+        "Bỏ qua nội dung"
+      ],
+      "correctIndex": 0,
+      "explanation": "Theo dõi mạch trình bày."
+    },
+    {
+      "question": "Vì sao không lạm dụng hiệu ứng?",
+      "options": [
+        "Vì mọi hiệu ứng đều lỗi",
+        "Vì hiệu ứng xóa máy",
+        "Vì không lưu được",
+        "Có thể làm người xem mất tập trung"
+      ],
+      "correctIndex": 3,
+      "explanation": "Có thể làm người xem mất tập trung."
+    },
+    {
+      "question": "Nếu muốn cùng một kiểu chuyển cho các trang, em nên làm gì?",
+      "options": [
+        "Xóa bớt nội dung",
+        "Đổi màn hình",
+        "Áp dụng nhất quán cho các trang phù hợp",
+        "Chọn ngẫu nhiên từng trang"
+      ],
+      "correctIndex": 2,
+      "explanation": "Áp dụng nhất quán cho các trang phù hợp."
+    },
+    {
+      "question": "Khi trang cần dừng để giải thích, em nên điều khiển gì?",
+      "options": [
+        "Màu chuột",
+        "Thời điểm chuyển sang trang tiếp theo",
+        "Tên tệp",
+        "Số phím"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thời điểm chuyển sang trang tiếp theo."
     }
   ]
 }

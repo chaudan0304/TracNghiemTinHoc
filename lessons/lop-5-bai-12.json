@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 12. Thực hành sử dụng lệnh lặp",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Muốn vẽ hình vuông bằng lặp, thao tác nào thường được lặp 4 lần?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Kiểm tra lệnh trong vòng lặp và chạy lại."
+    },
+    {
+      "question": "Để vẽ hình vuông, nhân vật cần vẽ mấy cạnh?",
+      "options": [
+        "5 cạnh",
+        "1 cạnh",
+        "4 cạnh",
+        "3 cạnh"
+      ],
+      "correctIndex": 2,
+      "explanation": "4 cạnh."
+    },
+    {
+      "question": "Góc quay ngoài ở mỗi đỉnh hình vuông khi đi quanh viền là bao nhiêu?",
+      "options": [
+        "360 độ",
+        "90 độ",
+        "45 độ",
+        "180 độ"
+      ],
+      "correctIndex": 1,
+      "explanation": "90 độ."
+    },
+    {
+      "question": "Để vẽ tam giác đều theo cạnh, số lần lặp thường là mấy?",
+      "options": [
+        "3 lần",
+        "4 lần",
+        "2 lần",
+        "6 lần"
+      ],
+      "correctIndex": 0,
+      "explanation": "3 lần."
+    },
+    {
+      "question": "Nếu cạnh vuông dài 50 bước và lặp bốn lần, tổng quãng đường là bao nhiêu?",
+      "options": [
+        "50 bước",
+        "100 bước",
+        "400 bước",
+        "200 bước"
+      ],
+      "correctIndex": 3,
+      "explanation": "200 bước."
+    },
+    {
+      "question": "Nếu chỉ lặp ba lần thao tác vẽ cạnh rồi quay 90 độ, điều gì thiếu?",
+      "options": [
+        "Đủ bốn cạnh",
+        "Máy tắt",
+        "Một cạnh của hình vuông",
+        "Tự thành hình tròn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Một cạnh của hình vuông."
+    },
+    {
+      "question": "Khối lặp vẽ hình nên chứa gì?",
+      "options": [
+        "Chỉ lời nói",
+        "Lệnh đi và lệnh quay",
+        "Chỉ lệnh dừng",
+        "Chỉ đổi nền"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lệnh đi và lệnh quay."
+    },
+    {
+      "question": "Khi hình không khép kín, em kiểm tra gì?",
+      "options": [
+        "Số vòng, góc quay và độ dài cạnh",
+        "Tên loa",
+        "Màu dây điện",
+        "Giá máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Số vòng, góc quay và độ dài cạnh."
+    },
+    {
+      "question": "Muốn hình vuông lớn hơn, em đổi gì?",
+      "options": [
+        "Số nhân vật",
+        "Tên chương trình",
+        "Nút cờ xanh",
+        "Số bước đi cho mỗi cạnh"
+      ],
+      "correctIndex": 3,
+      "explanation": "Số bước đi cho mỗi cạnh."
+    },
+    {
+      "question": "Nếu mỗi vòng quay 180 độ thay vì 90 độ, kết quả có còn là hình vuông không?",
+      "options": [
+        "Chỉ khi màu đỏ",
+        "Chỉ khi loa bật",
+        "Không",
+        "Có luôn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Không."
+    },
+    {
+      "question": "Chương trình vẽ hình vuông lặp bốn lần 'đi 50 bước, quay 90 độ'. Nếu chỉ đổi 50 thành 80, điều gì xảy ra?",
+      "options": [
+        "Hình biến mất",
+        "Hình vuông lớn hơn, số cạnh không đổi",
+        "Hình thành tam giác",
+        "Số cạnh tăng thành tám"
+      ],
+      "correctIndex": 1,
+      "explanation": "Độ dài cạnh tăng lên 80 bước; bốn vòng và góc quay 90 độ vẫn tạo bốn cạnh."
     }
   ]
 }

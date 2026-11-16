@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 6. Định dạng kí tự và bố trí hình ảnh trong văn bản",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Định dạng kí tự có thể thay đổi điều gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Văn bản và hình có cân đối, dễ đọc không."
+    },
+    {
+      "question": "Muốn nhấn mạnh tiêu đề trong văn bản, em có thể làm gì?",
+      "options": [
+        "Che bằng ảnh",
+        "Đổi dây cáp",
+        "Tăng cỡ và in đậm phù hợp",
+        "Thu nhỏ hết mức"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tăng cỡ và in đậm phù hợp."
+    },
+    {
+      "question": "Trước khi đổi màu một cụm từ, em cần làm gì?",
+      "options": [
+        "Tắt ứng dụng",
+        "Chọn cụm từ đó",
+        "Xóa cả tệp",
+        "Đổi chuột"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chọn cụm từ đó."
+    },
+    {
+      "question": "Nếu chữ đỏ trên nền đỏ, kết quả thế nào?",
+      "options": [
+        "Khó đọc",
+        "Rõ hơn luôn",
+        "Tự in đậm",
+        "Tự lưu"
+      ],
+      "correctIndex": 0,
+      "explanation": "Khó đọc."
+    },
+    {
+      "question": "Ảnh minh họa nên liên quan gì?",
+      "options": [
+        "Tên máy",
+        "Giá bàn phím",
+        "Âm lượng loa",
+        "Nội dung đoạn văn"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nội dung đoạn văn."
+    },
+    {
+      "question": "Khi bố trí ảnh bên cạnh chữ, em cần chú ý gì?",
+      "options": [
+        "Luôn phóng ảnh hết trang",
+        "Không xem lại",
+        "Không làm chữ bị che hoặc ngắt khó đọc",
+        "Để ảnh che chữ"
+      ],
+      "correctIndex": 2,
+      "explanation": "Không làm chữ bị che hoặc ngắt khó đọc."
+    },
+    {
+      "question": "Một văn bản có quá nhiều kiểu chữ sẽ thế nào?",
+      "options": [
+        "Giảm lỗi gõ",
+        "Rối và thiếu thống nhất",
+        "Tự chính xác hơn",
+        "Tăng tốc mạng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rối và thiếu thống nhất."
+    },
+    {
+      "question": "Muốn thay kiểu chữ của toàn bộ tiêu đề, em chọn gì?",
+      "options": [
+        "Toàn bộ phần tiêu đề",
+        "Chỉ một dấu chấm",
+        "Ổ điện",
+        "Máy in"
+      ],
+      "correctIndex": 0,
+      "explanation": "Toàn bộ phần tiêu đề."
+    },
+    {
+      "question": "Nếu ảnh lớn làm văn bản sang trang khác, em nên làm gì?",
+      "options": [
+        "Để nguyên mọi lỗi",
+        "Xóa nội dung",
+        "Đổi loa",
+        "Điều chỉnh kích thước và vị trí ảnh"
+      ],
+      "correctIndex": 3,
+      "explanation": "Điều chỉnh kích thước và vị trí ảnh."
+    },
+    {
+      "question": "Vì sao cần xem bản trình bày sau khi định dạng?",
+      "options": [
+        "Tăng dung lượng",
+        "Tắt mạng",
+        "Phát hiện chữ khó đọc hoặc ảnh đặt chưa phù hợp",
+        "Đổi tên máy"
+      ],
+      "correctIndex": 2,
+      "explanation": "Phát hiện chữ khó đọc hoặc ảnh đặt chưa phù hợp."
+    },
+    {
+      "question": "Cỡ chữ phù hợp là cỡ thế nào?",
+      "options": [
+        "Không cần xem",
+        "Người đọc dễ đọc trong ngữ cảnh sử dụng",
+        "Nhỏ nhất có thể",
+        "To nhất luôn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Người đọc dễ đọc trong ngữ cảnh sử dụng."
     }
   ]
 }

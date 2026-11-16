@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 10. Phần mềm soạn thảo văn bản",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Phần mềm soạn thảo văn bản dùng để làm gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Gia đình em."
+    },
+    {
+      "question": "Ứng dụng nào phù hợp để viết một lá thư bằng máy?",
+      "options": [
+        "Trình chơi game",
+        "Máy tính bỏ túi",
+        "Phần mềm soạn thảo văn bản",
+        "Phần mềm chỉ phát nhạc"
+      ],
+      "correctIndex": 2,
+      "explanation": "Phần mềm soạn thảo văn bản."
+    },
+    {
+      "question": "Khi mở trang soạn thảo trắng, chữ em gõ xuất hiện ở đâu?",
+      "options": [
+        "Trong máy in ngay",
+        "Vị trí con trỏ soạn thảo",
+        "Trong loa",
+        "Trên vỏ máy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vị trí con trỏ soạn thảo."
+    },
+    {
+      "question": "Phím Space giúp gì khi viết câu?",
+      "options": [
+        "Tạo khoảng trắng giữa các từ",
+        "Xóa câu",
+        "Đổi phông chữ",
+        "Tắt máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tạo khoảng trắng giữa các từ."
+    },
+    {
+      "question": "Nhấn Enter trong văn bản thường làm gì?",
+      "options": [
+        "In trang",
+        "Đổi màu màn hình",
+        "Xóa tệp",
+        "Xuống dòng hoặc bắt đầu đoạn mới"
+      ],
+      "correctIndex": 3,
+      "explanation": "Xuống dòng hoặc bắt đầu đoạn mới."
+    },
+    {
+      "question": "Vì sao cần đặt tên tệp khi lưu?",
+      "options": [
+        "Tăng số phím",
+        "Đổi chuột",
+        "Dễ nhận biết và mở lại",
+        "Máy tự viết nội dung"
+      ],
+      "correctIndex": 2,
+      "explanation": "Dễ nhận biết và mở lại."
+    },
+    {
+      "question": "Nếu chưa lưu mà mất điện, điều gì có thể xảy ra?",
+      "options": [
+        "Bàn phím đổi màu",
+        "Mất nội dung chưa được lưu",
+        "Tệp luôn tự đầy đủ",
+        "Máy tự in"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mất nội dung chưa được lưu."
+    },
+    {
+      "question": "Muốn mở lại văn bản hôm qua, em cần tìm gì?",
+      "options": [
+        "Tệp đã lưu",
+        "Dây cáp",
+        "Nút âm lượng",
+        "Ổ cắm"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tệp đã lưu."
+    },
+    {
+      "question": "Để viết tiếng Việt có dấu, em cần gì?",
+      "options": [
+        "Chỉ phím số",
+        "Chỉ chuột",
+        "Chỉ máy in",
+        "Công cụ gõ tiếng Việt được thiết lập phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Công cụ gõ tiếng Việt được thiết lập phù hợp."
+    },
+    {
+      "question": "Một văn bản gửi cô giáo nên được kiểm tra gì trước khi nộp?",
+      "options": [
+        "Tên ổ điện",
+        "Giá máy",
+        "Nội dung và chính tả",
+        "Màu chuột"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nội dung và chính tả."
+    },
+    {
+      "question": "Sau khi chỉnh sửa, em cần làm gì để giữ bản mới?",
+      "options": [
+        "Xóa tệp",
+        "Lưu lại",
+        "Rút mạng",
+        "Đóng không lưu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lưu lại."
     }
   ]
 }

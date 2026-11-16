@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 5. Thao tác với tệp và thư mục",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Muốn tổ chức các bài tập theo môn học, em nên làm gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Xóa đúng tệp."
+    },
+    {
+      "question": "Để tạo thư mục Bài tập trong Học tập, em nên mở đâu trước?",
+      "options": [
+        "Loa",
+        "Máy in",
+        "Thư mục Học tập",
+        "Thùng rác"
+      ],
+      "correctIndex": 2,
+      "explanation": "Thư mục Học tập."
+    },
+    {
+      "question": "Nếu sao chép tệp ảnh sang thư mục khác, bản ở chỗ cũ thế nào?",
+      "options": [
+        "Đổi thành âm thanh",
+        "Vẫn còn",
+        "Luôn bị xóa",
+        "Trở thành thư mục"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vẫn còn."
+    },
+    {
+      "question": "Nếu cắt rồi dán tệp sang thư mục mới, mục đích là gì?",
+      "options": [
+        "Di chuyển tệp",
+        "Tạo thêm bản sao ở hai nơi",
+        "In tệp",
+        "Đổi nội dung"
+      ],
+      "correctIndex": 0,
+      "explanation": "Di chuyển tệp."
+    },
+    {
+      "question": "Muốn chọn đúng tệp để xóa, em cần xem gì?",
+      "options": [
+        "Chỉ màu nền",
+        "Số phím",
+        "Tên loa",
+        "Tên và vị trí tệp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tên và vị trí tệp."
+    },
+    {
+      "question": "Tệp có tên dễ hiểu giúp em điều gì?",
+      "options": [
+        "Tăng dung lượng",
+        "Đổi kiểu chuột",
+        "Tìm và phân biệt nhanh",
+        "Máy tự sửa lỗi"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tìm và phân biệt nhanh."
+    },
+    {
+      "question": "Sau khi đổi tên một thư mục, tệp trong đó có tự biến thành tệp mới không?",
+      "options": [
+        "Chỉ khi có ảnh",
+        "Không",
+        "Có luôn",
+        "Chỉ khi tên dài"
+      ],
+      "correctIndex": 1,
+      "explanation": "Không."
+    },
+    {
+      "question": "Khi xóa thư mục chứa nhiều tệp, nguy cơ gì?",
+      "options": [
+        "Mất cả các tệp bên trong",
+        "Chỉ đổi màu",
+        "Tăng âm lượng",
+        "Tạo bản sao"
+      ],
+      "correctIndex": 0,
+      "explanation": "Mất cả các tệp bên trong."
+    },
+    {
+      "question": "Nếu muốn giữ bản gốc và gửi bản khác cho bạn, thao tác nào phù hợp?",
+      "options": [
+        "Di chuyển",
+        "Xóa",
+        "Đổi tên máy",
+        "Sao chép"
+      ],
+      "correctIndex": 3,
+      "explanation": "Sao chép."
+    },
+    {
+      "question": "Thư mục con khác tệp ở điểm nào?",
+      "options": [
+        "Tệp luôn là dây cáp",
+        "Không có khác biệt",
+        "Thư mục con có thể chứa tệp và thư mục khác",
+        "Thư mục con luôn là ảnh"
+      ],
+      "correctIndex": 2,
+      "explanation": "Thư mục con có thể chứa tệp và thư mục khác."
+    },
+    {
+      "question": "An muốn đưa bài tập từ thư mục A sang B nhưng vẫn giữ bài trong A. An cần dùng thao tác nào?",
+      "options": [
+        "Chỉ đổi tên A thành B",
+        "Sao chép rồi dán vào B",
+        "Cắt rồi dán vào B",
+        "Xóa bài trong A rồi tạo tệp trống ở B"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sao chép tạo thêm bản ở B và giữ nguyên bản gốc trong A."
     }
   ]
 }

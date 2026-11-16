@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 1. Em có thể làm gì với máy tính?",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Máy tính có thể giúp em làm việc nào?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Bài trình chiếu."
+    },
+    {
+      "question": "Máy tính có thể giúp em tạo bài giới thiệu bằng gì?",
+      "options": [
+        "Ổ cắm",
+        "Chuột hỏng",
+        "Phần mềm trình chiếu",
+        "Dây cáp"
+      ],
+      "correctIndex": 2,
+      "explanation": "Phần mềm trình chiếu."
+    },
+    {
+      "question": "Khi học qua video, em vẫn cần làm gì?",
+      "options": [
+        "Chỉ xem hình nền",
+        "Tự suy nghĩ và ghi nhớ ý chính",
+        "Tin mọi thông tin",
+        "Bỏ qua câu hỏi"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tự suy nghĩ và ghi nhớ ý chính."
+    },
+    {
+      "question": "Muốn tìm thông tin về một chủ đề, em có thể dùng gì?",
+      "options": [
+        "Công cụ tìm kiếm phù hợp",
+        "Máy in giấy trắng",
+        "Nút âm lượng",
+        "Ổ điện"
+      ],
+      "correctIndex": 0,
+      "explanation": "Công cụ tìm kiếm phù hợp."
+    },
+    {
+      "question": "Máy tính giúp lưu bài vẽ để làm gì?",
+      "options": [
+        "Tự đổi điểm",
+        "Tự in không cần máy in",
+        "Tự tạo tranh thật",
+        "Mở lại và chỉnh sửa sau"
+      ],
+      "correctIndex": 3,
+      "explanation": "Mở lại và chỉnh sửa sau."
+    },
+    {
+      "question": "Để trao đổi bài học trực tuyến, em cần chú ý gì?",
+      "options": [
+        "Nói chuyện với người lạ bất kì",
+        "Chia sẻ địa chỉ nhà",
+        "Giao tiếp phù hợp và bảo vệ thông tin cá nhân",
+        "Gửi mật khẩu"
+      ],
+      "correctIndex": 2,
+      "explanation": "Giao tiếp phù hợp và bảo vệ thông tin cá nhân."
+    },
+    {
+      "question": "Khi giải trí trên máy tính, điều gì quan trọng?",
+      "options": [
+        "Bỏ qua nghỉ mắt",
+        "Chọn nội dung phù hợp và thời gian hợp lí",
+        "Chơi liên tục",
+        "Bấm liên kết lạ"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chọn nội dung phù hợp và thời gian hợp lí."
+    },
+    {
+      "question": "Nếu phần mềm đưa ra kết quả không hợp lí, em nên làm gì?",
+      "options": [
+        "Kiểm tra lại dữ liệu và cách làm",
+        "Tin ngay",
+        "Xóa máy",
+        "Đổi chuột"
+      ],
+      "correctIndex": 0,
+      "explanation": "Kiểm tra lại dữ liệu và cách làm."
+    },
+    {
+      "question": "Sản phẩm số nào có thể được tạo bằng máy tính?",
+      "options": [
+        "Cây thật",
+        "Bàn gỗ thật",
+        "Một bữa ăn thật",
+        "Văn bản, tranh số hoặc bài trình chiếu"
+      ],
+      "correctIndex": 3,
+      "explanation": "Văn bản, tranh số hoặc bài trình chiếu."
+    },
+    {
+      "question": "Máy tính có thể giúp em luyện tập kiến thức bằng gì?",
+      "options": [
+        "Máy in tắt",
+        "Tấm lót chuột",
+        "Bài tập tương tác phù hợp",
+        "Dây điện"
+      ],
+      "correctIndex": 2,
+      "explanation": "Bài tập tương tác phù hợp."
+    },
+    {
+      "question": "Ai quyết định mục tiêu dùng máy tính để học?",
+      "options": [
+        "Dây cáp",
+        "Con người sử dụng máy",
+        "Loa",
+        "Bàn phím"
+      ],
+      "correctIndex": 1,
+      "explanation": "Con người sử dụng máy."
     }
   ]
 }

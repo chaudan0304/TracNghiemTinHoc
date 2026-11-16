@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 8. Sơ đồ hình cây. Tổ chức thông tin trong máy tính",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Trong sơ đồ hình cây, một nhánh có thể chia thành gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Thấy rõ vị trí và quan hệ giữa các nhóm."
+    },
+    {
+      "question": "Trong sơ đồ cây, đường nối giữa hai ô thể hiện gì?",
+      "options": [
+        "Tốc độ mạng",
+        "Âm thanh",
+        "Quan hệ giữa nhóm lớn và nhóm con",
+        "Dây điện thật"
+      ],
+      "correctIndex": 2,
+      "explanation": "Quan hệ giữa nhóm lớn và nhóm con."
+    },
+    {
+      "question": "Nếu thư mục Học tập có Toán và Tiếng Việt, hai thư mục đó là gì?",
+      "options": [
+        "Hai máy in",
+        "Hai thư mục con của Học tập",
+        "Hai màn hình",
+        "Hai phím"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hai thư mục con của Học tập."
+    },
+    {
+      "question": "Một tệp ảnh có thể nằm trong thư mục nào hợp lí?",
+      "options": [
+        "Ảnh gia đình",
+        "Phần mềm hệ thống bắt buộc",
+        "Ổ điện",
+        "Loa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ảnh gia đình."
+    },
+    {
+      "question": "Muốn xem tệp trong nhánh Toán, em cần làm gì?",
+      "options": [
+        "Mở loa",
+        "Đổi chuột",
+        "In sơ đồ",
+        "Mở nhánh hoặc thư mục Toán"
+      ],
+      "correctIndex": 3,
+      "explanation": "Mở nhánh hoặc thư mục Toán."
+    },
+    {
+      "question": "Nếu nhánh 2026 nằm trong nhánh Ảnh, thứ tự từ ngoài vào là gì?",
+      "options": [
+        "Loa rồi Ảnh",
+        "Bàn phím rồi 2026",
+        "Ảnh rồi 2026",
+        "2026 rồi Ảnh luôn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ảnh rồi 2026."
+    },
+    {
+      "question": "Sơ đồ cây giúp thấy một nhóm có thể chia tiếp thành gì?",
+      "options": [
+        "Chỉ âm thanh",
+        "Các nhóm nhỏ hơn",
+        "Chỉ số trang",
+        "Chỉ màu sắc"
+      ],
+      "correctIndex": 1,
+      "explanation": "Các nhóm nhỏ hơn."
+    },
+    {
+      "question": "Trong máy tính, tệp thường được lưu ở đâu?",
+      "options": [
+        "Trong một thư mục hoặc vị trí lưu trữ",
+        "Trong nút nguồn",
+        "Trên loa",
+        "Trên vỏ chuột"
+      ],
+      "correctIndex": 0,
+      "explanation": "Trong một thư mục hoặc vị trí lưu trữ."
+    },
+    {
+      "question": "Tên nhánh nào rõ nhất để chứa hình chụp lớp?",
+      "options": [
+        "Mới",
+        "Tệp",
+        "Không tên",
+        "Ảnh lớp 3A"
+      ],
+      "correctIndex": 3,
+      "explanation": "Ảnh lớp 3A."
+    },
+    {
+      "question": "Thư mục mẹ của Toán nếu Toán nằm trong Học tập là gì?",
+      "options": [
+        "Máy tính",
+        "Bàn phím",
+        "Học tập",
+        "Toán"
+      ],
+      "correctIndex": 2,
+      "explanation": "Học tập."
+    },
+    {
+      "question": "Trong thư mục Học tập có thư mục Toán; trong Toán có tệp Bài 1. Muốn mở Bài 1 từ Học tập, em đi theo thứ tự nào?",
+      "options": [
+        "Xóa Toán để thấy Bài 1",
+        "Mở Toán rồi mở Bài 1",
+        "Mở Bài 1 rồi mới mở Toán",
+        "Mở thư mục khác bất kì"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tệp Bài 1 nằm trong nhánh Toán, nên phải mở thư mục Toán trước."
     }
   ]
 }

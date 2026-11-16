@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 5. Sử dụng bàn phím",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Hai phím nào có gờ để đặt ngón trỏ ở hàng phím cơ sở?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Thả lỏng tự nhiên."
+    },
+    {
+      "question": "Trên bàn phím, phím có gờ F giúp đặt ngón nào?",
+      "options": [
+        "Ngón út phải",
+        "Ngón giữa phải",
+        "Ngón trỏ trái",
+        "Ngón cái trái"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ngón trỏ trái."
+    },
+    {
+      "question": "Phím có gờ J giúp đặt ngón nào?",
+      "options": [
+        "Ngón giữa trái",
+        "Ngón trỏ phải",
+        "Ngón cái phải",
+        "Ngón út trái"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ngón trỏ phải."
+    },
+    {
+      "question": "Hàng phím số nằm ở đâu trên bàn phím thông thường?",
+      "options": [
+        "Phía trên hàng phím chữ",
+        "Dưới phím cách",
+        "Bên trong chuột",
+        "Trên màn hình"
+      ],
+      "correctIndex": 0,
+      "explanation": "Phía trên hàng phím chữ."
+    },
+    {
+      "question": "Phím Enter có thể dùng để làm gì khi soạn văn bản?",
+      "options": [
+        "Tăng âm lượng",
+        "Tắt máy",
+        "Xóa toàn bộ tệp",
+        "Bắt đầu dòng hoặc đoạn mới"
+      ],
+      "correctIndex": 3,
+      "explanation": "Bắt đầu dòng hoặc đoạn mới."
+    },
+    {
+      "question": "Khi gõ sai kí tự vừa nhập, phím nào thường hữu ích?",
+      "options": [
+        "Shift",
+        "Space",
+        "Backspace",
+        "Caps Lock"
+      ],
+      "correctIndex": 2,
+      "explanation": "Backspace."
+    },
+    {
+      "question": "Để có một dấu cách giữa hai từ, em nhấn phím nào?",
+      "options": [
+        "Esc",
+        "Space",
+        "Enter",
+        "Backspace"
+      ],
+      "correctIndex": 1,
+      "explanation": "Space."
+    },
+    {
+      "question": "Khi dùng hai tay gõ, các ngón nên di chuyển thế nào?",
+      "options": [
+        "Từ vị trí cơ sở đến phím cần gõ rồi trở lại",
+        "Một ngón làm tất cả",
+        "Tất cả cùng bấm một phím",
+        "Chỉ dùng tay trái"
+      ],
+      "correctIndex": 0,
+      "explanation": "Từ vị trí cơ sở đến phím cần gõ rồi trở lại."
+    },
+    {
+      "question": "Nếu muốn gõ chữ hoa tạm thời, em giữ phím nào cùng phím chữ?",
+      "options": [
+        "Enter",
+        "Space",
+        "Tab",
+        "Shift"
+      ],
+      "correctIndex": 3,
+      "explanation": "Shift."
+    },
+    {
+      "question": "Phím Caps Lock đang bật ảnh hưởng chủ yếu gì khi gõ chữ cái?",
+      "options": [
+        "Máy tự tắt",
+        "Con trỏ dừng",
+        "Chữ cái được viết hoa",
+        "Tất cả dấu cách biến mất"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chữ cái được viết hoa."
+    },
+    {
+      "question": "Khi luyện gõ, vì sao không nên đập phím thật mạnh?",
+      "options": [
+        "Chữ đổi màu",
+        "Dễ mỏi tay và hại bàn phím",
+        "Gõ sai thành đúng",
+        "Máy tự học"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dễ mỏi tay và hại bàn phím."
     }
   ]
 }

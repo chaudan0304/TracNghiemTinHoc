@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 9B. Thực hành tạo đồ dùng gia đình theo video hướng dẫn",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Khi chọn video để làm đồ dùng gia đình, em cần chú ý gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Ghi nguồn video phù hợp."
+    },
+    {
+      "question": "Đồ dùng gia đình nào có thể làm từ vật liệu tái sử dụng an toàn?",
+      "options": [
+        "Vật sắc nhọn không bảo vệ",
+        "Chai hóa chất chưa rửa",
+        "Hộp đựng bút từ hộp sạch phù hợp",
+        "Đồ điện tự chế nguy hiểm"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hộp đựng bút từ hộp sạch phù hợp."
+    },
+    {
+      "question": "Trước khi chọn video, em cần xem gì?",
+      "options": [
+        "Chỉ ảnh bìa",
+        "Độ phù hợp của vật liệu và mức an toàn",
+        "Chỉ nhạc nền",
+        "Chỉ lượt thích"
+      ],
+      "correctIndex": 1,
+      "explanation": "Độ phù hợp của vật liệu và mức an toàn."
+    },
+    {
+      "question": "Nếu cần cắt vật liệu cứng, em nên làm gì?",
+      "options": [
+        "Nhờ người lớn giúp",
+        "Tự dùng lực quá mạnh",
+        "Dùng dao tùy ý",
+        "Bỏ qua an toàn"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nhờ người lớn giúp."
+    },
+    {
+      "question": "Sau khi xem video, em có thể lập gì?",
+      "options": [
+        "Mật khẩu",
+        "Tên máy",
+        "Màu chuột",
+        "Danh sách vật liệu và các bước"
+      ],
+      "correctIndex": 3,
+      "explanation": "Danh sách vật liệu và các bước."
+    },
+    {
+      "question": "Nếu sản phẩm không dùng được, em nên làm gì?",
+      "options": [
+        "Giấu lỗi",
+        "Xóa video",
+        "Tìm nguyên nhân và chỉnh sửa an toàn",
+        "Vẫn sử dụng"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tìm nguyên nhân và chỉnh sửa an toàn."
+    },
+    {
+      "question": "Tại sao cần làm từng bước theo hướng dẫn?",
+      "options": [
+        "Để không cần vật liệu",
+        "Giảm sai sót và giữ an toàn",
+        "Để video tự làm",
+        "Để máy nhanh"
+      ],
+      "correctIndex": 1,
+      "explanation": "Giảm sai sót và giữ an toàn."
+    },
+    {
+      "question": "Khi dùng keo, em nên chú ý gì?",
+      "options": [
+        "Sử dụng đúng cách và giữ khu vực sạch",
+        "Bôi lên tay tùy ý",
+        "Để gần mắt",
+        "Dùng càng nhiều càng tốt"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sử dụng đúng cách và giữ khu vực sạch."
+    },
+    {
+      "question": "Nếu sản phẩm có cạnh sắc, em nên làm gì?",
+      "options": [
+        "Dùng ngay",
+        "Đưa cho em nhỏ",
+        "Bỏ qua",
+        "Xử lí cạnh hoặc nhờ người lớn trước khi dùng"
+      ],
+      "correctIndex": 3,
+      "explanation": "Xử lí cạnh hoặc nhờ người lớn trước khi dùng."
+    },
+    {
+      "question": "Sau khi làm đồ dùng, em cần đánh giá gì?",
+      "options": [
+        "Nhạc video có to không",
+        "Chuột có sạch không",
+        "Có đáp ứng nhu cầu và an toàn không",
+        "Có giống màu màn hình không"
+      ],
+      "correctIndex": 2,
+      "explanation": "Có đáp ứng nhu cầu và an toàn không."
+    },
+    {
+      "question": "Khi giới thiệu sản phẩm, em có thể nói gì?",
+      "options": [
+        "Chỉ giá máy",
+        "Vật liệu, các bước và điều đã điều chỉnh",
+        "Chỉ tên video",
+        "Chỉ màu phông"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vật liệu, các bước và điều đã điều chỉnh."
     }
   ]
 }

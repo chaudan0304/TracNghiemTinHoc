@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 8A. Làm quen với phần mềm đồ họa",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Phần mềm đồ họa giúp em làm gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Lưu sản phẩm ở vị trí dễ tìm."
+    },
+    {
+      "question": "Phần mềm đồ họa dùng để tạo gì?",
+      "options": [
+        "Cây thật",
+        "Dây nguồn",
+        "Tranh và hình ảnh số",
+        "Bàn gỗ"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tranh và hình ảnh số."
+    },
+    {
+      "question": "Muốn tạo nét vẽ tự do, em dùng công cụ nào?",
+      "options": [
+        "Công cụ âm lượng",
+        "Bút vẽ",
+        "Máy in",
+        "Nút tắt"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bút vẽ."
+    },
+    {
+      "question": "Muốn hình có màu xanh, em chọn gì trước khi tô?",
+      "options": [
+        "Màu xanh trong bảng màu",
+        "Tên tệp",
+        "Loa",
+        "Dây cáp"
+      ],
+      "correctIndex": 0,
+      "explanation": "Màu xanh trong bảng màu."
+    },
+    {
+      "question": "Nếu vừa vẽ sai một nét, thao tác nào hữu ích?",
+      "options": [
+        "Lưu lỗi ngay",
+        "Xóa máy",
+        "Đổi bàn phím",
+        "Hoàn tác hoặc tẩy"
+      ],
+      "correctIndex": 3,
+      "explanation": "Hoàn tác hoặc tẩy."
+    },
+    {
+      "question": "Vùng làm việc nơi em vẽ được gọi là gì?",
+      "options": [
+        "Loa",
+        "Thùng rác",
+        "Vùng vẽ",
+        "Ổ điện"
+      ],
+      "correctIndex": 2,
+      "explanation": "Vùng vẽ."
+    },
+    {
+      "question": "Khi chọn công cụ hình chữ nhật, em có thể tạo gì?",
+      "options": [
+        "Một trang web",
+        "Một hình chữ nhật",
+        "Một bài hát",
+        "Một mật khẩu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Một hình chữ nhật."
+    },
+    {
+      "question": "Nếu tô màu tràn ra ngoài, em nên kiểm tra gì?",
+      "options": [
+        "Vùng cần tô có khép kín hoặc chọn đúng không",
+        "Âm lượng",
+        "Tên máy",
+        "Giá chuột"
+      ],
+      "correctIndex": 0,
+      "explanation": "Vùng cần tô có khép kín hoặc chọn đúng không."
+    },
+    {
+      "question": "Muốn tiếp tục sửa tranh sau, em nên lưu thế nào?",
+      "options": [
+        "Chỉ chụp bằng mắt",
+        "Xóa bản vẽ",
+        "Đóng không lưu",
+        "Lưu tệp ở định dạng và vị trí phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Lưu tệp ở định dạng và vị trí phù hợp."
+    },
+    {
+      "question": "Sản phẩm tạo trong phần mềm đồ họa là gì?",
+      "options": [
+        "Đồ ăn thật",
+        "Cây trồng thật",
+        "Sản phẩm số",
+        "Vật bằng gỗ thật"
+      ],
+      "correctIndex": 2,
+      "explanation": "Sản phẩm số."
+    },
+    {
+      "question": "Vì sao cần đặt tên tệp tranh rõ ràng?",
+      "options": [
+        "Chuột nhẹ hơn",
+        "Dễ tìm và mở lại",
+        "Loa lớn hơn",
+        "Màn hình sáng hơn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dễ tìm và mở lại."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Ôn tập: Sử dụng máy tính an toàn",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Khi dùng máy tính ở trường, em nên làm gì trước khi cài phần mềm mới?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Lưu công việc và đăng xuất tài khoản."
+    },
+    {
+      "question": "Khi ngồi trước máy, mắt nên cách màn hình thế nào?",
+      "options": [
+        "Càng gần càng tốt",
+        "Không cần nhìn",
+        "Một khoảng cách phù hợp",
+        "Áp sát màn hình"
+      ],
+      "correctIndex": 2,
+      "explanation": "Một khoảng cách phù hợp."
+    },
+    {
+      "question": "Nếu dây điện bị hở, em nên làm gì?",
+      "options": [
+        "Tiếp tục dùng",
+        "Tránh chạm và báo người lớn",
+        "Tự nối tay không",
+        "Đổ nước"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tránh chạm và báo người lớn."
+    },
+    {
+      "question": "Khi rời máy dùng chung, em nên làm gì?",
+      "options": [
+        "Lưu bài và đăng xuất",
+        "Để tài khoản mở",
+        "Cho mọi người mật khẩu",
+        "Xóa tệp người khác"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lưu bài và đăng xuất."
+    },
+    {
+      "question": "Vì sao cần nghỉ mắt khi dùng máy lâu?",
+      "options": [
+        "Tăng số phím",
+        "Tạo mạng",
+        "Thay phần mềm",
+        "Giảm mỏi mắt"
+      ],
+      "correctIndex": 3,
+      "explanation": "Giảm mỏi mắt."
+    },
+    {
+      "question": "Nếu có lời mời tải tệp lạ, em nên làm gì?",
+      "options": [
+        "Chia sẻ cho cả lớp",
+        "Tắt bảo vệ máy",
+        "Hỏi người lớn trước khi tải",
+        "Tải ngay"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hỏi người lớn trước khi tải."
+    },
+    {
+      "question": "Mật khẩu tài khoản nên được xử lí thế nào?",
+      "options": [
+        "Gửi cho người lạ",
+        "Giữ kín",
+        "Đăng công khai",
+        "Dán lên màn hình"
+      ],
+      "correctIndex": 1,
+      "explanation": "Giữ kín."
+    },
+    {
+      "question": "Nếu máy có dấu hiệu hỏng, em nên làm gì?",
+      "options": [
+        "Báo giáo viên hoặc người lớn",
+        "Tự tháo máy",
+        "Đập máy",
+        "Tiếp tục dùng bất chấp"
+      ],
+      "correctIndex": 0,
+      "explanation": "Báo giáo viên hoặc người lớn."
+    },
+    {
+      "question": "Nước uống nên đặt thế nào khi học máy?",
+      "options": [
+        "Trên bàn phím",
+        "Sát ổ cắm",
+        "Trên thân máy",
+        "Xa thiết bị và ổ điện"
+      ],
+      "correctIndex": 3,
+      "explanation": "Xa thiết bị và ổ điện."
+    },
+    {
+      "question": "Tư thế ngồi phù hợp là gì?",
+      "options": [
+        "Vẹo hẳn sang bên",
+        "Nằm trên bàn",
+        "Lưng thẳng và thoải mái",
+        "Cúi sát màn hình"
+      ],
+      "correctIndex": 2,
+      "explanation": "Lưng thẳng và thoải mái."
+    },
+    {
+      "question": "Khi tắt máy sau giờ học, em nên làm gì?",
+      "options": [
+        "Xóa ổ đĩa",
+        "Dùng lệnh tắt máy đúng cách",
+        "Rút điện ngay",
+        "Đập nút nguồn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dùng lệnh tắt máy đúng cách."
     }
   ]
 }

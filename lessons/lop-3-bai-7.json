@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 7. Sắp xếp để dễ tìm",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Vì sao nên sắp xếp đồ vật và tệp hợp lí?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Theo loại hoặc mục đích sử dụng."
+    },
+    {
+      "question": "Trong tủ sách, em muốn tìm truyện nhanh thì nên làm gì?",
+      "options": [
+        "Để lẫn đồ chơi",
+        "Đổi chỗ mỗi ngày",
+        "Xếp truyện cùng một khu vực có nhãn",
+        "Rải truyện nhiều nơi"
+      ],
+      "correctIndex": 2,
+      "explanation": "Xếp truyện cùng một khu vực có nhãn."
+    },
+    {
+      "question": "Nếu ảnh ngày hội trường nằm lẫn với bài tập, em nên làm gì?",
+      "options": [
+        "Để nguyên không nhớ",
+        "Chuyển vào thư mục ảnh phù hợp",
+        "Xóa mọi ảnh",
+        "Đổi tên tất cả là 'a'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chuyển vào thư mục ảnh phù hợp."
+    },
+    {
+      "question": "Tiêu chí sắp xếp nào giúp tìm đồ học tập?",
+      "options": [
+        "Theo môn hoặc loại đồ",
+        "Theo ý ngẫu nhiên mỗi lần",
+        "Theo tiếng loa",
+        "Theo màu màn hình"
+      ],
+      "correctIndex": 0,
+      "explanation": "Theo môn hoặc loại đồ."
+    },
+    {
+      "question": "Nhãn trên hộp đồ dùng có tác dụng gì?",
+      "options": [
+        "Làm hộp tự mở",
+        "Tạo thêm đồ dùng",
+        "Thay khóa hộp",
+        "Giúp nhận biết đồ bên trong"
+      ],
+      "correctIndex": 3,
+      "explanation": "Giúp nhận biết đồ bên trong."
+    },
+    {
+      "question": "Tên thư mục 'Bài vẽ tháng 9' cho biết gì?",
+      "options": [
+        "Tên thiết bị",
+        "Tốc độ mạng",
+        "Loại nội dung và thời điểm",
+        "Mật khẩu"
+      ],
+      "correctIndex": 2,
+      "explanation": "Loại nội dung và thời điểm."
+    },
+    {
+      "question": "Vì sao không nên đặt nhiều tệp cùng tên khó hiểu?",
+      "options": [
+        "Màn hình tối đi",
+        "Khó phân biệt và tìm lại",
+        "Tăng số phím",
+        "Loa nhỏ đi"
+      ],
+      "correctIndex": 1,
+      "explanation": "Khó phân biệt và tìm lại."
+    },
+    {
+      "question": "Khi sắp xếp bài học theo lớp, thư mục nào hợp lí?",
+      "options": [
+        "Lớp 3 / Toán",
+        "Tệp / Tệp / Tệp",
+        "Mới / Mới",
+        "Ngẫu nhiên / abc"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lớp 3 / Toán."
+    },
+    {
+      "question": "Nếu đồ vật đã có nhóm riêng, khi dùng xong em nên làm gì?",
+      "options": [
+        "Để ở nơi bất kì",
+        "Vứt đi",
+        "Đổi tên nhóm",
+        "Đặt lại đúng nhóm"
+      ],
+      "correctIndex": 3,
+      "explanation": "Đặt lại đúng nhóm."
+    },
+    {
+      "question": "Sắp xếp trước khi tìm có lợi ích nào?",
+      "options": [
+        "Tạo mật khẩu",
+        "Đổi giao diện",
+        "Tiết kiệm thời gian tìm kiếm",
+        "Thay dung lượng máy"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tiết kiệm thời gian tìm kiếm."
+    },
+    {
+      "question": "Thư mục Ảnh có 60 ảnh của ba chuyến đi. Cách nào giúp tìm ảnh chuyến đi tháng 9 nhanh nhất?",
+      "options": [
+        "Xóa hết ảnh cũ",
+        "Tạo ba thư mục theo từng chuyến đi và đặt tên rõ ràng",
+        "Đổi mọi ảnh thành cùng một tên",
+        "Để 60 ảnh lẫn nhau và mở từng ảnh"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chia ảnh theo chuyến đi và đặt tên thư mục rõ ràng giúp thu hẹp nơi cần tìm."
     }
   ]
 }

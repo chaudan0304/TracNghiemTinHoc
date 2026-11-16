@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 16. Công việc của em và sự trợ giúp của máy tính",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Khi nhóm muốn làm bài trình chiếu, bước đầu nên là gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Kiểm tra, lưu và cùng trình bày."
+    },
+    {
+      "question": "Trong kế hoạch làm bài trình chiếu, bước nào nên trước khi mở phần mềm?",
+      "options": [
+        "In trang trắng",
+        "Đổi tên máy",
+        "Xác định chủ đề và nội dung",
+        "Xóa bài"
+      ],
+      "correctIndex": 2,
+      "explanation": "Xác định chủ đề và nội dung."
+    },
+    {
+      "question": "Nếu nhóm muốn giới thiệu trường, ảnh nào phù hợp?",
+      "options": [
+        "Ảnh mờ không rõ",
+        "Ảnh sân trường được phép sử dụng",
+        "Ảnh không liên quan",
+        "Ảnh che toàn bộ chữ"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ảnh sân trường được phép sử dụng."
+    },
+    {
+      "question": "Một trang chiếu có thể chứa gì để minh họa ý?",
+      "options": [
+        "Chữ và hình ảnh phù hợp",
+        "Chỉ dây điện",
+        "Chỉ tên chuột",
+        "Chỉ phím nguồn"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chữ và hình ảnh phù hợp."
+    },
+    {
+      "question": "Khi các bạn làm việc nhóm, vì sao cần phân công?",
+      "options": [
+        "Để không ai làm",
+        "Để xóa phần của nhau",
+        "Để bỏ kế hoạch",
+        "Để mỗi bạn biết nhiệm vụ và phối hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Để mỗi bạn biết nhiệm vụ và phối hợp."
+    },
+    {
+      "question": "Nếu chữ trên trang chiếu quá nhỏ, nhóm nên làm gì?",
+      "options": [
+        "Che bằng ảnh",
+        "Đổi loa",
+        "Tăng cỡ chữ phù hợp",
+        "Thu nhỏ thêm"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tăng cỡ chữ phù hợp."
+    },
+    {
+      "question": "Trước khi trình bày, nhóm nên kiểm tra gì?",
+      "options": [
+        "Tên ổ cắm",
+        "Các trang theo đúng thứ tự và nội dung rõ",
+        "Giá bàn phím",
+        "Màu dây nguồn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Các trang theo đúng thứ tự và nội dung rõ."
+    },
+    {
+      "question": "Nếu hình ảnh chưa liên quan chủ đề, nhóm nên làm gì?",
+      "options": [
+        "Đổi sang hình phù hợp",
+        "Giữ nguyên",
+        "Thêm ảnh ngẫu nhiên",
+        "Xóa mọi chữ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Đổi sang hình phù hợp."
+    },
+    {
+      "question": "Máy tính giúp nhóm sửa bài trình chiếu bằng cách nào?",
+      "options": [
+        "Tự quyết định mục tiêu",
+        "Tự thay lời nói",
+        "Tự nộp bài không cần người",
+        "Chỉnh chữ, hình và thứ tự trang"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chỉnh chữ, hình và thứ tự trang."
+    },
+    {
+      "question": "Sau khi các bạn góp ý, nhóm nên làm gì?",
+      "options": [
+        "Xóa tệp",
+        "Tắt máy",
+        "Chỉnh sửa sản phẩm rồi xem lại",
+        "Bỏ qua mọi góp ý"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chỉnh sửa sản phẩm rồi xem lại."
+    },
+    {
+      "question": "Nhóm đã làm 5 trang chiếu nhưng trang kết luận nằm trước phần giới thiệu. Cách sửa nào hợp lí?",
+      "options": [
+        "Giữ nguyên vì thứ tự không quan trọng",
+        "Sắp lại thứ tự các trang rồi trình chiếu thử",
+        "Chỉ đổi màu kết luận",
+        "Xóa toàn bộ bài"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bài trình chiếu cần mạch giới thiệu, nội dung, kết luận rõ ràng; trình chiếu thử giúp kiểm tra."
     }
   ]
 }

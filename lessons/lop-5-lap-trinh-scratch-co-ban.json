@@ -3,68 +3,228 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Luyện tập bổ sung: Lập trình Scratch cơ bản",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Nhân vật mặc định xuất hiện khi em mở một dự án mới trong Scratch là con vật nào?",
-      "options": ["Chú chó vàng", "Chú mèo Scratch", "Chú chim cánh cụt", "Chú ếch xanh"],
+      "options": [
+        "Chú chó vàng",
+        "Chú mèo Scratch",
+        "Chú chim cánh cụt",
+        "Chú ếch xanh"
+      ],
       "correctIndex": 1,
       "explanation": "Chú mèo màu vàng cam là biểu tượng và là nhân vật mặc định đầu tiên của phần mềm Scratch."
     },
     {
       "question": "Khu vực sân khấu (Stage) trong màn hình Scratch dùng để làm gì?",
-      "options": ["Nơi viết các đoạn mã lệnh", "Nơi hiển thị kết quả hoạt động của các nhân vật khi chạy chương trình", "Nơi chỉnh sửa âm thanh", "Nơi lưu tệp tin ra máy tính"],
+      "options": [
+        "Nơi viết các đoạn mã lệnh",
+        "Nơi hiển thị kết quả hoạt động của các nhân vật khi chạy chương trình",
+        "Nơi chỉnh sửa âm thanh",
+        "Nơi lưu tệp tin ra máy tính"
+      ],
       "correctIndex": 1,
       "explanation": "Sân khấu là nơi các nhân vật biểu diễn, di chuyển và tương tác theo các khối lệnh em đã lập trình."
     },
     {
       "question": "Biểu tượng nào trên giao diện Scratch được dùng để bắt đầu chạy chương trình?",
-      "options": ["Lá cờ màu xanh", "Nút tròn màu đỏ", "Ngôi sao màu vàng", "Mũi tên màu xanh lá"],
+      "options": [
+        "Lá cờ màu xanh",
+        "Nút tròn màu đỏ",
+        "Ngôi sao màu vàng",
+        "Mũi tên màu xanh lá"
+      ],
       "correctIndex": 0,
       "explanation": "Nháy chuột vào 'Lá cờ màu xanh' để khởi động và thực thi kịch bản chương trình."
     },
     {
       "question": "Để dừng toàn bộ chương trình đang chạy trong Scratch, em bấm vào nút nào?",
-      "options": ["Lá cờ màu xanh", "Nút tròn màu đỏ bên cạnh lá cờ", "Dấu nhân ở góc trên bên phải", "Phím cách (Space)"],
+      "options": [
+        "Lá cờ màu xanh",
+        "Nút tròn màu đỏ bên cạnh lá cờ",
+        "Dấu nhân ở góc trên bên phải",
+        "Phím cách (Space)"
+      ],
       "correctIndex": 1,
       "explanation": "Nút tròn màu đỏ (Stop) dùng để tạm dừng hoặc dừng hẳn toàn bộ hoạt động đang chạy."
     },
     {
       "question": "Khối lệnh 'di chuyển 10 bước' (move 10 steps) thuộc nhóm lệnh nào dưới đây?",
-      "options": ["Hiển thị (Looks)", "Chuyển động (Motion)", "Âm thanh (Sound)", "Sự kiện (Events)"],
+      "options": [
+        "Hiển thị (Looks)",
+        "Chuyển động (Motion)",
+        "Âm thanh (Sound)",
+        "Sự kiện (Events)"
+      ],
       "correctIndex": 1,
       "explanation": "Nhóm Chuyển động (Motion, màu xanh lam) chứa các lệnh điều khiển di chuyển, xoay và tọa độ của nhân vật."
     },
     {
       "question": "Khối lệnh 'khi bấm vào lá cờ xanh' (when green flag clicked) thuộc nhóm lệnh nào?",
-      "options": ["Sự kiện (Events)", "Điều khiển (Control)", "Cảm biến (Sensing)", "Các phép toán (Operators)"],
+      "options": [
+        "Sự kiện (Events)",
+        "Điều khiển (Control)",
+        "Cảm biến (Sensing)",
+        "Các phép toán (Operators)"
+      ],
       "correctIndex": 0,
       "explanation": "Nhóm Sự kiện (Events, màu vàng) chứa các khối lệnh kích hoạt kịch bản khi có hành động như bấm cờ xanh, gõ phím..."
     },
     {
       "question": "Khối lệnh 'lặp lại 10 lần' (repeat 10) có tác dụng gì trong Scratch?",
-      "options": ["Thực hiện các lệnh bên trong đúng 10 lần rồi dừng", "Lặp mãi mãi không bao giờ dừng", "Xóa nhân vật sau 10 giây", "Tăng tốc độ nhân vật lên 10 lần"],
+      "options": [
+        "Thực hiện các lệnh bên trong đúng 10 lần rồi dừng",
+        "Lặp mãi mãi không bao giờ dừng",
+        "Xóa nhân vật sau 10 giây",
+        "Tăng tốc độ nhân vật lên 10 lần"
+      ],
       "correctIndex": 0,
       "explanation": "Khối lệnh lặp với số lần biết trước (repeat N) sẽ lặp lại chuỗi hành động bên trong N lần."
     },
     {
       "question": "Để nhân vật nói câu 'Xin chào các bạn!' trong 2 giây, em dùng khối lệnh thuộc nhóm nào?",
-      "options": ["Chuyển động (Motion)", "Hiển thị (Looks)", "Cảm biến (Sensing)", "Âm thanh (Sound)"],
+      "options": [
+        "Chuyển động (Motion)",
+        "Hiển thị (Looks)",
+        "Cảm biến (Sensing)",
+        "Âm thanh (Sound)"
+      ],
       "correctIndex": 1,
       "explanation": "Nhóm Hiển thị (Looks, màu tím) chứa các lệnh 'nói...' (say), 'nghĩ...' (think), đổi trang phục, hiệu ứng màu."
     },
     {
       "question": "Nếu muốn nhân vật thực hiện hành động liên tục không ngừng cho đến khi bấm nút đỏ dừng, em dùng khối lệnh nào?",
-      "options": ["lặp lại 10 lần (repeat 10)", "liên tục (forever)", "nếu... thì (if... then)", "đợi 1 giây (wait 1 seconds)"],
+      "options": [
+        "lặp lại 10 lần (repeat 10)",
+        "liên tục (forever)",
+        "nếu... thì (if... then)",
+        "đợi 1 giây (wait 1 seconds)"
+      ],
       "correctIndex": 1,
       "explanation": "Khối lệnh 'liên tục' (forever) tạo vòng lặp vô hạn, chạy liên tục cho đến khi người dùng bấm nút đỏ dừng."
     },
     {
       "question": "Tại sao lập trình Scratch lại rất phù hợp và bổ ích cho học sinh tiểu học?",
-      "options": ["Vì Scratch chỉ cần kéo thả các khối lệnh như xếp hình Lego, giúp rèn luyện tư duy logic sáng tạo", "Vì Scratch rất khó và chỉ dành cho chuyên gia", "Vì Scratch bắt buộc phải gõ bằng tiếng Anh phức tạp", "Vì Scratch không thể làm được trò chơi nào"],
+      "options": [
+        "Vì Scratch chỉ cần kéo thả các khối lệnh như xếp hình Lego, giúp rèn luyện tư duy logic sáng tạo",
+        "Vì Scratch rất khó và chỉ dành cho chuyên gia",
+        "Vì Scratch bắt buộc phải gõ bằng tiếng Anh phức tạp",
+        "Vì Scratch không thể làm được trò chơi nào"
+      ],
       "correctIndex": 0,
       "explanation": "Scratch có giao diện khối lệnh trực quan kéo thả nhiều màu sắc, vừa học vừa chơi, kích thích trí sáng tạo của học sinh."
+    },
+    {
+      "question": "Trong Scratch, nút cờ xanh thường dùng để gì?",
+      "options": [
+        "Tắt máy",
+        "Đổi ngôn ngữ",
+        "Bắt đầu chạy chương trình",
+        "Xóa dự án"
+      ],
+      "correctIndex": 2,
+      "explanation": "Bắt đầu chạy chương trình."
+    },
+    {
+      "question": "Sân khấu Scratch là nơi nào?",
+      "options": [
+        "Nơi lưu mật khẩu",
+        "Nơi nhân vật thể hiện hành động",
+        "Nơi cắm điện",
+        "Nơi in giấy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nơi nhân vật thể hiện hành động."
+    },
+    {
+      "question": "Muốn nhân vật di chuyển, em dùng nhóm lệnh nào?",
+      "options": [
+        "Chuyển động",
+        "Âm lượng máy",
+        "Ổ điện",
+        "Tệp văn bản"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chuyển động."
+    },
+    {
+      "question": "Khối lệnh 'nói' giúp nhân vật làm gì?",
+      "options": [
+        "Tạo dây điện",
+        "In ảnh",
+        "Xóa máy",
+        "Hiển thị lời thoại"
+      ],
+      "correctIndex": 3,
+      "explanation": "Hiển thị lời thoại."
+    },
+    {
+      "question": "Nếu khối lệnh không nối vào chuỗi bắt đầu, điều gì có thể xảy ra?",
+      "options": [
+        "Máy tự xóa",
+        "Loa tự tắt",
+        "Nó không chạy cùng chuỗi đó",
+        "Nó luôn chạy trước"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nó không chạy cùng chuỗi đó."
+    },
+    {
+      "question": "Muốn lưu dự án để sửa sau, em cần làm gì?",
+      "options": [
+        "Xóa nhân vật",
+        "Lưu tệp dự án",
+        "Chỉ đóng cửa sổ",
+        "Đổi chuột"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lưu tệp dự án."
+    },
+    {
+      "question": "Khi nhân vật đi sai hướng, em nên kiểm tra gì?",
+      "options": [
+        "Lệnh di chuyển và hướng",
+        "Màu bàn phím",
+        "Tên loa",
+        "Giá màn hình"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lệnh di chuyển và hướng."
+    },
+    {
+      "question": "Nếu cần lặp hành động, em có thể dùng gì?",
+      "options": [
+        "Chỉ lệnh dừng",
+        "Chỉ phông nền",
+        "Chỉ tệp ảnh",
+        "Khối lặp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Khối lặp."
+    },
+    {
+      "question": "Sau khi ghép lệnh, em nên làm gì?",
+      "options": [
+        "Tắt máy",
+        "Đổi tên ổ đĩa",
+        "Chạy thử và quan sát",
+        "Xóa mọi lệnh"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chạy thử và quan sát."
+    },
+    {
+      "question": "Muốn thay cảnh cho câu chuyện Scratch, em dùng gì?",
+      "options": [
+        "Máy in",
+        "Phông nền sân khấu",
+        "Dây cáp",
+        "Nút nguồn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Phông nền sân khấu."
     }
   ]
 }

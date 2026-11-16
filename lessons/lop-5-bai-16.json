@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 16. Từ kịch bản đến chương trình",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 1,
-  "timeLimitSeconds": 600,
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
   "questions": [
     {
       "question": "Kịch bản chương trình mô tả điều gì?",
@@ -115,6 +115,116 @@
       ],
       "correctIndex": 3,
       "explanation": "Nêu mục tiêu, chạy thử và giải thích các bước chính."
+    },
+    {
+      "question": "Kịch bản giúp người lập trình xác định gì?",
+      "options": [
+        "Màu dây điện",
+        "Tên máy in",
+        "Nhân vật, hành động và thứ tự",
+        "Giá chuột"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nhân vật, hành động và thứ tự."
+    },
+    {
+      "question": "Khi hai nhân vật có việc khác nhau, em nên làm gì?",
+      "options": [
+        "Đổi tên máy",
+        "Lập trình lệnh cho từng nhân vật",
+        "Chỉ viết cho một rồi mặc định giống",
+        "Xóa một nhân vật"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lập trình lệnh cho từng nhân vật."
+    },
+    {
+      "question": "Nếu kịch bản có hành động lặp bốn lần, em dùng gì?",
+      "options": [
+        "Khối lặp 4 lần",
+        "Chỉ lệnh dừng",
+        "Chỉ đổi nền",
+        "Chỉ âm thanh"
+      ],
+      "correctIndex": 0,
+      "explanation": "Khối lặp 4 lần."
+    },
+    {
+      "question": "Nếu kịch bản yêu cầu phản ứng khi chạm vật, em cần gì?",
+      "options": [
+        "Chỉ lệnh nói liên tục",
+        "Chỉ đổi tên",
+        "Chỉ phông nền",
+        "Điều kiện rẽ nhánh phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Điều kiện rẽ nhánh phù hợp."
+    },
+    {
+      "question": "Nhóm khối lệnh nào thường bắt đầu hoạt động khi bấm cờ xanh?",
+      "options": [
+        "Nhóm in giấy",
+        "Nhóm tệp hệ thống",
+        "Nhóm Sự kiện",
+        "Nhóm chỉ đổi màu"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nhóm Sự kiện."
+    },
+    {
+      "question": "Nếu thứ tự hành động sai kịch bản, em nên làm gì?",
+      "options": [
+        "Xóa mọi tệp",
+        "Sắp xếp lại các lệnh",
+        "Đổi loa",
+        "Tắt mạng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sắp xếp lại các lệnh."
+    },
+    {
+      "question": "Để biết chương trình đúng ý chưa, em cần gì?",
+      "options": [
+        "Chạy thử và đối chiếu kịch bản",
+        "Chỉ nhìn tên dự án",
+        "Tin luôn",
+        "Chỉ xem màu khối"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chạy thử và đối chiếu kịch bản."
+    },
+    {
+      "question": "Nếu kết quả sai ở một bước, em nên làm gì?",
+      "options": [
+        "Xóa toàn bộ máy",
+        "Giữ nguyên lỗi",
+        "Đổi chuột",
+        "Tìm lệnh liên quan và sửa"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tìm lệnh liên quan và sửa."
+    },
+    {
+      "question": "Sau khi hoàn thành, em nên lưu gì?",
+      "options": [
+        "Chỉ tên tệp trên giấy",
+        "Chỉ âm lượng",
+        "Tệp dự án có thể mở lại để chỉnh sửa",
+        "Chỉ ảnh chụp mờ"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tệp dự án có thể mở lại để chỉnh sửa."
+    },
+    {
+      "question": "Kịch bản yêu cầu mèo hỏi tên bạn, chào đúng tên, rồi lặp lời chào hai lần. Chương trình nên dùng thành phần nào?",
+      "options": [
+        "Chỉ đặt biến điểm về 0",
+        "Lệnh hỏi và biến trả lời, kết hợp lời chào trong khối lặp 2 lần",
+        "Chỉ lệnh nói một câu cố định",
+        "Chỉ đổi phông nền"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tên nhập được lưu ở biến trả lời; dùng giá trị đó trong lời chào và lặp hai lần theo kịch bản."
     }
   ]
 }
