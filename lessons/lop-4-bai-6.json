@@ -92,7 +92,7 @@
         "Chuột máy tính sẽ không thể nháy đúp được nữa."
       ],
       "correctIndex": 0,
-      "explanation": "Các tệp bẻ khóa thường bị kẻ xấu cài cắm virus hoặc mã độc gây hỏng dữ liệu và mất an toàn thông tin."
+      "explanation": "Tệp bẻ khóa từ nguồn không rõ ràng có thể chứa mã độc, gây mất an toàn thông tin."
     },
     {
       "question": "Bạn Nam mua một đĩa phần mềm học tiếng Anh có bản quyền chỉ cho phép cài trên 1 máy tính. Nam nên làm gì nếu bạn Lan muốn dùng thử?",
@@ -216,7 +216,7 @@
       "explanation": "Phần mềm bản quyền luôn nhận được các bản vá lỗi bảo mật, tính năng mới và sự hỗ trợ chính thức từ nhà sản xuất."
     },
     {
-      "question": "Thông điệp quan trọng nhất của Bài 6: Bản quyền sử dụng phần mềm là gì?",
+      "question": "Cách sử dụng phần mềm nào tôn trọng quyền của tác giả?",
       "options": [
         "Chỉ sử dụng phần mềm có bản quyền hoặc phần mềm miễn phí hợp pháp; không sao chép, bẻ khóa trái phép.",
         "Càng tải nhiều phần mềm bẻ khóa trên mạng càng tiết kiệm chi phí.",

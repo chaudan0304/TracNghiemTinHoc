@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 4. Cây thư mục",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Trong cây thư mục, thư mục con nằm ở đâu?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Để dễ nhận biết và tìm thông tin."
+    },
+    {
+      "question": "Thư mục A chứa B, B chứa tệp X. Muốn mở X từ A, em cần làm gì?",
+      "options": [
+        "Mở B rồi mở X",
+        "Mở loa",
+        "Tắt A",
+        "Đổi bàn phím"
+      ],
+      "correctIndex": 0,
+      "explanation": "Mở B rồi mở X."
+    },
+    {
+      "question": "Đường dẫn giúp phân biệt hai tệp cùng tên ở đâu?",
+      "options": [
+        "Trên cùng phím",
+        "Trong loa",
+        "Trên màn hình khác",
+        "Ở các thư mục khác nhau"
+      ],
+      "correctIndex": 3,
+      "explanation": "Ở các thư mục khác nhau."
+    },
+    {
+      "question": "Trong cây thư mục, nhánh con có thể chứa gì?",
+      "options": [
+        "Chỉ chuột",
+        "Chỉ loa",
+        "Các thư mục con hoặc tệp",
+        "Chỉ dây điện"
+      ],
+      "correctIndex": 2,
+      "explanation": "Các thư mục con hoặc tệp."
+    },
+    {
+      "question": "Thư mục cha của thư mục Ảnh nếu Ảnh nằm trong Học tập là gì?",
+      "options": [
+        "Bàn phím",
+        "Học tập",
+        "Ảnh",
+        "Một tệp bất kì"
+      ],
+      "correctIndex": 1,
+      "explanation": "Học tập."
+    },
+    {
+      "question": "Nếu đặt sai tệp trong cây thư mục, em nên làm gì?",
+      "options": [
+        "Chuyển tệp tới thư mục phù hợp",
+        "Xóa toàn bộ cây",
+        "Rút điện",
+        "Đổi tên mọi tệp"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chuyển tệp tới thư mục phù hợp."
+    },
+    {
+      "question": "Khi không nhớ vị trí một tệp, em có thể dùng gì trên máy tính?",
+      "options": [
+        "Nút âm lượng",
+        "Phím nguồn",
+        "Máy in",
+        "Công cụ tìm kiếm tệp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Công cụ tìm kiếm tệp."
     }
   ]
 }

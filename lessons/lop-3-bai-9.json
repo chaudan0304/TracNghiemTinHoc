@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 9. Thực hành với tệp và thư mục trong máy tính",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Để lưu các bài tập cùng một môn, em nên tạo gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Kiểm tra đúng tệp và hỏi người lớn khi chưa chắc."
+    },
+    {
+      "question": "Tên tệp nào dễ hiểu cho bài vẽ ngôi nhà?",
+      "options": [
+        "Ngôi nhà của em",
+        "Mới 1",
+        "abc",
+        "Không tên"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ngôi nhà của em."
+    },
+    {
+      "question": "Để tạo thư mục mới, em nên chọn vị trí nào?",
+      "options": [
+        "Bất kì vị trí không nhớ",
+        "Trong thùng rác",
+        "Trên phím Enter",
+        "Vị trí muốn lưu thư mục"
+      ],
+      "correctIndex": 3,
+      "explanation": "Vị trí muốn lưu thư mục."
+    },
+    {
+      "question": "Nếu mở nhầm thư mục, em nên làm gì?",
+      "options": [
+        "Rút dây nguồn",
+        "Đổi tên máy",
+        "Quay lại rồi mở đúng thư mục",
+        "Xóa tất cả tệp"
+      ],
+      "correctIndex": 2,
+      "explanation": "Quay lại rồi mở đúng thư mục."
+    },
+    {
+      "question": "Thao tác đổi tên tệp làm thay đổi điều gì?",
+      "options": [
+        "Số phím",
+        "Tên hiển thị của tệp",
+        "Nội dung bên trong luôn bị xóa",
+        "Loại màn hình"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tên hiển thị của tệp."
+    },
+    {
+      "question": "Khi lưu tệp, vì sao cần nhớ thư mục đích?",
+      "options": [
+        "Để tìm lại tệp khi cần",
+        "Để máy tự tắt",
+        "Để chuột sáng lên",
+        "Để loa to hơn"
+      ],
+      "correctIndex": 0,
+      "explanation": "Để tìm lại tệp khi cần."
+    },
+    {
+      "question": "Nếu xóa nhầm tệp, em nên làm gì trước?",
+      "options": [
+        "Xóa thêm tệp",
+        "Tắt máy vội",
+        "Giấu việc đã làm",
+        "Báo giáo viên hoặc người lớn để được hỗ trợ"
+      ],
+      "correctIndex": 3,
+      "explanation": "Báo giáo viên hoặc người lớn để được hỗ trợ."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 2. Xử lí thông tin",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Bộ phận nào giúp con người suy nghĩ để xử lí thông tin?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Xử lí thông tin để tìm kết quả."
+    },
+    {
+      "question": "Khi nghe lời cô giáo rồi làm theo, thông tin được tiếp nhận qua giác quan nào?",
+      "options": [
+        "Thính giác",
+        "Thị giác",
+        "Khứu giác",
+        "Vị giác"
+      ],
+      "correctIndex": 0,
+      "explanation": "Thính giác."
+    },
+    {
+      "question": "Khi đọc một biển báo, em tiếp nhận thông tin chủ yếu bằng gì?",
+      "options": [
+        "Tai",
+        "Mũi",
+        "Lưỡi",
+        "Mắt"
+      ],
+      "correctIndex": 3,
+      "explanation": "Mắt."
+    },
+    {
+      "question": "Kết quả của việc xử lí thông tin có thể là gì?",
+      "options": [
+        "Một màn hình mới",
+        "Một phím mới",
+        "Một quyết định hoặc hành động",
+        "Một dây điện"
+      ],
+      "correctIndex": 2,
+      "explanation": "Một quyết định hoặc hành động."
+    },
+    {
+      "question": "Máy tính nhận chữ em gõ qua thiết bị nào?",
+      "options": [
+        "Máy in",
+        "Bàn phím",
+        "Loa",
+        "Màn hình"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bàn phím."
+    },
+    {
+      "question": "Máy tính đưa âm thanh ra cho em nghe qua thiết bị nào?",
+      "options": [
+        "Loa",
+        "Bàn phím",
+        "Chuột",
+        "Thân máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Loa."
+    },
+    {
+      "question": "Để trả lời câu hỏi, em nên làm gì với thông tin đã nghe?",
+      "options": [
+        "Nhắc lại mọi âm thanh",
+        "Tắt máy tính",
+        "Nhắm mắt",
+        "Suy nghĩ và chọn câu trả lời phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Suy nghĩ và chọn câu trả lời phù hợp."
     }
   ]
 }

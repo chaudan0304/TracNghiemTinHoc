@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 12. Thực hành sử dụng lệnh lặp",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Muốn vẽ hình vuông bằng lặp, thao tác nào thường được lặp 4 lần?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Chương trình ngắn gọn và dễ sửa hơn."
+    },
+    {
+      "question": "Để vẽ tam giác đều bằng lặp, mỗi lần thường quay bao nhiêu độ ngoài?",
+      "options": [
+        "120 độ",
+        "90 độ",
+        "60 độ",
+        "180 độ"
+      ],
+      "correctIndex": 0,
+      "explanation": "120 độ."
+    },
+    {
+      "question": "Muốn vẽ hình vuông, khối lặp cần chạy bao nhiêu lần cho bốn cạnh?",
+      "options": [
+        "2 lần",
+        "3 lần",
+        "5 lần",
+        "4 lần"
+      ],
+      "correctIndex": 3,
+      "explanation": "4 lần."
+    },
+    {
+      "question": "Trong mỗi vòng vẽ hình vuông, nhân vật cần làm gì?",
+      "options": [
+        "Chỉ nói",
+        "Đi rồi quay 180 độ",
+        "Đi thẳng rồi quay 90 độ",
+        "Chỉ đổi màu"
+      ],
+      "correctIndex": 2,
+      "explanation": "Đi thẳng rồi quay 90 độ."
+    },
+    {
+      "question": "Nếu lặp thiếu một lần khi vẽ hình vuông, hình sẽ thế nào?",
+      "options": [
+        "Máy tự tắt",
+        "Thiếu một cạnh trong chuỗi vẽ",
+        "Tự hoàn chỉnh",
+        "Thành hình tròn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thiếu một cạnh trong chuỗi vẽ."
+    },
+    {
+      "question": "Khi thay độ dài bước đi trong lệnh lặp vẽ vuông, điều gì đổi?",
+      "options": [
+        "Độ dài cạnh hình vuông",
+        "Số lần lặp luôn",
+        "Tên nhân vật",
+        "Màu bàn phím"
+      ],
+      "correctIndex": 0,
+      "explanation": "Độ dài cạnh hình vuông."
+    },
+    {
+      "question": "Để sửa hình vẽ chưa đúng, em nên gì?",
+      "options": [
+        "Xóa máy",
+        "Chỉ đổi tên tệp",
+        "Bỏ qua lỗi",
+        "Kiểm tra lệnh trong vòng lặp và chạy lại"
+      ],
+      "correctIndex": 3,
+      "explanation": "Kiểm tra lệnh trong vòng lặp và chạy lại."
     }
   ]
 }

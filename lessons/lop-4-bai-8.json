@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 8. Định dạng văn bản trên trang chiếu",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Định dạng nào giúp nhấn mạnh một từ trên trang chiếu?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Chọn đoạn văn bản cần định dạng."
+    },
+    {
+      "question": "Muốn làm tiêu đề nổi bật, em có thể tăng gì?",
+      "options": [
+        "Cỡ chữ",
+        "Âm lượng loa",
+        "Tốc độ chuột",
+        "Số trang web"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cỡ chữ."
+    },
+    {
+      "question": "Kiểu chữ in nghiêng thường được dùng để làm gì?",
+      "options": [
+        "Xóa toàn bộ chữ",
+        "Thay nền trang",
+        "Đóng tệp",
+        "Nhấn mạnh hoặc phân biệt một phần chữ"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nhấn mạnh hoặc phân biệt một phần chữ."
+    },
+    {
+      "question": "Nếu chữ vàng trên nền trắng khó đọc, em nên làm gì?",
+      "options": [
+        "Che chữ bằng ảnh",
+        "Giữ nguyên",
+        "Đổi sang màu có độ tương phản rõ",
+        "Giảm cỡ chữ hơn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Đổi sang màu có độ tương phản rõ."
+    },
+    {
+      "question": "Khi căn giữa tiêu đề, điều gì thay đổi?",
+      "options": [
+        "Số dây cáp",
+        "Vị trí đoạn chữ trên trang chiếu",
+        "Nội dung câu chữ",
+        "Tên tệp"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vị trí đoạn chữ trên trang chiếu."
+    },
+    {
+      "question": "Muốn trình bày danh sách các ý trên trang chiếu rõ hơn, em có thể dùng gì?",
+      "options": [
+        "Dấu đầu dòng",
+        "Chỉ hiệu ứng chuyển trang",
+        "Xóa tiêu đề",
+        "Tắt ứng dụng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dấu đầu dòng."
+    },
+    {
+      "question": "Sau khi định dạng, em nên kiểm tra gì?",
+      "options": [
+        "Chuột có đổi màu",
+        "Loa có sáng",
+        "Ổ điện có tên",
+        "Chữ vẫn rõ và bố cục cân đối"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chữ vẫn rõ và bố cục cân đối."
     }
   ]
 }

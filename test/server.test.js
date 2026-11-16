@@ -11,7 +11,8 @@ test('each listed lesson loads and has valid grading', async () => {
   for (const id of ids) {
     const lesson = await loadLesson(id);
     assert.equal(lesson.id, id);
-    assert.ok(lesson.questions.length > 0);
+    assert.ok(lesson.questions.length >= 10, `${id} cần ít nhất 10 câu hỏi`);
+    assert.equal(new Set(lesson.questions.map(q => q.question)).size, lesson.questions.length, `${id} có câu hỏi trùng`);
     assert.equal(lesson.questions.length * lesson.pointsPerQuestion, 10);
     for (const question of lesson.questions) {
       assert.equal(question.options.length, 4);

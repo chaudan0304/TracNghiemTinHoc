@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 9A. Sử dụng phần mềm đồ họa tạo sản phẩm số",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Trước khi tạo một tấm thiệp số, em nên làm gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Lưu đúng định dạng và vị trí dễ tìm."
+    },
+    {
+      "question": "Khi làm sản phẩm số, bước đầu là gì?",
+      "options": [
+        "Xác định mục đích và người xem",
+        "Chọn màu ngẫu nhiên",
+        "Xóa vùng vẽ",
+        "In trang trắng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Xác định mục đích và người xem."
+    },
+    {
+      "question": "Một tấm thiệp số cần lời chúc dễ đọc. Em nên gì?",
+      "options": [
+        "Cho chữ trùng màu nền",
+        "Che chữ bằng ảnh",
+        "Giảm cỡ chữ thật nhỏ",
+        "Đặt chữ rõ ràng trên nền phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Đặt chữ rõ ràng trên nền phù hợp."
+    },
+    {
+      "question": "Hình và chữ trên sản phẩm nên có quan hệ nào?",
+      "options": [
+        "Tranh nhau che phủ",
+        "Càng nhiều càng tốt",
+        "Cùng phục vụ nội dung chính",
+        "Hoàn toàn không liên quan"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cùng phục vụ nội dung chính."
+    },
+    {
+      "question": "Nếu muốn đổi vị trí một hình, em dùng gì?",
+      "options": [
+        "Loa",
+        "Công cụ chọn và di chuyển phù hợp",
+        "Phím nguồn",
+        "Máy in"
+      ],
+      "correctIndex": 1,
+      "explanation": "Công cụ chọn và di chuyển phù hợp."
+    },
+    {
+      "question": "Trước khi chia sẻ sản phẩm số, em cần gì?",
+      "options": [
+        "Kiểm tra nội dung và quyền dùng tư liệu",
+        "Gửi ngay chưa xem",
+        "Xóa nguồn ảnh",
+        "Nhập mật khẩu người khác"
+      ],
+      "correctIndex": 0,
+      "explanation": "Kiểm tra nội dung và quyền dùng tư liệu."
+    },
+    {
+      "question": "Nếu người xem không hiểu thông điệp, em nên làm gì?",
+      "options": [
+        "Thêm thật nhiều hình ngẫu nhiên",
+        "Xóa mọi chữ",
+        "Giữ nguyên mọi lỗi",
+        "Chỉnh bố cục hoặc chữ cho rõ hơn"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chỉnh bố cục hoặc chữ cho rõ hơn."
     }
   ]
 }

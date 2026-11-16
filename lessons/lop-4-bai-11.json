@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 11. Chỉnh sửa văn bản",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Muốn sửa một từ đã gõ sai, em nên làm gì?",
@@ -29,15 +29,15 @@
       "explanation": "Bên trái."
     },
     {
-      "question": "Phím Delete thường xóa kí tự ở đâu so với con trỏ?",
+      "question": "Muốn chép một phần văn bản mà vẫn giữ bản gốc, em dùng thao tác nào?",
       "options": [
-        "Trong tệp khác",
-        "Trên bàn phím",
-        "Bên phải",
-        "Bên trái"
+        "Xóa rồi dán",
+        "Đóng tệp",
+        "Sao chép rồi dán",
+        "Cắt rồi dán"
       ],
       "correctIndex": 2,
-      "explanation": "Bên phải."
+      "explanation": "Sao chép rồi dán."
     },
     {
       "question": "Sau khi chỉnh sửa văn bản, để giữ bản mới em cần gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Lưu lại tệp."
+    },
+    {
+      "question": "Muốn sao chép một đoạn văn sang vị trí khác, em làm gì?",
+      "options": [
+        "Chọn đoạn, sao chép rồi dán",
+        "Xóa đoạn rồi đóng tệp",
+        "Rút bàn phím",
+        "Tắt máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chọn đoạn, sao chép rồi dán."
+    },
+    {
+      "question": "Muốn di chuyển một đoạn văn, em có thể làm gì?",
+      "options": [
+        "Chỉ sao chép mà không xóa bản cũ",
+        "Rút bàn phím",
+        "Tắt máy",
+        "Cắt đoạn rồi dán vào vị trí mới"
+      ],
+      "correctIndex": 3,
+      "explanation": "Cắt đoạn rồi dán vào vị trí mới."
+    },
+    {
+      "question": "Nếu lỡ xóa sai nội dung, thao tác nào thường giúp khôi phục ngay?",
+      "options": [
+        "Xóa thêm",
+        "Đóng máy",
+        "Hoàn tác",
+        "Lưu đè ngay"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hoàn tác."
+    },
+    {
+      "question": "Khi di chuyển một câu sang chỗ khác, em cần kiểm tra gì?",
+      "options": [
+        "Tên chuột",
+        "Vị trí mới và dấu câu",
+        "Màu dây nguồn",
+        "Tốc độ mạng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vị trí mới và dấu câu."
+    },
+    {
+      "question": "Vì sao cần đọc lại văn bản sau khi sửa?",
+      "options": [
+        "Để phát hiện lỗi còn sót",
+        "Để máy tự in",
+        "Để tăng dung lượng",
+        "Để đổi nền"
+      ],
+      "correctIndex": 0,
+      "explanation": "Để phát hiện lỗi còn sót."
+    },
+    {
+      "question": "Muốn thêm hình vào văn bản, em dùng chức năng nào?",
+      "options": [
+        "Tắt máy",
+        "Đổi tên tệp",
+        "Xóa đoạn văn",
+        "Chèn hình ảnh"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chèn hình ảnh."
     }
   ]
 }

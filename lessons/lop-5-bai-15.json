@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 15. Sử dụng biểu thức trong chương trình",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Biểu thức 4 + 3 cho kết quả nào?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Biểu thức so sánh."
+    },
+    {
+      "question": "Nếu biến Cạnh lưu độ dài cạnh hình vuông, biểu thức tính chu vi là gì?",
+      "options": [
+        "4 × Cạnh",
+        "4 + Cạnh",
+        "4 - Cạnh",
+        "4 / Cạnh"
+      ],
+      "correctIndex": 0,
+      "explanation": "4 × Cạnh."
+    },
+    {
+      "question": "Biểu thức 3 × 4 có kết quả gì?",
+      "options": [
+        "7",
+        "1",
+        "34",
+        "12"
+      ],
+      "correctIndex": 3,
+      "explanation": "12."
+    },
+    {
+      "question": "Nếu điểm bằng 5, biểu thức 'điểm = 5' là gì?",
+      "options": [
+        "10",
+        "0",
+        "Đúng",
+        "Sai"
+      ],
+      "correctIndex": 2,
+      "explanation": "Đúng."
+    },
+    {
+      "question": "Biểu thức '7 < 3' cho kết quả gì?",
+      "options": [
+        "3",
+        "Sai",
+        "Đúng",
+        "7"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sai."
+    },
+    {
+      "question": "Trong lệnh rẽ nhánh, biểu thức so sánh giúp gì?",
+      "options": [
+        "Xác định điều kiện đúng hay sai",
+        "Vẽ nét tự do",
+        "Đổi tên máy",
+        "In giấy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Xác định điều kiện đúng hay sai."
+    },
+    {
+      "question": "Nếu biến x = 2, biểu thức x + 3 bằng bao nhiêu?",
+      "options": [
+        "2",
+        "3",
+        "6",
+        "5"
+      ],
+      "correctIndex": 3,
+      "explanation": "5."
     }
   ]
 }

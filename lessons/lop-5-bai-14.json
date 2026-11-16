@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 14. Sử dụng biến trong chương trình",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Biến trong chương trình dùng để làm gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Để hiểu biến lưu thông tin gì."
+    },
+    {
+      "question": "Trong Scratch, lệnh 'hỏi ... và đợi' lưu điều người dùng nhập vào đâu?",
+      "options": [
+        "Biến trả lời",
+        "Biến điểm luôn",
+        "Hình nền",
+        "Tên tệp"
+      ],
+      "correctIndex": 0,
+      "explanation": "Biến trả lời."
+    },
+    {
+      "question": "Một biến có thể thay đổi khi nào?",
+      "options": [
+        "Chỉ khi tắt máy",
+        "Chỉ khi đổi chuột",
+        "Không bao giờ",
+        "Khi chương trình gán hoặc cập nhật giá trị"
+      ],
+      "correctIndex": 3,
+      "explanation": "Khi chương trình gán hoặc cập nhật giá trị."
+    },
+    {
+      "question": "Muốn tạo biến mới có tên tự đặt trong Scratch, em chọn gì?",
+      "options": [
+        "In màn hình",
+        "Xóa sân khấu",
+        "Tạo một biến",
+        "Đổi hình nền"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tạo một biến."
+    },
+    {
+      "question": "Trước khi cộng điểm trong trò chơi, em thường đặt điểm ban đầu bằng gì?",
+      "options": [
+        "Tên nhân vật",
+        "0",
+        "100 luôn",
+        "Không cần giá trị"
+      ],
+      "correctIndex": 1,
+      "explanation": "0."
+    },
+    {
+      "question": "Nếu biến số_lần đang là 4 và tăng 1, nó thành bao nhiêu?",
+      "options": [
+        "5",
+        "3",
+        "4",
+        "1"
+      ],
+      "correctIndex": 0,
+      "explanation": "5."
+    },
+    {
+      "question": "Nếu muốn hiển thị điểm hiện tại, chương trình cần đọc gì?",
+      "options": [
+        "Màu sân khấu",
+        "Tên loa",
+        "Tên máy in",
+        "Giá trị biến điểm"
+      ],
+      "correctIndex": 3,
+      "explanation": "Giá trị biến điểm."
     }
   ]
 }

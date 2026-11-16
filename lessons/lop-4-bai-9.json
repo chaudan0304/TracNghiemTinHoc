@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 9. Hiệu ứng chuyển trang",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Hiệu ứng chuyển trang xuất hiện khi nào?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Nó điều khiển cách chuyển giữa các trang."
+    },
+    {
+      "question": "Hiệu ứng chuyển trang thuộc phần nào của bài trình chiếu?",
+      "options": [
+        "Cách xuất hiện khi đổi trang",
+        "Nội dung tệp âm thanh",
+        "Bàn phím",
+        "Thư mục"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cách xuất hiện khi đổi trang."
+    },
+    {
+      "question": "Nếu hiệu ứng quá lâu, người xem có thể cảm thấy gì?",
+      "options": [
+        "Đọc nhanh hơn",
+        "Máy không cần điện",
+        "Trang tự chính xác",
+        "Mất tập trung và phải chờ"
+      ],
+      "correctIndex": 3,
+      "explanation": "Mất tập trung và phải chờ."
+    },
+    {
+      "question": "Muốn áp dụng cùng hiệu ứng cho nhiều trang, em nên dùng chức năng nào?",
+      "options": [
+        "Xóa từng trang",
+        "Tắt bàn phím",
+        "Áp dụng cho các trang phù hợp",
+        "Đổi tên máy"
+      ],
+      "correctIndex": 2,
+      "explanation": "Áp dụng cho các trang phù hợp."
+    },
+    {
+      "question": "Hiệu ứng chuyển trang có thay thế nội dung bài học không?",
+      "options": [
+        "Nội dung sẽ tự tạo",
+        "Không",
+        "Có hoàn toàn",
+        "Chỉ cần hiệu ứng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Không."
+    },
+    {
+      "question": "Khi thuyết trình nghiêm túc, em nên ưu tiên gì?",
+      "options": [
+        "Nội dung rõ ràng và hiệu ứng vừa phải",
+        "Hiệu ứng phức tạp nhất",
+        "Âm thanh lớn nhất",
+        "Mỗi trang một màu chói"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nội dung rõ ràng và hiệu ứng vừa phải."
+    },
+    {
+      "question": "Để đổi một hiệu ứng chưa phù hợp, em cần làm gì?",
+      "options": [
+        "Xóa cả máy",
+        "Rút điện",
+        "Đổi bàn phím",
+        "Chọn trang rồi chọn hiệu ứng khác"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chọn trang rồi chọn hiệu ứng khác."
     }
   ]
 }

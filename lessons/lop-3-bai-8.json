@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 8. Sơ đồ hình cây. Tổ chức thông tin trong máy tính",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Trong sơ đồ hình cây, một nhánh có thể chia thành gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Quan hệ phân cấp giữa các nhóm thông tin."
+    },
+    {
+      "question": "Trong cây thư mục, một thư mục có thể chứa gì?",
+      "options": [
+        "Tệp và thư mục con",
+        "Chỉ màn hình",
+        "Chỉ loa",
+        "Chỉ dây nguồn"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tệp và thư mục con."
+    },
+    {
+      "question": "Thư mục gốc trong một sơ đồ cây có vai trò gì?",
+      "options": [
+        "Một phím gõ",
+        "Một loại âm thanh",
+        "Một hình nền",
+        "Điểm bắt đầu của các nhánh bên dưới"
+      ],
+      "correctIndex": 3,
+      "explanation": "Điểm bắt đầu của các nhánh bên dưới."
+    },
+    {
+      "question": "Thư mục Toán nằm trong thư mục Học tập. Toán là gì của Học tập?",
+      "options": [
+        "Thiết bị ra",
+        "Phần mềm",
+        "Thư mục con",
+        "Thiết bị vào"
+      ],
+      "correctIndex": 2,
+      "explanation": "Thư mục con."
+    },
+    {
+      "question": "Nếu thư mục Ảnh có thư mục 2026, ảnh trong 2026 thuộc nhóm nào?",
+      "options": [
+        "Nhóm Internet",
+        "Nhóm Ảnh rồi đến 2026",
+        "Nhóm Bàn phím",
+        "Nhóm Loa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nhóm Ảnh rồi đến 2026."
+    },
+    {
+      "question": "Để xem các nhánh con của một thư mục trên máy, em cần gì?",
+      "options": [
+        "Mở hoặc mở rộng thư mục",
+        "Rút điện",
+        "Đổi màn hình",
+        "Tắt chuột"
+      ],
+      "correctIndex": 0,
+      "explanation": "Mở hoặc mở rộng thư mục."
+    },
+    {
+      "question": "Tổ chức tệp theo cây thư mục có ích gì?",
+      "options": [
+        "Tăng âm lượng",
+        "Giảm số phím",
+        "Tự sửa tệp hỏng",
+        "Thấy rõ vị trí và quan hệ giữa các nhóm"
+      ],
+      "correctIndex": 3,
+      "explanation": "Thấy rõ vị trí và quan hệ giữa các nhóm."
     }
   ]
 }

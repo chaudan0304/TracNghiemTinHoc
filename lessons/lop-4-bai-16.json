@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 16. Chương trình của em",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Một chương trình trực quan được tạo từ gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Chạy thử và sửa lỗi nếu có."
+    },
+    {
+      "question": "Trước khi viết chương trình, em nên xác định gì?",
+      "options": [
+        "Mục tiêu và các bước thực hiện",
+        "Màu vỏ máy",
+        "Giá bàn phím",
+        "Tên ổ cắm"
+      ],
+      "correctIndex": 0,
+      "explanation": "Mục tiêu và các bước thực hiện."
+    },
+    {
+      "question": "Khi nhiều lệnh cùng điều khiển một nhân vật, thứ tự có thể ảnh hưởng gì?",
+      "options": [
+        "Độ dài dây điện",
+        "Màu chuột",
+        "Số loa",
+        "Kết quả hành động"
+      ],
+      "correctIndex": 3,
+      "explanation": "Kết quả hành động."
+    },
+    {
+      "question": "Lỗi chương trình là gì?",
+      "options": [
+        "Bàn quá nhỏ",
+        "Loa quá mới",
+        "Kết quả khác điều mong muốn do lệnh hoặc dữ liệu chưa phù hợp",
+        "Máy không có màu đẹp"
+      ],
+      "correctIndex": 2,
+      "explanation": "Kết quả khác điều mong muốn do lệnh hoặc dữ liệu chưa phù hợp."
+    },
+    {
+      "question": "Muốn chia sẻ chương trình, trước tiên em nên gì?",
+      "options": [
+        "Đóng không lưu",
+        "Lưu và chạy thử dự án",
+        "Xóa tệp",
+        "Rút mạng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lưu và chạy thử dự án."
+    },
+    {
+      "question": "Nếu bạn dùng chương trình không biết bắt đầu, em nên làm gì?",
+      "options": [
+        "Hướng dẫn cách chạy",
+        "Giấu cách dùng",
+        "Xóa nhân vật",
+        "Đổi tên máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hướng dẫn cách chạy."
+    },
+    {
+      "question": "Khi sửa một lệnh, bước nào giúp biết đã đúng chưa?",
+      "options": [
+        "Chỉ đổi màu nền",
+        "Tắt phần mềm",
+        "Xóa kịch bản",
+        "Chạy thử lại"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chạy thử lại."
     }
   ]
 }

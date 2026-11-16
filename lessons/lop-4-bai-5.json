@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 5. Thao tác với tệp và thư mục",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Muốn tổ chức các bài tập theo môn học, em nên làm gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Nội dung bên trong và việc còn cần dùng hay không."
+    },
+    {
+      "question": "Nếu sao chép tệp từ thư mục A sang B, tệp gốc ở A thế nào?",
+      "options": [
+        "Vẫn còn",
+        "Luôn biến mất",
+        "Thành thư mục",
+        "Tự đổi nội dung"
+      ],
+      "correctIndex": 0,
+      "explanation": "Vẫn còn."
+    },
+    {
+      "question": "Nếu di chuyển tệp từ A sang B thành công, tệp thường nằm ở đâu?",
+      "options": [
+        "Ở A và B như hai bản sao",
+        "Trong bàn phím",
+        "Trên loa",
+        "Ở B"
+      ],
+      "correctIndex": 3,
+      "explanation": "Ở B."
+    },
+    {
+      "question": "Muốn đổi tên thư mục, em nên chọn gì?",
+      "options": [
+        "Ổ điện",
+        "Màn hình",
+        "Đúng thư mục cần đổi tên",
+        "Tệp của bạn khác"
+      ],
+      "correctIndex": 2,
+      "explanation": "Đúng thư mục cần đổi tên."
+    },
+    {
+      "question": "Trước khi dán tệp đã sao chép, em cần mở đâu?",
+      "options": [
+        "Trang web lạ",
+        "Thư mục đích",
+        "Thùng rác",
+        "Bàn phím ảo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thư mục đích."
+    },
+    {
+      "question": "Vì sao cần đặt tên tệp dễ hiểu?",
+      "options": [
+        "Để phân biệt và tìm lại",
+        "Để loa to hơn",
+        "Để có thêm dung lượng ngay",
+        "Để chuột sáng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Để phân biệt và tìm lại."
+    },
+    {
+      "question": "Khi tệp không còn cần dùng, em có thể làm gì sau khi kiểm tra?",
+      "options": [
+        "Xóa toàn bộ ổ đĩa",
+        "Rút điện",
+        "Đổi tên mọi thư mục",
+        "Xóa đúng tệp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Xóa đúng tệp."
     }
   ]
 }

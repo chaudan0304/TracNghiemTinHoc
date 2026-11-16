@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 3. Máy tính và em",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Bộ phận nào hiển thị hình ảnh và chữ từ máy tính?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Thân máy."
+    },
+    {
+      "question": "Thiết bị nào đưa thông tin từ máy tính ra giấy?",
+      "options": [
+        "Máy in",
+        "Bàn phím",
+        "Chuột",
+        "Micro"
+      ],
+      "correctIndex": 0,
+      "explanation": "Máy in."
+    },
+    {
+      "question": "Loa máy tính đưa ra loại thông tin nào?",
+      "options": [
+        "Mùi hương",
+        "Vị ngọt",
+        "Chuyển động của chuột",
+        "Âm thanh"
+      ],
+      "correctIndex": 3,
+      "explanation": "Âm thanh."
+    },
+    {
+      "question": "Thiết bị nào có thể thu âm giọng nói vào máy tính?",
+      "options": [
+        "Máy in",
+        "Loa",
+        "Micro",
+        "Màn hình"
+      ],
+      "correctIndex": 2,
+      "explanation": "Micro."
+    },
+    {
+      "question": "Máy tính xách tay có đặc điểm nào?",
+      "options": [
+        "Không cần nguồn điện",
+        "Có thể gập lại và mang theo",
+        "Luôn phải nối máy in",
+        "Không có màn hình"
+      ],
+      "correctIndex": 1,
+      "explanation": "Có thể gập lại và mang theo."
+    },
+    {
+      "question": "Khi muốn chọn một biểu tượng trên màn hình, em thường dùng gì?",
+      "options": [
+        "Chuột",
+        "Máy in",
+        "Loa",
+        "Ổ cắm"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chuột."
+    },
+    {
+      "question": "Thiết bị nào vừa hiển thị thông tin vừa có thể nhận thao tác chạm nếu hỗ trợ?",
+      "options": [
+        "Máy in",
+        "Loa",
+        "Bàn phím thường",
+        "Màn hình cảm ứng"
+      ],
+      "correctIndex": 3,
+      "explanation": "Màn hình cảm ứng."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 12B. Phần mềm luyện gõ bàn phím",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Phần mềm luyện gõ bàn phím giúp em làm gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Giảm tốc độ và luyện đúng vị trí ngón tay."
+    },
+    {
+      "question": "Khi phần mềm báo gõ sai, em nên làm gì?",
+      "options": [
+        "Xem phím đúng và gõ lại",
+        "Bỏ qua hết lỗi",
+        "Đập mạnh phím",
+        "Tắt màn hình"
+      ],
+      "correctIndex": 0,
+      "explanation": "Xem phím đúng và gõ lại."
+    },
+    {
+      "question": "Độ chính xác khi luyện gõ cho biết gì?",
+      "options": [
+        "Màu bàn phím",
+        "Số loa",
+        "Độ sáng màn hình",
+        "Tỉ lệ phím gõ đúng"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tỉ lệ phím gõ đúng."
+    },
+    {
+      "question": "Muốn luyện tốt hơn, em nên tập như thế nào?",
+      "options": [
+        "Không sửa lỗi",
+        "Chỉ dùng một ngón",
+        "Đều đặn từ bài dễ đến khó",
+        "Chỉ tập bài khó một lần"
+      ],
+      "correctIndex": 2,
+      "explanation": "Đều đặn từ bài dễ đến khó."
+    },
+    {
+      "question": "Phím F và J có dấu gờ để giúp gì?",
+      "options": [
+        "Đổi màu phím",
+        "Định vị ngón trỏ không cần nhìn nhiều",
+        "Tăng âm lượng",
+        "Mở máy in"
+      ],
+      "correctIndex": 1,
+      "explanation": "Định vị ngón trỏ không cần nhìn nhiều."
+    },
+    {
+      "question": "Khi mỏi tay trong lúc luyện gõ, em nên làm gì?",
+      "options": [
+        "Nghỉ ngắn và điều chỉnh tư thế",
+        "Gõ nhanh hơn",
+        "Gồng tay",
+        "Gõ mạnh hơn"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nghỉ ngắn và điều chỉnh tư thế."
+    },
+    {
+      "question": "Kết quả luyện gõ có thể giúp em nhận biết gì?",
+      "options": [
+        "Số trang web",
+        "Tên máy in",
+        "Mật khẩu tài khoản",
+        "Tốc độ và độ chính xác để cải thiện"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tốc độ và độ chính xác để cải thiện."
     }
   ]
 }

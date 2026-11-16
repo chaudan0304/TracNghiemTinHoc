@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 10. Cấu trúc tuần tự",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Trong cấu trúc tuần tự, các lệnh được thực hiện như thế nào?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Chạy thử chương trình."
+    },
+    {
+      "question": "Nếu lệnh A đứng trước lệnh B, lệnh nào chạy trước trong trình tự?",
+      "options": [
+        "A",
+        "B",
+        "Cả hai luôn cùng lúc",
+        "Không lệnh nào"
+      ],
+      "correctIndex": 0,
+      "explanation": "A."
+    },
+    {
+      "question": "Trong công việc pha nước chanh, bước nào thường trước bước khuấy?",
+      "options": [
+        "Uống hết trước",
+        "Cất cốc",
+        "Rửa cốc sau",
+        "Cho nguyên liệu vào cốc"
+      ],
+      "correctIndex": 3,
+      "explanation": "Cho nguyên liệu vào cốc."
+    },
+    {
+      "question": "Trong chương trình tuần tự, khi lệnh trước chưa hoàn thành, lệnh sau thường thế nào?",
+      "options": [
+        "Tự xóa",
+        "Thay phần cứng",
+        "Chờ đến lượt thực hiện",
+        "Luôn chạy trước"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chờ đến lượt thực hiện."
+    },
+    {
+      "question": "Đổi hai lệnh nói và di chuyển có thể làm gì?",
+      "options": [
+        "Tắt điện",
+        "Thay đổi thứ tự hành động nhìn thấy",
+        "Không thể có thay đổi",
+        "Tạo thêm bàn phím"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thay đổi thứ tự hành động nhìn thấy."
+    },
+    {
+      "question": "Một chương trình có ba lệnh nối tiếp sẽ chạy thế nào?",
+      "options": [
+        "Theo thứ tự từ lệnh đầu đến lệnh cuối",
+        "Ngẫu nhiên",
+        "Chỉ lệnh cuối",
+        "Chỉ lệnh giữa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Theo thứ tự từ lệnh đầu đến lệnh cuối."
+    },
+    {
+      "question": "Muốn sửa trình tự sai, em nên làm gì?",
+      "options": [
+        "Chỉ đổi hình nền",
+        "Rút chuột",
+        "Xóa mọi tệp",
+        "Sắp lại các khối lệnh rồi chạy thử"
+      ],
+      "correctIndex": 3,
+      "explanation": "Sắp lại các khối lệnh rồi chạy thử."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 7. Thực hành soạn thảo văn bản",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Trước khi soạn một văn bản, em nên xác định gì?",
@@ -18,15 +18,15 @@
       "explanation": "Nội dung và cách trình bày cần có."
     },
     {
-      "question": "Khi thấy một từ gõ sai, em nên làm gì?",
+      "question": "Muốn giữ nguyên đoạn gốc và có thêm bản ở vị trí khác, em dùng gì?",
       "options": [
-        "Để nguyên lỗi",
-        "Xóa cả máy tính",
-        "Rút nguồn",
-        "Sửa lại từ đó trong văn bản"
+        "Cắt rồi dán",
+        "Xóa rồi dán",
+        "Đóng tệp",
+        "Sao chép rồi dán"
       ],
       "correctIndex": 3,
-      "explanation": "Sửa lại từ đó trong văn bản."
+      "explanation": "Sao chép rồi dán."
     },
     {
       "question": "Sau khi chỉnh sửa và trình bày văn bản, em cần làm gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Giới thiệu trường em."
+    },
+    {
+      "question": "Một văn bản hoàn chỉnh thường cần gì?",
+      "options": [
+        "Nội dung đúng và trình bày dễ đọc",
+        "Chỉ nhiều màu",
+        "Chỉ ảnh lớn",
+        "Chỉ tên tệp"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nội dung đúng và trình bày dễ đọc."
+    },
+    {
+      "question": "Khi gõ nhầm một chữ, em nên dùng gì để sửa?",
+      "options": [
+        "Máy in",
+        "Loa",
+        "Ổ điện",
+        "Con trỏ soạn thảo và phím xóa phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Con trỏ soạn thảo và phím xóa phù hợp."
+    },
+    {
+      "question": "Vì sao nên kiểm tra chính tả trước khi nộp?",
+      "options": [
+        "Để tệp đổi tên",
+        "Để chuột sáng",
+        "Để giảm lỗi và người đọc hiểu đúng",
+        "Để máy in nhanh"
+      ],
+      "correctIndex": 2,
+      "explanation": "Để giảm lỗi và người đọc hiểu đúng."
+    },
+    {
+      "question": "Khi văn bản cần ảnh minh họa, em nên chọn ảnh thế nào?",
+      "options": [
+        "Ảnh không rõ nguồn bắt buộc",
+        "Liên quan nội dung và được phép sử dụng",
+        "Ảnh ngẫu nhiên",
+        "Ảnh che hết chữ"
+      ],
+      "correctIndex": 1,
+      "explanation": "Liên quan nội dung và được phép sử dụng."
+    },
+    {
+      "question": "Muốn chuyển một đoạn văn đến chỗ khác, thao tác nào phù hợp?",
+      "options": [
+        "Cắt rồi dán vào vị trí mới",
+        "Chỉ sao chép rồi để nguyên",
+        "Xóa cả tài liệu",
+        "Đổi tên tệp"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cắt rồi dán vào vị trí mới."
+    },
+    {
+      "question": "Sau khi lưu, muốn chắc tệp còn dùng được, em có thể làm gì?",
+      "options": [
+        "Xóa tệp",
+        "Đóng máy ngay",
+        "Đổi tên mọi thư mục",
+        "Mở lại và kiểm tra nội dung"
+      ],
+      "correctIndex": 3,
+      "explanation": "Mở lại và kiểm tra nội dung."
     }
   ]
 }

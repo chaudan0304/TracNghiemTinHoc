@@ -43,6 +43,44 @@ return async function handler(request, response) {
     await prepare(sql);
     if (request.method === 'GET') {
       const url = new URL(request.url, 'https://local.invalid');
+      const type = url.searchParams.get('type') || '';
+      if (type === 'ranking') {
+        const mode = url.searchParams.get('mode') || (url.searchParams.get('className') ? 'student' : 'class');
+        const className = url.searchParams.get('className')?.trim() || '';
+        if (className.length > 30) return json(response, 400, { error: 'INVALID_FILTER' });
+
+        const gradeTotals = { '3': 16, '4': 19, '5': 19, 'all': 54 };
+
+        if (mode === 'student') {
+          const students = await sql`SELECT student_name,
+            class_name,
+            COUNT(DISTINCT lesson_id)::int AS completed_lessons,
+            COUNT(*)::int AS total_attempts,
+            COALESCE(ROUND(AVG(score), 1), 0)::float AS avg_score,
+            COALESCE(MAX(score), 0)::float AS max_score,
+            COALESCE(ROUND(AVG(time_taken_seconds)), 0)::int AS avg_time_seconds,
+            MAX(submitted_at) AS latest_submission
+            FROM quiz_attempts
+            WHERE (${className} = '' OR ${className} = 'ALL' OR class_name = ${className})
+            GROUP BY student_name, class_name
+            ORDER BY completed_lessons DESC, avg_score DESC, total_attempts DESC, student_name ASC`;
+          return json(response, 200, { students, gradeTotals });
+        }
+
+        const classes = await sql`SELECT class_name,
+          COUNT(DISTINCT student_name)::int AS student_count,
+          COUNT(DISTINCT lesson_id)::int AS completed_lessons,
+          COUNT(*)::int AS total_attempts,
+          COALESCE(ROUND(AVG(score), 1), 0)::float AS avg_score,
+          COALESCE(MAX(score), 0)::float AS max_score,
+          COUNT(*) FILTER (WHERE score >= 8)::int AS good_count,
+          MAX(submitted_at) AS latest_submission
+          FROM quiz_attempts
+          GROUP BY class_name
+          ORDER BY completed_lessons DESC, avg_score DESC, total_attempts DESC, class_name ASC`;
+        return json(response, 200, { classes, gradeTotals });
+      }
+
       const lessonId = url.searchParams.get('lessonId') || '';
       const offset = Math.max(0, Math.min(100000, Number(url.searchParams.get('offset')) || 0));
       if (!/^[a-z0-9-]{1,64}$/.test(lessonId)) return json(response, 400, { error: 'INVALID_LESSON' });

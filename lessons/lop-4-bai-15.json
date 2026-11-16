@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 15. Tạo chương trình máy tính để diễn tả ý tưởng",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Trước khi ghép lệnh để thể hiện ý tưởng, em nên làm gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Sửa các lệnh rồi chạy thử lại."
+    },
+    {
+      "question": "Trong Scratch, nhân vật mới được thêm vào đâu?",
+      "options": [
+        "Danh sách nhân vật của dự án",
+        "Ổ điện",
+        "Bàn phím",
+        "Máy in"
+      ],
+      "correctIndex": 0,
+      "explanation": "Danh sách nhân vật của dự án."
+    },
+    {
+      "question": "Khi nhân vật cần thực hiện ba hành động, em nên làm gì?",
+      "options": [
+        "Chỉ ghép một lệnh",
+        "Ghép ngẫu nhiên",
+        "Xóa sân khấu",
+        "Sắp xếp ba lệnh theo đúng trình tự"
+      ],
+      "correctIndex": 3,
+      "explanation": "Sắp xếp ba lệnh theo đúng trình tự."
+    },
+    {
+      "question": "Khối lệnh nói giúp nhân vật thể hiện gì?",
+      "options": [
+        "Dây mạng",
+        "Giấy in",
+        "Lời thoại trên màn hình",
+        "Mật khẩu máy"
+      ],
+      "correctIndex": 2,
+      "explanation": "Lời thoại trên màn hình."
+    },
+    {
+      "question": "Nếu chương trình cần lặp một hành động, em nên cân nhắc gì?",
+      "options": [
+        "Tắt phần mềm",
+        "Dùng khối lặp phù hợp",
+        "Sao chép vô hạn không kiểm tra",
+        "Xóa hành động"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dùng khối lặp phù hợp."
+    },
+    {
+      "question": "Khi sản phẩm số chưa đúng ý, em nên làm gì?",
+      "options": [
+        "Sửa từng chỗ rồi thử lại",
+        "Giữ nguyên lỗi",
+        "Xóa máy",
+        "Đổi bàn phím"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sửa từng chỗ rồi thử lại."
+    },
+    {
+      "question": "Muốn đổi bối cảnh câu chuyện Scratch, em có thể làm gì?",
+      "options": [
+        "Đổi dây điện",
+        "Xóa bàn phím",
+        "Tắt loa",
+        "Thay phông nền sân khấu"
+      ],
+      "correctIndex": 3,
+      "explanation": "Thay phông nền sân khấu."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 11. Cấu trúc lặp",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Cấu trúc lặp dùng để làm gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Nhiều lần hơn."
+    },
+    {
+      "question": "Khối lặp 3 lần chứa lệnh nói 'Xin chào' sẽ nói bao nhiêu lần?",
+      "options": [
+        "3 lần",
+        "1 lần",
+        "2 lần",
+        "4 lần"
+      ],
+      "correctIndex": 0,
+      "explanation": "3 lần."
+    },
+    {
+      "question": "Số lần lặp trong khối lặp cho biết gì?",
+      "options": [
+        "Số nhân vật",
+        "Màu sân khấu",
+        "Tên tệp",
+        "Nhóm lệnh bên trong chạy bao nhiêu lần"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nhóm lệnh bên trong chạy bao nhiêu lần."
+    },
+    {
+      "question": "Nếu cần thực hiện một việc 10 lần, cấu trúc nào phù hợp?",
+      "options": [
+        "Chỉ lệnh dừng",
+        "Chỉ đổi nền",
+        "Lặp với số lần phù hợp",
+        "Chỉ rẽ nhánh không lặp"
+      ],
+      "correctIndex": 2,
+      "explanation": "Lặp với số lần phù hợp."
+    },
+    {
+      "question": "Lệnh đặt ngoài khối lặp có được lặp theo khối đó không?",
+      "options": [
+        "Chỉ khi mạng nhanh",
+        "Không",
+        "Có luôn",
+        "Chỉ khi có loa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Không."
+    },
+    {
+      "question": "Nếu khối lặp 5 lần chứa hai lệnh, mỗi lệnh chạy bao nhiêu lần?",
+      "options": [
+        "5 lần",
+        "2 lần",
+        "1 lần",
+        "10 lần"
+      ],
+      "correctIndex": 0,
+      "explanation": "5 lần."
+    },
+    {
+      "question": "Khi dùng lặp, em vẫn cần làm gì?",
+      "options": [
+        "Không cần thử",
+        "Xóa các lệnh bên trong",
+        "Chỉ nhìn màu khối",
+        "Kiểm tra số lần và kết quả chạy"
+      ],
+      "correctIndex": 3,
+      "explanation": "Kiểm tra số lần và kết quả chạy."
     }
   ]
 }

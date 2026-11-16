@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 11. Bài trình chiếu của em",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Một bài trình chiếu thường gồm những gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Lưu tệp với tên dễ nhận biết."
+    },
+    {
+      "question": "Trang chiếu đầu thường dùng để giới thiệu gì?",
+      "options": [
+        "Chủ đề bài trình bày",
+        "Mật khẩu máy tính",
+        "Đường dẫn hệ thống",
+        "Tên ổ điện"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chủ đề bài trình bày."
+    },
+    {
+      "question": "Một trang chiếu nhiều chữ quá sẽ gây khó khăn gì?",
+      "options": [
+        "Máy không có điện",
+        "Chuột biến mất",
+        "Bàn phím không gõ được",
+        "Người xem khó theo dõi"
+      ],
+      "correctIndex": 3,
+      "explanation": "Người xem khó theo dõi."
+    },
+    {
+      "question": "Hình ảnh trên trang chiếu nên thế nào?",
+      "options": [
+        "Che kín chữ",
+        "Luôn thật nhỏ",
+        "Liên quan nội dung trình bày",
+        "Chọn ngẫu nhiên"
+      ],
+      "correctIndex": 2,
+      "explanation": "Liên quan nội dung trình bày."
+    },
+    {
+      "question": "Để thêm trang mới vào bài trình chiếu, em dùng chức năng nào?",
+      "options": [
+        "In ảnh",
+        "Thêm trang chiếu",
+        "Xóa tệp",
+        "Tắt màn hình"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thêm trang chiếu."
+    },
+    {
+      "question": "Khi trình bày trước lớp, em nên làm gì?",
+      "options": [
+        "Nói rõ ý chính trên trang chiếu",
+        "Chỉ đọc hết chữ rất nhanh",
+        "Quay lưng liên tục",
+        "Không xem người nghe"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nói rõ ý chính trên trang chiếu."
+    },
+    {
+      "question": "Vì sao cần xem lại bài trước khi trình bày?",
+      "options": [
+        "Để đổi bàn phím",
+        "Để tắt loa",
+        "Để xóa mọi trang",
+        "Để phát hiện lỗi chữ và bố cục"
+      ],
+      "correctIndex": 3,
+      "explanation": "Để phát hiện lỗi chữ và bố cục."
     }
   ]
 }

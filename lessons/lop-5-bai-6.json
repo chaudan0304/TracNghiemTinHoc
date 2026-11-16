@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 6. Định dạng kí tự và bố trí hình ảnh trong văn bản",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Định dạng kí tự có thể thay đổi điều gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Để chữ và hình dễ đọc, dễ hiểu."
+    },
+    {
+      "question": "Muốn một cụm từ nổi bật, em có thể dùng kiểu chữ nào?",
+      "options": [
+        "In đậm",
+        "Ẩn chữ",
+        "Xóa chữ",
+        "Đổi tên tệp"
+      ],
+      "correctIndex": 0,
+      "explanation": "In đậm."
+    },
+    {
+      "question": "Cỡ chữ quá nhỏ có thể gây gì?",
+      "options": [
+        "Máy tự tắt",
+        "Chuột mất",
+        "Ảnh tự xóa",
+        "Khó đọc"
+      ],
+      "correctIndex": 3,
+      "explanation": "Khó đọc."
+    },
+    {
+      "question": "Khi chọn màu chữ, em cần xem gì?",
+      "options": [
+        "Số cổng USB",
+        "Âm lượng loa",
+        "Độ tương phản với nền",
+        "Độ dài dây điện"
+      ],
+      "correctIndex": 2,
+      "explanation": "Độ tương phản với nền."
+    },
+    {
+      "question": "Khi ảnh che mất chữ, em cần làm gì?",
+      "options": [
+        "Đổi máy in",
+        "Điều chỉnh vị trí và cách bố trí ảnh",
+        "Giữ nguyên",
+        "Xóa văn bản"
+      ],
+      "correctIndex": 1,
+      "explanation": "Điều chỉnh vị trí và cách bố trí ảnh."
+    },
+    {
+      "question": "Trước khi thay phông chữ, em cần làm gì?",
+      "options": [
+        "Chọn phần văn bản muốn đổi",
+        "Rút dây nguồn",
+        "Đổi chuột",
+        "Xóa thư mục"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chọn phần văn bản muốn đổi."
+    },
+    {
+      "question": "Sau khi bố trí ảnh, em nên xem lại gì?",
+      "options": [
+        "Giá máy tính",
+        "Số phím",
+        "Tốc độ mạng",
+        "Văn bản và hình có cân đối, dễ đọc không"
+      ],
+      "correctIndex": 3,
+      "explanation": "Văn bản và hình có cân đối, dễ đọc không."
     }
   ]
 }

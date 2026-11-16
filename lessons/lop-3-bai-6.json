@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 6. Khám phá thông tin trên Internet",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Internet giúp em thực hiện việc nào?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Báo cho người lớn đáng tin cậy."
+    },
+    {
+      "question": "Trang web được mở bằng phần mềm nào?",
+      "options": [
+        "Trình duyệt",
+        "Phần mềm vẽ ngoại tuyến",
+        "Máy tính bỏ túi",
+        "Trình soạn thảo giấy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Trình duyệt."
+    },
+    {
+      "question": "Địa chỉ trang web giúp em làm gì?",
+      "options": [
+        "Tắt máy",
+        "Thay bàn phím",
+        "In ảnh tự động",
+        "Truy cập đúng trang web"
+      ],
+      "correctIndex": 3,
+      "explanation": "Truy cập đúng trang web."
+    },
+    {
+      "question": "Để xem nội dung khác trên một trang, em có thể làm gì?",
+      "options": [
+        "Tắt trình duyệt",
+        "Đổi tên máy",
+        "Nháy vào liên kết phù hợp",
+        "Rút mạng"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nháy vào liên kết phù hợp."
+    },
+    {
+      "question": "Điều nào cần nhớ khi xem thông tin Internet?",
+      "options": [
+        "Không cần người lớn hướng dẫn",
+        "Không phải thông tin nào cũng chính xác",
+        "Mọi thông tin đều đúng",
+        "Trang nào cũng an toàn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Không phải thông tin nào cũng chính xác."
+    },
+    {
+      "question": "Khi một trang lạ xin mật khẩu, em nên làm gì?",
+      "options": [
+        "Không nhập và hỏi người lớn",
+        "Nhập ngay",
+        "Gửi cho bạn bè",
+        "Đăng công khai"
+      ],
+      "correctIndex": 0,
+      "explanation": "Không nhập và hỏi người lớn."
+    },
+    {
+      "question": "Internet có thể giúp em học bằng cách nào?",
+      "options": [
+        "Bỏ qua bài học",
+        "Tin mọi quảng cáo",
+        "Chia sẻ thông tin riêng tư",
+        "Xem tài liệu phù hợp và trao đổi với thầy cô"
+      ],
+      "correctIndex": 3,
+      "explanation": "Xem tài liệu phù hợp và trao đổi với thầy cô."
     }
   ]
 }

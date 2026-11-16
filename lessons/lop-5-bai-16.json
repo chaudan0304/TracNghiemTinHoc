@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 16. Từ kịch bản đến chương trình",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Kịch bản chương trình mô tả điều gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Chạy thử và đối chiếu từng bước với kịch bản."
+    },
+    {
+      "question": "Kịch bản có thể giúp người lập trình làm gì?",
+      "options": [
+        "Lên kế hoạch cho các hành động trước khi ghép lệnh",
+        "Thay màn hình",
+        "Tăng âm lượng",
+        "Xóa nhân vật"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lên kế hoạch cho các hành động trước khi ghép lệnh."
+    },
+    {
+      "question": "Nếu kịch bản yêu cầu hai kết quả tùy điểm, em cần cấu trúc nào?",
+      "options": [
+        "Chỉ tuần tự một nhánh",
+        "Chỉ đổi nền",
+        "Chỉ phát âm thanh",
+        "Rẽ nhánh"
+      ],
+      "correctIndex": 3,
+      "explanation": "Rẽ nhánh."
+    },
+    {
+      "question": "Nếu kịch bản yêu cầu làm lại một việc bốn lần, em dùng gì?",
+      "options": [
+        "Chỉ đổi tên tệp",
+        "Chỉ mở trình duyệt",
+        "Lệnh lặp 4 lần",
+        "Chỉ một lệnh dừng"
+      ],
+      "correctIndex": 2,
+      "explanation": "Lệnh lặp 4 lần."
+    },
+    {
+      "question": "Khi chương trình không đúng kịch bản, em nên làm gì?",
+      "options": [
+        "Đổi bàn phím",
+        "Tìm bước sai, sửa rồi thử lại",
+        "Bỏ kịch bản ngay",
+        "Giữ nguyên lỗi"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tìm bước sai, sửa rồi thử lại."
+    },
+    {
+      "question": "Khi kịch bản có nhiều nhân vật, em cần làm gì trong Scratch?",
+      "options": [
+        "Tạo và lập trình cho từng nhân vật phù hợp",
+        "Chỉ đổi tên máy",
+        "Xóa sân khấu",
+        "Chỉ tắt âm thanh"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tạo và lập trình cho từng nhân vật phù hợp."
+    },
+    {
+      "question": "Để trình bày sản phẩm cho lớp, em nên gì?",
+      "options": [
+        "Chỉ đọc tên tệp",
+        "Không cho xem kết quả",
+        "Xóa mã lệnh",
+        "Nêu mục tiêu, chạy thử và giải thích các bước chính"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nêu mục tiêu, chạy thử và giải thích các bước chính."
     }
   ]
 }

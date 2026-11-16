@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 10. Bảo vệ thông tin khi dùng máy tính",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Vì sao cần lưu lại tệp sau khi chỉnh sửa?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Không mở vội và hỏi người lớn."
+    },
+    {
+      "question": "Mật khẩu nên được chia sẻ với ai?",
+      "options": [
+        "Chỉ người lớn có trách nhiệm khi cần hỗ trợ",
+        "Mọi bạn trong lớp",
+        "Người lạ trên mạng",
+        "Bất kì trang web nào"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chỉ người lớn có trách nhiệm khi cần hỗ trợ."
+    },
+    {
+      "question": "Khi rời máy tính dùng chung, em nên làm gì với tài khoản của mình?",
+      "options": [
+        "Để nguyên phiên đăng nhập",
+        "Đưa mật khẩu cho bạn",
+        "Xóa bài của người khác",
+        "Đăng xuất"
+      ],
+      "correctIndex": 3,
+      "explanation": "Đăng xuất."
+    },
+    {
+      "question": "Vì sao không nên tự ý xóa tệp của người khác?",
+      "options": [
+        "Để chuột nhanh hơn",
+        "Để mạng ổn định",
+        "Có thể làm mất thông tin của họ",
+        "Để màn hình sáng hơn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Có thể làm mất thông tin của họ."
+    },
+    {
+      "question": "Sao lưu tệp nghĩa là gì?",
+      "options": [
+        "Xóa bản đang dùng",
+        "Tạo thêm bản dự phòng ở nơi phù hợp",
+        "Đổi màu tệp",
+        "Chỉ đổi tên tệp"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tạo thêm bản dự phòng ở nơi phù hợp."
+    },
+    {
+      "question": "Khi nhận lời nhắn hỏi thông tin cá nhân từ người lạ, em nên làm gì?",
+      "options": [
+        "Không cung cấp và báo người lớn",
+        "Trả lời ngay",
+        "Gửi cả mật khẩu",
+        "Đăng địa chỉ công khai"
+      ],
+      "correctIndex": 0,
+      "explanation": "Không cung cấp và báo người lớn."
+    },
+    {
+      "question": "Để tránh mất bài vừa làm, em nên làm gì trong khi làm việc?",
+      "options": [
+        "Chỉ lưu khi máy tắt",
+        "Không bao giờ lưu",
+        "Xóa bài cũ",
+        "Lưu tệp định kì"
+      ],
+      "correctIndex": 3,
+      "explanation": "Lưu tệp định kì."
     }
   ]
 }

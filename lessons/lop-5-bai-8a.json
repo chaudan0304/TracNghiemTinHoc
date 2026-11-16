@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 8A. Làm quen với phần mềm đồ họa",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Phần mềm đồ họa giúp em làm gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Lưu tệp với tên dễ nhớ."
+    },
+    {
+      "question": "Vùng vẽ trong phần mềm đồ họa là nơi nào?",
+      "options": [
+        "Nơi em tạo hình ảnh",
+        "Nơi cắm điện",
+        "Nơi phát loa",
+        "Nơi gõ mật khẩu"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nơi em tạo hình ảnh."
+    },
+    {
+      "question": "Công cụ bút vẽ thường dùng để gì?",
+      "options": [
+        "In tài liệu",
+        "Tắt máy",
+        "Xóa ứng dụng",
+        "Vẽ nét tự do"
+      ],
+      "correctIndex": 3,
+      "explanation": "Vẽ nét tự do."
+    },
+    {
+      "question": "Muốn xóa một nét vẽ sai, em có thể dùng gì?",
+      "options": [
+        "Loa",
+        "Dây mạng",
+        "Công cụ tẩy hoặc hoàn tác",
+        "Máy in"
+      ],
+      "correctIndex": 2,
+      "explanation": "Công cụ tẩy hoặc hoàn tác."
+    },
+    {
+      "question": "Muốn hình vẽ có màu, em dùng gì?",
+      "options": [
+        "Chỉ tên tệp",
+        "Bảng màu và công cụ tô phù hợp",
+        "Chỉ bàn phím số",
+        "Chỉ ổ điện"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bảng màu và công cụ tô phù hợp."
+    },
+    {
+      "question": "Nếu vẽ hỏng một bước vừa làm, thao tác nào hữu ích?",
+      "options": [
+        "Hoàn tác",
+        "Lưu đè ngay",
+        "Đóng không lưu",
+        "Tắt màn hình"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hoàn tác."
+    },
+    {
+      "question": "Để tiếp tục vẽ hôm sau, em cần gì?",
+      "options": [
+        "Chỉ nhớ hình trong đầu",
+        "Xóa bản vẽ",
+        "Rút điện",
+        "Lưu sản phẩm ở vị trí dễ tìm"
+      ],
+      "correctIndex": 3,
+      "explanation": "Lưu sản phẩm ở vị trí dễ tìm."
     }
   ]
 }

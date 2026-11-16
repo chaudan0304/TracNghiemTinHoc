@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 10. Phần mềm soạn thảo văn bản",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Phần mềm soạn thảo văn bản dùng để làm gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Lưu tệp."
+    },
+    {
+      "question": "Em dùng phím nào để tạo khoảng trắng giữa hai từ?",
+      "options": [
+        "Space",
+        "Enter",
+        "Delete",
+        "Caps Lock"
+      ],
+      "correctIndex": 0,
+      "explanation": "Space."
+    },
+    {
+      "question": "Khi gõ văn bản, chữ mới xuất hiện ở đâu?",
+      "options": [
+        "Trong loa",
+        "Trên máy in ngay",
+        "Trong thùng rác",
+        "Tại vị trí con trỏ soạn thảo"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tại vị trí con trỏ soạn thảo."
+    },
+    {
+      "question": "Muốn mở lại văn bản đã lưu, em cần gì?",
+      "options": [
+        "Đổi chuột",
+        "Tắt máy",
+        "Tìm và mở đúng tệp văn bản",
+        "Gõ lại toàn bộ"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tìm và mở đúng tệp văn bản."
+    },
+    {
+      "question": "Đoạn văn bản thường kết thúc khi em nhấn phím nào?",
+      "options": [
+        "Caps Lock",
+        "Enter",
+        "Shift",
+        "Tab"
+      ],
+      "correctIndex": 1,
+      "explanation": "Enter."
+    },
+    {
+      "question": "Nếu chưa lưu văn bản mà đóng ứng dụng, có nguy cơ gì?",
+      "options": [
+        "Mất phần nội dung vừa làm",
+        "Máy tự in bài",
+        "Tệp tự sao lưu luôn",
+        "Bàn phím hỏng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Mất phần nội dung vừa làm."
+    },
+    {
+      "question": "Tên tệp nào rõ ràng cho bài viết về gia đình?",
+      "options": [
+        "Mới",
+        "123",
+        "Tệp",
+        "Gia đình em"
+      ],
+      "correctIndex": 3,
+      "explanation": "Gia đình em."
     }
   ]
 }

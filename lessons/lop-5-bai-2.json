@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 2. Tìm kiếm thông tin trên website",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Để tìm nội dung trong một website có ô tìm kiếm, em cần làm gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Đọc và đánh giá có đúng nhu cầu không."
+    },
+    {
+      "question": "Ô tìm kiếm trong website thường giúp gì?",
+      "options": [
+        "Tìm nội dung bên trong website đó",
+        "Tắt máy",
+        "Đổi tên ổ đĩa",
+        "In mọi trang"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tìm nội dung bên trong website đó."
+    },
+    {
+      "question": "Nếu không thấy ô tìm kiếm, em có thể tìm bằng gì?",
+      "options": [
+        "Bàn phím bị rút",
+        "Ổ điện",
+        "Loa",
+        "Danh mục hoặc liên kết trên website"
+      ],
+      "correctIndex": 3,
+      "explanation": "Danh mục hoặc liên kết trên website."
+    },
+    {
+      "question": "Muốn tìm bài về loài cá trên website bảo tàng, từ khóa nào phù hợp?",
+      "options": [
+        "thời tiết hôm qua",
+        "máy in",
+        "loài cá",
+        "bàn phím"
+      ],
+      "correctIndex": 2,
+      "explanation": "loài cá."
+    },
+    {
+      "question": "Nếu từ khóa quá chung, kết quả có thể thế nào?",
+      "options": [
+        "Không có trang nào",
+        "Nhiều và khó chọn",
+        "Luôn chỉ một kết quả",
+        "Luôn chính xác nhất"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nhiều và khó chọn."
+    },
+    {
+      "question": "Khi một kết quả nằm ngoài website đang xem, em cần làm gì?",
+      "options": [
+        "Kiểm tra địa chỉ và nguồn trước khi dùng",
+        "Tin ngay",
+        "Nhập mật khẩu",
+        "Chia sẻ liền"
+      ],
+      "correctIndex": 0,
+      "explanation": "Kiểm tra địa chỉ và nguồn trước khi dùng."
+    },
+    {
+      "question": "Khi tìm xong, em nên ghi lại gì để xem lại nguồn?",
+      "options": [
+        "Mật khẩu của bạn",
+        "Tên chuột",
+        "Số phím",
+        "Tên trang hoặc địa chỉ phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tên trang hoặc địa chỉ phù hợp."
     }
   ]
 }

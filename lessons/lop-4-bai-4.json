@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 4. Tìm kiếm thông tin trên Internet",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Muốn tìm thông tin về vòng đời của bướm, từ khóa nào phù hợp nhất?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Kiểm tra nguồn và nội dung."
+    },
+    {
+      "question": "Từ khóa trong tìm kiếm nên phản ánh gì?",
+      "options": [
+        "Nội dung cần tìm",
+        "Màu chuột",
+        "Tên ổ cắm",
+        "Loại bàn ghế"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nội dung cần tìm."
+    },
+    {
+      "question": "Từ khóa nào phù hợp để tìm giờ mở cửa bảo tàng cụ thể?",
+      "options": [
+        "bảo tàng",
+        "giờ",
+        "địa điểm",
+        "giờ mở cửa Bảo tàng Lịch sử Quốc gia"
+      ],
+      "correctIndex": 3,
+      "explanation": "giờ mở cửa Bảo tàng Lịch sử Quốc gia."
+    },
+    {
+      "question": "Nếu kết quả không đúng chủ đề, em nên làm gì?",
+      "options": [
+        "Tắt mạng",
+        "Xóa trình duyệt",
+        "Sửa từ khóa cho rõ hơn",
+        "Sao chép kết quả đầu"
+      ],
+      "correctIndex": 2,
+      "explanation": "Sửa từ khóa cho rõ hơn."
+    },
+    {
+      "question": "Vì sao không nên chỉ đọc tiêu đề kết quả?",
+      "options": [
+        "Mọi kết quả giống nhau",
+        "Tiêu đề có thể chưa phản ánh đủ nội dung",
+        "Tiêu đề luôn sai",
+        "Nội dung không quan trọng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tiêu đề có thể chưa phản ánh đủ nội dung."
+    },
+    {
+      "question": "Nguồn nào đáng tin hơn cho thông tin của một bảo tàng?",
+      "options": [
+        "Website chính thức của bảo tàng",
+        "Bình luận không rõ người viết",
+        "Quảng cáo bất kì",
+        "Tin nhắn lạ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Website chính thức của bảo tàng."
+    },
+    {
+      "question": "Khi tìm được thông tin phù hợp, em nên làm gì?",
+      "options": [
+        "Chia sẻ không đọc",
+        "Nhập mật khẩu",
+        "Tắt máy ngay",
+        "Ghi lại ý cần dùng và nguồn"
+      ],
+      "correctIndex": 3,
+      "explanation": "Ghi lại ý cần dùng và nguồn."
     }
   ]
 }

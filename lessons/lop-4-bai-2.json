@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 2. Gõ bàn phím đúng cách",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Khi gõ bàn phím đúng cách, em nên dùng bao nhiêu bàn tay?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Ngồi thẳng, hai tay đặt thoải mái."
+    },
+    {
+      "question": "Phím cách thường được gõ bằng ngón nào?",
+      "options": [
+        "Ngón cái",
+        "Ngón trỏ",
+        "Ngón út",
+        "Ngón giữa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ngón cái."
+    },
+    {
+      "question": "Gõ đúng cách giúp điều gì?",
+      "options": [
+        "Không cần học chữ",
+        "Bàn phím tự sạch",
+        "Màn hình lớn hơn",
+        "Tăng độ chính xác và sự thoải mái"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tăng độ chính xác và sự thoải mái."
+    },
+    {
+      "question": "Khi gõ hàng phím trên, sau đó ngón tay nên làm gì?",
+      "options": [
+        "Chạm màn hình",
+        "Cầm chuột",
+        "Về hàng phím cơ sở",
+        "Ở nguyên hàng trên"
+      ],
+      "correctIndex": 2,
+      "explanation": "Về hàng phím cơ sở."
+    },
+    {
+      "question": "Em nên nhìn vào đâu nhiều hơn khi luyện gõ đúng cách?",
+      "options": [
+        "Loa",
+        "Màn hình và nội dung cần gõ",
+        "Chỉ nhìn từng phím",
+        "Ổ điện"
+      ],
+      "correctIndex": 1,
+      "explanation": "Màn hình và nội dung cần gõ."
+    },
+    {
+      "question": "Khi bị gõ sai liên tục, em nên làm gì?",
+      "options": [
+        "Chậm lại và sửa vị trí ngón tay",
+        "Gõ mạnh hơn",
+        "Dùng một ngón",
+        "Bỏ mọi lỗi"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chậm lại và sửa vị trí ngón tay."
+    },
+    {
+      "question": "Tư thế nào giúp tránh mỏi khi gõ?",
+      "options": [
+        "Cúi sát bàn",
+        "Gồng cứng tay",
+        "Nằm gõ",
+        "Ngồi thẳng và thả lỏng vai"
+      ],
+      "correctIndex": 3,
+      "explanation": "Ngồi thẳng và thả lỏng vai."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 14. Khám phá môi trường lập trình trực quan",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Trong lập trình trực quan, em thường tạo chương trình bằng cách nào?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Kiểm tra thứ tự và nội dung các khối lệnh."
+    },
+    {
+      "question": "Khối lệnh bắt đầu thường cho biết gì?",
+      "options": [
+        "Khi nào chương trình chạy",
+        "Tên bàn phím",
+        "Số trang web",
+        "Dung lượng ổ điện"
+      ],
+      "correctIndex": 0,
+      "explanation": "Khi nào chương trình chạy."
+    },
+    {
+      "question": "Sân khấu trong môi trường lập trình trực quan là gì?",
+      "options": [
+        "Bàn gõ",
+        "Thùng rác",
+        "Máy in",
+        "Nơi hiển thị hoạt động của nhân vật"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nơi hiển thị hoạt động của nhân vật."
+    },
+    {
+      "question": "Một khối lệnh di chuyển làm nhân vật thế nào?",
+      "options": [
+        "Tạo bàn phím",
+        "Xóa phần mềm",
+        "Thay đổi vị trí theo chỉ dẫn",
+        "Thay nguồn điện"
+      ],
+      "correctIndex": 2,
+      "explanation": "Thay đổi vị trí theo chỉ dẫn."
+    },
+    {
+      "question": "Khi kéo một khối lệnh vào vùng lập trình, em đang làm gì?",
+      "options": [
+        "Tắt máy",
+        "Xây dựng chương trình",
+        "In tài liệu",
+        "Thay phần cứng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Xây dựng chương trình."
+    },
+    {
+      "question": "Nếu các khối chưa nối đúng, điều gì có thể xảy ra?",
+      "options": [
+        "Chương trình không chạy như mong muốn",
+        "Máy tự sửa hết",
+        "Loa biến mất",
+        "Màn hình đổi loại"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chương trình không chạy như mong muốn."
+    },
+    {
+      "question": "Để quan sát kết quả, em nên nhìn đâu khi chạy chương trình?",
+      "options": [
+        "Ổ cắm",
+        "Mặt sau bàn phím",
+        "Máy in tắt",
+        "Sân khấu hoặc vùng hiển thị"
+      ],
+      "correctIndex": 3,
+      "explanation": "Sân khấu hoặc vùng hiển thị."
     }
   ]
 }

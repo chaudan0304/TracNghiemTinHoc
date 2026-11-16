@@ -3,52 +3,118 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 12. Tìm hiểu về thế giới tự nhiên",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
+    {
+      "question": "Trong phần mềm mô phỏng Hệ Mặt Trời, em có thể tìm hiểu gì?",
+      "options": [
+        "Tên và đặc điểm các hành tinh",
+        "Mật khẩu của bạn",
+        "Số phím bàn phím",
+        "Màu dây điện"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tên và đặc điểm các hành tinh."
+    },
+    {
+      "question": "Muốn xem một hành tinh trong phần mềm, em thường làm gì?",
+      "options": [
+        "Tắt màn hình",
+        "Xóa phần mềm",
+        "Rút chuột",
+        "Chọn biểu tượng hành tinh đó"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chọn biểu tượng hành tinh đó."
+    },
     {
       "question": "Máy tính có thể giúp em tìm hiểu thiên nhiên bằng cách nào?",
       "options": [
-        "Xem hình ảnh, video và thông tin phù hợp",
-        "Tự thay thế hoàn toàn hoạt động quan sát",
-        "Tạo ra mọi loài cây thật",
-        "Làm cho mọi thông tin trên mạng đúng"
-      ],
-      "correctIndex": 0,
-      "explanation": "Xem hình ảnh, video và thông tin phù hợp."
-    },
-    {
-      "question": "Khi tìm hiểu một loài động vật, thông tin nào hữu ích?",
-      "options": [
-        "Mật khẩu của bạn",
-        "Số seri bàn phím",
-        "Màu dây điện",
-        "Nơi sống và đặc điểm của nó"
-      ],
-      "correctIndex": 3,
-      "explanation": "Nơi sống và đặc điểm của nó."
-    },
-    {
-      "question": "Nếu hai trang web nói khác nhau về một hiện tượng, em nên làm gì?",
-      "options": [
-        "Sao chép cả hai như sự thật",
-        "Bỏ qua mọi thông tin",
-        "Kiểm tra thêm nguồn tin đáng tin cậy và hỏi thầy cô",
-        "Tin trang đầu tiên ngay"
+        "Tạo ra hành tinh thật",
+        "Làm cho mọi mô phỏng chính xác tuyệt đối",
+        "Quan sát hình ảnh và mô phỏng phù hợp",
+        "Tự thay thế hoàn toàn quan sát thực tế"
       ],
       "correctIndex": 2,
-      "explanation": "Kiểm tra thêm nguồn tin đáng tin cậy và hỏi thầy cô."
+      "explanation": "Quan sát hình ảnh và mô phỏng phù hợp."
     },
     {
-      "question": "Khi sử dụng hình ảnh trên mạng cho bài học, em nên làm gì?",
+      "question": "Khi xem mô phỏng, vì sao cần đọc lời giải thích đi kèm?",
       "options": [
-        "Đổi màu ảnh để che nguồn",
-        "Chọn hình phù hợp và ghi nguồn khi cần",
-        "Nhận là ảnh do mình chụp",
-        "Tải mọi ảnh không xem"
+        "Để tắt bàn phím",
+        "Để hiểu đúng điều đang quan sát",
+        "Để tăng âm lượng",
+        "Để đổi tên máy"
       ],
       "correctIndex": 1,
-      "explanation": "Chọn hình phù hợp và ghi nguồn khi cần."
+      "explanation": "Để hiểu đúng điều đang quan sát."
+    },
+    {
+      "question": "Phần mềm mô phỏng Hệ Mặt Trời giúp em quan sát gì?",
+      "options": [
+        "Các thiên thể và chuyển động mô phỏng",
+        "Mật khẩu tài khoản",
+        "Tốc độ gõ phím",
+        "Tên ổ đĩa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Các thiên thể và chuyển động mô phỏng."
+    },
+    {
+      "question": "Muốn tìm hiểu một hành tinh trong phần mềm, em nên làm gì?",
+      "options": [
+        "Chọn ngẫu nhiên và đoán",
+        "Tắt chương trình",
+        "Đổi tên máy",
+        "Chọn đúng hành tinh rồi xem thông tin"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chọn đúng hành tinh rồi xem thông tin."
+    },
+    {
+      "question": "Vì sao hình ảnh mô phỏng hữu ích khi tìm hiểu vũ trụ?",
+      "options": [
+        "Làm hành tinh thật đổi vị trí",
+        "Tạo ra ngôi sao thật",
+        "Giúp quan sát những đối tượng khó quan sát trực tiếp",
+        "Thay thế mọi kiến thức khoa học"
+      ],
+      "correctIndex": 2,
+      "explanation": "Giúp quan sát những đối tượng khó quan sát trực tiếp."
+    },
+    {
+      "question": "Sau khi dùng phần mềm tìm hiểu thiên nhiên, em nên làm gì?",
+      "options": [
+        "Đổi mật khẩu",
+        "Nêu lại điều đã quan sát và học được",
+        "Chỉ nhớ màu giao diện",
+        "Xóa chương trình"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nêu lại điều đã quan sát và học được."
+    },
+    {
+      "question": "Nếu mô phỏng có nút bắt đầu và tạm dừng, em dùng chúng để làm gì?",
+      "options": [
+        "Điều khiển việc quan sát chuyển động",
+        "Thay bàn phím",
+        "Đổi nguồn điện",
+        "In toàn bộ màn hình"
+      ],
+      "correctIndex": 0,
+      "explanation": "Điều khiển việc quan sát chuyển động."
+    },
+    {
+      "question": "Mô phỏng trên máy tính là gì?",
+      "options": [
+        "Chính vật thật ở ngoài trời",
+        "Một dây cáp",
+        "Một ổ điện",
+        "Cách thể hiện đối tượng hoặc hiện tượng để học và quan sát"
+      ],
+      "correctIndex": 3,
+      "explanation": "Cách thể hiện đối tượng hoặc hiện tượng để học và quan sát."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 15. Công việc được thực hiện theo điều kiện",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Câu nào mô tả công việc phụ thuộc điều kiện?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Đất có khô không."
+    },
+    {
+      "question": "Trong câu 'Nếu trời nắng thì đội mũ', hành động là gì?",
+      "options": [
+        "Đội mũ",
+        "Trời nắng",
+        "Bầu trời",
+        "Kiểm tra mưa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Đội mũ."
+    },
+    {
+      "question": "Điều kiện trong chỉ dẫn có thể có mấy kết quả cơ bản?",
+      "options": [
+        "Chỉ đúng",
+        "Chỉ sai",
+        "Luôn ba kết quả",
+        "Đúng hoặc sai"
+      ],
+      "correctIndex": 3,
+      "explanation": "Đúng hoặc sai."
+    },
+    {
+      "question": "Nếu đèn giao thông xanh, theo chỉ dẫn 'Nếu đèn đỏ thì dừng', em có thực hiện lệnh dừng do điều kiện này không?",
+      "options": [
+        "Phải tắt đèn",
+        "Phải đổi đường",
+        "Không",
+        "Có luôn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Không."
+    },
+    {
+      "question": "Chỉ dẫn nào phù hợp để tránh ướt sách?",
+      "options": [
+        "Nếu trời nắng thì làm ướt sách",
+        "Nếu trời mưa thì cho sách vào túi chống nước",
+        "Luôn để sách ngoài mưa",
+        "Nếu có sách thì xé sách"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nếu trời mưa thì cho sách vào túi chống nước."
+    },
+    {
+      "question": "Khi điều kiện đúng, bước gắn với điều kiện được làm khi nào?",
+      "options": [
+        "Sau khi kiểm tra điều kiện",
+        "Trước khi biết điều kiện",
+        "Không bao giờ",
+        "Chỉ khi tắt máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sau khi kiểm tra điều kiện."
+    },
+    {
+      "question": "Trong câu 'Nếu bài đã xong thì cất vở', em kiểm tra gì?",
+      "options": [
+        "Vở màu gì",
+        "Bàn phím có sáng không",
+        "Loa có to không",
+        "Bài đã xong chưa"
+      ],
+      "correctIndex": 3,
+      "explanation": "Bài đã xong chưa."
     }
   ]
 }

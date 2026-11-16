@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 1. Em có thể làm gì với máy tính?",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Máy tính có thể giúp em làm việc nào?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Con người sử dụng và đưa chỉ dẫn phù hợp."
+    },
+    {
+      "question": "Máy tính có thể hỗ trợ em trao đổi với bạn qua gì?",
+      "options": [
+        "Ứng dụng liên lạc phù hợp",
+        "Dây nguồn",
+        "Máy in không giấy",
+        "Tấm lót chuột"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ứng dụng liên lạc phù hợp."
+    },
+    {
+      "question": "Khi tạo bài học bằng máy tính, em cần chọn gì?",
+      "options": [
+        "Phần mềm bất kì",
+        "Chỉ màn hình",
+        "Chỉ loa",
+        "Phần mềm phù hợp với công việc"
+      ],
+      "correctIndex": 3,
+      "explanation": "Phần mềm phù hợp với công việc."
+    },
+    {
+      "question": "Máy tính giúp lưu thông tin bằng cách nào?",
+      "options": [
+        "Chỉ đổi màu màn hình",
+        "Chỉ di chuyển chuột",
+        "Lưu tệp trên thiết bị lưu trữ",
+        "Chỉ phát ra tiếng"
+      ],
+      "correctIndex": 2,
+      "explanation": "Lưu tệp trên thiết bị lưu trữ."
+    },
+    {
+      "question": "Điều nào máy tính không tự bảo đảm?",
+      "options": [
+        "Phát âm thanh theo lệnh",
+        "Mọi thông tin tìm được đều chính xác",
+        "Hiển thị ảnh theo lệnh",
+        "Lưu tệp theo lệnh"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mọi thông tin tìm được đều chính xác."
+    },
+    {
+      "question": "Để dùng máy tính có ích, em cần gì?",
+      "options": [
+        "Mục tiêu rõ và sử dụng hợp lí",
+        "Chơi liên tục",
+        "Tin mọi kết quả",
+        "Không kiểm tra thông tin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Mục tiêu rõ và sử dụng hợp lí."
+    },
+    {
+      "question": "Khi cần trình bày một ý tưởng, sản phẩm nào phù hợp?",
+      "options": [
+        "Dây cáp",
+        "Bàn phím",
+        "Ổ cắm",
+        "Bài trình chiếu"
+      ],
+      "correctIndex": 3,
+      "explanation": "Bài trình chiếu."
     }
   ]
 }

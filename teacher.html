@@ -271,6 +271,107 @@
       padding: 6px 10px;
     }
     .logout-btn:hover { color: #b91c1c; }
+
+    /* Tabs & Ranking Styles */
+    .nav-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 12px;
+    }
+    .tab-btn {
+      font: inherit;
+      font-weight: 800;
+      font-size: 1.05rem;
+      padding: 10px 22px;
+      border-radius: 14px;
+      border: 2px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+    .tab-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary-dark);
+      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+    }
+    .pill-group {
+      display: inline-flex;
+      background: #f1f5f9;
+      padding: 4px;
+      border-radius: 12px;
+      gap: 4px;
+    }
+    .pill-btn {
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 800;
+      padding: 8px 16px;
+      border: none;
+      background: transparent;
+      border-radius: 9px;
+      cursor: pointer;
+      color: #64748b;
+      transition: all 0.15s;
+    }
+    .pill-btn:hover {
+      color: var(--text);
+    }
+    .pill-btn.active {
+      background: white;
+      color: var(--primary-dark);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .rank-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      height: 32px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: 900;
+      font-size: 0.95rem;
+    }
+    .rank-1 { background: #fef3c7; color: #b45309; border: 1.5px solid #fde68a; }
+    .rank-2 { background: #f1f5f9; color: #475569; border: 1.5px solid #cbd5e1; }
+    .rank-3 { background: #ffedd5; color: #c2410c; border: 1.5px solid #fed7aa; }
+    .rank-normal { color: var(--muted); font-weight: 800; }
+    .progress-track {
+      background: #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+      border-radius: 10px;
+      transition: width 0.4s ease;
+    }
+    .progress-fill.full {
+      background: linear-gradient(90deg, #10b981 0%, #047857 100%);
+    }
+    .grade-chip {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      background: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+    }
   </style>
 </head>
 <body>
@@ -297,77 +398,197 @@
 
     <!-- MÀN HÌNH QUẢN LÝ KẾT QUẢ -->
     <div id="dashboard-section" class="card" hidden>
-      <!-- Thống kê tóm tắt -->
-      <div class="stats-grid">
-        <div class="stat-card">
-          <span class="stat-title">📝 Tổng lượt nộp</span>
-          <span id="stat-total" class="stat-value">0</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-title">🎯 Điểm trung bình</span>
-          <span id="stat-avg" class="stat-value">0</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-title">⭐ Điểm cao nhất</span>
-          <span id="stat-max" class="stat-value">0</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-title">🏆 Tỉ lệ Giỏi (≥ 8đ)</span>
-          <span id="stat-good-ratio" class="stat-value">0%</span>
-        </div>
+      <!-- Navigation Tabs -->
+      <div class="nav-tabs">
+        <button id="tab-lessons-btn" type="button" class="tab-btn active">
+          📋 Kết quả theo bài học
+        </button>
+        <button id="tab-ranking-btn" type="button" class="tab-btn">
+          🏆 Bảng xếp hạng & Tiến độ các lớp
+        </button>
       </div>
 
-      <p style="text-align: center; color: var(--muted); font-size: 0.85rem; margin: 8px 0 16px;">Thống kê tính trên toàn bộ lượt nộp phù hợp bộ lọc; bảng kết quả tải từng trang.</p>
-
-      <!-- Thanh công cụ lọc & tìm kiếm -->
-      <div class="toolbar">
-        <div class="filter-group">
-          <div class="filter-item">
-            <label for="lesson-select">Bài học:</label>
-            <select id="lesson-select"></select>
+      <!-- VIEW 1: KẾT QUẢ THEO BÀI HỌC -->
+      <div id="view-lessons">
+        <!-- Thống kê tóm tắt -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-title">📝 Tổng lượt nộp</span>
+            <span id="stat-total" class="stat-value">0</span>
           </div>
-          <div class="filter-item">
-            <label for="class-filter">Lớp:</label>
-            <select id="class-filter">
-              <option value="ALL">Tất cả các lớp</option>
-            </select>
+          <div class="stat-card">
+            <span class="stat-title">🎯 Điểm trung bình</span>
+            <span id="stat-avg" class="stat-value">0</span>
           </div>
-          <div class="filter-item">
-            <label for="search-input">Tìm học sinh:</label>
-            <input id="search-input" type="search" placeholder="Nhập tên học sinh...">
+          <div class="stat-card">
+            <span class="stat-title">⭐ Điểm cao nhất</span>
+            <span id="stat-max" class="stat-value">0</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-title">🏆 Tỉ lệ Giỏi (≥ 8đ)</span>
+            <span id="stat-good-ratio" class="stat-value">0%</span>
           </div>
         </div>
-        <div class="filter-group">
-          <button id="refresh-btn" type="button" class="btn btn-secondary">🔄 Tải lại</button>
-          <button id="export-btn" type="button" class="btn btn-primary">📥 Xuất file Excel (CSV)</button>
+
+        <p style="text-align: center; color: var(--muted); font-size: 0.85rem; margin: 8px 0 16px;">Thống kê tính trên toàn bộ lượt nộp phù hợp bộ lọc; bảng kết quả tải từng trang.</p>
+
+        <!-- Thanh công cụ lọc & tìm kiếm -->
+        <div class="toolbar">
+          <div class="filter-group">
+            <div class="filter-item">
+              <label for="lesson-select">Bài học:</label>
+              <select id="lesson-select"></select>
+            </div>
+            <div class="filter-item">
+              <label for="class-filter">Lớp:</label>
+              <select id="class-filter">
+                <option value="ALL">Tất cả các lớp</option>
+              </select>
+            </div>
+            <div class="filter-item">
+              <label for="search-input">Tìm học sinh:</label>
+              <input id="search-input" type="search" placeholder="Nhập tên học sinh...">
+            </div>
+          </div>
+          <div class="filter-group">
+            <button id="refresh-btn" type="button" class="btn btn-secondary">🔄 Tải lại</button>
+            <button id="export-btn" type="button" class="btn btn-primary">📥 Xuất file Excel (CSV)</button>
+          </div>
         </div>
+
+        <!-- Bảng kết quả -->
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 50px;">STT</th>
+                <th>Họ và tên</th>
+                <th>Lớp</th>
+                <th>Số câu đúng</th>
+                <th>Điểm số</th>
+                <th>Xếp loại</th>
+                <th>Thời gian làm bài</th>
+                <th>Thời gian nộp</th>
+                <th style="text-align: center;">Hành động</th>
+              </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+          <button id="load-more-btn" type="button" class="btn btn-secondary" hidden>Xem thêm lượt làm</button>
+        </div>
+
+        <p id="table-status" role="status" style="text-align: center; color: var(--muted); margin-top: 15px; font-weight: 700;"></p>
       </div>
 
-      <!-- Bảng kết quả -->
-      <div class="table-responsive">
-        <table>
-          <thead>
-            <tr>
-              <th style="width: 50px;">STT</th>
-              <th>Họ và tên</th>
-              <th>Lớp</th>
-              <th>Số câu đúng</th>
-              <th>Điểm số</th>
-              <th>Xếp loại</th>
-              <th>Thời gian làm bài</th>
-              <th>Thời gian nộp</th>
-              <th style="text-align: center;">Hành động</th>
-            </tr>
-          </thead>
-          <tbody id="rows"></tbody>
-        </table>
-      </div>
+      <!-- VIEW 2: BẢNG XẾP HẠNG & TIẾN ĐỘ CÁC LỚP -->
+      <div id="view-ranking" hidden>
+        <!-- Thống kê tổng quan tiến độ -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-title">🏫 Lớp đã tham gia</span>
+            <span id="rank-stat-classes" class="stat-value">0</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-title">👥 Tổng học sinh tham gia</span>
+            <span id="rank-stat-students" class="stat-value">0</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-title">📚 Tổng bài hệ thống</span>
+            <span class="stat-value">54 bài</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-title">🥇 Dẫn đầu tiến độ</span>
+            <span id="rank-stat-top-class" class="stat-value" style="font-size: 1.35rem;">--</span>
+          </div>
+        </div>
 
-      <div style="text-align: center; margin-top: 20px;">
-        <button id="load-more-btn" type="button" class="btn btn-secondary" hidden>Xem thêm lượt làm</button>
-      </div>
+        <!-- Thanh công cụ Xếp hạng -->
+        <div class="toolbar">
+          <div class="filter-group">
+            <!-- Chuyển đổi Xếp hạng Lớp / Học sinh -->
+            <div class="pill-group">
+              <button id="mode-classes-btn" type="button" class="pill-btn active">🏫 Xếp hạng theo Lớp</button>
+              <button id="mode-students-btn" type="button" class="pill-btn">🧑‍🎓 Bảng vàng Học sinh</button>
+            </div>
 
-      <p id="table-status" role="status" style="text-align: center; color: var(--muted); margin-top: 15px; font-weight: 700;"></p>
+            <!-- Bộ lọc Khối -->
+            <div class="filter-item">
+              <label for="ranking-grade-filter">Khối:</label>
+              <select id="ranking-grade-filter">
+                <option value="ALL">Tất cả các khối</option>
+                <option value="3">Khối 3 (16 bài)</option>
+                <option value="4">Khối 4 (19 bài)</option>
+                <option value="5">Khối 5 (19 bài)</option>
+              </select>
+            </div>
+
+            <!-- Bộ lọc Lớp (khi xem Học sinh) -->
+            <div id="ranking-class-container" class="filter-item" hidden>
+              <label for="ranking-class-select">Lớp:</label>
+              <select id="ranking-class-select">
+                <option value="ALL">Tất cả các lớp</option>
+              </select>
+            </div>
+
+            <!-- Tìm kiếm học sinh -->
+            <div id="ranking-search-container" class="filter-item" hidden>
+              <label for="ranking-search-input">Tìm học sinh:</label>
+              <input id="ranking-search-input" type="search" placeholder="Nhập tên học sinh...">
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <button id="ranking-refresh-btn" type="button" class="btn btn-secondary">🔄 Tải lại</button>
+            <button id="ranking-export-btn" type="button" class="btn btn-primary">📥 Xuất file Excel (CSV)</button>
+          </div>
+        </div>
+
+        <!-- BẢNG 1: XẾP HẠNG TIẾN ĐỘ THI ĐUA CÁC LỚP -->
+        <div id="classes-table-container" class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 70px; text-align: center;">Hạng</th>
+                <th>Lớp</th>
+                <th>Khối</th>
+                <th style="text-align: center;">Sĩ số tham gia</th>
+                <th style="min-width: 220px;">Tiến độ hoàn thành bài học</th>
+                <th style="text-align: center;">Tổng lượt làm</th>
+                <th style="text-align: center;">Điểm trung bình</th>
+                <th style="text-align: center;">Điểm cao nhất</th>
+                <th style="text-align: center;">Tỉ lệ Giỏi (≥ 8đ)</th>
+                <th style="text-align: center;">Chi tiết</th>
+              </tr>
+            </thead>
+            <tbody id="classes-ranking-rows"></tbody>
+          </table>
+        </div>
+
+        <!-- BẢNG 2: BẢNG VÀNG HỌC SINH -->
+        <div id="students-table-container" class="table-responsive" hidden>
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 70px; text-align: center;">Hạng</th>
+                <th>Họ và tên</th>
+                <th>Lớp</th>
+                <th style="min-width: 200px;">Tiến độ bài học</th>
+                <th style="text-align: center;">Tổng lượt làm</th>
+                <th style="text-align: center;">Điểm trung bình</th>
+                <th style="text-align: center;">Điểm cao nhất</th>
+                <th style="text-align: center;">Thời gian làm TB</th>
+                <th>Lần nộp gần nhất</th>
+              </tr>
+            </thead>
+            <tbody id="students-ranking-rows"></tbody>
+          </table>
+        </div>
+
+        <p id="ranking-status" role="status" style="text-align: center; color: var(--muted); margin-top: 15px; font-weight: 700;"></p>
+      </div>
     </div>
   </main>
 
@@ -379,6 +600,13 @@
     const loginError = document.getElementById('login-error');
     const authActions = document.getElementById('auth-actions');
 
+    // Tab buttons & Views
+    const tabLessonsBtn = document.getElementById('tab-lessons-btn');
+    const tabRankingBtn = document.getElementById('tab-ranking-btn');
+    const viewLessons = document.getElementById('view-lessons');
+    const viewRanking = document.getElementById('view-ranking');
+
+    // View 1 (Lessons) Elements
     const lessonSelect = document.getElementById('lesson-select');
     const classFilter = document.getElementById('class-filter');
     const searchInput = document.getElementById('search-input');
@@ -388,11 +616,40 @@
     const rowsEl = document.getElementById('rows');
     const tableStatus = document.getElementById('table-status');
 
+    // View 2 (Ranking) Elements
+    const modeClassesBtn = document.getElementById('mode-classes-btn');
+    const modeStudentsBtn = document.getElementById('mode-students-btn');
+    const rankingGradeFilter = document.getElementById('ranking-grade-filter');
+    const rankingClassContainer = document.getElementById('ranking-class-container');
+    const rankingClassSelect = document.getElementById('ranking-class-select');
+    const rankingSearchContainer = document.getElementById('ranking-search-container');
+    const rankingSearchInput = document.getElementById('ranking-search-input');
+    const rankingRefreshBtn = document.getElementById('ranking-refresh-btn');
+    const rankingExportBtn = document.getElementById('ranking-export-btn');
+    const classesTableContainer = document.getElementById('classes-table-container');
+    const classesRankingRows = document.getElementById('classes-ranking-rows');
+    const studentsTableContainer = document.getElementById('students-table-container');
+    const studentsRankingRows = document.getElementById('students-ranking-rows');
+    const rankingStatus = document.getElementById('ranking-status');
+
+    const rankStatClasses = document.getElementById('rank-stat-classes');
+    const rankStatStudents = document.getElementById('rank-stat-students');
+    const rankStatTopClass = document.getElementById('rank-stat-top-class');
+
     let allRows = [];
     let currentLessonData = null;
     let offset = 0;
     let statsRequestId = 0;
     let searchTimer;
+
+    // Ranking State
+    let currentTab = 'lessons';
+    let rankingMode = 'classes';
+    let rawClassRankings = [];
+    let rawStudentRankings = [];
+    let rankingGradeTotals = { '3': 16, '4': 19, '5': 19, 'all': 54 };
+    let isRankingLoaded = false;
+    let rankingSearchTimer;
 
     async function api(url, options = {}) {
       const res = await fetch(url, {
@@ -412,6 +669,392 @@
       }
       return data;
     }
+
+    /* ========================================================
+       TAB SWITCHING
+       ======================================================== */
+    function switchTab(tab) {
+      currentTab = tab;
+      if (tab === 'lessons') {
+        tabLessonsBtn.classList.add('active');
+        tabRankingBtn.classList.remove('active');
+        viewLessons.hidden = false;
+        viewRanking.hidden = true;
+      } else {
+        tabRankingBtn.classList.add('active');
+        tabLessonsBtn.classList.remove('active');
+        viewLessons.hidden = true;
+        viewRanking.hidden = false;
+        if (!isRankingLoaded) {
+          fetchRankingData();
+        }
+      }
+    }
+
+    tabLessonsBtn.addEventListener('click', () => switchTab('lessons'));
+    tabRankingBtn.addEventListener('click', () => switchTab('ranking'));
+
+    /* ========================================================
+       RANKING & PROGRESS LOGIC
+       ======================================================== */
+    function getGrade(className) {
+      const match = String(className || '').match(/^[^\d]*([345])/);
+      return match ? match[1] : null;
+    }
+
+    function getTotalLessons(className) {
+      const g = getGrade(className);
+      if (g === '3') return rankingGradeTotals['3'] || 16;
+      if (g === '4') return rankingGradeTotals['4'] || 19;
+      if (g === '5') return rankingGradeTotals['5'] || 19;
+      return rankingGradeTotals['all'] || 54;
+    }
+
+    function switchRankingMode(mode) {
+      rankingMode = mode;
+      if (mode === 'classes') {
+        modeClassesBtn.classList.add('active');
+        modeStudentsBtn.classList.remove('active');
+        classesTableContainer.hidden = false;
+        studentsTableContainer.hidden = true;
+        rankingClassContainer.hidden = true;
+        rankingSearchContainer.hidden = true;
+        renderClassesTable();
+      } else {
+        modeStudentsBtn.classList.add('active');
+        modeClassesBtn.classList.remove('active');
+        classesTableContainer.hidden = true;
+        studentsTableContainer.hidden = false;
+        rankingClassContainer.hidden = false;
+        rankingSearchContainer.hidden = false;
+        fetchStudentRankingData();
+      }
+    }
+
+    modeClassesBtn.addEventListener('click', () => switchRankingMode('classes'));
+    modeStudentsBtn.addEventListener('click', () => switchRankingMode('students'));
+
+    async function fetchRankingData() {
+      try {
+        rankingStatus.textContent = 'Đang tải bảng xếp hạng và tiến độ các lớp...';
+        const data = await api('/api/teacher?type=ranking');
+        rawClassRankings = data.classes || [];
+        if (data.gradeTotals) rankingGradeTotals = data.gradeTotals;
+        isRankingLoaded = true;
+
+        // Cập nhật thống kê tổng quan
+        rankStatClasses.textContent = rawClassRankings.length;
+        const totalStudents = rawClassRankings.reduce((sum, c) => sum + (Number(c.student_count) || 0), 0);
+        rankStatStudents.textContent = totalStudents;
+
+        if (rawClassRankings.length > 0) {
+          const topClass = rawClassRankings[0];
+          const topGradeTotal = getTotalLessons(topClass.class_name);
+          const topPercent = topGradeTotal > 0 ? Math.round((topClass.completed_lessons / topGradeTotal) * 100) : 0;
+          rankStatTopClass.textContent = `Lớp ${topClass.class_name} (${topClass.completed_lessons}/${topGradeTotal} bài - ${topPercent}%)`;
+        } else {
+          rankStatTopClass.textContent = '--';
+        }
+
+        // Cập nhật dropdown lớp cho bảng vàng học sinh
+        const currentSelectedClass = rankingClassSelect.value;
+        rankingClassSelect.replaceChildren();
+        const allOption = document.createElement('option');
+        allOption.value = 'ALL';
+        allOption.textContent = 'Tất cả các lớp';
+        rankingClassSelect.append(allOption);
+
+        const sortedClasses = [...rawClassRankings].sort((a, b) => a.class_name.localeCompare(b.class_name));
+        for (const c of sortedClasses) {
+          const opt = document.createElement('option');
+          opt.value = c.class_name;
+          const g = getGrade(c.class_name);
+          opt.textContent = `Lớp ${c.class_name}${g ? ' (Khối ' + g + ')' : ''}`;
+          rankingClassSelect.append(opt);
+        }
+        if (sortedClasses.some(c => c.class_name === currentSelectedClass)) {
+          rankingClassSelect.value = currentSelectedClass;
+        }
+
+        if (rankingMode === 'classes') {
+          renderClassesTable();
+        } else {
+          fetchStudentRankingData();
+        }
+      } catch (err) {
+        rankingStatus.textContent = 'Không thể tải bảng xếp hạng: ' + err.message;
+        if (err.message.includes('đăng nhập lại') || err.message.includes('hết hạn')) {
+          showLogin();
+        }
+      }
+    }
+
+    async function fetchStudentRankingData() {
+      try {
+        rankingStatus.textContent = 'Đang tải bảng vàng học sinh...';
+        const selectedClass = rankingClassSelect.value;
+        const url = selectedClass && selectedClass !== 'ALL'
+          ? `/api/teacher?type=ranking&mode=student&className=${encodeURIComponent(selectedClass)}`
+          : '/api/teacher?type=ranking&mode=student';
+        const data = await api(url);
+        rawStudentRankings = data.students || [];
+        renderStudentsTable();
+      } catch (err) {
+        rankingStatus.textContent = 'Lỗi tải danh sách học sinh: ' + err.message;
+      }
+    }
+
+    function renderProgressBar(completed, total) {
+      const percent = total > 0 ? Math.min(100, Math.round((completed / total) * 100)) : 0;
+      const isFull = percent === 100;
+      return `
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 800;">
+            <span><strong style="color: var(--primary-dark);">${completed}</strong> / ${total} bài</span>
+            <span style="color: ${isFull ? '#059669' : '#0369a1'};">${percent}%${isFull ? ' 🎉' : ''}</span>
+          </div>
+          <div class="progress-track" style="height: 9px;">
+            <div class="progress-fill ${isFull ? 'full' : ''}" style="width: ${percent}%;"></div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderRankBadge(idx) {
+      if (idx === 0) return '<span class="rank-badge rank-1">🥇 1</span>';
+      if (idx === 1) return '<span class="rank-badge rank-2">🥈 2</span>';
+      if (idx === 2) return '<span class="rank-badge rank-3">🥉 3</span>';
+      return `<span class="rank-badge rank-normal">#${idx + 1}</span>`;
+    }
+
+    function renderClassesTable() {
+      const selectedGrade = rankingGradeFilter.value;
+      const filtered = rawClassRankings.filter(c => {
+        if (selectedGrade === 'ALL') return true;
+        const g = getGrade(c.class_name);
+        return g === selectedGrade;
+      });
+
+      classesRankingRows.replaceChildren();
+
+      if (!filtered.length) {
+        rankingStatus.textContent = rawClassRankings.length
+          ? 'Không có lớp nào thuộc khối đã chọn.'
+          : 'Chưa có lớp nào nộp bài luyện tập.';
+        return;
+      }
+      rankingStatus.textContent = `Hiển thị bảng xếp hạng ${filtered.length} lớp.`;
+
+      filtered.forEach((c, idx) => {
+        const tr = document.createElement('tr');
+        const g = getGrade(c.class_name);
+        const totalLessons = getTotalLessons(c.class_name);
+        const goodRatio = c.total_attempts > 0 ? Math.round((c.good_count * 100) / c.total_attempts) : 0;
+
+        tr.innerHTML = `
+          <td style="text-align: center;">${renderRankBadge(idx)}</td>
+          <td>
+            <div style="font-weight: 900; font-size: 1.05rem; color: var(--primary-dark);">Lớp ${escapeHtml(c.class_name)}</div>
+          </td>
+          <td>${g ? `<span class="grade-chip">Khối ${g}</span>` : '<span style="color: var(--muted);">--</span>'}</td>
+          <td style="text-align: center; font-weight: 800;">${c.student_count} em</td>
+          <td>${renderProgressBar(c.completed_lessons, totalLessons)}</td>
+          <td style="text-align: center; font-weight: 700; color: var(--muted);">${c.total_attempts}</td>
+          <td style="text-align: center;">
+            <span class="score-cell" style="color: ${Number(c.avg_score) >= 8 ? '#059669' : Number(c.avg_score) >= 6.5 ? '#b45309' : '#b91c1c'};">
+              ${Number(c.avg_score).toFixed(1)}
+            </span>
+          </td>
+          <td style="text-align: center; font-weight: 800; color: #047857;">⭐ ${Number(c.max_score).toFixed(1)}</td>
+          <td style="text-align: center; font-weight: 800; color: ${goodRatio >= 70 ? '#059669' : '#b45309'};">${goodRatio}%</td>
+          <td style="text-align: center;">
+            <button type="button" class="btn btn-secondary view-students-btn" style="padding: 6px 12px; font-size: 0.82rem;" data-class="${escapeHtml(c.class_name)}">
+              👁️ Xem học sinh
+            </button>
+          </td>
+        `;
+
+        const viewBtn = tr.querySelector('.view-students-btn');
+        viewBtn.onclick = () => {
+          rankingClassSelect.value = c.class_name;
+          switchRankingMode('students');
+        };
+
+        classesRankingRows.append(tr);
+      });
+    }
+
+    function renderStudentsTable() {
+      const selectedGrade = rankingGradeFilter.value;
+      const keyword = rankingSearchInput.value.trim().toLowerCase();
+
+      const filtered = rawStudentRankings.filter(s => {
+        if (selectedGrade !== 'ALL') {
+          const g = getGrade(s.class_name);
+          if (g !== selectedGrade) return false;
+        }
+        if (keyword && (!s.student_name || !s.student_name.toLowerCase().includes(keyword))) {
+          return false;
+        }
+        return true;
+      });
+
+      studentsRankingRows.replaceChildren();
+
+      if (!filtered.length) {
+        rankingStatus.textContent = rawStudentRankings.length
+          ? 'Không tìm thấy học sinh nào phù hợp bộ lọc.'
+          : 'Chưa có dữ liệu học sinh nộp bài.';
+        return;
+      }
+      rankingStatus.textContent = `Hiển thị bảng vàng ${filtered.length} học sinh.`;
+
+      filtered.forEach((s, idx) => {
+        const tr = document.createElement('tr');
+        const totalLessons = getTotalLessons(s.class_name);
+
+        tr.innerHTML = `
+          <td style="text-align: center;">${renderRankBadge(idx)}</td>
+          <td>
+            <div style="font-weight: 800; font-size: 1rem; color: var(--text);">${escapeHtml(s.student_name)}</div>
+          </td>
+          <td>
+            <span style="font-weight: 800; color: var(--primary);">Lớp ${escapeHtml(s.class_name)}</span>
+          </td>
+          <td>${renderProgressBar(s.completed_lessons, totalLessons)}</td>
+          <td style="text-align: center; font-weight: 700; color: var(--muted);">${s.total_attempts}</td>
+          <td style="text-align: center;">
+            <span class="score-cell" style="color: ${Number(s.avg_score) >= 8 ? '#059669' : Number(s.avg_score) >= 6.5 ? '#b45309' : '#b91c1c'};">
+              ${Number(s.avg_score).toFixed(1)}
+            </span>
+          </td>
+          <td style="text-align: center; font-weight: 800; color: #047857;">⭐ ${Number(s.max_score).toFixed(1)}</td>
+          <td style="text-align: center; font-weight: 700; color: #047857;">${formatDuration(s.avg_time_seconds)}</td>
+          <td style="color: var(--muted); font-size: 0.88rem;">${s.latest_submission ? new Date(s.latest_submission).toLocaleString('vi-VN') : '--'}</td>
+        `;
+
+        studentsRankingRows.append(tr);
+      });
+    }
+
+    // Ranking Event Listeners
+    rankingGradeFilter.addEventListener('change', () => {
+      if (rankingMode === 'classes') renderClassesTable();
+      else renderStudentsTable();
+    });
+
+    rankingClassSelect.addEventListener('change', () => {
+      if (rankingMode === 'students') fetchStudentRankingData();
+    });
+
+    rankingSearchInput.addEventListener('input', () => {
+      clearTimeout(rankingSearchTimer);
+      rankingSearchTimer = setTimeout(renderStudentsTable, 200);
+    });
+
+    rankingRefreshBtn.addEventListener('click', () => {
+      fetchRankingData();
+    });
+
+    rankingExportBtn.addEventListener('click', () => {
+      try {
+        rankingExportBtn.disabled = true;
+        rankingExportBtn.textContent = 'Đang trích xuất...';
+
+        if (rankingMode === 'classes') {
+          const selectedGrade = rankingGradeFilter.value;
+          const filtered = rawClassRankings.filter(c => {
+            if (selectedGrade === 'ALL') return true;
+            return getGrade(c.class_name) === selectedGrade;
+          });
+
+          const lines = [
+            ['Hạng', 'Lớp', 'Khối', 'Sĩ số tham gia', 'Số bài hoàn thành', 'Tổng số bài khối', 'Tiến độ (%)', 'Tổng lượt làm', 'Điểm trung bình', 'Điểm cao nhất', 'Tỉ lệ Giỏi (>=8đ)', 'Lần nộp gần nhất'],
+            ...filtered.map((c, i) => {
+              const g = getGrade(c.class_name);
+              const totalLessons = getTotalLessons(c.class_name);
+              const percent = totalLessons > 0 ? Math.round((c.completed_lessons / totalLessons) * 100) : 0;
+              const goodRatio = c.total_attempts > 0 ? Math.round((c.good_count * 100) / c.total_attempts) : 0;
+              return [
+                i + 1,
+                c.class_name,
+                g ? `Khối ${g}` : '',
+                c.student_count,
+                c.completed_lessons,
+                totalLessons,
+                `${percent}%`,
+                c.total_attempts,
+                Number(c.avg_score).toFixed(1),
+                Number(c.max_score).toFixed(1),
+                `${goodRatio}%`,
+                c.latest_submission ? new Date(c.latest_submission).toLocaleString('vi-VN') : '--'
+              ];
+            })
+          ];
+
+          const csvContent = '\uFEFF' + lines.map(row => row.map(csvCell).join(',')).join('\r\n');
+          const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8' });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = `Bang_Xep_Hang_Tien_Do_Cac_Lop_${selectedGrade === 'ALL' ? 'Toan_Truong' : 'Khoi_' + selectedGrade}.csv`;
+          link.click();
+          URL.revokeObjectURL(url);
+        } else {
+          const selectedClass = rankingClassSelect.value;
+          const selectedGrade = rankingGradeFilter.value;
+          const keyword = rankingSearchInput.value.trim().toLowerCase();
+
+          const filtered = rawStudentRankings.filter(s => {
+            if (selectedGrade !== 'ALL') {
+              const g = getGrade(s.class_name);
+              if (g !== selectedGrade) return false;
+            }
+            if (keyword && (!s.student_name || !s.student_name.toLowerCase().includes(keyword))) {
+              return false;
+            }
+            return true;
+          });
+
+          const lines = [
+            ['Hạng', 'Họ và tên', 'Lớp', 'Khối', 'Số bài hoàn thành', 'Tổng số bài khối', 'Tiến độ (%)', 'Tổng lượt làm', 'Điểm trung bình', 'Điểm cao nhất', 'Thời gian làm TB', 'Lần nộp gần nhất'],
+            ...filtered.map((s, i) => {
+              const g = getGrade(s.class_name);
+              const totalLessons = getTotalLessons(s.class_name);
+              const percent = totalLessons > 0 ? Math.round((s.completed_lessons / totalLessons) * 100) : 0;
+              return [
+                i + 1,
+                s.student_name,
+                s.class_name,
+                g ? `Khối ${g}` : '',
+                s.completed_lessons,
+                totalLessons,
+                `${percent}%`,
+                s.total_attempts,
+                Number(s.avg_score).toFixed(1),
+                Number(s.max_score).toFixed(1),
+                formatDuration(s.avg_time_seconds),
+                s.latest_submission ? new Date(s.latest_submission).toLocaleString('vi-VN') : '--'
+              ];
+            })
+          ];
+
+          const csvContent = '\uFEFF' + lines.map(row => row.map(csvCell).join(',')).join('\r\n');
+          const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8' });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = `Bang_Vang_Hoc_Sinh_${selectedClass === 'ALL' ? 'Toan_Truong' : 'Lop_' + selectedClass}.csv`;
+          link.click();
+          URL.revokeObjectURL(url);
+        }
+      } catch (err) {
+        alert('Lỗi xuất file: ' + err.message);
+      } finally {
+        rankingExportBtn.disabled = false;
+        rankingExportBtn.textContent = '📥 Xuất file Excel (CSV)';
+      }
+    });
 
     async function loadLessonList() {
       const res = await fetch('/lessons/index.json');

@@ -3,13 +3,118 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Ôn tập: Sử dụng máy tính an toàn",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 2,
-  "timeLimitSeconds": 300,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
-    {"question":"Khi dùng máy tính ở trường, em nên làm gì trước khi cài phần mềm mới?","options":["Hỏi ý kiến thầy cô.","Tự cài ngay.","Tắt phần mềm bảo vệ.","Cho bạn mượn mật khẩu."],"correctIndex":0,"explanation":"Hãy xin phép thầy cô trước khi cài phần mềm trên máy tính của trường."},
-    {"question":"Mật khẩu của em nên được chia sẻ với ai?","options":["Tất cả bạn trong lớp.","Người lạ trên mạng.","Không chia sẻ tùy tiện.","Người hỏi đầu tiên."],"correctIndex":2,"explanation":"Giữ bí mật mật khẩu giúp bảo vệ tài khoản của em."},
-    {"question":"Nếu thấy liên kết lạ yêu cầu nhập mật khẩu, em nên làm gì?","options":["Nhập ngay.","Nhờ thầy cô hoặc người lớn kiểm tra.","Gửi cho cả lớp.","Tải mọi tệp đính kèm."],"correctIndex":1,"explanation":"Liên kết lạ có thể là trang giả mạo. Hãy nhờ người lớn kiểm tra."},
-    {"question":"Tư thế nào phù hợp khi học với máy tính?","options":["Ngồi quá sát màn hình.","Nằm trên bàn phím.","Ngồi ngay ngắn và giữ khoảng cách phù hợp với màn hình.","Dùng máy liên tục không nghỉ."],"correctIndex":2,"explanation":"Ngồi đúng tư thế và nghỉ giải lao giúp bảo vệ sức khỏe."},
-    {"question":"Khi không còn dùng máy tính ở phòng học, em nên làm gì?","options":["Để nguyên tài khoản đang mở.","Đăng xuất và làm theo hướng dẫn tắt máy của thầy cô.","Rút dây điện ngay.","Xóa bài của bạn."],"correctIndex":1,"explanation":"Đăng xuất để bảo vệ tài khoản và làm theo hướng dẫn của thầy cô."}
+    {
+      "question": "Khi dùng máy tính ở trường, em nên làm gì trước khi cài phần mềm mới?",
+      "options": [
+        "Hỏi ý kiến thầy cô.",
+        "Tự cài ngay.",
+        "Tắt phần mềm bảo vệ.",
+        "Cho bạn mượn mật khẩu."
+      ],
+      "correctIndex": 0,
+      "explanation": "Hãy xin phép thầy cô trước khi cài phần mềm trên máy tính của trường."
+    },
+    {
+      "question": "Mật khẩu của em nên được chia sẻ với ai?",
+      "options": [
+        "Tất cả bạn trong lớp.",
+        "Người lạ trên mạng.",
+        "Không chia sẻ tùy tiện.",
+        "Người hỏi đầu tiên."
+      ],
+      "correctIndex": 2,
+      "explanation": "Giữ bí mật mật khẩu giúp bảo vệ tài khoản của em."
+    },
+    {
+      "question": "Nếu thấy liên kết lạ yêu cầu nhập mật khẩu, em nên làm gì?",
+      "options": [
+        "Nhập ngay.",
+        "Nhờ thầy cô hoặc người lớn kiểm tra.",
+        "Gửi cho cả lớp.",
+        "Tải mọi tệp đính kèm."
+      ],
+      "correctIndex": 1,
+      "explanation": "Liên kết lạ có thể là trang giả mạo. Hãy nhờ người lớn kiểm tra."
+    },
+    {
+      "question": "Tư thế nào phù hợp khi học với máy tính?",
+      "options": [
+        "Ngồi quá sát màn hình.",
+        "Nằm trên bàn phím.",
+        "Ngồi ngay ngắn và giữ khoảng cách phù hợp với màn hình.",
+        "Dùng máy liên tục không nghỉ."
+      ],
+      "correctIndex": 2,
+      "explanation": "Ngồi đúng tư thế và nghỉ giải lao giúp bảo vệ sức khỏe."
+    },
+    {
+      "question": "Khi không còn dùng máy tính ở phòng học, em nên làm gì?",
+      "options": [
+        "Để nguyên tài khoản đang mở.",
+        "Đăng xuất và làm theo hướng dẫn tắt máy của thầy cô.",
+        "Rút dây điện ngay.",
+        "Xóa bài của bạn."
+      ],
+      "correctIndex": 1,
+      "explanation": "Đăng xuất để bảo vệ tài khoản và làm theo hướng dẫn của thầy cô."
+    },
+    {
+      "question": "Khi dùng máy tính trong thời gian dài, em nên làm gì?",
+      "options": [
+        "Nhìn sát màn hình hơn",
+        "Tăng độ sáng tối đa",
+        "Không cần nghỉ",
+        "Nghỉ mắt và vận động nhẹ"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nghỉ mắt và vận động nhẹ."
+    },
+    {
+      "question": "Nếu thấy dây điện máy tính bị hở, em nên làm gì?",
+      "options": [
+        "Đổ nước vào",
+        "Tiếp tục dùng",
+        "Không chạm vào và báo người lớn",
+        "Tự nối bằng tay"
+      ],
+      "correctIndex": 2,
+      "explanation": "Không chạm vào và báo người lớn."
+    },
+    {
+      "question": "Để bảo vệ thông tin cá nhân, em nên làm gì?",
+      "options": [
+        "Nhập vào trang lạ",
+        "Giữ kín mật khẩu",
+        "Dán mật khẩu lên màn hình",
+        "Gửi mật khẩu cho bạn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Giữ kín mật khẩu."
+    },
+    {
+      "question": "Khi trang web yêu cầu tải tệp không rõ nguồn, em nên làm gì?",
+      "options": [
+        "Hỏi người lớn trước khi tải",
+        "Tải ngay",
+        "Tắt phần mềm bảo vệ",
+        "Chia sẻ cho cả lớp"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hỏi người lớn trước khi tải."
+    },
+    {
+      "question": "Trước khi rời máy tính dùng chung, em nên làm gì?",
+      "options": [
+        "Để nguyên tài khoản mở",
+        "Rút dây bất kì",
+        "Xóa tệp của bạn",
+        "Lưu công việc và đăng xuất tài khoản"
+      ],
+      "correctIndex": 3,
+      "explanation": "Lưu công việc và đăng xuất tài khoản."
+    }
   ]
 }

@@ -187,3 +187,48 @@ test('teacher statistics cover the full lesson with class and name filters', asy
     if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
   }
 });
+
+test('teacher ranking returns class list and grade totals', async () => {
+  const previous = process.env.SESSION_SECRET;
+  process.env.SESSION_SECRET = 'test-secret';
+  let queryCalled = false;
+  const sql = async (strings) => {
+    assert.match(strings.join('?'), /COUNT\(DISTINCT student_name\)/);
+    queryCalled = true;
+    return [{ class_name: '4A1', student_count: 30, completed_lessons: 15, total_attempts: 120, avg_score: 8.5, max_score: 10, good_count: 95, latest_submission: new Date().toISOString() }];
+  };
+  try {
+    const handler = createTeacherHandler(() => sql, async () => {});
+    const result = response();
+    await handler({ method: 'GET', headers: { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` }, url: '/api/teacher?type=ranking' }, result);
+    assert.equal(result.code, 200);
+    assert.equal(queryCalled, true);
+    assert.equal(result.body.classes.length, 1);
+    assert.equal(result.body.classes[0].class_name, '4A1');
+    assert.equal(result.body.gradeTotals['4'], 19);
+  } finally {
+    if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
+  }
+});
+
+test('teacher student ranking filters by class and returns student aggregations', async () => {
+  const previous = process.env.SESSION_SECRET;
+  process.env.SESSION_SECRET = 'test-secret';
+  let queryValues;
+  const sql = async (strings, ...values) => {
+    assert.match(strings.join('?'), /FROM quiz_attempts/);
+    queryValues = values;
+    return [{ student_name: 'Nguyen Van A', class_name: '4A1', completed_lessons: 12, total_attempts: 15, avg_score: 9.0, max_score: 10, avg_time_seconds: 180, latest_submission: new Date().toISOString() }];
+  };
+  try {
+    const handler = createTeacherHandler(() => sql, async () => {});
+    const result = response();
+    await handler({ method: 'GET', headers: { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` }, url: '/api/teacher?type=ranking&mode=student&className=4A1' }, result);
+    assert.equal(result.code, 200);
+    assert.equal(result.body.students.length, 1);
+    assert.equal(result.body.students[0].student_name, 'Nguyen Van A');
+    assert.deepEqual(queryValues, ['4A1', '4A1', '4A1']);
+  } finally {
+    if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
+  }
+});

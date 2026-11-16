@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 13. Cấu trúc rẽ nhánh",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Cấu trúc rẽ nhánh cho phép chương trình làm gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Hai nhánh."
+    },
+    {
+      "question": "Điều kiện 'điểm > 5' đúng khi điểm bằng 8 không?",
+      "options": [
+        "Có",
+        "Không",
+        "Chỉ khi điểm bằng 5",
+        "Không xác định dù đã biết điểm"
+      ],
+      "correctIndex": 0,
+      "explanation": "Có."
+    },
+    {
+      "question": "Nếu điều kiện sai trong lệnh 'nếu ... thì', nhánh lệnh đó thường thế nào?",
+      "options": [
+        "Luôn thực hiện",
+        "Tự lặp vô hạn",
+        "Xóa chương trình",
+        "Không được thực hiện"
+      ],
+      "correctIndex": 3,
+      "explanation": "Không được thực hiện."
+    },
+    {
+      "question": "Nhánh 'nếu không thì' chạy khi nào?",
+      "options": [
+        "Luôn chạy trước",
+        "Không bao giờ",
+        "Khi điều kiện ban đầu sai",
+        "Khi điều kiện đúng"
+      ],
+      "correctIndex": 2,
+      "explanation": "Khi điều kiện ban đầu sai."
+    },
+    {
+      "question": "Muốn nhân vật nói 'Thắng' khi điểm đủ 10, em dùng gì?",
+      "options": [
+        "Chỉ dừng âm thanh",
+        "Lệnh rẽ nhánh kiểm tra điểm",
+        "Chỉ lệnh di chuyển",
+        "Chỉ đổi nền"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lệnh rẽ nhánh kiểm tra điểm."
+    },
+    {
+      "question": "Vì sao cần đặt điều kiện đúng trong chương trình?",
+      "options": [
+        "Để chương trình chọn hành động phù hợp",
+        "Để màn hình lớn hơn",
+        "Để chuột nhanh hơn",
+        "Để tăng dung lượng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Để chương trình chọn hành động phù hợp."
+    },
+    {
+      "question": "Khi rẽ nhánh cho kết quả sai, em nên kiểm tra gì?",
+      "options": [
+        "Màu vỏ máy",
+        "Tên ổ điện",
+        "Số phím",
+        "Biểu thức điều kiện và các lệnh trong từng nhánh"
+      ],
+      "correctIndex": 3,
+      "explanation": "Biểu thức điều kiện và các lệnh trong từng nhánh."
     }
   ]
 }

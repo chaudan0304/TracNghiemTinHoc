@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 4. Làm việc với máy tính",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Khi ngồi làm việc với máy tính, lưng em nên như thế nào?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Cho mắt nghỉ và nhìn ra xa."
+    },
+    {
+      "question": "Khi làm việc với máy tính, bàn tay nên thế nào?",
+      "options": [
+        "Đặt thoải mái, không gõ quá mạnh",
+        "Đập mạnh các phím",
+        "Giữ căng liên tục",
+        "Để trên màn hình"
+      ],
+      "correctIndex": 0,
+      "explanation": "Đặt thoải mái, không gõ quá mạnh."
+    },
+    {
+      "question": "Nếu màn hình bị chói, em nên làm gì?",
+      "options": [
+        "Nhìn sát hơn",
+        "Tăng sáng tối đa",
+        "Che mắt bằng tay rồi gõ",
+        "Điều chỉnh vị trí hoặc độ sáng phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Điều chỉnh vị trí hoặc độ sáng phù hợp."
+    },
+    {
+      "question": "Trước khi dùng máy ở phòng học, em nên làm gì?",
+      "options": [
+        "Cài phần mềm bất kì",
+        "Đổ nước lên bàn",
+        "Làm theo hướng dẫn của giáo viên",
+        "Tự ý tháo dây"
+      ],
+      "correctIndex": 2,
+      "explanation": "Làm theo hướng dẫn của giáo viên."
+    },
+    {
+      "question": "Vật nào nên để xa máy tính và ổ điện?",
+      "options": [
+        "Bút chì",
+        "Đồ uống",
+        "Sách vở khô",
+        "Tấm lót chuột"
+      ],
+      "correctIndex": 1,
+      "explanation": "Đồ uống."
+    },
+    {
+      "question": "Khi máy tính có dấu hiệu hỏng, em nên làm gì?",
+      "options": [
+        "Báo giáo viên hoặc người lớn",
+        "Tự tháo máy",
+        "Tiếp tục dùng bất chấp",
+        "Rút mọi dây ngẫu nhiên"
+      ],
+      "correctIndex": 0,
+      "explanation": "Báo giáo viên hoặc người lớn."
+    },
+    {
+      "question": "Trong lúc dùng máy, em nên nghỉ mắt như thế nào?",
+      "options": [
+        "Không nghỉ bao giờ",
+        "Chỉ nhìn gần hơn",
+        "Tăng độ sáng",
+        "Nghỉ định kì và nhìn ra xa"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nghỉ định kì và nhìn ra xa."
     }
   ]
 }

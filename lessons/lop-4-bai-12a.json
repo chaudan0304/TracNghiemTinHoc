@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 12A. Thực hành sử dụng công cụ đa phương tiện",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Công cụ đa phương tiện có thể giúp em làm việc với gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Lưu tệp ở nơi dễ tìm."
+    },
+    {
+      "question": "Video về một lễ hội giúp em biết thêm điều gì?",
+      "options": [
+        "Hình ảnh và âm thanh sinh động về văn hóa",
+        "Mật khẩu máy tính",
+        "Tên ổ điện",
+        "Số phím trên bàn"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hình ảnh và âm thanh sinh động về văn hóa."
+    },
+    {
+      "question": "Khi âm thanh video quá lớn, em nên làm gì?",
+      "options": [
+        "Tăng tối đa",
+        "Tắt màn hình",
+        "Rút bàn phím",
+        "Giảm âm lượng phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Giảm âm lượng phù hợp."
+    },
+    {
+      "question": "Muốn xem riêng một đoạn video, em có thể làm gì?",
+      "options": [
+        "Đổi tên máy",
+        "Tắt chuột",
+        "Tua đến đoạn cần xem",
+        "Xóa video"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tua đến đoạn cần xem."
+    },
+    {
+      "question": "Sau khi xem video về một địa danh, em nên làm gì?",
+      "options": [
+        "Đổi tên máy",
+        "Kể lại điều mới quan sát được",
+        "Chỉ nhớ tên tệp",
+        "Xóa video ngay"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kể lại điều mới quan sát được."
+    },
+    {
+      "question": "Nếu công cụ có nút tạm dừng, nút đó dùng để làm gì?",
+      "options": [
+        "Ngừng phát tạm thời",
+        "Xóa tệp",
+        "Tắt máy",
+        "Đổi định dạng luôn"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ngừng phát tạm thời."
+    },
+    {
+      "question": "Để người xem hiểu sản phẩm đa phương tiện, em nên chọn nội dung thế nào?",
+      "options": [
+        "Ngẫu nhiên và thật nhiều",
+        "Che kín chữ",
+        "Chỉ chọn nội dung dài",
+        "Phù hợp chủ đề và rõ ràng"
+      ],
+      "correctIndex": 3,
+      "explanation": "Phù hợp chủ đề và rõ ràng."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 14. Em thực hiện công việc như thế nào?",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Để hoàn thành việc đánh răng, em cần làm gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Liệt kê từng bước theo đúng trình tự."
+    },
+    {
+      "question": "Việc nấu cơm cần bắt đầu bằng gì trong các bước sau?",
+      "options": [
+        "Chuẩn bị gạo và nồi",
+        "Ăn cơm trước khi nấu",
+        "Cất nồi trước khi rửa",
+        "Tắt đèn phòng học"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chuẩn bị gạo và nồi."
+    },
+    {
+      "question": "Một chỉ dẫn rõ ràng nên nói gì?",
+      "options": [
+        "Chỉ nói 'làm đi'",
+        "Chỉ nói kết quả",
+        "Không nói bước nào",
+        "Việc cần làm và thứ tự thực hiện"
+      ],
+      "correctIndex": 3,
+      "explanation": "Việc cần làm và thứ tự thực hiện."
+    },
+    {
+      "question": "Khi công việc có nhiều bước, cách trình bày nào dễ theo dõi?",
+      "options": [
+        "Bỏ bước giữa",
+        "Viết thành một từ",
+        "Đánh số từng bước",
+        "Viết các bước lộn xộn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Đánh số từng bước."
+    },
+    {
+      "question": "Trong việc rửa tay, bước nào cần làm trước khi lau khô?",
+      "options": [
+        "Tắt máy",
+        "Rửa và xả sạch tay",
+        "Đi ngủ",
+        "Đóng sách"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rửa và xả sạch tay."
+    },
+    {
+      "question": "Nếu bỏ sót bước cần thiết, kết quả công việc có thể thế nào?",
+      "options": [
+        "Không đạt yêu cầu",
+        "Luôn tốt hơn",
+        "Không liên quan",
+        "Tự sửa đúng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Không đạt yêu cầu."
+    },
+    {
+      "question": "Để kiểm tra mô tả công việc, em có thể làm gì?",
+      "options": [
+        "Chỉ nhìn tên việc",
+        "Xóa bước đầu",
+        "Đổi tên người làm",
+        "Thực hiện thử theo các bước"
+      ],
+      "correctIndex": 3,
+      "explanation": "Thực hiện thử theo các bước."
     }
   ]
 }

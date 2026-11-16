@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 3. Tìm kiếm thông tin trong giải quyết vấn đề",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Trước khi tìm thông tin để giải quyết vấn đề, em nên làm gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Chọn thông tin liên quan rồi áp dụng phù hợp."
+    },
+    {
+      "question": "Vấn đề 'chọn cây trồng ở ban công ít nắng' cần tìm thông tin gì?",
+      "options": [
+        "Cây phù hợp ánh sáng yếu và cách chăm sóc",
+        "Tất cả trò chơi",
+        "Giá bàn phím",
+        "Màu máy in"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cây phù hợp ánh sáng yếu và cách chăm sóc."
+    },
+    {
+      "question": "Nếu có quá nhiều kết quả, em nên làm gì?",
+      "options": [
+        "Đọc ngẫu nhiên",
+        "Tin quảng cáo đầu",
+        "Bỏ vấn đề ban đầu",
+        "Lọc theo nhu cầu và nguồn tin đáng tin"
+      ],
+      "correctIndex": 3,
+      "explanation": "Lọc theo nhu cầu và nguồn tin đáng tin."
+    },
+    {
+      "question": "Thông tin giải quyết vấn đề cần có đặc điểm nào?",
+      "options": [
+        "Không cần nguồn",
+        "Chỉ là hình đẹp",
+        "Liên quan và đáng tin cậy",
+        "Càng dài càng tốt"
+      ],
+      "correctIndex": 2,
+      "explanation": "Liên quan và đáng tin cậy."
+    },
+    {
+      "question": "Khi hai nguồn đưa lời khuyên khác nhau, em nên làm gì?",
+      "options": [
+        "Không đọc nữa",
+        "Đối chiếu và hỏi người có hiểu biết",
+        "Chọn ngẫu nhiên",
+        "Chép cả hai như đúng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Đối chiếu và hỏi người có hiểu biết."
+    },
+    {
+      "question": "Sau khi tìm thông tin, em cần đưa ra gì?",
+      "options": [
+        "Cách giải quyết phù hợp với điều kiện thực tế",
+        "Mật khẩu",
+        "Tên tệp nhạc",
+        "Màu nền máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cách giải quyết phù hợp với điều kiện thực tế."
+    },
+    {
+      "question": "Vì sao cần nêu nguồn khi trình bày giải pháp?",
+      "options": [
+        "Để che người viết",
+        "Để thay nội dung",
+        "Để máy chạy nhanh",
+        "Để người khác kiểm tra thông tin"
+      ],
+      "correctIndex": 3,
+      "explanation": "Để người khác kiểm tra thông tin."
     }
   ]
 }

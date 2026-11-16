@@ -14,7 +14,7 @@
 
 ## Danh sách bài học hiện có
 
-Ngân hàng có đủ 16 bài lớp 3, 17 mục bài lớp 4 (gồm 12A/12B) và 18 mục bài lớp 5 (gồm 8A/8B, 9A/9B) theo ba SGK Tin học của Nhà xuất bản Giáo dục Việt Nam. Mỗi bài mới có 4 câu hỏi luyện tập nguyên bản, chấm trên thang 10. Ba bài luyện tập cũ vẫn được giữ ở cuối danh sách để bảo toàn liên kết và lịch sử kết quả.
+Ngân hàng có đủ 16 bài lớp 3, 17 mục bài lớp 4 (gồm 12A/12B) và 18 mục bài lớp 5 (gồm 8A/8B, 9A/9B) theo ba SGK Tin học của Nhà xuất bản Giáo dục Việt Nam. Mỗi bài có ít nhất 10 câu hỏi luyện tập, chấm trên thang 10. Ba bài luyện tập cũ vẫn được giữ ở cuối danh sách để bảo toàn liên kết và lịch sử kết quả.
 
 Nguồn đối chiếu: [SGK Tin học 3](https://taphuan.nxbgd.vn/tap-huan/doc-sach/sgk-tin-hoc-3.4698739161), [SGK Tin học 4](https://taphuan.nxbgd.vn/tap-huan/doc-sach/sgk-tin-hoc-4.4698914396), [SGK Tin học 5](https://taphuan.nxbgd.vn/tap-huan/doc-sach/sgk-tin-hoc-5.4699814459). Câu hỏi được biên soạn lại để luyện tập các khái niệm và thao tác trong sách, không sao chép nguyên văn nội dung SGK.
 

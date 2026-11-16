@@ -3,52 +3,118 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 16. Công việc của em và sự trợ giúp của máy tính",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
-      "question": "Máy tính giúp em thực hiện công việc nào?",
+      "question": "Khi nhóm muốn làm bài trình chiếu, bước đầu nên là gì?",
       "options": [
-        "Soạn thảo và lưu bài viết",
-        "Tự ăn cơm thay em",
-        "Tự chăm sóc mọi cây thật",
-        "Tự quyết định mọi việc thay con người"
+        "Chọn ý tưởng và lập kế hoạch",
+        "Đổi chuột",
+        "Xóa ảnh",
+        "Tắt màn hình"
       ],
       "correctIndex": 0,
-      "explanation": "Soạn thảo và lưu bài viết."
+      "explanation": "Chọn ý tưởng và lập kế hoạch."
     },
     {
-      "question": "Khi nhờ máy tính hỗ trợ học tập, em vẫn cần làm gì?",
+      "question": "Máy tính hỗ trợ nhóm tạo sản phẩm nào trong bài học?",
       "options": [
-        "Tin mọi kết quả không kiểm tra",
-        "Bỏ qua hướng dẫn của thầy cô",
-        "Không cần hiểu bài",
-        "Tự suy nghĩ và kiểm tra kết quả"
+        "Cây thật",
+        "Bàn gỗ thật",
+        "Đồ ăn",
+        "Bài trình chiếu"
       ],
       "correctIndex": 3,
-      "explanation": "Tự suy nghĩ và kiểm tra kết quả."
+      "explanation": "Bài trình chiếu."
     },
     {
-      "question": "Để máy tính làm đúng việc em muốn, em cần gì?",
+      "question": "Khi phân công làm bài trình chiếu nhóm, em nên làm gì?",
       "options": [
-        "Chỉ bật loa",
-        "Không đưa yêu cầu nào",
-        "Chỉ dẫn rõ ràng, đúng thứ tự",
-        "Chỉ nói tên máy tính"
+        "Không trao đổi",
+        "Xóa phần của bạn",
+        "Nhận phần việc rõ ràng và phối hợp với bạn",
+        "Để một bạn làm tất cả"
       ],
       "correctIndex": 2,
-      "explanation": "Chỉ dẫn rõ ràng, đúng thứ tự."
+      "explanation": "Nhận phần việc rõ ràng và phối hợp với bạn."
     },
     {
-      "question": "Nếu kết quả máy tính tạo ra không đúng yêu cầu, em nên làm gì?",
+      "question": "Nếu trang chiếu chưa thể hiện đúng ý, em nên làm gì?",
       "options": [
-        "Tắt màn hình ngay",
-        "Kiểm tra lại các bước và sửa chỉ dẫn",
+        "Tắt máy ngay",
+        "Chỉnh sửa nội dung hoặc hình ảnh rồi xem lại",
         "Giữ nguyên vì máy luôn đúng",
         "Xóa mọi tệp"
       ],
       "correctIndex": 1,
-      "explanation": "Kiểm tra lại các bước và sửa chỉ dẫn."
+      "explanation": "Chỉnh sửa nội dung hoặc hình ảnh rồi xem lại."
+    },
+    {
+      "question": "Trước khi tạo bài trình chiếu nhóm, em nên làm gì?",
+      "options": [
+        "Lên ý tưởng và phân chia việc cần làm",
+        "Chọn màu ngẫu nhiên",
+        "Xóa bài của bạn",
+        "Tắt máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lên ý tưởng và phân chia việc cần làm."
+    },
+    {
+      "question": "Để bài trình chiếu rõ ràng, em cần chuẩn bị gì?",
+      "options": [
+        "Chỉ hiệu ứng thật nhiều",
+        "Chỉ một màu nền",
+        "Chỉ âm lượng loa",
+        "Nội dung và hình minh họa phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nội dung và hình minh họa phù hợp."
+    },
+    {
+      "question": "Trong công việc nhóm, máy tính giúp gì?",
+      "options": [
+        "Tự phân công mọi người",
+        "Tự thay thầy cô",
+        "Tạo và chỉnh sửa các trang chiếu",
+        "Tự quyết định mọi ý tưởng"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tạo và chỉnh sửa các trang chiếu."
+    },
+    {
+      "question": "Sau khi tạo từng trang chiếu, em nên làm gì?",
+      "options": [
+        "Rút nguồn",
+        "Xem lại nội dung và thứ tự các trang",
+        "Xóa mọi tiêu đề",
+        "Đổi tên bàn phím"
+      ],
+      "correctIndex": 1,
+      "explanation": "Xem lại nội dung và thứ tự các trang."
+    },
+    {
+      "question": "Muốn giới thiệu sản phẩm nhóm, em dùng chức năng nào?",
+      "options": [
+        "Trình chiếu bài đã tạo",
+        "Xóa tệp",
+        "Tắt màn hình",
+        "Đổi con trỏ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Trình chiếu bài đã tạo."
+    },
+    {
+      "question": "Sau khi hoàn thành sản phẩm, cả nhóm nên làm gì?",
+      "options": [
+        "Đóng không lưu",
+        "Xóa bài",
+        "Để một bạn tự làm hết",
+        "Kiểm tra, lưu và cùng trình bày"
+      ],
+      "correctIndex": 3,
+      "explanation": "Kiểm tra, lưu và cùng trình bày."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 1. Phần cứng và phần mềm máy tính",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Bộ phận nào là phần cứng máy tính?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Thiết bị phù hợp và phần mềm vẽ."
+    },
+    {
+      "question": "Chuột máy tính thuộc nhóm nào?",
+      "options": [
+        "Phần cứng",
+        "Phần mềm",
+        "Trang web",
+        "Tệp văn bản"
+      ],
+      "correctIndex": 0,
+      "explanation": "Phần cứng."
+    },
+    {
+      "question": "Ứng dụng vẽ trên máy tính thuộc nhóm nào?",
+      "options": [
+        "Phần cứng",
+        "Dây cáp",
+        "Ổ điện",
+        "Phần mềm"
+      ],
+      "correctIndex": 3,
+      "explanation": "Phần mềm."
+    },
+    {
+      "question": "Khi không có phần mềm phù hợp, phần cứng có tự soạn văn bản theo ý em được không?",
+      "options": [
+        "Chỉ cần loa",
+        "Chỉ cần chuột",
+        "Không",
+        "Luôn được"
+      ],
+      "correctIndex": 2,
+      "explanation": "Không."
+    },
+    {
+      "question": "Hệ điều hành là loại thành phần nào của máy tính?",
+      "options": [
+        "Thân máy",
+        "Phần mềm",
+        "Bàn phím",
+        "Màn hình"
+      ],
+      "correctIndex": 1,
+      "explanation": "Phần mềm."
+    },
+    {
+      "question": "Máy in là thiết bị nào?",
+      "options": [
+        "Thiết bị phần cứng đưa thông tin ra giấy",
+        "Phần mềm vẽ",
+        "Trang web",
+        "Tệp âm thanh"
+      ],
+      "correctIndex": 0,
+      "explanation": "Thiết bị phần cứng đưa thông tin ra giấy."
+    },
+    {
+      "question": "Khi chọn phần mềm cho công việc, em nên dựa vào gì?",
+      "options": [
+        "Màu vỏ máy",
+        "Độ dài dây nguồn",
+        "Số loa",
+        "Chức năng phần mềm có phù hợp nhu cầu không"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chức năng phần mềm có phù hợp nhu cầu không."
     }
   ]
 }

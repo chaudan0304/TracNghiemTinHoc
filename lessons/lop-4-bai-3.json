@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 3. Thông tin trên trang web",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Trang web có thể chứa dạng thông tin nào?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Xem nguồn và kiểm tra độ tin cậy."
+    },
+    {
+      "question": "Địa chỉ web cho biết gì?",
+      "options": [
+        "Vị trí truy cập một trang hoặc website",
+        "Màu bàn phím",
+        "Âm lượng loa",
+        "Số tệp trong máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Vị trí truy cập một trang hoặc website."
+    },
+    {
+      "question": "Khi nháy vào liên kết, điều gì có thể xảy ra?",
+      "options": [
+        "Máy tự tắt luôn",
+        "Bàn phím biến mất",
+        "Tệp luôn bị xóa",
+        "Mở trang hoặc nội dung được liên kết"
+      ],
+      "correctIndex": 3,
+      "explanation": "Mở trang hoặc nội dung được liên kết."
+    },
+    {
+      "question": "Hình ảnh trên trang web có thể giúp gì?",
+      "options": [
+        "Thay mật khẩu",
+        "Tạo dây mạng",
+        "Minh họa nội dung",
+        "Bảo đảm mọi câu đúng"
+      ],
+      "correctIndex": 2,
+      "explanation": "Minh họa nội dung."
+    },
+    {
+      "question": "Video trên trang web có thể chứa gì?",
+      "options": [
+        "Vị thức ăn",
+        "Hình chuyển động và âm thanh",
+        "Chỉ chữ in giấy",
+        "Mùi hương"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hình chuyển động và âm thanh."
+    },
+    {
+      "question": "Muốn quay về trang vừa xem trong trình duyệt, em dùng gì?",
+      "options": [
+        "Nút Quay lại",
+        "Nút tắt nguồn",
+        "Phím âm lượng",
+        "Máy in"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nút Quay lại."
+    },
+    {
+      "question": "Khi trang web hiển thị thông tin riêng tư, em nên làm gì?",
+      "options": [
+        "Đăng công khai",
+        "Gửi mật khẩu",
+        "Chụp và phát tán ngay",
+        "Chỉ xem và chia sẻ theo hướng dẫn phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chỉ xem và chia sẻ theo hướng dẫn phù hợp."
     }
   ]
 }

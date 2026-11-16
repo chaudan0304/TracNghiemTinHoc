@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 5. Sử dụng bàn phím",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Hai phím nào có gờ để đặt ngón trỏ ở hàng phím cơ sở?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Enter."
+    },
+    {
+      "question": "Phím nào tạo chữ hoa khi giữ cùng phím chữ?",
+      "options": [
+        "Shift",
+        "Space",
+        "Enter",
+        "Backspace"
+      ],
+      "correctIndex": 0,
+      "explanation": "Shift."
+    },
+    {
+      "question": "Phím nào có thể bật chế độ gõ chữ hoa liên tục?",
+      "options": [
+        "Space",
+        "Enter",
+        "Tab",
+        "Caps Lock"
+      ],
+      "correctIndex": 3,
+      "explanation": "Caps Lock."
+    },
+    {
+      "question": "Phím nào xóa kí tự vừa gõ ở bên trái con trỏ?",
+      "options": [
+        "Shift",
+        "Space",
+        "Backspace",
+        "Enter"
+      ],
+      "correctIndex": 2,
+      "explanation": "Backspace."
+    },
+    {
+      "question": "Hàng phím có A, S, D, F, J, K, L thuộc hàng nào?",
+      "options": [
+        "Hàng phím dưới",
+        "Hàng phím cơ sở",
+        "Hàng phím số",
+        "Hàng phím trên"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hàng phím cơ sở."
+    },
+    {
+      "question": "Để gõ nhanh và chính xác hơn, em nên làm gì?",
+      "options": [
+        "Luyện đúng vị trí các ngón tay",
+        "Chỉ dùng một ngón",
+        "Nhìn sát phím",
+        "Gõ thật mạnh"
+      ],
+      "correctIndex": 0,
+      "explanation": "Luyện đúng vị trí các ngón tay."
+    },
+    {
+      "question": "Khi gõ bàn phím, cổ tay nên thế nào?",
+      "options": [
+        "Gồng cứng",
+        "Tì mạnh liên tục",
+        "Vặn lệch hẳn",
+        "Thả lỏng tự nhiên"
+      ],
+      "correctIndex": 3,
+      "explanation": "Thả lỏng tự nhiên."
     }
   ]
 }

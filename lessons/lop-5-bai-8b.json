@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 8B. Làm sản phẩm thủ công theo video hướng dẫn",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Trước khi làm theo video hướng dẫn, em nên làm gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Đối chiếu sản phẩm với mục tiêu và chỉnh nếu cần."
+    },
+    {
+      "question": "Video hướng dẫn thường trình bày các bước bằng gì?",
+      "options": [
+        "Hình chuyển động và lời nói hoặc chữ",
+        "Chỉ mùi hương",
+        "Chỉ giấy in",
+        "Chỉ âm thanh không bao giờ có hình"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hình chuyển động và lời nói hoặc chữ."
+    },
+    {
+      "question": "Muốn biết cần bao nhiêu vật liệu, em nên xem phần nào?",
+      "options": [
+        "Chỉ đoạn kết",
+        "Chỉ ảnh bìa",
+        "Chỉ nhạc nền",
+        "Phần chuẩn bị trong video hoặc mô tả"
+      ],
+      "correctIndex": 3,
+      "explanation": "Phần chuẩn bị trong video hoặc mô tả."
+    },
+    {
+      "question": "Khi xem hướng dẫn, vì sao nên ghi nhớ trình tự?",
+      "options": [
+        "Để làm ngược luôn",
+        "Để tắt video nhanh",
+        "Để làm đúng từng bước",
+        "Để bỏ bớt bước"
+      ],
+      "correctIndex": 2,
+      "explanation": "Để làm đúng từng bước."
+    },
+    {
+      "question": "Nếu vật liệu trong video không có, em nên làm gì?",
+      "options": [
+        "Dùng bất cứ thứ gì",
+        "Hỏi người lớn về vật liệu thay thế phù hợp và an toàn",
+        "Tự dùng vật nguy hiểm",
+        "Bỏ hết vật liệu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hỏi người lớn về vật liệu thay thế phù hợp và an toàn."
+    },
+    {
+      "question": "Sau mỗi bước làm thủ công, em nên làm gì?",
+      "options": [
+        "So sánh với video trước khi tiếp tục",
+        "Luôn bỏ qua kết quả",
+        "Làm ngược bước trước",
+        "Xóa video"
+      ],
+      "correctIndex": 0,
+      "explanation": "So sánh với video trước khi tiếp tục."
+    },
+    {
+      "question": "Khi thao tác với keo hoặc kéo, em cần chú ý gì?",
+      "options": [
+        "Đùa nghịch với dụng cụ",
+        "Làm thật vội",
+        "Để dụng cụ gần mặt",
+        "Sử dụng an toàn theo hướng dẫn người lớn"
+      ],
+      "correctIndex": 3,
+      "explanation": "Sử dụng an toàn theo hướng dẫn người lớn."
     }
   ]
 }

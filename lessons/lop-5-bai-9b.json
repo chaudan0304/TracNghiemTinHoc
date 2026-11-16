@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 9B. Thực hành tạo đồ dùng gia đình theo video hướng dẫn",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Khi chọn video để làm đồ dùng gia đình, em cần chú ý gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Có sử dụng được và có an toàn không."
+    },
+    {
+      "question": "Một đồ dùng gia đình làm từ vật liệu tái sử dụng cần ưu tiên gì?",
+      "options": [
+        "An toàn và có ích khi dùng",
+        "Chỉ màu thật chói",
+        "Chỉ giống ảnh bìa",
+        "Chỉ làm nhanh"
+      ],
+      "correctIndex": 0,
+      "explanation": "An toàn và có ích khi dùng."
+    },
+    {
+      "question": "Nếu video có bước cắt vật liệu cứng, em nên làm gì?",
+      "options": [
+        "Tự cố cắt vội",
+        "Bỏ qua cảnh báo",
+        "Dùng tay không",
+        "Nhờ người lớn hỗ trợ"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nhờ người lớn hỗ trợ."
+    },
+    {
+      "question": "Khi chuẩn bị vật liệu, em cần kiểm tra gì?",
+      "options": [
+        "Chỉ màu bàn",
+        "Chỉ tên tệp",
+        "Đủ số lượng và phù hợp hướng dẫn",
+        "Chỉ giá bán"
+      ],
+      "correctIndex": 2,
+      "explanation": "Đủ số lượng và phù hợp hướng dẫn."
+    },
+    {
+      "question": "Nếu sản phẩm không đứng vững, em nên làm gì?",
+      "options": [
+        "Đập bỏ ngay",
+        "Kiểm tra và gia cố theo cách an toàn",
+        "Dùng ngay bất chấp",
+        "Giấu lỗi"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kiểm tra và gia cố theo cách an toàn."
+    },
+    {
+      "question": "Sau khi hoàn thành, em có thể làm gì để chia sẻ cách làm?",
+      "options": [
+        "Giới thiệu các bước và điều đã điều chỉnh",
+        "Chỉ nói tên video",
+        "Không thử sản phẩm",
+        "Xóa hình minh họa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Giới thiệu các bước và điều đã điều chỉnh."
+    },
+    {
+      "question": "Khi dùng video của người khác để giới thiệu sản phẩm, em nên gì?",
+      "options": [
+        "Nhận là video của mình",
+        "Xóa tên người làm",
+        "Đăng lại không xem quyền",
+        "Ghi nguồn video phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Ghi nguồn video phù hợp."
     }
   ]
 }

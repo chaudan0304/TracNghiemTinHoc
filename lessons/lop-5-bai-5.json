@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 5",
   "lessonTitle": "Bài 5. Bản quyền nội dung thông tin",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Ai thường có quyền đối với một bức ảnh do mình sáng tạo?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Để công nhận người tạo và giúp kiểm tra nguồn."
+    },
+    {
+      "question": "Văn bản do người khác viết là nội dung có thể có gì?",
+      "options": [
+        "Quyền tác giả",
+        "Quyền tự nhận là của mình",
+        "Quyền xóa nguồn",
+        "Quyền bán lại tự do luôn"
+      ],
+      "correctIndex": 0,
+      "explanation": "Quyền tác giả."
+    },
+    {
+      "question": "Khi trích ý từ bài viết trên mạng, em nên làm gì?",
+      "options": [
+        "Nhận là ý mình",
+        "Xóa tên tác giả",
+        "Sao chép toàn bài không đọc",
+        "Nêu nguồn phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nêu nguồn phù hợp."
+    },
+    {
+      "question": "Nội dung được cho phép dùng miễn phí có nghĩa gì?",
+      "options": [
+        "Được nhận mình là tác giả",
+        "Được bán lại luôn",
+        "Được dùng theo điều kiện mà chủ sở hữu nêu",
+        "Muốn làm gì cũng được"
+      ],
+      "correctIndex": 2,
+      "explanation": "Được dùng theo điều kiện mà chủ sở hữu nêu."
+    },
+    {
+      "question": "Nếu không rõ quyền sử dụng một ảnh, em nên làm gì?",
+      "options": [
+        "Đổi tên ảnh để che nguồn",
+        "Tìm điều kiện sử dụng hoặc xin phép",
+        "Dùng ngay không hỏi",
+        "Xóa chú thích"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tìm điều kiện sử dụng hoặc xin phép."
+    },
+    {
+      "question": "Hành động nào thể hiện tôn trọng tác giả?",
+      "options": [
+        "Ghi tên tác giả khi sử dụng theo yêu cầu",
+        "Xóa tên tác giả",
+        "Đăng lại và nhận công",
+        "Sửa nội dung rồi nhận là của mình"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ghi tên tác giả khi sử dụng theo yêu cầu."
+    },
+    {
+      "question": "Vì sao không nên chép bài của người khác thành bài mình?",
+      "options": [
+        "Vì máy chạy chậm",
+        "Vì bàn phím hỏng",
+        "Vì mạng luôn tắt",
+        "Vì không trung thực và xâm phạm quyền của người tạo"
+      ],
+      "correctIndex": 3,
+      "explanation": "Vì không trung thực và xâm phạm quyền của người tạo."
     }
   ]
 }

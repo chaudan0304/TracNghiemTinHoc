@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 7. Sắp xếp để dễ tìm",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Vì sao nên sắp xếp đồ vật và tệp hợp lí?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Chia vào các thư mục theo môn."
+    },
+    {
+      "question": "Để tìm ảnh chuyến đi nhanh hơn, em nên đặt ảnh ở đâu?",
+      "options": [
+        "Trong thư mục có tên chuyến đi",
+        "Trong nhiều thư mục ngẫu nhiên",
+        "Trong thùng rác",
+        "Trong tệp không tên"
+      ],
+      "correctIndex": 0,
+      "explanation": "Trong thư mục có tên chuyến đi."
+    },
+    {
+      "question": "Khi sắp xếp sách theo chủ đề, sách cùng chủ đề nên thế nào?",
+      "options": [
+        "Rải đều mọi nơi",
+        "Xếp ngẫu nhiên",
+        "Giấu đi",
+        "Để cùng một nhóm"
+      ],
+      "correctIndex": 3,
+      "explanation": "Để cùng một nhóm."
+    },
+    {
+      "question": "Tên thư mục nào rõ nhất để chứa bài tập Toán lớp 3?",
+      "options": [
+        "12345",
+        "Không tên",
+        "Bài tập Toán lớp 3",
+        "Tệp mới"
+      ],
+      "correctIndex": 2,
+      "explanation": "Bài tập Toán lớp 3."
+    },
+    {
+      "question": "Nếu không nhớ tệp nằm đâu, việc nào giúp tìm lại dễ hơn về sau?",
+      "options": [
+        "Lưu nhiều nơi bất kì",
+        "Đặt tên và lưu theo nhóm rõ ràng",
+        "Đổi tên ngẫu nhiên",
+        "Xóa thư mục"
+      ],
+      "correctIndex": 1,
+      "explanation": "Đặt tên và lưu theo nhóm rõ ràng."
+    },
+    {
+      "question": "Việc phân nhóm tệp có lợi gì?",
+      "options": [
+        "Dễ quản lí và tìm kiếm",
+        "Tăng kích thước màn hình",
+        "Làm máy tự học",
+        "Thay nguồn điện"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dễ quản lí và tìm kiếm."
+    },
+    {
+      "question": "Sắp xếp đồ vật theo tiêu chí nào có thể hợp lí?",
+      "options": [
+        "Theo vị trí ngẫu nhiên",
+        "Theo âm lượng loa",
+        "Theo màu màn hình",
+        "Theo loại hoặc mục đích sử dụng"
+      ],
+      "correctIndex": 3,
+      "explanation": "Theo loại hoặc mục đích sử dụng."
     }
   ]
 }

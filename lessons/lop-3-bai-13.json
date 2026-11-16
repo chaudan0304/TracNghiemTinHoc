@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 3",
   "lessonTitle": "Bài 13. Luyện tập sử dụng chuột",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Thao tác nháy chuột là gì?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Cuộn nội dung lên hoặc xuống."
+    },
+    {
+      "question": "Nháy đúp chuột gồm mấy lần nhấn thả liên tiếp?",
+      "options": [
+        "Hai lần",
+        "Một lần",
+        "Ba lần bắt buộc",
+        "Không lần nào"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hai lần."
+    },
+    {
+      "question": "Muốn chọn một biểu tượng, em thường dùng thao tác nào?",
+      "options": [
+        "Rút chuột",
+        "Tắt màn hình",
+        "Nhấn phím nguồn",
+        "Nháy chuột trái một lần"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nháy chuột trái một lần."
+    },
+    {
+      "question": "Con trỏ chuột di chuyển trên màn hình khi em làm gì?",
+      "options": [
+        "Bật loa",
+        "In tài liệu",
+        "Di chuyển chuột trên mặt bàn",
+        "Gõ phím cách"
+      ],
+      "correctIndex": 2,
+      "explanation": "Di chuyển chuột trên mặt bàn."
+    },
+    {
+      "question": "Muốn đưa một biểu tượng sang vị trí khác, em dùng thao tác nào?",
+      "options": [
+        "Tắt máy",
+        "Kéo thả",
+        "Chỉ lăn chuột",
+        "Nhấn Enter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kéo thả."
+    },
+    {
+      "question": "Nháy chuột phải thường mở gì?",
+      "options": [
+        "Bảng chọn theo ngữ cảnh",
+        "Máy in",
+        "Ổ điện",
+        "Bàn phím ảo luôn"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bảng chọn theo ngữ cảnh."
+    },
+    {
+      "question": "Khi dùng chuột, bàn tay nên như thế nào?",
+      "options": [
+        "Nắm rất chặt",
+        "Đập xuống bàn",
+        "Tì mạnh không nghỉ",
+        "Cầm nhẹ, di chuyển thoải mái"
+      ],
+      "correctIndex": 3,
+      "explanation": "Cầm nhẹ, di chuyển thoải mái."
     }
   ]
 }

@@ -3,8 +3,8 @@
   "subjectBadge": "TIN HỌC LỚP 4",
   "lessonTitle": "Bài 7. Tạo bài trình chiếu",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
-  "pointsPerQuestion": 2.5,
-  "timeLimitSeconds": 360,
+  "pointsPerQuestion": 1,
+  "timeLimitSeconds": 600,
   "questions": [
     {
       "question": "Bài trình chiếu gồm các thành phần nào?",
@@ -49,6 +49,72 @@
       ],
       "correctIndex": 1,
       "explanation": "Lưu tệp với tên phù hợp."
+    },
+    {
+      "question": "Trang chiếu mới được thêm vào bài để làm gì?",
+      "options": [
+        "Trình bày thêm ý hoặc nội dung",
+        "Tăng số dây điện",
+        "Đổi tên bàn phím",
+        "Tắt Internet"
+      ],
+      "correctIndex": 0,
+      "explanation": "Trình bày thêm ý hoặc nội dung."
+    },
+    {
+      "question": "Nội dung trên một trang chiếu nên thế nào?",
+      "options": [
+        "Đầy kín chữ thật nhỏ",
+        "Không liên quan chủ đề",
+        "Che hết bằng ảnh",
+        "Ngắn gọn, dễ theo dõi"
+      ],
+      "correctIndex": 3,
+      "explanation": "Ngắn gọn, dễ theo dõi."
+    },
+    {
+      "question": "Muốn sắp xếp ý theo trình tự, em nên làm gì?",
+      "options": [
+        "Xóa trang đầu",
+        "Chỉ đổi màu nền",
+        "Sắp xếp các trang chiếu theo thứ tự phù hợp",
+        "Để ngẫu nhiên"
+      ],
+      "correctIndex": 2,
+      "explanation": "Sắp xếp các trang chiếu theo thứ tự phù hợp."
+    },
+    {
+      "question": "Hình ảnh trong bài trình chiếu nên làm gì?",
+      "options": [
+        "Không liên quan bài",
+        "Hỗ trợ người xem hiểu nội dung",
+        "Che kín chữ",
+        "Luôn làm nền thật rối"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hỗ trợ người xem hiểu nội dung."
+    },
+    {
+      "question": "Để xem toàn bộ bài như khi trình bày, em dùng chức năng nào?",
+      "options": [
+        "Trình chiếu",
+        "Đổi tên tệp",
+        "Xóa trang",
+        "Tắt màn hình"
+      ],
+      "correctIndex": 0,
+      "explanation": "Trình chiếu."
+    },
+    {
+      "question": "Khi lưu bài trình chiếu, tên nào dễ tìm hơn?",
+      "options": [
+        "Mới 2",
+        "abc",
+        "Không tên",
+        "Giới thiệu lớp 4A"
+      ],
+      "correctIndex": 3,
+      "explanation": "Giới thiệu lớp 4A."
     }
   ]
 }
