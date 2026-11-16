@@ -1,0 +1,54 @@
+{
+  "id": "lop-5-bai-5",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Bài 5. Bản quyền nội dung thông tin",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Ai thường có quyền đối với một bức ảnh do mình sáng tạo?",
+      "options": [
+        "Người sáng tạo hoặc chủ sở hữu hợp pháp",
+        "Bất cứ ai xem ảnh",
+        "Người tải ảnh về đầu tiên",
+        "Người đổi tên tệp"
+      ],
+      "correctIndex": 0,
+      "explanation": "Người sáng tạo hoặc chủ sở hữu hợp pháp."
+    },
+    {
+      "question": "Khi dùng ảnh của người khác trong bài trình bày, em nên làm gì?",
+      "options": [
+        "Nói là mình chụp",
+        "Xóa tên tác giả",
+        "Chia sẻ không cần xem điều kiện",
+        "Kiểm tra quyền sử dụng và ghi nguồn phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Kiểm tra quyền sử dụng và ghi nguồn phù hợp."
+    },
+    {
+      "question": "Hành động nào tôn trọng bản quyền?",
+      "options": [
+        "Xóa thông tin tác giả",
+        "Bán lại bài của người khác",
+        "Xin phép hoặc dùng nội dung được cho phép",
+        "Sao chép rồi nhận là của mình"
+      ],
+      "correctIndex": 2,
+      "explanation": "Xin phép hoặc dùng nội dung được cho phép."
+    },
+    {
+      "question": "Vì sao cần ghi nguồn nội dung tham khảo?",
+      "options": [
+        "Để máy chạy nhanh",
+        "Để công nhận người tạo và giúp kiểm tra nguồn",
+        "Để che tác giả",
+        "Để bỏ qua việc đọc"
+      ],
+      "correctIndex": 1,
+      "explanation": "Để công nhận người tạo và giúp kiểm tra nguồn."
+    }
+  ]
+}

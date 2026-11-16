@@ -1,0 +1,54 @@
+{
+  "id": "lop-5-bai-9a",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Bài 9A. Sử dụng phần mềm đồ họa tạo sản phẩm số",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Trước khi tạo một tấm thiệp số, em nên làm gì?",
+      "options": [
+        "Xác định nội dung, hình và bố cục",
+        "Vẽ ngẫu nhiên không xem yêu cầu",
+        "Xóa mọi công cụ",
+        "Tắt phần mềm"
+      ],
+      "correctIndex": 0,
+      "explanation": "Xác định nội dung, hình và bố cục."
+    },
+    {
+      "question": "Một sản phẩm số kết hợp chữ và hình cần chú ý gì?",
+      "options": [
+        "Chữ bị hình che kín",
+        "Dùng càng nhiều màu càng tốt",
+        "Để trống toàn bộ",
+        "Chữ dễ đọc và hình phù hợp nội dung"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chữ dễ đọc và hình phù hợp nội dung."
+    },
+    {
+      "question": "Khi muốn sửa chi tiết chưa đẹp trên hình, em nên làm gì?",
+      "options": [
+        "Rút chuột",
+        "In ngay bản lỗi",
+        "Chọn công cụ phù hợp để chỉnh sửa",
+        "Xóa tệp khác"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chọn công cụ phù hợp để chỉnh sửa."
+    },
+    {
+      "question": "Sau khi tạo sản phẩm số, để còn mở lại em cần gì?",
+      "options": [
+        "Xóa thư mục",
+        "Lưu đúng định dạng và vị trí dễ tìm",
+        "Chỉ chụp màn hình rồi xóa",
+        "Đóng không lưu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lưu đúng định dạng và vị trí dễ tìm."
+    }
+  ]
+}

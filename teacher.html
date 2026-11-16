@@ -317,6 +317,8 @@
         </div>
       </div>
 
+      <p style="text-align: center; color: var(--muted); font-size: 0.85rem; margin: 8px 0 16px;">Thống kê tính trên toàn bộ lượt nộp phù hợp bộ lọc; bảng kết quả tải từng trang.</p>
+
       <!-- Thanh công cụ lọc & tìm kiếm -->
       <div class="toolbar">
         <div class="filter-group">
@@ -369,6 +371,7 @@
   </main>
 
   <script type="module">
+    import { csvCell } from '/lib/csv.js';
     const loginSection = document.getElementById('login-section');
     const dashboardSection = document.getElementById('dashboard-section');
     const loginForm = document.getElementById('login-form');
@@ -387,6 +390,8 @@
     let allRows = [];
     let currentLessonData = null;
     let offset = 0;
+    let statsRequestId = 0;
+    let searchTimer;
 
     async function api(url, options = {}) {
       const res = await fetch(url, {
@@ -425,26 +430,22 @@
       }
     }
 
-    function computeStats(items) {
-      if (!items.length) {
-        document.getElementById('stat-total').textContent = '0';
-        document.getElementById('stat-avg').textContent = '0';
-        document.getElementById('stat-max').textContent = '0';
-        document.getElementById('stat-good-ratio').textContent = '0%';
-        return;
+    async function fetchStats() {
+      const requestId = ++statsRequestId;
+      const lessonId = lessonSelect.value;
+      if (!lessonId) return;
+      const params = new URLSearchParams({ lessonId, stats: '1', search: searchInput.value.trim() });
+      if (classFilter.value !== 'ALL') params.set('className', classFilter.value);
+      try {
+        const { stats } = await api(`/api/teacher?${params}`);
+        if (requestId !== statsRequestId) return;
+        document.getElementById('stat-total').textContent = stats.total;
+        document.getElementById('stat-avg').textContent = Number(stats.avg).toFixed(1);
+        document.getElementById('stat-max').textContent = Number(stats.max).toFixed(1);
+        document.getElementById('stat-good-ratio').textContent = `${stats.goodRatio}%`;
+      } catch (error) {
+        if (requestId === statsRequestId) console.error('Không tải được thống kê:', error);
       }
-      const scores = items.map(r => Number(r.score) || 0);
-      const total = items.length;
-      const sum = scores.reduce((a, b) => a + b, 0);
-      const avg = (sum / total).toFixed(1);
-      const max = Math.max(...scores).toFixed(1);
-      const goodCount = scores.filter(s => s >= 8).length;
-      const goodRatio = Math.round((goodCount / total) * 100);
-
-      document.getElementById('stat-total').textContent = total;
-      document.getElementById('stat-avg').textContent = avg;
-      document.getElementById('stat-max').textContent = max;
-      document.getElementById('stat-good-ratio').textContent = `${goodRatio}%`;
     }
 
     function updateClassFilterOptions(items) {
@@ -477,7 +478,6 @@
         return matchClass && matchName;
       });
 
-      computeStats(filtered);
       rowsEl.replaceChildren();
 
       if (!filtered.length) {
@@ -554,6 +554,7 @@
             allRows = allRows.filter(item => item.id !== r.id);
             updateClassFilterOptions(allRows);
             renderTable();
+            fetchStats();
           } catch (err) {
             alert('Không thể xóa: ' + err.message);
           }
@@ -583,6 +584,7 @@
 
         updateClassFilterOptions(allRows);
         renderTable();
+        if (reset) fetchStats();
       } catch (e) {
         tableStatus.textContent = e.message;
         if (e.message.includes('đăng nhập lại') || e.message.includes('hết hạn')) {
@@ -643,8 +645,12 @@
 
     lessonSelect.addEventListener('change', () => fetchResults(true));
     refreshBtn.addEventListener('click', () => fetchResults(true));
-    classFilter.addEventListener('change', renderTable);
-    searchInput.addEventListener('input', renderTable);
+    classFilter.addEventListener('change', () => { renderTable(); fetchStats(); });
+    searchInput.addEventListener('input', () => {
+      renderTable();
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(fetchStats, 250);
+    });
     loadMoreBtn.addEventListener('click', () => fetchResults(false));
 
     exportBtn.addEventListener('click', async () => {
@@ -661,12 +667,6 @@
           if (rows.length < 100) break;
         }
 
-        const safe = value => {
-          let text = String(value ?? '');
-          if (/^[=+@\-\t\r]/.test(text)) text = "'" + text;
-          return '"' + text.replaceAll('"', '""') + '"';
-        };
-
         const lines = [
           ['STT', 'Họ và tên', 'Lớp', 'Số câu đúng', 'Tổng câu hỏi', 'Điểm', 'Thời điểm nộp'],
           ...all.map((r, i) => [
@@ -680,7 +680,7 @@
           ])
         ];
 
-        const csvContent = '\uFEFF' + lines.map(row => row.map(safe).join(',')).join('\r\n');
+        const csvContent = '\uFEFF' + lines.map(row => row.map(csvCell).join(',')).join('\r\n');
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8' });
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');

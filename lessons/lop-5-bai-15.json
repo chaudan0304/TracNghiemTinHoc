@@ -1,0 +1,54 @@
+{
+  "id": "lop-5-bai-15",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Bài 15. Sử dụng biểu thức trong chương trình",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Biểu thức 4 + 3 cho kết quả nào?",
+      "options": [
+        "7",
+        "1",
+        "12",
+        "43"
+      ],
+      "correctIndex": 0,
+      "explanation": "7."
+    },
+    {
+      "question": "Nếu điểm = 8, biểu thức 'điểm > 5' có giá trị nào?",
+      "options": [
+        "Sai",
+        "8",
+        "5",
+        "Đúng"
+      ],
+      "correctIndex": 3,
+      "explanation": "Đúng."
+    },
+    {
+      "question": "Biểu thức trong chương trình có thể dùng để làm gì?",
+      "options": [
+        "Làm sạch màn hình",
+        "Tạo chuột mới",
+        "Tính toán hoặc kiểm tra điều kiện",
+        "Thay dây điện"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tính toán hoặc kiểm tra điều kiện."
+    },
+    {
+      "question": "Muốn kiểm tra biến số_lượng bằng 0, em cần dùng kiểu biểu thức nào?",
+      "options": [
+        "Lệnh tắt máy",
+        "Biểu thức so sánh",
+        "Biểu thức chỉ đổi màu",
+        "Lệnh in giấy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Biểu thức so sánh."
+    }
+  ]
+}

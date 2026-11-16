@@ -1,0 +1,54 @@
+{
+  "id": "lop-3-bai-8",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Bài 8. Sơ đồ hình cây. Tổ chức thông tin trong máy tính",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Trong sơ đồ hình cây, một nhánh có thể chia thành gì?",
+      "options": [
+        "Các nhánh con",
+        "Chỉ một dấu chấm",
+        "Một màn hình",
+        "Một con chuột"
+      ],
+      "correctIndex": 0,
+      "explanation": "Các nhánh con."
+    },
+    {
+      "question": "Thư mục trong máy tính dùng để làm gì?",
+      "options": [
+        "Chỉ phát âm thanh",
+        "Chỉ nhập chữ",
+        "Chỉ hiển thị ảnh nền",
+        "Chứa và tổ chức tệp, thư mục con"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chứa và tổ chức tệp, thư mục con."
+    },
+    {
+      "question": "Thư mục nằm bên trong một thư mục khác gọi là gì?",
+      "options": [
+        "Máy tính con",
+        "Phím con",
+        "Thư mục con",
+        "Màn hình con"
+      ],
+      "correctIndex": 2,
+      "explanation": "Thư mục con."
+    },
+    {
+      "question": "Sơ đồ hình cây giúp em thấy rõ điều gì?",
+      "options": [
+        "Âm lượng loa",
+        "Quan hệ phân cấp giữa các nhóm thông tin",
+        "Độ sáng màn hình",
+        "Tốc độ mạng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Quan hệ phân cấp giữa các nhóm thông tin."
+    }
+  ]
+}

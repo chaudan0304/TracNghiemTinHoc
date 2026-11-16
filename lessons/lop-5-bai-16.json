@@ -1,0 +1,54 @@
+{
+  "id": "lop-5-bai-16",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Bài 16. Từ kịch bản đến chương trình",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Kịch bản chương trình mô tả điều gì?",
+      "options": [
+        "Những việc nhân vật hoặc chương trình cần thực hiện",
+        "Chỉ màu vỏ máy",
+        "Chỉ giá bàn phím",
+        "Chỉ tên trường"
+      ],
+      "correctIndex": 0,
+      "explanation": "Những việc nhân vật hoặc chương trình cần thực hiện."
+    },
+    {
+      "question": "Trước khi tạo chương trình từ kịch bản, em nên làm gì?",
+      "options": [
+        "Ghép lệnh ngẫu nhiên",
+        "Xóa nhân vật",
+        "Tắt phần mềm",
+        "Chia kịch bản thành các bước và chọn lệnh phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chia kịch bản thành các bước và chọn lệnh phù hợp."
+    },
+    {
+      "question": "Nếu kịch bản có hành động lặp lại nhiều lần, em nên dùng gì?",
+      "options": [
+        "Chỉ đổi nền",
+        "Chỉ mở tệp",
+        "Cấu trúc lặp",
+        "Chỉ lệnh dừng"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cấu trúc lặp."
+    },
+    {
+      "question": "Sau khi lập trình xong, cách nào kiểm tra chương trình đúng kịch bản?",
+      "options": [
+        "Xóa kịch bản",
+        "Chạy thử và đối chiếu từng bước với kịch bản",
+        "Chỉ nhìn biểu tượng",
+        "Không cần thử"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chạy thử và đối chiếu từng bước với kịch bản."
+    }
+  ]
+}

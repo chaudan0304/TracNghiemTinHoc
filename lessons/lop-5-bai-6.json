@@ -1,0 +1,54 @@
+{
+  "id": "lop-5-bai-6",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Bài 6. Định dạng kí tự và bố trí hình ảnh trong văn bản",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Định dạng kí tự có thể thay đổi điều gì?",
+      "options": [
+        "Phông, cỡ, màu và kiểu chữ",
+        "Tên ổ cắm",
+        "Vị trí bàn phím",
+        "Tốc độ quạt"
+      ],
+      "correctIndex": 0,
+      "explanation": "Phông, cỡ, màu và kiểu chữ."
+    },
+    {
+      "question": "Trước khi đổi kiểu chữ của một đoạn, em cần làm gì?",
+      "options": [
+        "Xóa tệp",
+        "Tắt màn hình",
+        "Rút bàn phím",
+        "Chọn đoạn cần định dạng"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chọn đoạn cần định dạng."
+    },
+    {
+      "question": "Khi chèn hình vào văn bản, em nên đặt hình như thế nào?",
+      "options": [
+        "Luôn phóng to hết trang",
+        "Đặt ngẫu nhiên không xem",
+        "Phù hợp nội dung và không che chữ",
+        "Che toàn bộ văn bản"
+      ],
+      "correctIndex": 2,
+      "explanation": "Phù hợp nội dung và không che chữ."
+    },
+    {
+      "question": "Vì sao cần xem lại bố cục văn bản sau khi thêm hình?",
+      "options": [
+        "Để đổi tên máy",
+        "Để chữ và hình dễ đọc, dễ hiểu",
+        "Để tệp tự biến mất",
+        "Để mạng nhanh hơn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Để chữ và hình dễ đọc, dễ hiểu."
+    }
+  ]
+}

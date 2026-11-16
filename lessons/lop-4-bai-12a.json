@@ -1,0 +1,54 @@
+{
+  "id": "lop-4-bai-12a",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Bài 12A. Thực hành sử dụng công cụ đa phương tiện",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Công cụ đa phương tiện có thể giúp em làm việc với gì?",
+      "options": [
+        "Hình ảnh, âm thanh và video",
+        "Chỉ dây điện",
+        "Chỉ tệp văn bản in giấy",
+        "Chỉ bàn phím"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hình ảnh, âm thanh và video."
+    },
+    {
+      "question": "Khi xem video học tập, thao tác nào giúp xem lại đoạn chưa hiểu?",
+      "options": [
+        "Xóa video",
+        "Tắt màn hình",
+        "Đổi tên máy tính",
+        "Tạm dừng hoặc tua lại"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tạm dừng hoặc tua lại."
+    },
+    {
+      "question": "Muốn nghe rõ âm thanh nhưng không ảnh hưởng người khác, em có thể dùng gì?",
+      "options": [
+        "Màn hình sáng nhất",
+        "Máy in",
+        "Tai nghe ở mức âm lượng phù hợp",
+        "Loa thật lớn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tai nghe ở mức âm lượng phù hợp."
+    },
+    {
+      "question": "Sau khi tạo sản phẩm với công cụ đa phương tiện, em nên làm gì?",
+      "options": [
+        "Rút điện",
+        "Lưu tệp ở nơi dễ tìm",
+        "Đóng ứng dụng không lưu",
+        "Xóa bản vừa tạo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lưu tệp ở nơi dễ tìm."
+    }
+  ]
+}

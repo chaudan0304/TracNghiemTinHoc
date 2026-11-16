@@ -1,0 +1,54 @@
+{
+  "id": "lop-5-bai-2",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Bài 2. Tìm kiếm thông tin trên website",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Để tìm nội dung trong một website có ô tìm kiếm, em cần làm gì?",
+      "options": [
+        "Nhập từ khóa vào ô tìm kiếm của website",
+        "Tắt trang web",
+        "Xóa địa chỉ web",
+        "Đổi tên máy tính"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nhập từ khóa vào ô tìm kiếm của website."
+    },
+    {
+      "question": "Từ khóa nào cụ thể hơn khi tìm bài về sao Hỏa?",
+      "options": [
+        "sao",
+        "bầu trời",
+        "thông tin",
+        "đặc điểm sao Hỏa"
+      ],
+      "correctIndex": 3,
+      "explanation": "đặc điểm sao Hỏa."
+    },
+    {
+      "question": "Nếu website có các mục nội dung, em có thể tìm bằng cách nào?",
+      "options": [
+        "Chỉ nhìn hình nền",
+        "Rút dây mạng",
+        "Chọn mục phù hợp và xem các trang bên trong",
+        "Bấm ngẫu nhiên mọi quảng cáo"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chọn mục phù hợp và xem các trang bên trong."
+    },
+    {
+      "question": "Khi thấy kết quả tìm kiếm, em nên làm gì trước khi dùng?",
+      "options": [
+        "Bỏ qua nguồn",
+        "Đọc và đánh giá có đúng nhu cầu không",
+        "Sao chép mọi kết quả",
+        "Tin mỗi tiêu đề"
+      ],
+      "correctIndex": 1,
+      "explanation": "Đọc và đánh giá có đúng nhu cầu không."
+    }
+  ]
+}

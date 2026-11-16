@@ -1,0 +1,54 @@
+{
+  "id": "lop-5-bai-8a",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Bài 8A. Làm quen với phần mềm đồ họa",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Phần mềm đồ họa giúp em làm gì?",
+      "options": [
+        "Tạo và chỉnh sửa hình vẽ",
+        "Chỉ tính toán",
+        "Chỉ phát nhạc",
+        "Chỉ gõ phím"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tạo và chỉnh sửa hình vẽ."
+    },
+    {
+      "question": "Muốn vẽ một hình tròn trong phần mềm đồ họa, em chọn gì?",
+      "options": [
+        "Nút tắt máy",
+        "Phím âm lượng",
+        "Thư mục hệ thống",
+        "Công cụ vẽ hình phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Công cụ vẽ hình phù hợp."
+    },
+    {
+      "question": "Nếu muốn đổi màu một vùng trong tranh, em dùng công cụ nào phù hợp?",
+      "options": [
+        "Công cụ in giấy",
+        "Công cụ đổi mật khẩu",
+        "Công cụ tô màu",
+        "Công cụ tắt màn hình"
+      ],
+      "correctIndex": 2,
+      "explanation": "Công cụ tô màu."
+    },
+    {
+      "question": "Sau khi hoàn thành tranh số, em nên làm gì?",
+      "options": [
+        "Rút điện",
+        "Lưu tệp với tên dễ nhớ",
+        "Đóng không lưu",
+        "Xóa tranh"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lưu tệp với tên dễ nhớ."
+    }
+  ]
+}

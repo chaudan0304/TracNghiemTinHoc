@@ -1,0 +1,54 @@
+{
+  "id": "lop-4-bai-7",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Bài 7. Tạo bài trình chiếu",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Bài trình chiếu gồm các thành phần nào?",
+      "options": [
+        "Các trang chiếu",
+        "Các ổ cắm",
+        "Các phím số",
+        "Các dây mạng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Các trang chiếu."
+    },
+    {
+      "question": "Để thêm nội dung mới vào bài trình chiếu, em có thể làm gì?",
+      "options": [
+        "Rút dây điện",
+        "Xóa tệp",
+        "Tắt màn hình",
+        "Thêm trang chiếu"
+      ],
+      "correctIndex": 3,
+      "explanation": "Thêm trang chiếu."
+    },
+    {
+      "question": "Tiêu đề trang chiếu giúp người xem điều gì?",
+      "options": [
+        "Tăng tốc Internet",
+        "Mở được bàn phím",
+        "Biết nội dung chính của trang",
+        "Nghe âm thanh lớn hơn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Biết nội dung chính của trang."
+    },
+    {
+      "question": "Sau khi tạo bài trình chiếu, em nên làm gì?",
+      "options": [
+        "Đổi tên máy in",
+        "Lưu tệp với tên phù hợp",
+        "Tắt máy không lưu",
+        "Xóa tất cả trang"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lưu tệp với tên phù hợp."
+    }
+  ]
+}

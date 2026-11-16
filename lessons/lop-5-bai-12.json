@@ -1,0 +1,54 @@
+{
+  "id": "lop-5-bai-12",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Bài 12. Thực hành sử dụng lệnh lặp",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Muốn vẽ hình vuông bằng lặp, thao tác nào thường được lặp 4 lần?",
+      "options": [
+        "Đi thẳng một cạnh rồi quay 90 độ",
+        "Chỉ nói lời chào",
+        "Chỉ đổi màu nền",
+        "Đi thẳng rồi quay 180 độ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Đi thẳng một cạnh rồi quay 90 độ."
+    },
+    {
+      "question": "Khi ghép khối lặp, các lệnh cần lặp đặt ở đâu?",
+      "options": [
+        "Sau lệnh dừng máy",
+        "Trong tên tệp",
+        "Trên bàn phím",
+        "Bên trong khối lặp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Bên trong khối lặp."
+    },
+    {
+      "question": "Nếu hình vẽ chưa khép kín, em nên kiểm tra gì?",
+      "options": [
+        "Tên máy tính",
+        "Màu dây điện",
+        "Số lần lặp và góc quay",
+        "Âm lượng loa"
+      ],
+      "correctIndex": 2,
+      "explanation": "Số lần lặp và góc quay."
+    },
+    {
+      "question": "Vì sao dùng lệnh lặp khi một việc xảy ra nhiều lần?",
+      "options": [
+        "Để không phải chạy thử",
+        "Chương trình ngắn gọn và dễ sửa hơn",
+        "Để bỏ qua các bước",
+        "Để máy không cần điện"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chương trình ngắn gọn và dễ sửa hơn."
+    }
+  ]
+}

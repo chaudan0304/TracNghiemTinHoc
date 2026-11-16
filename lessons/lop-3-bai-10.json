@@ -1,0 +1,54 @@
+{
+  "id": "lop-3-bai-10",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Bài 10. Bảo vệ thông tin khi dùng máy tính",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Vì sao cần lưu lại tệp sau khi chỉnh sửa?",
+      "options": [
+        "Để giữ nội dung vừa làm",
+        "Để xóa nội dung",
+        "Để tắt Internet",
+        "Để đổi màn hình"
+      ],
+      "correctIndex": 0,
+      "explanation": "Để giữ nội dung vừa làm."
+    },
+    {
+      "question": "Khi không muốn người khác xem thông tin riêng tư, em nên làm gì?",
+      "options": [
+        "Đăng mật khẩu công khai",
+        "Cho mọi bạn dùng tài khoản",
+        "Ghi mật khẩu lên màn hình",
+        "Giữ kín mật khẩu và nhờ người lớn hỗ trợ"
+      ],
+      "correctIndex": 3,
+      "explanation": "Giữ kín mật khẩu và nhờ người lớn hỗ trợ."
+    },
+    {
+      "question": "Tệp quan trọng có thể được bảo vệ thêm bằng cách nào?",
+      "options": [
+        "Đổi tên thành một chữ bất kì",
+        "Xóa bản gốc",
+        "Tạo bản sao lưu",
+        "Chỉ để một bản duy nhất"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tạo bản sao lưu."
+    },
+    {
+      "question": "Nếu nhận tệp lạ từ người không quen, em nên làm gì?",
+      "options": [
+        "Tắt phần mềm bảo vệ",
+        "Không mở vội và hỏi người lớn",
+        "Mở ngay để thử",
+        "Chuyển tiếp cho cả lớp"
+      ],
+      "correctIndex": 1,
+      "explanation": "Không mở vội và hỏi người lớn."
+    }
+  ]
+}

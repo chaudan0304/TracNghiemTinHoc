@@ -1,0 +1,54 @@
+{
+  "id": "lop-5-bai-13",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Bài 13. Cấu trúc rẽ nhánh",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Cấu trúc rẽ nhánh cho phép chương trình làm gì?",
+      "options": [
+        "Chọn hành động tùy điều kiện",
+        "Luôn lặp vô hạn",
+        "Chỉ chạy lệnh đầu",
+        "Tự thay phần cứng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chọn hành động tùy điều kiện."
+    },
+    {
+      "question": "Trong chỉ dẫn 'Nếu chạm cạnh thì quay lại', điều kiện là gì?",
+      "options": [
+        "Quay lại",
+        "Chạy chương trình",
+        "Màu nhân vật",
+        "Chạm cạnh"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chạm cạnh."
+    },
+    {
+      "question": "Khi điều kiện trong lệnh 'nếu ... thì' đúng, chương trình làm gì?",
+      "options": [
+        "Tắt máy",
+        "Tự xóa dự án",
+        "Thực hiện các lệnh bên trong nhánh đó",
+        "Bỏ qua tất cả lệnh"
+      ],
+      "correctIndex": 2,
+      "explanation": "Thực hiện các lệnh bên trong nhánh đó."
+    },
+    {
+      "question": "Lệnh 'nếu ... thì ... nếu không thì ...' có mấy cách xử lí tùy điều kiện?",
+      "options": [
+        "Không có nhánh",
+        "Hai nhánh",
+        "Một nhánh duy nhất",
+        "Ba nhánh luôn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hai nhánh."
+    }
+  ]
+}

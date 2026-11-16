@@ -1,0 +1,54 @@
+{
+  "id": "lop-3-bai-3",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Bài 3. Máy tính và em",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Bộ phận nào hiển thị hình ảnh và chữ từ máy tính?",
+      "options": [
+        "Màn hình",
+        "Chuột",
+        "Bàn phím",
+        "Thân máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Màn hình."
+    },
+    {
+      "question": "Em dùng thiết bị nào để gõ chữ vào máy tính?",
+      "options": [
+        "Màn hình",
+        "Loa",
+        "Máy in",
+        "Bàn phím"
+      ],
+      "correctIndex": 3,
+      "explanation": "Bàn phím."
+    },
+    {
+      "question": "Thiết bị nào giúp em điều khiển con trỏ trên màn hình?",
+      "options": [
+        "Máy in",
+        "Màn hình",
+        "Chuột",
+        "Loa"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chuột."
+    },
+    {
+      "question": "Bộ phận nào chứa các thành phần xử lí chính của máy tính để bàn?",
+      "options": [
+        "Máy in",
+        "Thân máy",
+        "Tấm lót chuột",
+        "Loa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thân máy."
+    }
+  ]
+}

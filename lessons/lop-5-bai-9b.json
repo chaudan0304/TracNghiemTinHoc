@@ -1,0 +1,54 @@
+{
+  "id": "lop-5-bai-9b",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Bài 9B. Thực hành tạo đồ dùng gia đình theo video hướng dẫn",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Khi chọn video để làm đồ dùng gia đình, em cần chú ý gì?",
+      "options": [
+        "Vật liệu sẵn có và cách làm an toàn",
+        "Chỉ lượt xem cao",
+        "Chỉ nhạc nền",
+        "Chỉ màu ảnh bìa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Vật liệu sẵn có và cách làm an toàn."
+    },
+    {
+      "question": "Trước khi bắt đầu, em nên chuẩn bị gì?",
+      "options": [
+        "Chỉ bật máy tính",
+        "Chỉ chọn màu màn hình",
+        "Không chuẩn bị gì",
+        "Vật liệu và dụng cụ theo các bước hướng dẫn"
+      ],
+      "correctIndex": 3,
+      "explanation": "Vật liệu và dụng cụ theo các bước hướng dẫn."
+    },
+    {
+      "question": "Nếu chưa hiểu một thao tác trong video, em nên làm gì?",
+      "options": [
+        "Bỏ qua bước quan trọng",
+        "Đổi sang việc khác ngay",
+        "Dừng, xem lại và hỏi người lớn khi cần",
+        "Làm bừa"
+      ],
+      "correctIndex": 2,
+      "explanation": "Dừng, xem lại và hỏi người lớn khi cần."
+    },
+    {
+      "question": "Khi hoàn thành đồ dùng, em nên đánh giá điều gì?",
+      "options": [
+        "Bàn phím có sạch không",
+        "Có sử dụng được và có an toàn không",
+        "Có giống màu màn hình không",
+        "Video có nhạc to không"
+      ],
+      "correctIndex": 1,
+      "explanation": "Có sử dụng được và có an toàn không."
+    }
+  ]
+}

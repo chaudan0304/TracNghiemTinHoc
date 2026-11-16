@@ -1,0 +1,54 @@
+{
+  "id": "lop-4-bai-10",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Bài 10. Phần mềm soạn thảo văn bản",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Phần mềm soạn thảo văn bản dùng để làm gì?",
+      "options": [
+        "Tạo và chỉnh sửa văn bản",
+        "Chỉ nghe nhạc",
+        "Chỉ đo nhiệt độ",
+        "Chỉ điều khiển chuột"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tạo và chỉnh sửa văn bản."
+    },
+    {
+      "question": "Vị trí chữ mới xuất hiện khi em gõ được chỉ bởi gì?",
+      "options": [
+        "Bánh xe chuột",
+        "Loa",
+        "Ổ điện",
+        "Con trỏ soạn thảo"
+      ],
+      "correctIndex": 3,
+      "explanation": "Con trỏ soạn thảo."
+    },
+    {
+      "question": "Muốn xuống dòng và bắt đầu đoạn mới, em nhấn phím nào?",
+      "options": [
+        "Caps Lock",
+        "Esc",
+        "Enter",
+        "Shift"
+      ],
+      "correctIndex": 2,
+      "explanation": "Enter."
+    },
+    {
+      "question": "Để giữ lại văn bản đã soạn, em cần làm gì?",
+      "options": [
+        "Xóa nội dung",
+        "Lưu tệp",
+        "Rút dây nguồn",
+        "Đóng mà không lưu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lưu tệp."
+    }
+  ]
+}

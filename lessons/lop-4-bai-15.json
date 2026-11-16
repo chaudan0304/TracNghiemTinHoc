@@ -1,0 +1,54 @@
+{
+  "id": "lop-4-bai-15",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Bài 15. Tạo chương trình máy tính để diễn tả ý tưởng",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Trước khi ghép lệnh để thể hiện ý tưởng, em nên làm gì?",
+      "options": [
+        "Xác định nhân vật cần thực hiện những bước nào",
+        "Đặt lệnh ngẫu nhiên",
+        "Tắt phần mềm",
+        "Xóa nhân vật"
+      ],
+      "correctIndex": 0,
+      "explanation": "Xác định nhân vật cần thực hiện những bước nào."
+    },
+    {
+      "question": "Nếu muốn nhân vật nói rồi di chuyển, em nên làm gì?",
+      "options": [
+        "Chỉ đặt lệnh di chuyển",
+        "Chỉ đổi hình nền",
+        "Rút bàn phím",
+        "Ghép lệnh nói trước lệnh di chuyển"
+      ],
+      "correctIndex": 3,
+      "explanation": "Ghép lệnh nói trước lệnh di chuyển."
+    },
+    {
+      "question": "Vì sao cần chạy thử chương trình?",
+      "options": [
+        "Để xóa lỗi phần cứng",
+        "Để tăng tốc Internet",
+        "Để kiểm tra kết quả so với ý tưởng",
+        "Để máy tự viết bài"
+      ],
+      "correctIndex": 2,
+      "explanation": "Để kiểm tra kết quả so với ý tưởng."
+    },
+    {
+      "question": "Khi chương trình chưa thể hiện đúng ý tưởng, bước tiếp theo là gì?",
+      "options": [
+        "Tắt máy ngay",
+        "Sửa các lệnh rồi chạy thử lại",
+        "Giữ nguyên mọi lệnh",
+        "Xóa tệp khác"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sửa các lệnh rồi chạy thử lại."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "lop-5-bai-14",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Bài 14. Sử dụng biến trong chương trình",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Biến trong chương trình dùng để làm gì?",
+      "options": [
+        "Lưu một giá trị có thể thay đổi",
+        "Thay dây nguồn",
+        "Tạo bàn phím mới",
+        "Chỉ đổi hình nền"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lưu một giá trị có thể thay đổi."
+    },
+    {
+      "question": "Muốn ghi nhớ điểm của người chơi, em có thể dùng gì?",
+      "options": [
+        "Chỉ tên nhân vật",
+        "Chỉ màu sân khấu",
+        "Chỉ âm lượng loa",
+        "Biến điểm"
+      ],
+      "correctIndex": 3,
+      "explanation": "Biến điểm."
+    },
+    {
+      "question": "Nếu biến điểm đang bằng 3 và tăng thêm 2, giá trị mới là bao nhiêu?",
+      "options": [
+        "3",
+        "6",
+        "5",
+        "1"
+      ],
+      "correctIndex": 2,
+      "explanation": "5."
+    },
+    {
+      "question": "Vì sao nên đặt tên biến rõ nghĩa?",
+      "options": [
+        "Để máy tự sửa lỗi",
+        "Để hiểu biến lưu thông tin gì",
+        "Để màn hình sáng hơn",
+        "Để chuột nhanh hơn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Để hiểu biến lưu thông tin gì."
+    }
+  ]
+}

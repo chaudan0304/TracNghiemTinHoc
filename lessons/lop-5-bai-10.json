@@ -1,0 +1,54 @@
+{
+  "id": "lop-5-bai-10",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Bài 10. Cấu trúc tuần tự",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Trong cấu trúc tuần tự, các lệnh được thực hiện như thế nào?",
+      "options": [
+        "Lần lượt theo thứ tự",
+        "Ngẫu nhiên",
+        "Chỉ lệnh cuối",
+        "Chỉ khi có Internet"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lần lượt theo thứ tự."
+    },
+    {
+      "question": "Nếu nhân vật cần nói rồi di chuyển, em đặt lệnh nào trước?",
+      "options": [
+        "Lệnh di chuyển",
+        "Lệnh dừng",
+        "Lệnh xóa",
+        "Lệnh nói"
+      ],
+      "correctIndex": 3,
+      "explanation": "Lệnh nói."
+    },
+    {
+      "question": "Vì sao đổi thứ tự hai lệnh có thể làm kết quả khác?",
+      "options": [
+        "Vì chuột chạy nhanh",
+        "Vì máy tự bỏ lệnh",
+        "Vì máy thực hiện lệnh theo trình tự đã ghép",
+        "Vì màn hình đổi màu"
+      ],
+      "correctIndex": 2,
+      "explanation": "Vì máy thực hiện lệnh theo trình tự đã ghép."
+    },
+    {
+      "question": "Muốn kiểm tra chuỗi lệnh có đúng ý, em nên làm gì?",
+      "options": [
+        "Xóa mọi lệnh",
+        "Chạy thử chương trình",
+        "Chỉ nhìn tên tệp",
+        "Tắt máy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chạy thử chương trình."
+    }
+  ]
+}

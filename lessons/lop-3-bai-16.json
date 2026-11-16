@@ -1,0 +1,54 @@
+{
+  "id": "lop-3-bai-16",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Bài 16. Công việc của em và sự trợ giúp của máy tính",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Máy tính giúp em thực hiện công việc nào?",
+      "options": [
+        "Soạn thảo và lưu bài viết",
+        "Tự ăn cơm thay em",
+        "Tự chăm sóc mọi cây thật",
+        "Tự quyết định mọi việc thay con người"
+      ],
+      "correctIndex": 0,
+      "explanation": "Soạn thảo và lưu bài viết."
+    },
+    {
+      "question": "Khi nhờ máy tính hỗ trợ học tập, em vẫn cần làm gì?",
+      "options": [
+        "Tin mọi kết quả không kiểm tra",
+        "Bỏ qua hướng dẫn của thầy cô",
+        "Không cần hiểu bài",
+        "Tự suy nghĩ và kiểm tra kết quả"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tự suy nghĩ và kiểm tra kết quả."
+    },
+    {
+      "question": "Để máy tính làm đúng việc em muốn, em cần gì?",
+      "options": [
+        "Chỉ bật loa",
+        "Không đưa yêu cầu nào",
+        "Chỉ dẫn rõ ràng, đúng thứ tự",
+        "Chỉ nói tên máy tính"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chỉ dẫn rõ ràng, đúng thứ tự."
+    },
+    {
+      "question": "Nếu kết quả máy tính tạo ra không đúng yêu cầu, em nên làm gì?",
+      "options": [
+        "Tắt màn hình ngay",
+        "Kiểm tra lại các bước và sửa chỉ dẫn",
+        "Giữ nguyên vì máy luôn đúng",
+        "Xóa mọi tệp"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kiểm tra lại các bước và sửa chỉ dẫn."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "lop-4-bai-2",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Bài 2. Gõ bàn phím đúng cách",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Khi gõ bàn phím đúng cách, em nên dùng bao nhiêu bàn tay?",
+      "options": [
+        "Hai bàn tay",
+        "Chỉ tay trái",
+        "Chỉ một ngón bất kì",
+        "Không cần tay"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hai bàn tay."
+    },
+    {
+      "question": "Hai ngón trỏ thường đặt ở phím nào trên hàng cơ sở?",
+      "options": [
+        "Q và P",
+        "Z và M",
+        "1 và 0",
+        "F và J"
+      ],
+      "correctIndex": 3,
+      "explanation": "F và J."
+    },
+    {
+      "question": "Sau khi gõ một phím ở hàng trên hoặc dưới, ngón tay nên trở về đâu?",
+      "options": [
+        "Màn hình",
+        "Phím nguồn",
+        "Vị trí ban đầu trên hàng phím cơ sở",
+        "Bánh xe chuột"
+      ],
+      "correctIndex": 2,
+      "explanation": "Vị trí ban đầu trên hàng phím cơ sở."
+    },
+    {
+      "question": "Tư thế gõ bàn phím nào phù hợp?",
+      "options": [
+        "Dùng lực đập mạnh các phím",
+        "Ngồi thẳng, hai tay đặt thoải mái",
+        "Cúi sát bàn phím",
+        "Nằm gõ"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ngồi thẳng, hai tay đặt thoải mái."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "lop-5-bai-8b",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Bài 8B. Làm sản phẩm thủ công theo video hướng dẫn",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Trước khi làm theo video hướng dẫn, em nên làm gì?",
+      "options": [
+        "Xem vật liệu và các bước cần thực hiện",
+        "Làm ngay không xem",
+        "Chỉ nhìn ảnh bìa",
+        "Bỏ qua dụng cụ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Xem vật liệu và các bước cần thực hiện."
+    },
+    {
+      "question": "Nếu một bước trong video quá nhanh, em có thể làm gì?",
+      "options": [
+        "Bỏ qua luôn",
+        "Xóa video",
+        "Làm bước cuối trước",
+        "Tạm dừng hoặc xem lại đoạn đó"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tạm dừng hoặc xem lại đoạn đó."
+    },
+    {
+      "question": "Khi video dùng dụng cụ sắc hoặc nóng, em nên làm gì?",
+      "options": [
+        "Đùa với dụng cụ",
+        "Không cần chú ý",
+        "Nhờ người lớn hỗ trợ và tuân thủ an toàn",
+        "Tự làm vội"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nhờ người lớn hỗ trợ và tuân thủ an toàn."
+    },
+    {
+      "question": "Sau khi làm xong sản phẩm, em nên làm gì?",
+      "options": [
+        "Bỏ qua kết quả",
+        "Đối chiếu sản phẩm với mục tiêu và chỉnh nếu cần",
+        "Vứt ngay sản phẩm",
+        "Xóa video"
+      ],
+      "correctIndex": 1,
+      "explanation": "Đối chiếu sản phẩm với mục tiêu và chỉnh nếu cần."
+    }
+  ]
+}

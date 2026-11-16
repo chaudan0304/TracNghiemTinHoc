@@ -1,0 +1,54 @@
+{
+  "id": "lop-4-bai-12b",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Bài 12B. Phần mềm luyện gõ bàn phím",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Phần mềm luyện gõ bàn phím giúp em làm gì?",
+      "options": [
+        "Rèn tốc độ và độ chính xác khi gõ",
+        "Tự viết mọi bài văn",
+        "Thay bàn phím bị hỏng",
+        "Tắt máy tính"
+      ],
+      "correctIndex": 0,
+      "explanation": "Rèn tốc độ và độ chính xác khi gõ."
+    },
+    {
+      "question": "Khi luyện gõ, điều gì quan trọng bên cạnh tốc độ?",
+      "options": [
+        "Gõ thật mạnh",
+        "Nhìn sát màn hình",
+        "Chỉ dùng một ngón",
+        "Gõ đúng phím"
+      ],
+      "correctIndex": 3,
+      "explanation": "Gõ đúng phím."
+    },
+    {
+      "question": "Hai ngón trỏ bắt đầu ở cặp phím nào?",
+      "options": [
+        "1 và 0",
+        "Z và M",
+        "F và J",
+        "Q và P"
+      ],
+      "correctIndex": 2,
+      "explanation": "F và J."
+    },
+    {
+      "question": "Nếu gõ sai nhiều, em nên làm gì?",
+      "options": [
+        "Bỏ qua mọi lỗi",
+        "Giảm tốc độ và luyện đúng vị trí ngón tay",
+        "Gõ nhanh hơn nữa",
+        "Đập bàn phím"
+      ],
+      "correctIndex": 1,
+      "explanation": "Giảm tốc độ và luyện đúng vị trí ngón tay."
+    }
+  ]
+}

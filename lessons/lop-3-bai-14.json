@@ -1,0 +1,54 @@
+{
+  "id": "lop-3-bai-14",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Bài 14. Em thực hiện công việc như thế nào?",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Để hoàn thành việc đánh răng, em cần làm gì?",
+      "options": [
+        "Thực hiện các bước theo thứ tự hợp lí",
+        "Làm ngẫu nhiên một bước",
+        "Chỉ nêu tên công việc",
+        "Bỏ qua mọi bước"
+      ],
+      "correctIndex": 0,
+      "explanation": "Thực hiện các bước theo thứ tự hợp lí."
+    },
+    {
+      "question": "Trong mô tả công việc, mỗi bước cần như thế nào?",
+      "options": [
+        "Càng mơ hồ càng tốt",
+        "Không liên quan đến mục tiêu",
+        "Luôn là một câu hỏi",
+        "Rõ ràng để người thực hiện hiểu"
+      ],
+      "correctIndex": 3,
+      "explanation": "Rõ ràng để người thực hiện hiểu."
+    },
+    {
+      "question": "Nếu đổi sai thứ tự các bước của một công việc, điều gì có thể xảy ra?",
+      "options": [
+        "Máy tính tự sửa mọi lỗi",
+        "Không có tác động nào",
+        "Kết quả có thể không như mong muốn",
+        "Kết quả luôn giống nhau"
+      ],
+      "correctIndex": 2,
+      "explanation": "Kết quả có thể không như mong muốn."
+    },
+    {
+      "question": "Khi hướng dẫn bạn làm một việc, cách nào dễ làm theo?",
+      "options": [
+        "Bỏ qua bước quan trọng",
+        "Liệt kê từng bước theo đúng trình tự",
+        "Nói các bước lộn xộn",
+        "Chỉ nói kết quả cuối"
+      ],
+      "correctIndex": 1,
+      "explanation": "Liệt kê từng bước theo đúng trình tự."
+    }
+  ]
+}

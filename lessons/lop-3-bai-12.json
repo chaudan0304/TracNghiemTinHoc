@@ -1,0 +1,54 @@
+{
+  "id": "lop-3-bai-12",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Bài 12. Tìm hiểu về thế giới tự nhiên",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Máy tính có thể giúp em tìm hiểu thiên nhiên bằng cách nào?",
+      "options": [
+        "Xem hình ảnh, video và thông tin phù hợp",
+        "Tự thay thế hoàn toàn hoạt động quan sát",
+        "Tạo ra mọi loài cây thật",
+        "Làm cho mọi thông tin trên mạng đúng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Xem hình ảnh, video và thông tin phù hợp."
+    },
+    {
+      "question": "Khi tìm hiểu một loài động vật, thông tin nào hữu ích?",
+      "options": [
+        "Mật khẩu của bạn",
+        "Số seri bàn phím",
+        "Màu dây điện",
+        "Nơi sống và đặc điểm của nó"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nơi sống và đặc điểm của nó."
+    },
+    {
+      "question": "Nếu hai trang web nói khác nhau về một hiện tượng, em nên làm gì?",
+      "options": [
+        "Sao chép cả hai như sự thật",
+        "Bỏ qua mọi thông tin",
+        "Kiểm tra thêm nguồn tin đáng tin cậy và hỏi thầy cô",
+        "Tin trang đầu tiên ngay"
+      ],
+      "correctIndex": 2,
+      "explanation": "Kiểm tra thêm nguồn tin đáng tin cậy và hỏi thầy cô."
+    },
+    {
+      "question": "Khi sử dụng hình ảnh trên mạng cho bài học, em nên làm gì?",
+      "options": [
+        "Đổi màu ảnh để che nguồn",
+        "Chọn hình phù hợp và ghi nguồn khi cần",
+        "Nhận là ảnh do mình chụp",
+        "Tải mọi ảnh không xem"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chọn hình phù hợp và ghi nguồn khi cần."
+    }
+  ]
+}

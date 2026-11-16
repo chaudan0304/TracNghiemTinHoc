@@ -1,0 +1,54 @@
+{
+  "id": "lop-3-bai-13",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Bài 13. Luyện tập sử dụng chuột",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Thao tác nháy chuột là gì?",
+      "options": [
+        "Nhấn rồi thả nhanh một nút chuột",
+        "Giữ nút chuột mãi",
+        "Rút chuột ra",
+        "Gõ bàn phím"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nhấn rồi thả nhanh một nút chuột."
+    },
+    {
+      "question": "Muốn mở biểu tượng trên màn hình theo cách thông thường, em dùng thao tác nào?",
+      "options": [
+        "Lăn chuột một lần",
+        "Chỉ di chuyển con trỏ",
+        "Nhấn phím cách",
+        "Nháy đúp chuột trái"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nháy đúp chuột trái."
+    },
+    {
+      "question": "Kéo thả chuột gồm thao tác nào?",
+      "options": [
+        "Chỉ nháy một lần",
+        "Tắt rồi bật chuột",
+        "Giữ nút chuột, di chuyển rồi thả",
+        "Chỉ lăn bánh xe"
+      ],
+      "correctIndex": 2,
+      "explanation": "Giữ nút chuột, di chuyển rồi thả."
+    },
+    {
+      "question": "Bánh xe chuột thường giúp em làm gì?",
+      "options": [
+        "Bật máy tính",
+        "Cuộn nội dung lên hoặc xuống",
+        "Gõ chữ cái",
+        "In tài liệu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cuộn nội dung lên hoặc xuống."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "lop-4-bai-3",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Bài 3. Thông tin trên trang web",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Trang web có thể chứa dạng thông tin nào?",
+      "options": [
+        "Văn bản, hình ảnh, âm thanh và video",
+        "Chỉ chữ in giấy",
+        "Chỉ số điện thoại",
+        "Chỉ tệp trong USB"
+      ],
+      "correctIndex": 0,
+      "explanation": "Văn bản, hình ảnh, âm thanh và video."
+    },
+    {
+      "question": "Liên kết trên trang web có tác dụng gì?",
+      "options": [
+        "Tự kiểm chứng mọi thông tin",
+        "Tắt trình duyệt",
+        "Xóa lịch sử máy tính",
+        "Dẫn tới trang hoặc nội dung khác"
+      ],
+      "correctIndex": 3,
+      "explanation": "Dẫn tới trang hoặc nội dung khác."
+    },
+    {
+      "question": "Muốn xem thêm nội dung phía dưới trang web, em làm gì?",
+      "options": [
+        "Đổi tên trang web",
+        "Xóa trình duyệt",
+        "Cuộn trang xuống",
+        "Rút dây mạng"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cuộn trang xuống."
+    },
+    {
+      "question": "Khi đọc thông tin trên trang web, em cần lưu ý gì?",
+      "options": [
+        "Chia sẻ ngay thông tin chưa kiểm chứng",
+        "Xem nguồn và kiểm tra độ tin cậy",
+        "Tin mọi dòng chữ",
+        "Nhập mật khẩu vào mọi ô"
+      ],
+      "correctIndex": 1,
+      "explanation": "Xem nguồn và kiểm tra độ tin cậy."
+    }
+  ]
+}

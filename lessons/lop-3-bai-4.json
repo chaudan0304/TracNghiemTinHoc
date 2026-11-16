@@ -1,0 +1,54 @@
+{
+  "id": "lop-3-bai-4",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Bài 4. Làm việc với máy tính",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Khi ngồi làm việc với máy tính, lưng em nên như thế nào?",
+      "options": [
+        "Ngồi thẳng, tư thế thoải mái",
+        "Cúi sát màn hình",
+        "Nằm trên bàn",
+        "Vẹo sang một bên"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ngồi thẳng, tư thế thoải mái."
+    },
+    {
+      "question": "Khoảng cách từ mắt đến màn hình nên như thế nào?",
+      "options": [
+        "Áp mắt vào màn hình",
+        "Càng gần càng tốt",
+        "Không cần nhìn màn hình",
+        "Giữ khoảng cách phù hợp, không nhìn quá gần"
+      ],
+      "correctIndex": 3,
+      "explanation": "Giữ khoảng cách phù hợp, không nhìn quá gần."
+    },
+    {
+      "question": "Để kết thúc phiên làm việc, em nên làm gì?",
+      "options": [
+        "Đập nút nguồn liên tục",
+        "Đóng màn hình bằng tay",
+        "Thực hiện lệnh tắt máy đúng cách",
+        "Rút dây điện ngay"
+      ],
+      "correctIndex": 2,
+      "explanation": "Thực hiện lệnh tắt máy đúng cách."
+    },
+    {
+      "question": "Sau khi dùng máy tính một lúc, em nên làm gì để bảo vệ mắt?",
+      "options": [
+        "Tiếp tục nhìn liên tục",
+        "Cho mắt nghỉ và nhìn ra xa",
+        "Nhìn sát màn hình hơn",
+        "Tăng độ sáng tối đa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cho mắt nghỉ và nhìn ra xa."
+    }
+  ]
+}

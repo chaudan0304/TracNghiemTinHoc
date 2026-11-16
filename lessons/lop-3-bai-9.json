@@ -1,0 +1,54 @@
+{
+  "id": "lop-3-bai-9",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Bài 9. Thực hành với tệp và thư mục trong máy tính",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Để lưu các bài tập cùng một môn, em nên tạo gì?",
+      "options": [
+        "Một thư mục có tên phù hợp",
+        "Một phím mới",
+        "Một con trỏ mới",
+        "Một màn hình mới"
+      ],
+      "correctIndex": 0,
+      "explanation": "Một thư mục có tên phù hợp."
+    },
+    {
+      "question": "Khi đổi tên tệp, điều nào nên được giữ để tệp mở đúng bằng ứng dụng phù hợp?",
+      "options": [
+        "Màu nền máy tính",
+        "Vị trí con chuột",
+        "Âm lượng loa",
+        "Phần mở rộng của tệp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Phần mở rộng của tệp."
+    },
+    {
+      "question": "Muốn xem tệp bên trong thư mục, trước tiên em cần làm gì?",
+      "options": [
+        "Rút bàn phím",
+        "Xóa thư mục",
+        "Mở thư mục đó",
+        "Tắt màn hình"
+      ],
+      "correctIndex": 2,
+      "explanation": "Mở thư mục đó."
+    },
+    {
+      "question": "Trước khi xóa một tệp, em nên làm gì?",
+      "options": [
+        "Ngắt nguồn máy tính",
+        "Kiểm tra đúng tệp và hỏi người lớn khi chưa chắc",
+        "Xóa ngay mọi tệp",
+        "Đổi tên mọi thư mục"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kiểm tra đúng tệp và hỏi người lớn khi chưa chắc."
+    }
+  ]
+}

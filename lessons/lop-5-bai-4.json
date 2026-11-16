@@ -1,0 +1,54 @@
+{
+  "id": "lop-5-bai-4",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Bài 4. Cây thư mục",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Trong cây thư mục, thư mục con nằm ở đâu?",
+      "options": [
+        "Bên trong một thư mục khác",
+        "Trong bàn phím",
+        "Trên loa",
+        "Ngoài máy tính"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bên trong một thư mục khác."
+    },
+    {
+      "question": "Đường dẫn tệp cho biết điều gì?",
+      "options": [
+        "Màu của tệp",
+        "Tốc độ gõ",
+        "Âm lượng máy",
+        "Vị trí của tệp trong các thư mục"
+      ],
+      "correctIndex": 3,
+      "explanation": "Vị trí của tệp trong các thư mục."
+    },
+    {
+      "question": "Muốn tìm tệp trong cây thư mục, em nên làm gì?",
+      "options": [
+        "Tắt máy",
+        "Đổi màu màn hình",
+        "Mở lần lượt các thư mục trên đường dẫn",
+        "Xóa thư mục gốc"
+      ],
+      "correctIndex": 2,
+      "explanation": "Mở lần lượt các thư mục trên đường dẫn."
+    },
+    {
+      "question": "Vì sao nên đặt tên thư mục rõ nghĩa?",
+      "options": [
+        "Để máy không cần điện",
+        "Để dễ nhận biết và tìm thông tin",
+        "Để tăng số phím",
+        "Để loa to hơn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Để dễ nhận biết và tìm thông tin."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "lop-5-bai-7",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Bài 7. Thực hành soạn thảo văn bản",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Trước khi soạn một văn bản, em nên xác định gì?",
+      "options": [
+        "Nội dung và cách trình bày cần có",
+        "Màu dây điện",
+        "Số phím trên chuột",
+        "Tên máy in của bạn"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nội dung và cách trình bày cần có."
+    },
+    {
+      "question": "Khi thấy một từ gõ sai, em nên làm gì?",
+      "options": [
+        "Để nguyên lỗi",
+        "Xóa cả máy tính",
+        "Rút nguồn",
+        "Sửa lại từ đó trong văn bản"
+      ],
+      "correctIndex": 3,
+      "explanation": "Sửa lại từ đó trong văn bản."
+    },
+    {
+      "question": "Sau khi chỉnh sửa và trình bày văn bản, em cần làm gì?",
+      "options": [
+        "Xóa văn bản",
+        "Tắt bàn phím",
+        "Lưu tệp",
+        "Đóng không lưu"
+      ],
+      "correctIndex": 2,
+      "explanation": "Lưu tệp."
+    },
+    {
+      "question": "Tên tệp nào giúp em dễ tìm bài viết về trường?",
+      "options": [
+        "Không tên",
+        "Giới thiệu trường em",
+        "abc123",
+        "Mới"
+      ],
+      "correctIndex": 1,
+      "explanation": "Giới thiệu trường em."
+    }
+  ]
+}

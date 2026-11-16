@@ -1,0 +1,54 @@
+{
+  "id": "lop-3-bai-5",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Bài 5. Sử dụng bàn phím",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Hai phím nào có gờ để đặt ngón trỏ ở hàng phím cơ sở?",
+      "options": [
+        "F và J",
+        "A và L",
+        "Q và P",
+        "Z và M"
+      ],
+      "correctIndex": 0,
+      "explanation": "F và J."
+    },
+    {
+      "question": "Khi bắt đầu gõ đúng cách, các ngón tay đặt trên hàng phím nào?",
+      "options": [
+        "Hàng phím số",
+        "Hàng phím trên cùng",
+        "Hàng phím dưới cùng",
+        "Hàng phím cơ sở"
+      ],
+      "correctIndex": 3,
+      "explanation": "Hàng phím cơ sở."
+    },
+    {
+      "question": "Phím cách dùng để làm gì?",
+      "options": [
+        "Tắt máy",
+        "Viết hoa tất cả chữ",
+        "Tạo khoảng trắng giữa các từ",
+        "Xóa toàn bộ văn bản"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tạo khoảng trắng giữa các từ."
+    },
+    {
+      "question": "Muốn xuống dòng khi gõ văn bản, em nhấn phím nào?",
+      "options": [
+        "Shift",
+        "Enter",
+        "Space",
+        "Caps Lock"
+      ],
+      "correctIndex": 1,
+      "explanation": "Enter."
+    }
+  ]
+}

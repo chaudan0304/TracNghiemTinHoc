@@ -1,0 +1,54 @@
+{
+  "id": "lop-3-bai-6",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Bài 6. Khám phá thông tin trên Internet",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Internet giúp em thực hiện việc nào?",
+      "options": [
+        "Tìm thông tin và học tập trực tuyến",
+        "Tự sửa mọi hỏng hóc máy tính",
+        "Tạo điện mà không cần nguồn",
+        "Bảo đảm mọi thông tin đều đúng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tìm thông tin và học tập trực tuyến."
+    },
+    {
+      "question": "Khi muốn xem trang web, em sử dụng phần mềm nào?",
+      "options": [
+        "Máy tính bỏ túi",
+        "Trình phát nhạc ngoại tuyến",
+        "Phần mềm vẽ",
+        "Trình duyệt web"
+      ],
+      "correctIndex": 3,
+      "explanation": "Trình duyệt web."
+    },
+    {
+      "question": "Thông tin trên Internet có thể ở dạng nào?",
+      "options": [
+        "Chỉ âm thanh",
+        "Chỉ bản in giấy",
+        "Văn bản, hình ảnh, âm thanh và video",
+        "Chỉ chữ viết"
+      ],
+      "correctIndex": 2,
+      "explanation": "Văn bản, hình ảnh, âm thanh và video."
+    },
+    {
+      "question": "Nếu gặp nội dung trên Internet khiến em lo lắng, em nên làm gì?",
+      "options": [
+        "Nhập thông tin cá nhân theo yêu cầu",
+        "Báo cho người lớn đáng tin cậy",
+        "Giữ bí mật và tiếp tục xem",
+        "Gửi ngay cho mọi bạn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Báo cho người lớn đáng tin cậy."
+    }
+  ]
+}

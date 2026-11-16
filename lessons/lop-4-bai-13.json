@@ -1,0 +1,54 @@
+{
+  "id": "lop-4-bai-13",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Bài 13. Chơi với máy tính",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Trò chơi trên máy tính có thể giúp em điều gì khi dùng hợp lí?",
+      "options": [
+        "Luyện một số kĩ năng và giải trí",
+        "Bỏ hoàn toàn việc học",
+        "Tự khỏi mọi bệnh",
+        "Không cần nghỉ mắt"
+      ],
+      "correctIndex": 0,
+      "explanation": "Luyện một số kĩ năng và giải trí."
+    },
+    {
+      "question": "Khi chơi trò chơi trên máy tính, em cần chú ý gì?",
+      "options": [
+        "Chơi liên tục nhiều giờ",
+        "Chia sẻ mật khẩu để lấy quà",
+        "Bấm mọi liên kết lạ",
+        "Thời gian hợp lí và nội dung phù hợp lứa tuổi"
+      ],
+      "correctIndex": 3,
+      "explanation": "Thời gian hợp lí và nội dung phù hợp lứa tuổi."
+    },
+    {
+      "question": "Nếu trò chơi yêu cầu thông tin cá nhân, em nên làm gì?",
+      "options": [
+        "Đưa mật khẩu cho bạn",
+        "Công khai địa chỉ nhà",
+        "Hỏi người lớn trước khi cung cấp",
+        "Nhập ngay mọi thông tin"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hỏi người lớn trước khi cung cấp."
+    },
+    {
+      "question": "Khi thấy trò chơi làm em mỏi mắt, em nên làm gì?",
+      "options": [
+        "Chơi thêm nhiều giờ",
+        "Dừng lại và nghỉ ngơi",
+        "Ngồi gần màn hình hơn",
+        "Tăng âm lượng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dừng lại và nghỉ ngơi."
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "id": "lop-4-bai-6",
   "subjectBadge": "TIN HỌC LỚP 4",
-  "lessonTitle": "Bài 6. Bản quyền sử dụng phần mềm",
+  "lessonTitle": "Bài 6. Sử dụng phần mềm khi được phép",
   "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
   "pointsPerQuestion": 0.5,
   "timeLimitSeconds": 600,
@@ -29,7 +29,7 @@
       "explanation": "Kí hiệu © (viết tắt của Copyright) dùng để thông báo quyền tác giả, cho biết phần mềm hoặc nội dung đã được bảo hộ bản quyền."
     },
     {
-      "question": "Phần mềm có bản quyền (phần mềm thương mại) là phần mềm như thế nào?",
+      "question": "Để sử dụng hợp pháp phần mềm thương mại có thu phí, người dùng thường cần làm gì?",
       "options": [
         "Người dùng phải trả phí để mua quyền sử dụng hợp pháp từ tác giả hoặc nhà cung cấp.",
         "Người dùng được tự ý sao chép và đem bán lại cho người khác thu tiền.",
@@ -40,9 +40,9 @@
       "explanation": "Để sử dụng hợp pháp phần mềm thương mại có bản quyền, người dùng cần mua giấy phép sử dụng (bản quyền) từ tác giả hoặc nhà phát hành."
     },
     {
-      "question": "Phần mềm miễn phí (Freeware) có đặc điểm gì?",
+      "question": "Phần mềm được tác giả cho phép sử dụng miễn phí có đặc điểm gì?",
       "options": [
-        "Tác giả cho phép mọi người tải về và sử dụng mà không phải trả tiền.",
+        "Người dùng được phép sử dụng mà không phải trả tiền theo điều kiện của tác giả.",
         "Người dùng được phép sửa tên tác giả thành tên của mình.",
         "Người dùng được đem phần mềm đó đi bán lấy tiền.",
         "Phần mềm miễn phí không có tác giả tạo ra."
@@ -84,7 +84,7 @@
       "explanation": "Tôn trọng bản quyền giúp bảo vệ công sức, chất xám của lập trình viên và giúp người dùng tránh được virus từ phần mềm lậu."
     },
     {
-      "question": "Tác hại lớn nhất khi tải và cài đặt phần mềm bẻ khóa (lậu) từ nguồn không rõ ràng trên Internet là gì?",
+      "question": "Một nguy cơ khi tải và cài đặt phần mềm bẻ khóa từ nguồn không rõ ràng là gì?",
       "options": [
         "Máy tính dễ bị nhiễm virus, mã độc đánh cắp dữ liệu và hoạt động không ổn định.",
         "Bàn phím máy tính sẽ tự động biến thành màu đỏ.",
@@ -108,7 +108,7 @@
     {
       "question": "Phát biểu nào sau đây ĐÚNG về phần mềm miễn phí?",
       "options": [
-        "Dùng miễn phí nhưng vẫn phải tôn trọng tên tác giả và không được đem bán lại.",
+        "Dùng miễn phí nhưng vẫn cần tuân thủ điều kiện sử dụng của tác giả.",
         "Vì miễn phí nên ai cũng có thể nhận mình là người viết ra phần mềm đó.",
         "Phần mềm miễn phí thì không cần tuân theo bất kì quy định nào.",
         "Mọi phần mềm trên Internet đều là phần mềm miễn phí."

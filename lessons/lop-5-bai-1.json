@@ -1,0 +1,54 @@
+{
+  "id": "lop-5-bai-1",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Bài 1. Em có thể làm gì với máy tính?",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Máy tính có thể giúp em làm việc nào?",
+      "options": [
+        "Học tập, tạo sản phẩm và trao đổi thông tin",
+        "Tự thay em làm mọi việc",
+        "Tạo thức ăn thật",
+        "Đảm bảo mọi nội dung đều đúng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Học tập, tạo sản phẩm và trao đổi thông tin."
+    },
+    {
+      "question": "Khi dùng máy tính để học, em cần làm gì?",
+      "options": [
+        "Chép mọi kết quả không đọc",
+        "Bỏ qua thầy cô",
+        "Cung cấp mật khẩu cho mọi trang",
+        "Tự suy nghĩ và kiểm tra thông tin"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tự suy nghĩ và kiểm tra thông tin."
+    },
+    {
+      "question": "Sản phẩm nào em có thể tạo bằng máy tính?",
+      "options": [
+        "Cây sống",
+        "Bóng đèn chưa lắp điện",
+        "Bài trình chiếu",
+        "Một chiếc bàn gỗ thật"
+      ],
+      "correctIndex": 2,
+      "explanation": "Bài trình chiếu."
+    },
+    {
+      "question": "Máy tính chỉ hoạt động hữu ích khi nào?",
+      "options": [
+        "Không có người dùng",
+        "Con người sử dụng và đưa chỉ dẫn phù hợp",
+        "Không có điện",
+        "Không có phần mềm"
+      ],
+      "correctIndex": 1,
+      "explanation": "Con người sử dụng và đưa chỉ dẫn phù hợp."
+    }
+  ]
+}

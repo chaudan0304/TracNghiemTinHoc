@@ -1,0 +1,54 @@
+{
+  "id": "lop-4-bai-14",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Bài 14. Khám phá môi trường lập trình trực quan",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Trong lập trình trực quan, em thường tạo chương trình bằng cách nào?",
+      "options": [
+        "Ghép các khối lệnh",
+        "Chỉ vẽ trên giấy",
+        "Rút dây mạng",
+        "Đổi màu bàn phím"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ghép các khối lệnh."
+    },
+    {
+      "question": "Nhân vật trong môi trường lập trình trực quan thực hiện hành động theo gì?",
+      "options": [
+        "Màu vỏ máy",
+        "Âm lượng loa",
+        "Kích thước bàn phím",
+        "Các lệnh được sắp xếp trong chương trình"
+      ],
+      "correctIndex": 3,
+      "explanation": "Các lệnh được sắp xếp trong chương trình."
+    },
+    {
+      "question": "Muốn biết chương trình hoạt động ra sao, em làm gì?",
+      "options": [
+        "Tắt màn hình",
+        "Đổi tên máy",
+        "Chạy thử chương trình",
+        "Xóa mọi khối lệnh"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chạy thử chương trình."
+    },
+    {
+      "question": "Nếu nhân vật không làm đúng ý, em nên làm gì?",
+      "options": [
+        "Xóa toàn bộ máy tính",
+        "Kiểm tra thứ tự và nội dung các khối lệnh",
+        "Tin chương trình luôn đúng",
+        "Rút chuột"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kiểm tra thứ tự và nội dung các khối lệnh."
+    }
+  ]
+}

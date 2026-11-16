@@ -1,0 +1,54 @@
+{
+  "id": "lop-4-bai-5",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Bài 5. Thao tác với tệp và thư mục",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Muốn tổ chức các bài tập theo môn học, em nên làm gì?",
+      "options": [
+        "Tạo các thư mục có tên theo môn",
+        "Để mọi tệp cùng một tên",
+        "Xóa tệp cũ bất kì",
+        "Đổi tên ổ đĩa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tạo các thư mục có tên theo môn."
+    },
+    {
+      "question": "Sao chép một tệp có tác dụng gì?",
+      "options": [
+        "Xóa bản gốc",
+        "Tắt máy",
+        "Biến tệp thành thư mục",
+        "Tạo thêm bản sao của tệp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tạo thêm bản sao của tệp."
+    },
+    {
+      "question": "Di chuyển tệp sang thư mục khác có nghĩa là gì?",
+      "options": [
+        "Đổi nội dung tệp",
+        "In tệp ra giấy",
+        "Chuyển vị trí lưu tệp",
+        "Tạo thêm nhiều bản giống nhau"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chuyển vị trí lưu tệp."
+    },
+    {
+      "question": "Trước khi xóa thư mục, em cần kiểm tra gì?",
+      "options": [
+        "Tên bàn phím",
+        "Nội dung bên trong và việc còn cần dùng hay không",
+        "Màu con trỏ",
+        "Âm lượng loa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nội dung bên trong và việc còn cần dùng hay không."
+    }
+  ]
+}

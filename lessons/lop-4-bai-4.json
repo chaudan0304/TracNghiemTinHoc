@@ -1,0 +1,54 @@
+{
+  "id": "lop-4-bai-4",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Bài 4. Tìm kiếm thông tin trên Internet",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Muốn tìm thông tin về vòng đời của bướm, từ khóa nào phù hợp nhất?",
+      "options": [
+        "vòng đời của bướm",
+        "động vật",
+        "máy tính",
+        "bài hát"
+      ],
+      "correctIndex": 0,
+      "explanation": "vòng đời của bướm."
+    },
+    {
+      "question": "Công cụ tìm kiếm giúp em làm gì?",
+      "options": [
+        "Đảm bảo mọi kết quả đúng",
+        "Tự viết bài thay em",
+        "Sửa mọi lỗi máy tính",
+        "Tìm các trang có thông tin liên quan đến từ khóa"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tìm các trang có thông tin liên quan đến từ khóa."
+    },
+    {
+      "question": "Nếu kết quả tìm kiếm quá rộng, em nên làm gì?",
+      "options": [
+        "Tắt màn hình",
+        "Nhập mật khẩu vào trang lạ",
+        "Dùng từ khóa cụ thể hơn",
+        "Xóa trình duyệt"
+      ],
+      "correctIndex": 2,
+      "explanation": "Dùng từ khóa cụ thể hơn."
+    },
+    {
+      "question": "Trước khi dùng thông tin tìm được, em nên làm gì?",
+      "options": [
+        "Chỉ xem tiêu đề",
+        "Kiểm tra nguồn và nội dung",
+        "Tin kết quả đầu tiên luôn đúng",
+        "Sao chép không đọc"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kiểm tra nguồn và nội dung."
+    }
+  ]
+}

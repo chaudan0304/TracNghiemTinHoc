@@ -1,0 +1,54 @@
+{
+  "id": "lop-3-bai-15",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Bài 15. Công việc được thực hiện theo điều kiện",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Câu nào mô tả công việc phụ thuộc điều kiện?",
+      "options": [
+        "Nếu trời mưa thì mang áo mưa",
+        "Em đặt sách lên bàn",
+        "Em mở vở rồi viết bài",
+        "Em đếm từ một đến mười"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nếu trời mưa thì mang áo mưa."
+    },
+    {
+      "question": "Trong câu 'Nếu đèn đỏ thì dừng lại', điều kiện là gì?",
+      "options": [
+        "Dừng lại",
+        "Đi nhanh",
+        "Con đường",
+        "Đèn đỏ"
+      ],
+      "correctIndex": 3,
+      "explanation": "Đèn đỏ."
+    },
+    {
+      "question": "Nếu điều kiện 'trời mưa' không xảy ra, hành động 'mang áo mưa' trong chỉ dẫn có bắt buộc thực hiện không?",
+      "options": [
+        "Phải tắt máy tính",
+        "Phải đổi điều kiện",
+        "Không, vì điều kiện không đúng",
+        "Có, trong mọi trường hợp"
+      ],
+      "correctIndex": 2,
+      "explanation": "Không, vì điều kiện không đúng."
+    },
+    {
+      "question": "Để quyết định có tưới cây hay không theo chỉ dẫn 'Nếu đất khô thì tưới cây', em cần kiểm tra gì?",
+      "options": [
+        "Tên thư mục",
+        "Đất có khô không",
+        "Màu áo của em",
+        "Số phím trên bàn phím"
+      ],
+      "correctIndex": 1,
+      "explanation": "Đất có khô không."
+    }
+  ]
+}

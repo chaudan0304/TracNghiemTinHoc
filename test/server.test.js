@@ -6,10 +6,19 @@ import { grade, loadLesson, sessionToken, isTeacher } from '../lib/server.js';
 
 test('each listed lesson loads and has valid grading', async () => {
   const ids = JSON.parse(await readFile(join(process.cwd(), 'lessons', 'index.json'), 'utf8'));
+  assert.equal(ids.length, 54);
+  assert.equal(new Set(ids).size, ids.length);
   for (const id of ids) {
     const lesson = await loadLesson(id);
     assert.equal(lesson.id, id);
     assert.ok(lesson.questions.length > 0);
+    assert.equal(lesson.questions.length * lesson.pointsPerQuestion, 10);
+    for (const question of lesson.questions) {
+      assert.equal(question.options.length, 4);
+      assert.equal(new Set(question.options).size, 4);
+      assert.ok(Number.isInteger(question.correctIndex) && question.correctIndex >= 0 && question.correctIndex < 4);
+      assert.ok(question.explanation.length > 0);
+    }
     const correct = lesson.questions.map(q => q.correctIndex);
     assert.deepEqual(grade(lesson, correct), {
       correctCount: correct.length,

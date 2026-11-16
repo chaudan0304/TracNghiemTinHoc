@@ -1,0 +1,54 @@
+{
+  "id": "lop-5-bai-11",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Bài 11. Cấu trúc lặp",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 5",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Cấu trúc lặp dùng để làm gì?",
+      "options": [
+        "Thực hiện lại một nhóm lệnh",
+        "Chỉ chạy lệnh một lần",
+        "Xóa chương trình",
+        "Đổi màu máy tính"
+      ],
+      "correctIndex": 0,
+      "explanation": "Thực hiện lại một nhóm lệnh."
+    },
+    {
+      "question": "Muốn nhân vật bước 10 bước ba lần, cách nào gọn?",
+      "options": [
+        "Viết lệnh dừng ba lần",
+        "Chỉ thay hình nền",
+        "Xóa nhân vật",
+        "Đặt lệnh bước 10 bước trong khối lặp 3 lần"
+      ],
+      "correctIndex": 3,
+      "explanation": "Đặt lệnh bước 10 bước trong khối lặp 3 lần."
+    },
+    {
+      "question": "Trong khối lặp 4 lần, nhóm lệnh bên trong thực hiện bao nhiêu lần?",
+      "options": [
+        "3 lần",
+        "Không lần nào",
+        "4 lần",
+        "1 lần"
+      ],
+      "correctIndex": 2,
+      "explanation": "4 lần."
+    },
+    {
+      "question": "Nếu số lần lặp tăng từ 2 lên 5, nhóm lệnh sẽ thực hiện thế nào?",
+      "options": [
+        "Không bao giờ chạy",
+        "Nhiều lần hơn",
+        "Ít lần hơn",
+        "Không thay đổi"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nhiều lần hơn."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "lop-4-bai-8",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Bài 8. Định dạng văn bản trên trang chiếu",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Định dạng nào giúp nhấn mạnh một từ trên trang chiếu?",
+      "options": [
+        "In đậm",
+        "Xóa từ",
+        "Tắt màn hình",
+        "Đóng tệp"
+      ],
+      "correctIndex": 0,
+      "explanation": "In đậm."
+    },
+    {
+      "question": "Vì sao cần chọn cỡ chữ phù hợp trên trang chiếu?",
+      "options": [
+        "Để tệp luôn nhỏ hơn",
+        "Để mạng nhanh hơn",
+        "Để chuột hoạt động",
+        "Để người xem dễ đọc"
+      ],
+      "correctIndex": 3,
+      "explanation": "Để người xem dễ đọc."
+    },
+    {
+      "question": "Khi chọn màu chữ, em cần chú ý gì?",
+      "options": [
+        "Càng nhiều màu càng tốt",
+        "Chỉ dùng màu rất nhạt",
+        "Chữ nổi bật và dễ đọc trên nền",
+        "Chữ cùng màu với nền"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chữ nổi bật và dễ đọc trên nền."
+    },
+    {
+      "question": "Muốn thay đổi kiểu chữ của một đoạn, trước tiên em cần làm gì?",
+      "options": [
+        "Đổi tên máy tính",
+        "Chọn đoạn văn bản cần định dạng",
+        "Tắt phần mềm",
+        "Xóa mọi trang chiếu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chọn đoạn văn bản cần định dạng."
+    }
+  ]
+}

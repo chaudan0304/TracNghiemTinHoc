@@ -1,0 +1,54 @@
+{
+  "id": "lop-4-bai-1",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Bài 1. Phần cứng và phần mềm máy tính",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Bộ phận nào là phần cứng máy tính?",
+      "options": [
+        "Bàn phím",
+        "Trình duyệt web",
+        "Trò chơi trên máy",
+        "Phần mềm vẽ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bàn phím."
+    },
+    {
+      "question": "Thành phần nào là phần mềm?",
+      "options": [
+        "Màn hình",
+        "Chuột",
+        "Loa",
+        "Chương trình soạn thảo văn bản"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chương trình soạn thảo văn bản."
+    },
+    {
+      "question": "Phần mềm giúp máy tính làm gì?",
+      "options": [
+        "Thay thế mọi thiết bị phần cứng",
+        "Tự sửa bàn phím hỏng",
+        "Thực hiện các công việc theo chương trình",
+        "Tạo điện cho ổ cắm"
+      ],
+      "correctIndex": 2,
+      "explanation": "Thực hiện các công việc theo chương trình."
+    },
+    {
+      "question": "Muốn dùng máy tính để vẽ, em cần gì?",
+      "options": [
+        "Chỉ cần máy in",
+        "Thiết bị phù hợp và phần mềm vẽ",
+        "Chỉ cần dây nguồn",
+        "Chỉ cần loa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thiết bị phù hợp và phần mềm vẽ."
+    }
+  ]
+}

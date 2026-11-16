@@ -1,0 +1,54 @@
+{
+  "id": "lop-4-bai-9",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Bài 9. Hiệu ứng chuyển trang",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Hiệu ứng chuyển trang xuất hiện khi nào?",
+      "options": [
+        "Khi chuyển từ trang chiếu này sang trang khác",
+        "Khi gõ từng chữ",
+        "Khi mở máy tính",
+        "Khi cắm chuột"
+      ],
+      "correctIndex": 0,
+      "explanation": "Khi chuyển từ trang chiếu này sang trang khác."
+    },
+    {
+      "question": "Để xem hiệu ứng chuyển trang có phù hợp không, em nên làm gì?",
+      "options": [
+        "Xóa bài trình chiếu",
+        "Rút bàn phím",
+        "Đổi tên tệp",
+        "Trình chiếu thử"
+      ],
+      "correctIndex": 3,
+      "explanation": "Trình chiếu thử."
+    },
+    {
+      "question": "Khi làm bài trình chiếu học tập, hiệu ứng nên dùng như thế nào?",
+      "options": [
+        "Mỗi chữ một kiểu thật rối",
+        "Chỉ chọn hiệu ứng dài nhất",
+        "Vừa phải, không gây mất tập trung",
+        "Càng nhiều càng tốt"
+      ],
+      "correctIndex": 2,
+      "explanation": "Vừa phải, không gây mất tập trung."
+    },
+    {
+      "question": "Hiệu ứng chuyển trang khác với nội dung trang chiếu ở điểm nào?",
+      "options": [
+        "Nó là nút nguồn",
+        "Nó điều khiển cách chuyển giữa các trang",
+        "Nó là tiêu đề văn bản",
+        "Nó là thư mục lưu ảnh"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nó điều khiển cách chuyển giữa các trang."
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import { database, ensureTable, equalSecret, isTeacher, json, loginClientKey, sessionToken } from '../lib/server.js';
 
-export default async function handler(request, response) {
+export function createTeacherHandler(getDatabase = database, prepare = ensureTable) {
+return async function handler(request, response) {
   if (request.method === 'POST') {
     if (request.body?.action === 'logout') {
       response.setHeader('Set-Cookie', 'teacher_session=; HttpOnly; Secure; SameSite=Strict; Path=/api; Max-Age=0');
@@ -10,17 +11,20 @@ export default async function handler(request, response) {
     const secret = process.env.SESSION_SECRET;
     if (!password || !secret) return json(response, 503, { error: 'TEACHER_LOGIN_NOT_CONFIGURED' });
     try {
-      const sql = database();
-      await ensureTable(sql);
+      const sql = getDatabase();
+      await prepare(sql);
       const clientKey = loginClientKey(request, secret);
-      const [limit] = await sql`SELECT blocked_until FROM teacher_login_limits WHERE client_key = ${clientKey}`;
-      if (limit && new Date(limit.blocked_until).getTime() > Date.now()) return json(response, 429, { error: 'TOO_MANY_ATTEMPTS' });
-      if (!equalSecret(String(request.body?.password || ''), password)) {
-        await sql`INSERT INTO teacher_login_limits (client_key, failures) VALUES (${clientKey}, 1)
-          ON CONFLICT (client_key) DO UPDATE SET
-          blocked_until = CASE WHEN teacher_login_limits.window_start >= now() - interval '15 minutes' AND teacher_login_limits.failures >= 4 THEN now() + interval '15 minutes' ELSE teacher_login_limits.blocked_until END,
+      const [limit] = await sql`INSERT INTO teacher_login_limits (client_key, failures) VALUES (${clientKey}, 1)
+        ON CONFLICT (client_key) DO UPDATE SET
+          blocked_until = CASE
+            WHEN teacher_login_limits.blocked_until > now() THEN teacher_login_limits.blocked_until
+            WHEN teacher_login_limits.window_start >= now() - interval '15 minutes' AND teacher_login_limits.failures >= 4 THEN now() + interval '15 minutes'
+            ELSE 'epoch'::timestamptz END,
           failures = CASE WHEN teacher_login_limits.window_start < now() - interval '15 minutes' THEN 1 ELSE teacher_login_limits.failures + 1 END,
-          window_start = CASE WHEN teacher_login_limits.window_start < now() - interval '15 minutes' THEN now() ELSE teacher_login_limits.window_start END`;
+          window_start = CASE WHEN teacher_login_limits.window_start < now() - interval '15 minutes' THEN now() ELSE teacher_login_limits.window_start END
+        RETURNING blocked_until`;
+      if (new Date(limit.blocked_until).getTime() > Date.now()) return json(response, 429, { error: 'TOO_MANY_ATTEMPTS' });
+      if (!equalSecret(String(request.body?.password || ''), password)) {
         return json(response, 401, { error: 'INVALID_PASSWORD' });
       }
       await sql`DELETE FROM teacher_login_limits WHERE client_key = ${clientKey}`;
@@ -35,13 +39,31 @@ export default async function handler(request, response) {
   }
   if (!isTeacher(request)) return json(response, 401, { error: 'UNAUTHORIZED' });
   try {
-    const sql = database();
-    await ensureTable(sql);
+    const sql = getDatabase();
+    await prepare(sql);
     if (request.method === 'GET') {
       const url = new URL(request.url, 'https://local.invalid');
       const lessonId = url.searchParams.get('lessonId') || '';
       const offset = Math.max(0, Math.min(100000, Number(url.searchParams.get('offset')) || 0));
       if (!/^[a-z0-9-]{1,64}$/.test(lessonId)) return json(response, 400, { error: 'INVALID_LESSON' });
+      if (url.searchParams.get('stats') === '1') {
+        const className = url.searchParams.get('className') || '';
+        const search = url.searchParams.get('search')?.trim() || '';
+        if (className.length > 30 || search.length > 100) return json(response, 400, { error: 'INVALID_FILTER' });
+        const [row] = await sql`SELECT COUNT(*)::int AS total,
+          COALESCE(ROUND(AVG(score), 1), 0) AS avg,
+          COALESCE(MAX(score), 0) AS max,
+          COUNT(*) FILTER (WHERE score >= 8)::int AS good_count
+          FROM quiz_attempts WHERE lesson_id = ${lessonId}
+          AND (${className} = '' OR class_name = ${className})
+          AND (${search} = '' OR position(lower(${search}) in lower(student_name)) > 0)`;
+        return json(response, 200, { stats: {
+          total: row.total,
+          avg: Number(row.avg),
+          max: Number(row.max),
+          goodRatio: row.total ? Math.round(row.good_count * 100 / row.total) : 0
+        } });
+      }
       const rows = await sql`SELECT id, lesson_id, student_name, class_name, correct_count, total_questions, score, submitted_at
         FROM quiz_attempts WHERE lesson_id = ${lessonId} ORDER BY submitted_at DESC LIMIT 100 OFFSET ${offset}`;
       return json(response, 200, { rows });
@@ -59,4 +81,7 @@ export default async function handler(request, response) {
     return json(response, 500, { error: 'SERVER_ERROR' });
   }
 }
+}
+
+export default createTeacherHandler();
 

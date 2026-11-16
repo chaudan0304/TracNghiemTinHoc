@@ -1,0 +1,54 @@
+{
+  "id": "lop-3-bai-2",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Bài 2. Xử lí thông tin",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Bộ phận nào giúp con người suy nghĩ để xử lí thông tin?",
+      "options": [
+        "Bộ não",
+        "Bàn tay",
+        "Bàn chân",
+        "Mái tóc"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bộ não."
+    },
+    {
+      "question": "Nghe tiếng trống vào lớp rồi đi vào lớp là ví dụ về điều gì?",
+      "options": [
+        "Chỉ lưu trữ thông tin",
+        "Chỉ tạo ra âm thanh",
+        "Không cần xử lí thông tin",
+        "Tiếp nhận thông tin, xử lí rồi thực hiện quyết định"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tiếp nhận thông tin, xử lí rồi thực hiện quyết định."
+    },
+    {
+      "question": "Máy tính có thể xử lí thông tin dưới dạng nào?",
+      "options": [
+        "Chỉ vị thức ăn",
+        "Chỉ đồ vật bằng gỗ",
+        "Chữ, hình ảnh và âm thanh",
+        "Chỉ mùi hương"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chữ, hình ảnh và âm thanh."
+    },
+    {
+      "question": "Khi thấy phép tính 5 + 3 và trả lời 8, em đã làm gì?",
+      "options": [
+        "Sắp xếp bàn phím",
+        "Xử lí thông tin để tìm kết quả",
+        "Xóa thông tin",
+        "Tắt máy tính"
+      ],
+      "correctIndex": 1,
+      "explanation": "Xử lí thông tin để tìm kết quả."
+    }
+  ]
+}

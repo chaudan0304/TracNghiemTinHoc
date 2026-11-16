@@ -1,0 +1,54 @@
+{
+  "id": "lop-3-bai-11",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Bài 11. Bài trình chiếu của em",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Một bài trình chiếu thường gồm những gì?",
+      "options": [
+        "Các trang chiếu",
+        "Các thư mục hệ thống",
+        "Các dây cáp",
+        "Các phím chức năng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Các trang chiếu."
+    },
+    {
+      "question": "Em có thể đặt gì lên trang chiếu để trình bày ý tưởng?",
+      "options": [
+        "Chỉ ổ cắm điện",
+        "Chỉ dây mạng",
+        "Chỉ con trỏ chuột",
+        "Chữ và hình ảnh"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chữ và hình ảnh."
+    },
+    {
+      "question": "Để người xem dễ đọc, chữ trên trang chiếu nên như thế nào?",
+      "options": [
+        "Trùng màu với nền",
+        "Nhồi kín cả trang",
+        "Rõ ràng, đủ lớn",
+        "Thật nhỏ"
+      ],
+      "correctIndex": 2,
+      "explanation": "Rõ ràng, đủ lớn."
+    },
+    {
+      "question": "Sau khi tạo bài trình chiếu, em nên làm gì để giữ lại?",
+      "options": [
+        "Đóng máy không lưu",
+        "Lưu tệp với tên dễ nhận biết",
+        "Rút dây nguồn",
+        "Xóa mọi trang chiếu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lưu tệp với tên dễ nhận biết."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "lop-4-bai-16",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Bài 16. Chương trình của em",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Một chương trình trực quan được tạo từ gì?",
+      "options": [
+        "Các khối lệnh ghép theo trình tự",
+        "Chỉ màu sắc màn hình",
+        "Chỉ âm lượng loa",
+        "Chỉ hình nền"
+      ],
+      "correctIndex": 0,
+      "explanation": "Các khối lệnh ghép theo trình tự."
+    },
+    {
+      "question": "Khi chương trình có nhiều bước, vì sao thứ tự lệnh quan trọng?",
+      "options": [
+        "Vì lệnh nào cũng chạy cùng lúc",
+        "Vì máy luôn tự sắp xếp",
+        "Vì thứ tự chỉ để trang trí",
+        "Vì đổi thứ tự có thể đổi kết quả"
+      ],
+      "correctIndex": 3,
+      "explanation": "Vì đổi thứ tự có thể đổi kết quả."
+    },
+    {
+      "question": "Muốn lưu chương trình để mở lại, em cần làm gì?",
+      "options": [
+        "Xóa tất cả nhân vật",
+        "Rút dây điện",
+        "Lưu dự án với tên dễ nhận biết",
+        "Chỉ đóng cửa sổ"
+      ],
+      "correctIndex": 2,
+      "explanation": "Lưu dự án với tên dễ nhận biết."
+    },
+    {
+      "question": "Sau khi hoàn thành chương trình, em nên làm gì trước khi chia sẻ?",
+      "options": [
+        "Đổi tên máy tính",
+        "Chạy thử và sửa lỗi nếu có",
+        "Chia sẻ ngay không xem",
+        "Xóa các lệnh"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chạy thử và sửa lỗi nếu có."
+    }
+  ]
+}

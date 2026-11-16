@@ -274,7 +274,7 @@
       const status = await (await fetch('/api/status')).json();
       document.getElementById('storage-status').innerHTML = status.ready
         ? '🟢 <strong>Hệ thống sẵn sàng:</strong> Kết quả nộp bài sẽ tự động gửi tới thầy/cô giáo.'
-        : '🟡 <strong>Lưu ý:</strong> Kết quả hiện lưu trên thiết bị làm bài.';
+        : '🟡 <strong>Lưu ý:</strong> Máy chủ chưa sẵn sàng nhận kết quả. Hãy báo thầy/cô nếu em làm bài lúc này.';
     } catch {
       document.getElementById('storage-status').textContent = 'Chưa xác nhận được trạng thái lưu trữ.';
     }

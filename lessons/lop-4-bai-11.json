@@ -1,0 +1,54 @@
+{
+  "id": "lop-4-bai-11",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Bài 11. Chỉnh sửa văn bản",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 4",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Muốn sửa một từ đã gõ sai, em nên làm gì?",
+      "options": [
+        "Đặt con trỏ tại vị trí cần sửa rồi chỉnh",
+        "Xóa cả tài liệu luôn",
+        "Tắt bàn phím",
+        "In tài liệu ngay"
+      ],
+      "correctIndex": 0,
+      "explanation": "Đặt con trỏ tại vị trí cần sửa rồi chỉnh."
+    },
+    {
+      "question": "Phím Backspace thường xóa kí tự ở đâu so với con trỏ?",
+      "options": [
+        "Bên phải",
+        "Ở trang khác",
+        "Trong thư mục khác",
+        "Bên trái"
+      ],
+      "correctIndex": 3,
+      "explanation": "Bên trái."
+    },
+    {
+      "question": "Phím Delete thường xóa kí tự ở đâu so với con trỏ?",
+      "options": [
+        "Trong tệp khác",
+        "Trên bàn phím",
+        "Bên phải",
+        "Bên trái"
+      ],
+      "correctIndex": 2,
+      "explanation": "Bên phải."
+    },
+    {
+      "question": "Sau khi chỉnh sửa văn bản, để giữ bản mới em cần gì?",
+      "options": [
+        "Xóa thư mục",
+        "Lưu lại tệp",
+        "Rút điện",
+        "Đổi tên con chuột"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lưu lại tệp."
+    }
+  ]
+}

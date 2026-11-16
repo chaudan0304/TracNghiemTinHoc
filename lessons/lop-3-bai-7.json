@@ -1,0 +1,54 @@
+{
+  "id": "lop-3-bai-7",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Bài 7. Sắp xếp để dễ tìm",
+  "gameTitle": "CHINH PHỤC TIN HỌC LỚP 3",
+  "pointsPerQuestion": 2.5,
+  "timeLimitSeconds": 360,
+  "questions": [
+    {
+      "question": "Vì sao nên sắp xếp đồ vật và tệp hợp lí?",
+      "options": [
+        "Để tìm nhanh khi cần",
+        "Để chúng tự biến mất",
+        "Để máy tính chạy không cần điện",
+        "Để không phải nhớ tên"
+      ],
+      "correctIndex": 0,
+      "explanation": "Để tìm nhanh khi cần."
+    },
+    {
+      "question": "Cách nào giúp tìm sách Toán nhanh hơn?",
+      "options": [
+        "Để lẫn tất cả sách",
+        "Giấu sách ở nhiều nơi",
+        "Xếp sách tùy ý mỗi ngày",
+        "Xếp sách theo môn học và gắn nhãn"
+      ],
+      "correctIndex": 3,
+      "explanation": "Xếp sách theo môn học và gắn nhãn."
+    },
+    {
+      "question": "Khi đặt tên thư mục ảnh lớp, tên nào dễ nhận biết nhất?",
+      "options": [
+        "123",
+        "Không tên",
+        "Ảnh lớp 3A",
+        "Mới mới mới"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ảnh lớp 3A."
+    },
+    {
+      "question": "Nếu có nhiều tệp của các môn học, em nên làm gì?",
+      "options": [
+        "Để tất cả rải rác trên màn hình",
+        "Chia vào các thư mục theo môn",
+        "Đổi mọi tệp thành cùng một tên",
+        "Xóa hết tệp"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chia vào các thư mục theo môn."
+    }
+  ]
+}
