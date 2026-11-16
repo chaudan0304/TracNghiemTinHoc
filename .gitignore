@@ -2,3 +2,5 @@
 node_modules/
 .env*
 doan_chat.md
+__pycache__/
+*.pyc

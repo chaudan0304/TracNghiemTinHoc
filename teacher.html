@@ -212,6 +212,9 @@
       padding: 8px 12px;
       font-size: 0.95rem;
     }
+    #lesson-grade { min-width: 100px; }
+    #lesson-search { width: 180px; min-width: 150px; }
+    #lesson-select { width: min(320px, 72vw); min-width: 180px; max-width: 320px; }
     /* Table */
     .table-responsive {
       overflow-x: auto;
@@ -436,6 +439,18 @@
         <div class="toolbar">
           <div class="filter-group">
             <div class="filter-item">
+              <label for="lesson-grade">Khối:</label>
+              <select id="lesson-grade">
+                <option value="3">Lớp 3</option>
+                <option value="4">Lớp 4</option>
+                <option value="5">Lớp 5</option>
+              </select>
+            </div>
+            <div class="filter-item">
+              <label for="lesson-search">Tìm bài:</label>
+              <input id="lesson-search" type="search" placeholder="Số hoặc tên bài">
+            </div>
+            <div class="filter-item">
               <label for="lesson-select">Bài học:</label>
               <select id="lesson-select"></select>
             </div>
@@ -607,6 +622,8 @@
     const viewRanking = document.getElementById('view-ranking');
 
     // View 1 (Lessons) Elements
+    const lessonGrade = document.getElementById('lesson-grade');
+    const lessonSearch = document.getElementById('lesson-search');
     const lessonSelect = document.getElementById('lesson-select');
     const classFilter = document.getElementById('class-filter');
     const searchInput = document.getElementById('search-input');
@@ -637,6 +654,9 @@
     const rankStatTopClass = document.getElementById('rank-stat-top-class');
 
     let allRows = [];
+    let lessonCatalog = [];
+    let lessonSearchTimer;
+    let resultsRequestId = 0;
     let currentLessonData = null;
     let offset = 0;
     let statsRequestId = 0;
@@ -1056,22 +1076,55 @@
       }
     });
 
+    function normalizeLessonSearch(value) {
+      return String(value || '').toLocaleLowerCase('vi')
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd');
+    }
+
+    function renderLessonOptions() {
+      const selectedId = lessonSelect.value;
+      const keyword = normalizeLessonSearch(lessonSearch.value.trim());
+      const matches = lessonCatalog.filter(lesson =>
+        lesson.grade === lessonGrade.value &&
+        (!keyword || normalizeLessonSearch(lesson.title).includes(keyword))
+      );
+      lessonSelect.replaceChildren();
+      lessonSelect.disabled = matches.length === 0;
+      if (!matches.length) {
+        const empty = document.createElement('option');
+        empty.value = '';
+        empty.textContent = 'Không tìm thấy bài';
+        lessonSelect.append(empty);
+        return;
+      }
+      for (const lesson of matches) {
+        const option = document.createElement('option');
+        option.value = lesson.id;
+        option.textContent = lesson.title;
+        lessonSelect.append(option);
+      }
+      if (matches.some(lesson => lesson.id === selectedId)) lessonSelect.value = selectedId;
+    }
+
     async function loadLessonList() {
       const res = await fetch('/lessons/index.json');
+      if (!res.ok) throw new Error('Không tải được danh sách bài học.');
       const ids = await res.json();
-      lessonSelect.replaceChildren();
-      for (const id of ids) {
+      const lessons = await Promise.all(ids.map(async id => {
         try {
-          const lres = await fetch(`/lessons/${id}.json`);
-          const ldata = await lres.json();
-          const opt = document.createElement('option');
-          opt.value = id;
-          opt.textContent = `${ldata.subjectBadge ? ldata.subjectBadge + ' - ' : ''}${ldata.lessonTitle}`;
-          lessonSelect.append(opt);
-        } catch (e) {
-          console.error(e);
+          const response = await fetch(`/lessons/${id}.json`);
+          if (!response.ok) return null;
+          const lesson = await response.json();
+          const grade = id.match(/^lop-([345])-/)?.[1];
+          return grade && lesson.lessonTitle ? { id, grade, title: lesson.lessonTitle } : null;
+        } catch (error) {
+          console.error('Không tải được bài học:', id, error);
+          return null;
         }
-      }
+      }));
+      lessonCatalog = lessons.filter(Boolean);
+      if (!lessonCatalog.length) throw new Error('Không có bài học để hiển thị.');
+      renderLessonOptions();
     }
 
     async function fetchStats() {
@@ -1217,16 +1270,26 @@
     }
 
     async function fetchResults(reset = true) {
+      const requestId = ++resultsRequestId;
       try {
         if (reset) {
           offset = 0;
           allRows = [];
         }
         const lessonId = lessonSelect.value;
-        if (!lessonId) return;
+        if (!lessonId) {
+          ++statsRequestId;
+          rowsEl.replaceChildren();
+          loadMoreBtn.hidden = true;
+          tableStatus.textContent = 'Không tìm thấy bài học phù hợp.';
+          for (const id of ['stat-total', 'stat-avg', 'stat-max']) document.getElementById(id).textContent = '0';
+          document.getElementById('stat-good-ratio').textContent = '0%';
+          return;
+        }
 
         tableStatus.textContent = 'Đang tải danh sách kết quả...';
         const data = await api(`/api/teacher?lessonId=${encodeURIComponent(lessonId)}&offset=${offset}`);
+        if (requestId !== resultsRequestId) return;
         
         allRows = reset ? data.rows : [...allRows, ...data.rows];
         offset += data.rows.length;
@@ -1236,6 +1299,7 @@
         renderTable();
         if (reset) fetchStats();
       } catch (e) {
+        if (requestId !== resultsRequestId) return;
         tableStatus.textContent = e.message;
         if (e.message.includes('đăng nhập lại') || e.message.includes('hết hạn')) {
           showLogin();
@@ -1293,6 +1357,18 @@
       }
     });
 
+    lessonGrade.addEventListener('change', () => {
+      lessonSearch.value = '';
+      renderLessonOptions();
+      fetchResults(true);
+    });
+    lessonSearch.addEventListener('input', () => {
+      clearTimeout(lessonSearchTimer);
+      lessonSearchTimer = setTimeout(() => {
+        renderLessonOptions();
+        fetchResults(true);
+      }, 250);
+    });
     lessonSelect.addEventListener('change', () => fetchResults(true));
     refreshBtn.addEventListener('click', () => fetchResults(true));
     classFilter.addEventListener('change', () => { renderTable(); fetchStats(); });

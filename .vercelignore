@@ -2,3 +2,8 @@ source/
 build_multilesson.cjs
 README.md
 .git/
+__pycache__/
+*.pyc
+lesson-bank.py
+lesson_bank_20.py
+test/
