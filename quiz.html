@@ -1013,7 +1013,7 @@
       statusBanner.textContent = "📤 Đang gửi kết quả làm bài tới thầy/cô giáo...";
       statusBanner.className = "mt-3 text-center text-xs font-extrabold text-[#047857]";
 
-      const saveResult = await saveStudentRecordCloud(state.studentName, state.studentClass);
+      const saveResult = await saveStudentRecordCloud(state.studentName, state.studentClass, timeUsedSeconds);
 
       if (saveResult.ok) {
         statusBanner.textContent = "✅ Đã gửi kết quả thành công tới thầy/cô giáo!";
@@ -1079,7 +1079,7 @@
      * 5. GỬI KẾT QUẢ LUYỆN TẬP
      * =========================================================================
      */
-    async function saveStudentRecordCloud(name, className) {
+    async function saveStudentRecordCloud(name, className, timeUsedSeconds) {
       try {
         // Ánh xạ đáp án từ thứ tự xáo trộn về thứ tự gốc để server chấm đúng
         const originalAnswers = new Array(QUESTIONS.length).fill(null);
@@ -1095,7 +1095,8 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             id: crypto.randomUUID(), lessonId, name, className,
-            answers: originalAnswers
+            answers: originalAnswers,
+            timeTakenSeconds: typeof timeUsedSeconds === 'number' ? Math.max(0, Math.round(timeUsedSeconds)) : null
           })
         });
         return { ok: response.ok, rateLimited: response.status === 429 };

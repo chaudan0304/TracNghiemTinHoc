@@ -79,6 +79,26 @@ test('submission rate limit rejects excess attempts before saving', async () => 
   assert.equal(attemptedInsert, false);
 });
 
+test('submission records timeTakenSeconds when provided', async () => {
+  const id = '123e4567-e89b-42d3-a456-426614174001';
+  const body = { id, lessonId: 'lop-4-on-tap-may-tinh', name: 'Học sinh', className: '4A1', answers: [0, 2, 1, 2, 1], timeTakenSeconds: 154 };
+  let savedDuration;
+  const sql = async (strings, ...values) => {
+    const query = strings.join('?');
+    if (query.includes('INSERT INTO submission_limits')) return [{ attempts: 1 }];
+    if (query.includes('INSERT INTO quiz_attempts')) {
+      savedDuration = values[8];
+      return [{ id }];
+    }
+    throw new Error('Unexpected query');
+  };
+  const handler = createSubmitHandler(() => sql, async () => {});
+  const result = response();
+  await handler({ method: 'POST', body }, result);
+  assert.equal(result.code, 200);
+  assert.equal(savedDuration, 154);
+});
+
 test('teacher login blocks on the fifth attempt and does not issue a cookie', async () => {
   const previous = { password: process.env.TEACHER_PASSWORD, secret: process.env.SESSION_SECRET };
   process.env.TEACHER_PASSWORD = 'correct';

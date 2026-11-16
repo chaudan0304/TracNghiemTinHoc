@@ -354,6 +354,7 @@
               <th>Số câu đúng</th>
               <th>Điểm số</th>
               <th>Xếp loại</th>
+              <th>Thời gian làm bài</th>
               <th>Thời gian nộp</th>
               <th style="text-align: center;">Hành động</th>
             </tr>
@@ -531,6 +532,12 @@
         }
         tdBadge.append(badge);
 
+        // Thời gian làm bài
+        const tdDuration = document.createElement('td');
+        tdDuration.style.color = '#047857';
+        tdDuration.style.fontWeight = '700';
+        tdDuration.textContent = formatDuration(r.time_taken_seconds);
+
         // Thời gian nộp
         const tdTime = document.createElement('td');
         tdTime.style.color = 'var(--muted)';
@@ -561,7 +568,7 @@
         };
         tdAction.append(delBtn);
 
-        tr.append(tdIdx, tdName, tdClass, tdCorrect, tdScore, tdBadge, tdTime, tdAction);
+        tr.append(tdIdx, tdName, tdClass, tdCorrect, tdScore, tdBadge, tdDuration, tdTime, tdAction);
         rowsEl.append(tr);
       });
     }
@@ -668,7 +675,7 @@
         }
 
         const lines = [
-          ['STT', 'Họ và tên', 'Lớp', 'Số câu đúng', 'Tổng câu hỏi', 'Điểm', 'Thời điểm nộp'],
+          ['STT', 'Họ và tên', 'Lớp', 'Số câu đúng', 'Tổng câu hỏi', 'Điểm', 'Thời gian làm bài', 'Thời điểm nộp'],
           ...all.map((r, i) => [
             i + 1,
             r.student_name,
@@ -676,6 +683,7 @@
             r.correct_count,
             r.total_questions,
             Number(r.score).toFixed(1),
+            formatDuration(r.time_taken_seconds),
             new Date(r.submitted_at).toLocaleString('vi-VN')
           ])
         ];
@@ -703,6 +711,14 @@
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#039;');
+    }
+
+    function formatDuration(sec) {
+      if (sec === null || sec === undefined || isNaN(sec)) return '--';
+      const s = Math.max(0, Math.floor(sec));
+      const mins = Math.floor(s / 60);
+      const remainingSecs = s % 60;
+      return `${mins}:${String(remainingSecs).padStart(2, '0')}`;
     }
 
     // Tự động kiểm tra nếu đã có phiên đăng nhập

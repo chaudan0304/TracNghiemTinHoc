@@ -4,8 +4,9 @@ export function createSubmitHandler(getDatabase = database, prepare = ensureTabl
 return async function handler(request, response) {
   if (request.method !== 'POST') return json(response, 405, { error: 'METHOD_NOT_ALLOWED' });
   try {
-    const { id, lessonId, name, className, answers } = request.body || {};
+    const { id, lessonId, name, className, answers, timeTakenSeconds } = request.body || {};
     if (typeof id !== 'string' || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id) || typeof name !== 'string' || !name.trim() || name.length > 100 || typeof className !== 'string' || !className.trim() || className.length > 30) return json(response, 400, { error: 'INVALID_SUBMISSION' });
+    const duration = Number.isInteger(timeTakenSeconds) && timeTakenSeconds >= 0 && timeTakenSeconds <= 86400 ? timeTakenSeconds : null;
     const lesson = await loadLesson(lessonId);
     const result = grade(lesson, answers);
     const sql = getDatabase();
@@ -20,8 +21,8 @@ return async function handler(request, response) {
       response.setHeader('Retry-After', '900');
       return json(response, 429, { error: 'TOO_MANY_SUBMISSIONS' });
     }
-    const inserted = await sql`INSERT INTO quiz_attempts (id, lesson_id, student_name, class_name, answers, correct_count, total_questions, score)
-      VALUES (${id}, ${lessonId}, ${name.trim()}, ${className.trim()}, ${JSON.stringify(answers)}::jsonb, ${result.correctCount}, ${result.totalQuestions}, ${result.score})
+    const inserted = await sql`INSERT INTO quiz_attempts (id, lesson_id, student_name, class_name, answers, correct_count, total_questions, score, time_taken_seconds)
+      VALUES (${id}, ${lessonId}, ${name.trim()}, ${className.trim()}, ${JSON.stringify(answers)}::jsonb, ${result.correctCount}, ${result.totalQuestions}, ${result.score}, ${duration})
       ON CONFLICT (id) DO NOTHING RETURNING id`;
     if (inserted.length === 0) {
       const [existing] = await sql`SELECT lesson_id, student_name, class_name, answers FROM quiz_attempts WHERE id = ${id}`;

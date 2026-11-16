@@ -64,7 +64,7 @@ return async function handler(request, response) {
           goodRatio: row.total ? Math.round(row.good_count * 100 / row.total) : 0
         } });
       }
-      const rows = await sql`SELECT id, lesson_id, student_name, class_name, correct_count, total_questions, score, submitted_at
+      const rows = await sql`SELECT id, lesson_id, student_name, class_name, correct_count, total_questions, score, time_taken_seconds, submitted_at
         FROM quiz_attempts WHERE lesson_id = ${lessonId} ORDER BY submitted_at DESC LIMIT 100 OFFSET ${offset}`;
       return json(response, 200, { rows });
     }
