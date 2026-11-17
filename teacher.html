@@ -519,7 +519,7 @@
           </div>
           <div class="stat-card">
             <span class="stat-title">📚 Tổng bài hệ thống</span>
-            <span class="stat-value">54 bài</span>
+            <span class="stat-value">60 bài</span>
           </div>
           <div class="stat-card">
             <span class="stat-title">🥇 Dẫn đầu tiến độ</span>
@@ -541,9 +541,9 @@
               <label for="ranking-grade-filter">Khối:</label>
               <select id="ranking-grade-filter">
                 <option value="ALL">Tất cả các khối</option>
-                <option value="3">Khối 3 (16 bài)</option>
-                <option value="4">Khối 4 (19 bài)</option>
-                <option value="5">Khối 5 (19 bài)</option>
+                <option value="3">Khối 3 (18 bài)</option>
+                <option value="4">Khối 4 (21 bài)</option>
+                <option value="5">Khối 5 (21 bài)</option>
               </select>
             </div>
 
@@ -675,7 +675,7 @@
     let rankingMode = 'classes';
     let rawClassRankings = [];
     let rawStudentRankings = [];
-    let rankingGradeTotals = { '3': 16, '4': 19, '5': 19, 'all': 54 };
+    let rankingGradeTotals = { '3': 18, '4': 21, '5': 21, 'all': 60 };
     let isRankingLoaded = false;
     let rankingSearchTimer;
 
@@ -732,10 +732,10 @@
 
     function getTotalLessons(className) {
       const g = getGrade(className);
-      if (g === '3') return rankingGradeTotals['3'] || 16;
-      if (g === '4') return rankingGradeTotals['4'] || 19;
-      if (g === '5') return rankingGradeTotals['5'] || 19;
-      return rankingGradeTotals['all'] || 54;
+      if (g === '3') return rankingGradeTotals['3'] || 18;
+      if (g === '4') return rankingGradeTotals['4'] || 21;
+      if (g === '5') return rankingGradeTotals['5'] || 21;
+      return rankingGradeTotals['all'] || 60;
     }
 
     function switchRankingMode(mode) {

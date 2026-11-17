@@ -1,0 +1,230 @@
+{
+  "id": "lop-3-on-tap-hoc-ki-1",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Ôn tập học kì I (Bài 1–7)",
+  "gameTitle": "ÔN TẬP TIN HỌC LỚP 3",
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
+  "questions": [
+    {
+      "question": "Khi nghe thấy tiếng còi xe cứu thương từ phía sau, người tham gia giao thông thường làm gì?",
+      "options": [
+        "Đạp ga tăng tốc chạy nhanh hơn",
+        "Dừng lại giữa đường nghe nhạc",
+        "Nhường đường cho xe cứu thương đi qua",
+        "Bấm còi to hơn để tranh đường"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tiếng còi xe cứu thương là thông tin giúp người lái xe ra quyết định nhường đường ưu tiên."
+    },
+    {
+      "question": "Mùi khét từ thiết bị điện là thông tin em nhận qua đâu?",
+      "options": [
+        "Tai",
+        "Mắt",
+        "Lưỡi",
+        "Mũi"
+      ],
+      "correctIndex": 3,
+      "explanation": "Mũi."
+    },
+    {
+      "question": "Bộ phận nào giúp con người suy nghĩ để xử lí thông tin?",
+      "options": [
+        "Bộ não",
+        "Bàn tay",
+        "Bàn chân",
+        "Mái tóc"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bộ não."
+    },
+    {
+      "question": "Trước giờ ra chơi, cô báo trời có thể mưa. Em cần mang sách ra sân. Quyết định nào hợp lí nhất?",
+      "options": [
+        "Để sách ngoài sân rồi đi chơi",
+        "Bỏ qua thông tin cô vừa báo",
+        "Mang sách ra sân và đặt xuống đất",
+        "Để sách trong cặp kín và quan sát thời tiết trước khi ra sân"
+      ],
+      "correctIndex": 3,
+      "explanation": "Thông tin về khả năng mưa giúp em quyết định cách giữ sách khô và an toàn."
+    },
+    {
+      "question": "Lan nghe cô dặn 'nếu trời mưa thì chuyển buổi tập vào phòng'. Trời bắt đầu mưa. Chuỗi nào mô tả đúng việc Lan làm?",
+      "options": [
+        "Thấy mưa nhưng vẫn tập ngoài trời",
+        "Nghe thông tin, nhận ra trời mưa, rồi vào phòng tập",
+        "Vào phòng trước khi nghe và quan sát",
+        "Chỉ nghe dặn nhưng không kiểm tra thời tiết"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lan tiếp nhận lời dặn và tình trạng thời tiết, xử lí điều kiện rồi mới quyết định chuyển vào phòng."
+    },
+    {
+      "question": "Thiết bị nào giúp em điều khiển con trỏ trên màn hình?",
+      "options": [
+        "Máy in",
+        "Màn hình",
+        "Chuột",
+        "Loa"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chuột."
+    },
+    {
+      "question": "Khi muốn chọn một biểu tượng trên màn hình, em thường dùng gì?",
+      "options": [
+        "Chuột",
+        "Máy in",
+        "Loa",
+        "Ổ cắm"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chuột."
+    },
+    {
+      "question": "Minh gõ một từ vào máy rồi nhìn thấy từ đó trên màn hình. Trình tự xử lí thông tin nào đúng?",
+      "options": [
+        "Loa đưa chữ vào, chuột in giấy",
+        "Máy in đưa chữ vào, màn hình phát âm thanh",
+        "Bàn phím đưa chữ vào, máy xử lí, màn hình hiển thị",
+        "Màn hình đưa chữ vào, bàn phím hiển thị"
+      ],
+      "correctIndex": 2,
+      "explanation": "Bàn phím là thiết bị nhập; màn hình là thiết bị hiển thị kết quả."
+    },
+    {
+      "question": "Khi ngồi làm việc với máy tính, lưng em nên như thế nào?",
+      "options": [
+        "Ngồi thẳng, tư thế thoải mái",
+        "Cúi sát màn hình",
+        "Nằm trên bàn",
+        "Vẹo sang một bên"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ngồi thẳng, tư thế thoải mái."
+    },
+    {
+      "question": "Trước khi dùng máy ở phòng học, em nên làm gì?",
+      "options": [
+        "Cài phần mềm bất kì",
+        "Đổ nước lên bàn",
+        "Làm theo hướng dẫn của giáo viên",
+        "Tự ý tháo dây"
+      ],
+      "correctIndex": 2,
+      "explanation": "Làm theo hướng dẫn của giáo viên."
+    },
+    {
+      "question": "Hai phím nào có gờ để đặt ngón trỏ ở hàng phím cơ sở?",
+      "options": [
+        "F và J",
+        "A và L",
+        "Q và P",
+        "Z và M"
+      ],
+      "correctIndex": 0,
+      "explanation": "F và J."
+    },
+    {
+      "question": "Khi dùng máy tính ở lớp, em thấy dây nguồn bị hở. Em nên làm gì trước tiên?",
+      "options": [
+        "Rủ bạn cùng kiểm tra bằng cách chạm vào dây",
+        "Tránh chạm vào và báo giáo viên",
+        "Tự nối dây bằng tay",
+        "Tiếp tục dùng vì màn hình vẫn sáng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dây điện hở có thể nguy hiểm; giáo viên hoặc người lớn cần xử lí."
+    },
+    {
+      "question": "Để gõ nhanh và chính xác hơn, em nên làm gì?",
+      "options": [
+        "Luyện đúng vị trí các ngón tay",
+        "Chỉ dùng một ngón",
+        "Nhìn sát phím",
+        "Gõ thật mạnh"
+      ],
+      "correctIndex": 0,
+      "explanation": "Luyện đúng vị trí các ngón tay."
+    },
+    {
+      "question": "Khi dùng hai tay gõ, các ngón nên di chuyển thế nào?",
+      "options": [
+        "Từ vị trí cơ sở đến phím cần gõ rồi trở lại",
+        "Một ngón làm tất cả",
+        "Tất cả cùng bấm một phím",
+        "Chỉ dùng tay trái"
+      ],
+      "correctIndex": 0,
+      "explanation": "Từ vị trí cơ sở đến phím cần gõ rồi trở lại."
+    },
+    {
+      "question": "Thông tin trên Internet có thể ở dạng nào?",
+      "options": [
+        "Chỉ âm thanh",
+        "Chỉ bản in giấy",
+        "Văn bản, hình ảnh, âm thanh và video",
+        "Chỉ chữ viết"
+      ],
+      "correctIndex": 2,
+      "explanation": "Văn bản, hình ảnh, âm thanh và video."
+    },
+    {
+      "question": "Em cần tìm lại ảnh ngày hội trên máy tính. Cách lưu nào giúp em tìm nhanh về sau?",
+      "options": [
+        "Đặt tất cả ảnh tên 'Mới'",
+        "Để ảnh trong nhiều thư mục ngẫu nhiên",
+        "Chỉ nhớ màu biểu tượng ảnh",
+        "Đặt ảnh vào thư mục 'Ngày hội' với tên dễ nhận biết"
+      ],
+      "correctIndex": 3,
+      "explanation": "Phân nhóm và đặt tên rõ nghĩa giúp thu hẹp nơi tìm và phân biệt tệp."
+    },
+    {
+      "question": "Khi trình duyệt mở, em nhập địa chỉ website vào đâu?",
+      "options": [
+        "Tên tệp",
+        "Thanh địa chỉ",
+        "Ô âm lượng",
+        "Thùng rác"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thanh địa chỉ."
+    },
+    {
+      "question": "Vì sao nên sắp xếp đồ vật và tệp hợp lí?",
+      "options": [
+        "Để tìm nhanh khi cần",
+        "Để chúng tự biến mất",
+        "Để máy tính chạy không cần điện",
+        "Để không phải nhớ tên"
+      ],
+      "correctIndex": 0,
+      "explanation": "Để tìm nhanh khi cần."
+    },
+    {
+      "question": "Thư mục Ảnh có 60 ảnh của ba chuyến đi. Cách nào giúp tìm ảnh chuyến đi tháng 9 nhanh nhất?",
+      "options": [
+        "Xóa hết ảnh cũ",
+        "Tạo ba thư mục theo từng chuyến đi và đặt tên rõ ràng",
+        "Đổi mọi ảnh thành cùng một tên",
+        "Để 60 ảnh lẫn nhau và mở từng ảnh"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chia ảnh theo chuyến đi và đặt tên thư mục rõ ràng giúp thu hẹp nơi cần tìm."
+    },
+    {
+      "question": "Một trang web lạ báo em trúng thưởng và yêu cầu nhập mật khẩu. Cách xử lí nào phù hợp?",
+      "options": [
+        "Gửi mật khẩu của bạn bè",
+        "Chia sẻ trang đó cho cả lớp",
+        "Không nhập mật khẩu và hỏi người lớn đáng tin cậy",
+        "Nhập ngay để nhận quà"
+      ],
+      "correctIndex": 2,
+      "explanation": "Yêu cầu mật khẩu từ trang lạ là dấu hiệu rủi ro; cần giữ kín thông tin tài khoản."
+    }
+  ]
+}

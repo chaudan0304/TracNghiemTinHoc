@@ -6,7 +6,12 @@ import { grade, loadLesson, sessionToken, isTeacher } from '../lib/server.js';
 
 test('each listed lesson loads and has valid grading', async () => {
   const ids = JSON.parse(await readFile(join(process.cwd(), 'lessons', 'index.json'), 'utf8'));
-  assert.equal(ids.length, 54);
+  assert.equal(ids.length, 60);
+  for (const grade of [3, 4, 5]) {
+    for (const term of [1, 2]) {
+      assert.ok(ids.includes(`lop-${grade}-on-tap-hoc-ki-${term}`));
+    }
+  }
   assert.equal(new Set(ids).size, ids.length);
   for (const id of ids) {
     const lesson = await loadLesson(id);

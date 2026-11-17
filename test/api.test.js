@@ -205,7 +205,7 @@ test('teacher ranking returns class list and grade totals', async () => {
     assert.equal(queryCalled, true);
     assert.equal(result.body.classes.length, 1);
     assert.equal(result.body.classes[0].class_name, '4A1');
-    assert.equal(result.body.gradeTotals['4'], 19);
+    assert.equal(result.body.gradeTotals['4'], 21);
   } finally {
     if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
   }

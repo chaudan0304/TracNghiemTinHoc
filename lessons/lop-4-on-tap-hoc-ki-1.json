@@ -1,0 +1,230 @@
+{
+  "id": "lop-4-on-tap-hoc-ki-1",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Ôn tập học kì I (Bài 1–9)",
+  "gameTitle": "ÔN TẬP TIN HỌC LỚP 4",
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
+  "questions": [
+    {
+      "question": "Bộ phận nào là phần cứng máy tính?",
+      "options": [
+        "Bàn phím",
+        "Trình duyệt web",
+        "Trò chơi trên máy",
+        "Phần mềm vẽ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bàn phím."
+    },
+    {
+      "question": "Khi muốn nghe âm thanh từ chương trình, thiết bị phần cứng nào cần có?",
+      "options": [
+        "Loa hoặc tai nghe",
+        "Máy in",
+        "Bàn phím",
+        "Máy quét"
+      ],
+      "correctIndex": 0,
+      "explanation": "Loa hoặc tai nghe."
+    },
+    {
+      "question": "Khi gõ bàn phím đúng cách, em nên dùng bao nhiêu bàn tay?",
+      "options": [
+        "Hai bàn tay",
+        "Chỉ tay trái",
+        "Chỉ một ngón bất kì",
+        "Không cần tay"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hai bàn tay."
+    },
+    {
+      "question": "Máy có bàn phím và màn hình nhưng chưa có phần mềm soạn thảo. Muốn viết thư, em cần thêm gì?",
+      "options": [
+        "Một bàn phím thứ hai",
+        "Một dây mạng dài hơn",
+        "Chỉ tăng độ sáng màn hình",
+        "Phần mềm soạn thảo văn bản phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Phần cứng cần phần mềm phù hợp để thực hiện công việc soạn thảo."
+    },
+    {
+      "question": "Nếu chữ xuất hiện sai nhiều, em nên ưu tiên gì?",
+      "options": [
+        "Bỏ qua lỗi",
+        "Đổi màu bàn phím",
+        "Độ chính xác trước khi tăng tốc",
+        "Gõ nhanh hơn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Độ chính xác trước khi tăng tốc."
+    },
+    {
+      "question": "Trang web có thể chứa dạng thông tin nào?",
+      "options": [
+        "Văn bản, hình ảnh, âm thanh và video",
+        "Chỉ chữ in giấy",
+        "Chỉ số điện thoại",
+        "Chỉ tệp trong USB"
+      ],
+      "correctIndex": 0,
+      "explanation": "Văn bản, hình ảnh, âm thanh và video."
+    },
+    {
+      "question": "Thông tin dạng video trên web kết hợp gì?",
+      "options": [
+        "Hình chuyển động và có thể có âm thanh",
+        "Chỉ chữ in giấy",
+        "Chỉ mùi",
+        "Chỉ vị"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hình chuyển động và có thể có âm thanh."
+    },
+    {
+      "question": "Em cần giờ mở cửa mới nhất của bảo tàng. Kết quả đầu là bài cũ, kết quả sau là trang chính thức vừa cập nhật. Nên chọn gì?",
+      "options": [
+        "Chọn ngẫu nhiên",
+        "Chỉ xem ảnh bìa",
+        "Kiểm tra trang chính thức mới cập nhật",
+        "Tin bài cũ vì đứng đầu"
+      ],
+      "correctIndex": 2,
+      "explanation": "Giờ mở cửa có thể thay đổi; nguồn chính thức và thời gian cập nhật là căn cứ quan trọng."
+    },
+    {
+      "question": "Muốn tìm thông tin về vòng đời của bướm, từ khóa nào phù hợp nhất?",
+      "options": [
+        "vòng đời của bướm",
+        "động vật",
+        "máy tính",
+        "bài hát"
+      ],
+      "correctIndex": 0,
+      "explanation": "vòng đời của bướm."
+    },
+    {
+      "question": "Em cần tìm giờ mở cửa hiện nay của một bảo tàng. Kết quả đầu là bài viết từ nhiều năm trước, kết quả sau là trang chính thức mới cập nhật. Nên dùng kết quả nào?",
+      "options": [
+        "Không cần xem ngày đăng",
+        "Trang chính thức mới cập nhật",
+        "Bài cũ vì xuất hiện đầu tiên",
+        "Chọn ngẫu nhiên một kết quả"
+      ],
+      "correctIndex": 1,
+      "explanation": "Giờ mở cửa có thể thay đổi, nên ưu tiên thông tin mới trên nguồn chính thức."
+    },
+    {
+      "question": "Muốn tổ chức các bài tập theo môn học, em nên làm gì?",
+      "options": [
+        "Tạo các thư mục có tên theo môn",
+        "Để mọi tệp cùng một tên",
+        "Xóa tệp cũ bất kì",
+        "Đổi tên ổ đĩa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tạo các thư mục có tên theo môn."
+    },
+    {
+      "question": "Em muốn gửi bản sao bài vẽ cho bạn nhưng vẫn giữ bản trên máy. Thao tác phù hợp là gì?",
+      "options": [
+        "Đổi tên thư mục mà không chép tệp",
+        "Sao chép tệp rồi dán vào nơi gửi",
+        "Cắt tệp rồi dán",
+        "Xóa tệp gốc trước"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sao chép tạo thêm bản và giữ nguyên tệp gốc."
+    },
+    {
+      "question": "An muốn đưa bài tập từ thư mục A sang B nhưng vẫn giữ bài trong A. An cần dùng thao tác nào?",
+      "options": [
+        "Chỉ đổi tên A thành B",
+        "Sao chép rồi dán vào B",
+        "Cắt rồi dán vào B",
+        "Xóa bài trong A rồi tạo tệp trống ở B"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sao chép tạo thêm bản ở B và giữ nguyên bản gốc trong A."
+    },
+    {
+      "question": "Bản quyền phần mềm thuộc về ai?",
+      "options": [
+        "Tác giả hoặc tổ chức tạo ra, sở hữu hợp pháp phần mềm đó.",
+        "Bất kì người nào tải phần mềm về máy tính của mình.",
+        "Cửa hàng bán máy tính cài đặt sẵn phần mềm cho khách.",
+        "Người giới thiệu phần mềm đó cho bạn bè cùng dùng."
+      ],
+      "correctIndex": 0,
+      "explanation": "Phần mềm là sản phẩm sáng tạo trí tuệ nên quyền sở hữu và bản quyền thuộc về tác giả hoặc tổ chức đã tạo ra phần mềm đó."
+    },
+    {
+      "question": "Một phần mềm được cho dùng miễn phí ở nhà nhưng điều khoản không cho cài trên máy của trường. Em nên làm gì khi muốn dùng ở phòng Tin học?",
+      "options": [
+        "Xóa tên tác giả rồi cài",
+        "Hỏi giáo viên và chỉ cài khi điều khoản cho phép",
+        "Tự cài vì phần mềm miễn phí",
+        "Sao chép từ máy nhà sang mọi máy ở trường"
+      ],
+      "correctIndex": 1,
+      "explanation": "Miễn phí không đồng nghĩa được dùng ở mọi nơi; phải tuân thủ điều khoản sử dụng và quy định phòng máy."
+    },
+    {
+      "question": "Một phần mềm được cho dùng miễn phí ở nhà nhưng không cho cài ở trường. Em muốn dùng trong phòng Tin học thì làm gì?",
+      "options": [
+        "Tự cài vì miễn phí",
+        "Chép sang mọi máy",
+        "Xóa tên tác giả rồi cài",
+        "Hỏi giáo viên và tuân thủ điều kiện sử dụng"
+      ],
+      "correctIndex": 3,
+      "explanation": "Miễn phí không đồng nghĩa được sử dụng ở mọi nơi; phải tuân thủ giấy phép và quy định phòng máy."
+    },
+    {
+      "question": "Bài trình chiếu gồm các thành phần nào?",
+      "options": [
+        "Các trang chiếu",
+        "Các ổ cắm",
+        "Các phím số",
+        "Các dây mạng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Các trang chiếu."
+    },
+    {
+      "question": "Định dạng nào giúp nhấn mạnh một từ trên trang chiếu?",
+      "options": [
+        "In đậm",
+        "Xóa từ",
+        "Tắt màn hình",
+        "Đóng tệp"
+      ],
+      "correctIndex": 0,
+      "explanation": "In đậm."
+    },
+    {
+      "question": "Hiệu ứng chuyển trang xuất hiện khi nào?",
+      "options": [
+        "Khi chuyển từ trang chiếu này sang trang khác",
+        "Khi gõ từng chữ",
+        "Khi mở máy tính",
+        "Khi cắm chuột"
+      ],
+      "correctIndex": 0,
+      "explanation": "Khi chuyển từ trang chiếu này sang trang khác."
+    },
+    {
+      "question": "Trang chiếu có chữ vàng nhạt trên nền trắng và nhiều hiệu ứng liên tục. Cách sửa nào giúp người xem tập trung?",
+      "options": [
+        "Thêm nhiều màu nhấp nháy",
+        "Bỏ hết nội dung chính",
+        "Chọn màu chữ tương phản rõ và dùng hiệu ứng vừa phải",
+        "Thu nhỏ chữ hơn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chữ rõ và hiệu ứng tiết chế giúp người xem đọc và theo dõi ý chính."
+    }
+  ]
+}

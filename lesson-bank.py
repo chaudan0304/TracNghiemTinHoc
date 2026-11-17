@@ -752,13 +752,14 @@ def write_grade(grade, rows):
 
 
 if __name__ == "__main__":
+    from review_bank import write_reviews
+
     grade3 = write_grade(3, GRADE3)
     grade4 = write_grade(4, GRADE4)
     grade5 = write_grade(5, GRADE5)
     catalog = (["lop-3-thong-tin-va-quyet-dinh"] + grade3 +
                grade4[:5] + ["lop-4-bai-6"] + grade4[5:] + grade5 +
                ["lop-4-tim-kiem-thong-tin-internet", "lop-4-on-tap-may-tinh", "lop-5-lap-trinh-scratch-co-ban"])
-    (ROOT / "index.json").write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     review_path = ROOT / "lop-4-on-tap-may-tinh.json"
     review = json.loads(review_path.read_text(encoding="utf-8"))
     if len(review["questions"]) == 5:
@@ -801,3 +802,9 @@ Trước khi rời máy tính dùng chung, em nên làm gì?|Lưu công việc v
     lesson["questions"][-1] = {"question": prompt, "options": choices, "correctIndex": choices.index(correct), "explanation": explanation}
     lesson["timeLimitSeconds"] = 900
     lesson_path.write_text(json.dumps(lesson, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    reviews = write_reviews(ROOT)
+    catalog = (["lop-3-thong-tin-va-quyet-dinh"] + grade3 + reviews[3] +
+               grade4[:5] + ["lop-4-bai-6"] + grade4[5:] + reviews[4] +
+               grade5 + reviews[5] +
+               ["lop-4-tim-kiem-thong-tin-internet", "lop-4-on-tap-may-tinh", "lop-5-lap-trinh-scratch-co-ban"])
+    (ROOT / "index.json").write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

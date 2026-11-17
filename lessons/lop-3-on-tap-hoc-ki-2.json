@@ -1,0 +1,230 @@
+{
+  "id": "lop-3-on-tap-hoc-ki-2",
+  "subjectBadge": "TIN HỌC LỚP 3",
+  "lessonTitle": "Ôn tập học kì II (Bài 8–16)",
+  "gameTitle": "ÔN TẬP TIN HỌC LỚP 3",
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
+  "questions": [
+    {
+      "question": "Thư mục trong máy tính dùng để làm gì?",
+      "options": [
+        "Chỉ phát âm thanh",
+        "Chỉ nhập chữ",
+        "Chỉ hiển thị ảnh nền",
+        "Chứa và tổ chức tệp, thư mục con"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chứa và tổ chức tệp, thư mục con."
+    },
+    {
+      "question": "Trong thư mục Học tập có thư mục Toán; trong Toán có tệp Bài 1. Muốn mở Bài 1 từ Học tập, em đi theo thứ tự nào?",
+      "options": [
+        "Xóa Toán để thấy Bài 1",
+        "Mở Toán rồi mở Bài 1",
+        "Mở Bài 1 rồi mới mở Toán",
+        "Mở thư mục khác bất kì"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tệp Bài 1 nằm trong nhánh Toán, nên phải mở thư mục Toán trước."
+    },
+    {
+      "question": "Để lưu các bài tập cùng một môn, em nên tạo gì?",
+      "options": [
+        "Một thư mục có tên phù hợp",
+        "Một phím mới",
+        "Một con trỏ mới",
+        "Một màn hình mới"
+      ],
+      "correctIndex": 0,
+      "explanation": "Một thư mục có tên phù hợp."
+    },
+    {
+      "question": "Thư mục Học tập chứa thư mục Toán, bên trong có tệp Bài tập 1. Em muốn mở tệp từ Học tập. Bước đầu là gì?",
+      "options": [
+        "Xóa thư mục Toán",
+        "Mở tệp bất kì ở ngoài Học tập",
+        "Đổi tên Học tập",
+        "Mở thư mục Toán"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tệp nằm trong nhánh Toán, nên cần mở thư mục này trước."
+    },
+    {
+      "question": "Trước khi di chuyển tệp, em nên xác định gì?",
+      "options": [
+        "Tệp cần chuyển và thư mục đích",
+        "Màu màn hình",
+        "Âm lượng",
+        "Giá chuột"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tệp cần chuyển và thư mục đích."
+    },
+    {
+      "question": "Tệp quan trọng có thể được bảo vệ thêm bằng cách nào?",
+      "options": [
+        "Đổi tên thành một chữ bất kì",
+        "Xóa bản gốc",
+        "Tạo bản sao lưu",
+        "Chỉ để một bản duy nhất"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tạo bản sao lưu."
+    },
+    {
+      "question": "Mai sắp sửa bài trình chiếu quan trọng trên máy dùng chung. Việc nào giúp tránh mất bản cũ nếu sửa nhầm?",
+      "options": [
+        "Đăng mật khẩu lên bảng",
+        "Tạo một bản sao trước khi chỉnh sửa",
+        "Chỉ đổi màu tên tệp",
+        "Xóa bản cũ rồi mới sửa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bản sao là bản dự phòng để khôi phục khi việc chỉnh sửa không như ý."
+    },
+    {
+      "question": "Em sắp chỉnh sửa bài trình chiếu nhóm. Làm gì để vẫn có bản cũ nếu sửa nhầm?",
+      "options": [
+        "Chỉ đổi màu tên tệp",
+        "Đóng bài mà không lưu",
+        "Tạo một bản sao trước khi sửa",
+        "Xóa bản cũ"
+      ],
+      "correctIndex": 2,
+      "explanation": "Bản sao giúp khôi phục nội dung khi việc chỉnh sửa không như ý."
+    },
+    {
+      "question": "Một bài trình chiếu thường gồm những gì?",
+      "options": [
+        "Các trang chiếu",
+        "Các thư mục hệ thống",
+        "Các dây cáp",
+        "Các phím chức năng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Các trang chiếu."
+    },
+    {
+      "question": "Muốn người xem đọc chữ dễ hơn, em chọn cỡ chữ thế nào?",
+      "options": [
+        "Đủ lớn và rõ",
+        "Càng nhỏ càng tốt",
+        "Trùng màu nền",
+        "Không cần chữ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Đủ lớn và rõ."
+    },
+    {
+      "question": "Trong phần mềm mô phỏng Hệ Mặt Trời, em có thể tìm hiểu gì?",
+      "options": [
+        "Tên và đặc điểm các hành tinh",
+        "Mật khẩu của bạn",
+        "Số phím bàn phím",
+        "Màu dây điện"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tên và đặc điểm các hành tinh."
+    },
+    {
+      "question": "Phần mềm mô phỏng vẽ Mặt Trời và các hành tinh lớn hơn thực tế để dễ quan sát. Em nên hiểu hình thế nào?",
+      "options": [
+        "Không thể học gì từ hình mô phỏng",
+        "Dùng để học vị trí và chuyển động, không coi kích thước vẽ là kích thước thật",
+        "Kích thước vẽ luôn đúng tỉ lệ thật",
+        "Phần mềm tạo ra các hành tinh thật"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mô phỏng là cách thể hiện để học; kích thước hình có thể thay đổi cho dễ quan sát."
+    },
+    {
+      "question": "Một mô phỏng cho thấy các hành tinh quay quanh Mặt Trời nhưng kích thước được vẽ lớn để dễ nhìn. Em nên hiểu hình đó thế nào?",
+      "options": [
+        "Không thể học gì từ mô phỏng",
+        "Dùng mô phỏng để học chuyển động, không coi kích thước vẽ là kích thước thật",
+        "Mọi hành tinh ngoài đời lớn đúng bằng hình",
+        "Mô phỏng tạo ra các hành tinh thật"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mô phỏng giúp quan sát hiện tượng; hình vẽ có thể thay đổi tỉ lệ để dễ học."
+    },
+    {
+      "question": "Muốn mở biểu tượng trên màn hình theo cách thông thường, em dùng thao tác nào?",
+      "options": [
+        "Lăn chuột một lần",
+        "Chỉ di chuyển con trỏ",
+        "Nhấn phím cách",
+        "Nháy đúp chuột trái"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nháy đúp chuột trái."
+    },
+    {
+      "question": "Để hoàn thành việc đánh răng, em cần làm gì?",
+      "options": [
+        "Thực hiện các bước theo thứ tự hợp lí",
+        "Làm ngẫu nhiên một bước",
+        "Chỉ nêu tên công việc",
+        "Bỏ qua mọi bước"
+      ],
+      "correctIndex": 0,
+      "explanation": "Thực hiện các bước theo thứ tự hợp lí."
+    },
+    {
+      "question": "Cô dặn: 'Nếu trời mưa thì chuyển hoạt động vào lớp'. Trời bắt đầu mưa. Em làm gì?",
+      "options": [
+        "Tiếp tục ở sân vì đã có kế hoạch",
+        "Chỉ đổi tên hoạt động",
+        "Chờ đến khi mưa tạnh mới đọc chỉ dẫn",
+        "Chuyển hoạt động vào lớp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Điều kiện trời mưa đã xảy ra nên thực hiện hành động gắn với điều kiện."
+    },
+    {
+      "question": "Câu nào mô tả công việc phụ thuộc điều kiện?",
+      "options": [
+        "Nếu trời mưa thì mang áo mưa",
+        "Em đặt sách lên bàn",
+        "Em mở vở rồi viết bài",
+        "Em đếm từ một đến mười"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nếu trời mưa thì mang áo mưa."
+    },
+    {
+      "question": "Cô dặn 'Nếu trời mưa thì mang áo mưa; nếu không mưa thì đội mũ'. Hôm nay trời nắng. Em làm gì theo chỉ dẫn?",
+      "options": [
+        "Không làm gì dù có nhánh nếu không",
+        "Đội mũ",
+        "Mang áo mưa",
+        "Mang cả hai vì có hai câu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Điều kiện trời mưa sai nên thực hiện nhánh còn lại: đội mũ."
+    },
+    {
+      "question": "Nhóm đã làm 5 trang chiếu nhưng trang kết luận nằm trước phần giới thiệu. Cách sửa nào hợp lí?",
+      "options": [
+        "Giữ nguyên vì thứ tự không quan trọng",
+        "Sắp lại thứ tự các trang rồi trình chiếu thử",
+        "Chỉ đổi màu kết luận",
+        "Xóa toàn bộ bài"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bài trình chiếu cần mạch giới thiệu, nội dung, kết luận rõ ràng; trình chiếu thử giúp kiểm tra."
+    },
+    {
+      "question": "Nhóm đã tạo đủ trang chiếu nhưng trang kết luận nằm trước phần giới thiệu. Cách sửa phù hợp là gì?",
+      "options": [
+        "Xóa toàn bộ bài",
+        "Giữ nguyên vì thứ tự không ảnh hưởng",
+        "Sắp lại thứ tự rồi trình chiếu thử",
+        "Chỉ tăng cỡ chữ kết luận"
+      ],
+      "correctIndex": 2,
+      "explanation": "Thứ tự trang cần theo mạch trình bày; trình chiếu thử giúp phát hiện lỗi."
+    }
+  ]
+}

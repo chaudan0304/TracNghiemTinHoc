@@ -1,0 +1,230 @@
+{
+  "id": "lop-4-on-tap-hoc-ki-2",
+  "subjectBadge": "TIN HỌC LỚP 4",
+  "lessonTitle": "Ôn tập học kì II (Bài 9–16, nhánh 12B)",
+  "gameTitle": "ÔN TẬP TIN HỌC LỚP 4",
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
+  "questions": [
+    {
+      "question": "Để xem hiệu ứng chuyển trang có phù hợp không, em nên làm gì?",
+      "options": [
+        "Xóa bài trình chiếu",
+        "Rút bàn phím",
+        "Đổi tên tệp",
+        "Trình chiếu thử"
+      ],
+      "correctIndex": 3,
+      "explanation": "Trình chiếu thử."
+    },
+    {
+      "question": "Phần mềm soạn thảo văn bản dùng để làm gì?",
+      "options": [
+        "Tạo và chỉnh sửa văn bản",
+        "Chỉ nghe nhạc",
+        "Chỉ đo nhiệt độ",
+        "Chỉ điều khiển chuột"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tạo và chỉnh sửa văn bản."
+    },
+    {
+      "question": "Vì sao cần đặt tên tệp khi lưu?",
+      "options": [
+        "Tăng số phím",
+        "Đổi chuột",
+        "Dễ nhận biết và mở lại",
+        "Máy tự viết nội dung"
+      ],
+      "correctIndex": 2,
+      "explanation": "Dễ nhận biết và mở lại."
+    },
+    {
+      "question": "Một đoạn văn đang ở cuối bài, em cần chuyển lên đầu mà không tạo bản trùng. Thao tác nào đúng?",
+      "options": [
+        "Sao chép rồi dán ở đầu",
+        "Chỉ đổi màu đoạn",
+        "Xóa đoạn mà không dán",
+        "Chọn đoạn, cắt rồi dán ở đầu"
+      ],
+      "correctIndex": 3,
+      "explanation": "Cắt rồi dán di chuyển đoạn; sao chép sẽ tạo thêm bản."
+    },
+    {
+      "question": "Muốn sửa một từ đã gõ sai, em nên làm gì?",
+      "options": [
+        "Đặt con trỏ tại vị trí cần sửa rồi chỉnh",
+        "Xóa cả tài liệu luôn",
+        "Tắt bàn phím",
+        "In tài liệu ngay"
+      ],
+      "correctIndex": 0,
+      "explanation": "Đặt con trỏ tại vị trí cần sửa rồi chỉnh."
+    },
+    {
+      "question": "Một đoạn văn đang ở cuối bài nhưng cần chuyển lên đầu mà không để lại bản trùng. Thao tác nào đúng?",
+      "options": [
+        "Xóa đoạn và không dán lại",
+        "Chọn đoạn, cắt, đặt con trỏ ở đầu rồi dán",
+        "Chọn đoạn, sao chép rồi dán ở đầu",
+        "Chỉ đổi màu đoạn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cắt rồi dán di chuyển đoạn; sao chép rồi dán sẽ để lại thêm một bản ở cuối."
+    },
+    {
+      "question": "Phần mềm luyện gõ bàn phím giúp em làm gì?",
+      "options": [
+        "Rèn tốc độ và độ chính xác khi gõ",
+        "Tự viết mọi bài văn",
+        "Thay bàn phím bị hỏng",
+        "Tắt máy tính"
+      ],
+      "correctIndex": 0,
+      "explanation": "Rèn tốc độ và độ chính xác khi gõ."
+    },
+    {
+      "question": "Phần mềm luyện gõ báo tốc độ cao nhưng nhiều lỗi. Em nên ưu tiên điều gì tiếp theo?",
+      "options": [
+        "Bỏ qua mọi lỗi",
+        "Chỉ đổi màu bàn phím",
+        "Gõ chậm hơn để đúng vị trí ngón và tăng độ chính xác",
+        "Gõ nhanh hơn nữa"
+      ],
+      "correctIndex": 2,
+      "explanation": "Độ chính xác là mục tiêu quan trọng; tốc độ nên tăng sau khi gõ đúng."
+    },
+    {
+      "question": "Phần mềm luyện gõ giúp theo dõi gì?",
+      "options": [
+        "Giá bàn phím",
+        "Số trang web",
+        "Tốc độ và độ chính xác",
+        "Độ cao ghế tự động"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tốc độ và độ chính xác."
+    },
+    {
+      "question": "Trong trò chơi rô-bốt, chỉ dẫn 'quay trái 90 độ' làm rô-bốt thay đổi gì?",
+      "options": [
+        "Hướng đi",
+        "Màu áo",
+        "Tên trò chơi",
+        "Số người chơi"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hướng đi."
+    },
+    {
+      "question": "Rô-bốt cần đi theo hình vuông. Bạn lập trình lặp bốn lần 'đi 100 bước, quay 90 độ' nhưng đặt lệnh quay trước lệnh đi. Điều gì thay đổi?",
+      "options": [
+        "Thứ tự lệnh không ảnh hưởng đường đi",
+        "Rô-bốt bắt đầu đi theo hướng đã quay, dù vẫn có bốn cạnh",
+        "Rô-bốt chắc chắn đứng yên",
+        "Chương trình tự xóa lệnh quay"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thay thứ tự lệnh làm thay đổi hướng của bước đi đầu tiên và vị trí đường vẽ."
+    },
+    {
+      "question": "Rô-bốt cần đi thẳng, quay phải rồi đi tiếp. Nếu đặt lệnh quay lên đầu, điều gì có thể thay đổi?",
+      "options": [
+        "Chương trình tự xóa",
+        "Hướng đi của đoạn đường đầu tiên",
+        "Rô-bốt tự sửa thứ tự",
+        "Mọi hành động vẫn giống hệt"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thay thứ tự lệnh làm rô-bốt quay trước khi thực hiện bước đi đầu."
+    },
+    {
+      "question": "Trong lập trình trực quan, em thường tạo chương trình bằng cách nào?",
+      "options": [
+        "Ghép các khối lệnh",
+        "Chỉ vẽ trên giấy",
+        "Rút dây mạng",
+        "Đổi màu bàn phím"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ghép các khối lệnh."
+    },
+    {
+      "question": "Nhóm lệnh Chuyển động thường điều khiển gì?",
+      "options": [
+        "Nguồn điện",
+        "Vị trí và hướng nhân vật",
+        "Mật khẩu",
+        "Tệp âm thanh giấy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vị trí và hướng nhân vật."
+    },
+    {
+      "question": "Trước khi ghép lệnh để thể hiện ý tưởng, em nên làm gì?",
+      "options": [
+        "Xác định nhân vật cần thực hiện những bước nào",
+        "Đặt lệnh ngẫu nhiên",
+        "Tắt phần mềm",
+        "Xóa nhân vật"
+      ],
+      "correctIndex": 0,
+      "explanation": "Xác định nhân vật cần thực hiện những bước nào."
+    },
+    {
+      "question": "Kịch bản yêu cầu mèo nói ở sân trường rồi chuyển sang lớp học. Trình tự lệnh nào phù hợp?",
+      "options": [
+        "Đổi nền lớp học trước khi mèo nói ở sân trường",
+        "Chỉ thêm hai nền mà không có lệnh",
+        "Chỉ đổi tên nhân vật",
+        "Đặt nền sân trường, cho mèo nói, rồi đổi nền lớp học"
+      ],
+      "correctIndex": 3,
+      "explanation": "Các lệnh cần theo đúng trình tự của kịch bản."
+    },
+    {
+      "question": "Kịch bản cần mèo nói lời chào ở sân trường rồi chuyển sang lớp học. Em nên tổ chức chương trình thế nào?",
+      "options": [
+        "Chỉ đổi tên nhân vật",
+        "Chọn nền sân trường, cho mèo nói, rồi đổi sang nền lớp học",
+        "Đổi nền lớp học trước rồi mới cho mèo nói ở sân trường",
+        "Chỉ thêm hai nền mà không có lệnh"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thứ tự lệnh cần bám kịch bản: bối cảnh sân trường và lời chào trước, chuyển cảnh sau."
+    },
+    {
+      "question": "Một chương trình trực quan được tạo từ gì?",
+      "options": [
+        "Các khối lệnh ghép theo trình tự",
+        "Chỉ màu sắc màn hình",
+        "Chỉ âm lượng loa",
+        "Chỉ hình nền"
+      ],
+      "correctIndex": 0,
+      "explanation": "Các khối lệnh ghép theo trình tự."
+    },
+    {
+      "question": "Để bạn khác chạy chương trình, em cần chia sẻ gì?",
+      "options": [
+        "Máy in",
+        "Tệp dự án hoặc cách mở dự án phù hợp",
+        "Mật khẩu riêng",
+        "Dây điện"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tệp dự án hoặc cách mở dự án phù hợp."
+    },
+    {
+      "question": "Chương trình Scratch chạy nhưng nhân vật không làm đúng ý. Em nên kiểm tra gì trước khi chia sẻ?",
+      "options": [
+        "Chỉ tăng âm lượng",
+        "Chia sẻ ngay vì chương trình đã chạy",
+        "Các khối lệnh, giá trị và thứ tự rồi chạy thử lại",
+        "Chỉ đổi tên dự án"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chạy được chưa đủ; cần đối chiếu kết quả với ý tưởng và sửa lệnh liên quan."
+    }
+  ]
+}

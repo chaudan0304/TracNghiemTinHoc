@@ -1,0 +1,230 @@
+{
+  "id": "lop-5-on-tap-hoc-ki-2",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Ôn tập học kì II (Bài 9A–16)",
+  "gameTitle": "ÔN TẬP TIN HỌC LỚP 5",
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
+  "questions": [
+    {
+      "question": "Trước khi tạo một tấm thiệp số, em nên làm gì?",
+      "options": [
+        "Xác định nội dung, hình và bố cục",
+        "Vẽ ngẫu nhiên không xem yêu cầu",
+        "Xóa mọi công cụ",
+        "Tắt phần mềm"
+      ],
+      "correctIndex": 0,
+      "explanation": "Xác định nội dung, hình và bố cục."
+    },
+    {
+      "question": "Trong cấu trúc tuần tự, các lệnh được thực hiện như thế nào?",
+      "options": [
+        "Lần lượt theo thứ tự",
+        "Ngẫu nhiên",
+        "Chỉ lệnh cuối",
+        "Chỉ khi có Internet"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lần lượt theo thứ tự."
+    },
+    {
+      "question": "Chương trình đặt điểm về 0 rồi cộng 1. Nếu đổi thứ tự hai lệnh, điểm cuối là bao nhiêu khi bắt đầu từ 5?",
+      "options": [
+        "6",
+        "0",
+        "1",
+        "5"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cộng 1 trước đưa điểm từ 5 lên 6, sau đó lệnh đặt về 0 ghi đè kết quả."
+    },
+    {
+      "question": "Biến điểm bắt đầu bằng 1. Lệnh tăng điểm thêm 2 nằm trong khối lặp 4 lần. Giá trị cuối là bao nhiêu?",
+      "options": [
+        "8",
+        "3",
+        "5",
+        "9"
+      ],
+      "correctIndex": 3,
+      "explanation": "Bốn lần tăng thêm 2 tạo thêm 8 điểm; cộng với 1 ban đầu được 9."
+    },
+    {
+      "question": "Cấu trúc lặp dùng để làm gì?",
+      "options": [
+        "Thực hiện lại một nhóm lệnh",
+        "Chỉ chạy lệnh một lần",
+        "Xóa chương trình",
+        "Đổi màu máy tính"
+      ],
+      "correctIndex": 0,
+      "explanation": "Thực hiện lại một nhóm lệnh."
+    },
+    {
+      "question": "Trong khối lặp 4 lần có lệnh tăng điểm thêm 2. Điểm bắt đầu là 1. Điểm cuối là bao nhiêu?",
+      "options": [
+        "5",
+        "9",
+        "8",
+        "3"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mỗi vòng tăng 2 điểm; bốn vòng tăng 8, cộng điểm ban đầu 1 được 9."
+    },
+    {
+      "question": "Muốn vẽ hình vuông bằng lặp, thao tác nào thường được lặp 4 lần?",
+      "options": [
+        "Đi thẳng một cạnh rồi quay 90 độ",
+        "Chỉ nói lời chào",
+        "Chỉ đổi màu nền",
+        "Đi thẳng rồi quay 180 độ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Đi thẳng một cạnh rồi quay 90 độ."
+    },
+    {
+      "question": "Chương trình đặt điểm về 0 rồi cộng 1. Nếu đảo thứ tự hai lệnh và điểm ban đầu là 5, điểm cuối là gì?",
+      "options": [
+        "5",
+        "6",
+        "0",
+        "1"
+      ],
+      "correctIndex": 2,
+      "explanation": "Sau khi cộng 1, lệnh đặt điểm về 0 chạy cuối và ghi đè giá trị trước đó."
+    },
+    {
+      "question": "Chương trình vẽ hình vuông lặp bốn lần 'đi 50 bước, quay 90 độ'. Nếu chỉ đổi 50 thành 80, điều gì xảy ra?",
+      "options": [
+        "Hình biến mất",
+        "Hình vuông lớn hơn, số cạnh không đổi",
+        "Hình thành tam giác",
+        "Số cạnh tăng thành tám"
+      ],
+      "correctIndex": 1,
+      "explanation": "Độ dài cạnh tăng lên 80 bước; bốn vòng và góc quay 90 độ vẫn tạo bốn cạnh."
+    },
+    {
+      "question": "Cấu trúc rẽ nhánh cho phép chương trình làm gì?",
+      "options": [
+        "Chọn hành động tùy điều kiện",
+        "Luôn lặp vô hạn",
+        "Chỉ chạy lệnh đầu",
+        "Tự thay phần cứng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chọn hành động tùy điều kiện."
+    },
+    {
+      "question": "Chương trình: nếu điểm ≥ 10 thì nói 'Thắng', nếu không thì nói 'Thử lại'. Điểm đang là 9. Nhân vật nói gì?",
+      "options": [
+        "Không câu nào dù có nhánh nếu không",
+        "Thử lại",
+        "Thắng",
+        "Cả hai câu cùng lúc"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vì 9 chưa đạt 10, chương trình chạy nhánh 'nếu không'."
+    },
+    {
+      "question": "Nếu điểm hiện là 9, lệnh 'nếu điểm ≥ 10 thì nói Thắng, nếu không thì nói Thử lại' cho kết quả nào?",
+      "options": [
+        "Không câu nào",
+        "Thử lại",
+        "Thắng",
+        "Cả hai câu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vì 9 nhỏ hơn 10 nên chương trình thực hiện nhánh 'nếu không'."
+    },
+    {
+      "question": "Biến trong chương trình dùng để làm gì?",
+      "options": [
+        "Lưu một giá trị có thể thay đổi",
+        "Thay dây nguồn",
+        "Tạo bàn phím mới",
+        "Chỉ đổi hình nền"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lưu một giá trị có thể thay đổi."
+    },
+    {
+      "question": "Chương trình đặt biến điểm thành 0, rồi thay đổi điểm một lượng 3 hai lần. Giá trị cuối là gì?",
+      "options": [
+        "9",
+        "6",
+        "3",
+        "0"
+      ],
+      "correctIndex": 1,
+      "explanation": "Biến bắt đầu ở 0; mỗi lần tăng 3 nên sau hai lần có giá trị 6."
+    },
+    {
+      "question": "Biểu thức 4 + 3 cho kết quả nào?",
+      "options": [
+        "7",
+        "1",
+        "12",
+        "43"
+      ],
+      "correctIndex": 0,
+      "explanation": "7."
+    },
+    {
+      "question": "Biến Cạnh bằng 6. Biểu thức nào tính đúng chu vi hình vuông và cho kết quả bao nhiêu?",
+      "options": [
+        "Cạnh × Cạnh = 36",
+        "Cạnh + 4 = 10",
+        "Cạnh / 4 = 1,5",
+        "4 × Cạnh = 24"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chu vi hình vuông bằng bốn lần độ dài cạnh: 4 × 6 = 24."
+    },
+    {
+      "question": "Biến Cạnh bằng 6. Muốn chương trình tính chu vi hình vuông, biểu thức nào đúng và cho kết quả bao nhiêu?",
+      "options": [
+        "Cạnh / 4, kết quả 1,5",
+        "4 × Cạnh, kết quả 24",
+        "Cạnh × Cạnh, kết quả 36",
+        "Cạnh + 4, kết quả 10"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chu vi hình vuông bằng bốn lần độ dài cạnh: 4 × 6 = 24."
+    },
+    {
+      "question": "Kịch bản chương trình mô tả điều gì?",
+      "options": [
+        "Những việc nhân vật hoặc chương trình cần thực hiện",
+        "Chỉ màu vỏ máy",
+        "Chỉ giá bàn phím",
+        "Chỉ tên trường"
+      ],
+      "correctIndex": 0,
+      "explanation": "Những việc nhân vật hoặc chương trình cần thực hiện."
+    },
+    {
+      "question": "Kịch bản yêu cầu mèo hỏi tên bạn, chào đúng tên, rồi lặp lời chào hai lần. Chương trình nên dùng thành phần nào?",
+      "options": [
+        "Chỉ đặt biến điểm về 0",
+        "Lệnh hỏi và biến trả lời, kết hợp lời chào trong khối lặp 2 lần",
+        "Chỉ lệnh nói một câu cố định",
+        "Chỉ đổi phông nền"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tên nhập được lưu ở biến trả lời; dùng giá trị đó trong lời chào và lặp hai lần theo kịch bản."
+    },
+    {
+      "question": "Kịch bản yêu cầu mèo hỏi tên bạn, chào đúng tên rồi lặp lời chào hai lần. Chương trình cần gì?",
+      "options": [
+        "Chỉ đổi phông nền",
+        "Chỉ đặt điểm về 0",
+        "Lệnh hỏi, biến trả lời và khối lặp 2 lần",
+        "Chỉ một câu chào cố định"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tên nhập được lưu trong biến trả lời; kết hợp giá trị này với lời chào và lặp theo kịch bản."
+    }
+  ]
+}

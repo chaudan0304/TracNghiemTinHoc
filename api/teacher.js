@@ -49,7 +49,7 @@ return async function handler(request, response) {
         const className = url.searchParams.get('className')?.trim() || '';
         if (className.length > 30) return json(response, 400, { error: 'INVALID_FILTER' });
 
-        const gradeTotals = { '3': 16, '4': 19, '5': 19, 'all': 54 };
+        const gradeTotals = { '3': 18, '4': 21, '5': 21, 'all': 60 };
 
         if (mode === 'student') {
           const students = await sql`SELECT student_name,

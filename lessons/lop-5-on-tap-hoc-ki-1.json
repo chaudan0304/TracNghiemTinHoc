@@ -1,0 +1,230 @@
+{
+  "id": "lop-5-on-tap-hoc-ki-1",
+  "subjectBadge": "TIN HỌC LỚP 5",
+  "lessonTitle": "Ôn tập học kì I (Bài 1–8A)",
+  "gameTitle": "ÔN TẬP TIN HỌC LỚP 5",
+  "pointsPerQuestion": 0.5,
+  "timeLimitSeconds": 900,
+  "questions": [
+    {
+      "question": "Máy tính có thể giúp em làm việc nào?",
+      "options": [
+        "Học tập, tạo sản phẩm và trao đổi thông tin",
+        "Tự thay em làm mọi việc",
+        "Tạo thức ăn thật",
+        "Đảm bảo mọi nội dung đều đúng"
+      ],
+      "correctIndex": 0,
+      "explanation": "Học tập, tạo sản phẩm và trao đổi thông tin."
+    },
+    {
+      "question": "Máy tính có thể giúp em tạo bài giới thiệu bằng gì?",
+      "options": [
+        "Ổ cắm",
+        "Chuột hỏng",
+        "Phần mềm trình chiếu",
+        "Dây cáp"
+      ],
+      "correctIndex": 2,
+      "explanation": "Phần mềm trình chiếu."
+    },
+    {
+      "question": "Để tìm nội dung trong một website có ô tìm kiếm, em cần làm gì?",
+      "options": [
+        "Nhập từ khóa vào ô tìm kiếm của website",
+        "Tắt trang web",
+        "Xóa địa chỉ web",
+        "Đổi tên máy tính"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nhập từ khóa vào ô tìm kiếm của website."
+    },
+    {
+      "question": "Hai trang hướng dẫn chăm cây khác nhau. Một trang không ghi nguồn, trang còn lại do đơn vị chuyên môn đăng và hợp điều kiện nhà em. Em nên làm gì?",
+      "options": [
+        "Tin trang không ghi nguồn vì ngắn hơn",
+        "Chép cả hai như đều đúng",
+        "Bỏ qua điều kiện thực tế",
+        "Kiểm tra và ưu tiên hướng dẫn từ nguồn chuyên môn phù hợp"
+      ],
+      "correctIndex": 3,
+      "explanation": "Giải pháp cần dựa trên nguồn đáng tin và phù hợp hoàn cảnh áp dụng."
+    },
+    {
+      "question": "Khi từ khóa không có kết quả, em có thể làm gì?",
+      "options": [
+        "Thử từ khóa khác gần nghĩa hoặc cụ thể hơn",
+        "Nhập mật khẩu",
+        "Xóa website",
+        "Tắt máy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Thử từ khóa khác gần nghĩa hoặc cụ thể hơn."
+    },
+    {
+      "question": "Trước khi tìm thông tin để giải quyết vấn đề, em nên làm gì?",
+      "options": [
+        "Xác định mình cần biết điều gì",
+        "Gõ từ khóa bất kì",
+        "Sao chép trang đầu",
+        "Tắt trình duyệt"
+      ],
+      "correctIndex": 0,
+      "explanation": "Xác định mình cần biết điều gì."
+    },
+    {
+      "question": "Hai trang đưa cách chăm một cây khác nhau. Trang thứ nhất không ghi nguồn, trang thứ hai là hướng dẫn của đơn vị chuyên môn và hợp điều kiện nhà em. Em nên làm gì?",
+      "options": [
+        "Bỏ qua điều kiện thực tế của nhà",
+        "Ưu tiên kiểm tra và vận dụng hướng dẫn từ nguồn chuyên môn phù hợp",
+        "Tin trang không ghi nguồn vì ngắn hơn",
+        "Chép cả hai mà không đối chiếu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Giải pháp cần dựa trên nguồn đáng tin và phù hợp điều kiện áp dụng."
+    },
+    {
+      "question": "Có hai tệp cùng tên 'Bài 1' ở thư mục Toán và Tiếng Việt. Em muốn mở bài Toán. Cách nào chắc chắn nhất?",
+      "options": [
+        "Đổi tên cả hai thành giống nhau",
+        "Xóa thư mục Tiếng Việt",
+        "Kiểm tra đường dẫn và chọn tệp trong thư mục Toán",
+        "Chọn tệp hiện đầu tiên"
+      ],
+      "correctIndex": 2,
+      "explanation": "Đường dẫn phân biệt các tệp cùng tên ở những thư mục khác nhau."
+    },
+    {
+      "question": "Trong cây thư mục, thư mục con nằm ở đâu?",
+      "options": [
+        "Bên trong một thư mục khác",
+        "Trong bàn phím",
+        "Trên loa",
+        "Ngoài máy tính"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bên trong một thư mục khác."
+    },
+    {
+      "question": "Có hai tệp cùng tên Bài 1 trong Toán và Tiếng Việt. Em muốn mở bài Toán. Cách nào chắc chắn hơn?",
+      "options": [
+        "Xóa thư mục Tiếng Việt",
+        "Kiểm tra đường dẫn và chọn tệp trong thư mục Toán",
+        "Chọn tệp hiện đầu tiên bất kể vị trí",
+        "Đổi tên cả hai tệp giống nhau"
+      ],
+      "correctIndex": 1,
+      "explanation": "Đường dẫn phân biệt các tệp cùng tên nằm ở những thư mục khác nhau."
+    },
+    {
+      "question": "Ai thường có quyền đối với một bức ảnh do mình sáng tạo?",
+      "options": [
+        "Người sáng tạo hoặc chủ sở hữu hợp pháp",
+        "Bất cứ ai xem ảnh",
+        "Người tải ảnh về đầu tiên",
+        "Người đổi tên tệp"
+      ],
+      "correctIndex": 0,
+      "explanation": "Người sáng tạo hoặc chủ sở hữu hợp pháp."
+    },
+    {
+      "question": "Tác giả cho phép dùng ảnh nếu ghi tên. Em đưa ảnh vào bài viết của mình thì phải làm gì?",
+      "options": [
+        "Không cần xem điều kiện vì ảnh miễn phí",
+        "Ghi tên tác giả theo điều kiện sử dụng",
+        "Xóa tên tác giả",
+        "Nhận mình đã chụp ảnh"
+      ],
+      "correctIndex": 1,
+      "explanation": "Được dùng ảnh theo điều kiện không có nghĩa được bỏ yêu cầu ghi công tác giả."
+    },
+    {
+      "question": "Lan muốn đưa ảnh của một tác giả vào bài trình chiếu. Trang ảnh cho phép dùng khi ghi tên tác giả. Lan nên làm gì?",
+      "options": [
+        "Không cần đọc điều kiện vì ảnh xem được",
+        "Dùng ảnh và ghi tên tác giả theo điều kiện",
+        "Dùng ảnh rồi xóa tên tác giả",
+        "Nói mình chụp ảnh"
+      ],
+      "correctIndex": 1,
+      "explanation": "Quyền sử dụng do tác giả nêu cần được tuân thủ, kể cả khi ảnh được dùng miễn phí."
+    },
+    {
+      "question": "Định dạng kí tự có thể thay đổi điều gì?",
+      "options": [
+        "Phông, cỡ, màu và kiểu chữ",
+        "Tên ổ cắm",
+        "Vị trí bàn phím",
+        "Tốc độ quạt"
+      ],
+      "correctIndex": 0,
+      "explanation": "Phông, cỡ, màu và kiểu chữ."
+    },
+    {
+      "question": "Muốn nhấn mạnh tiêu đề trong văn bản, em có thể làm gì?",
+      "options": [
+        "Che bằng ảnh",
+        "Đổi dây cáp",
+        "Tăng cỡ và in đậm phù hợp",
+        "Thu nhỏ hết mức"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tăng cỡ và in đậm phù hợp."
+    },
+    {
+      "question": "Em muốn chuyển đoạn mở đầu xuống cuối văn bản, không giữ bản cũ. Thao tác nào phù hợp?",
+      "options": [
+        "Sao chép đoạn rồi dán ở cuối",
+        "Chỉ đổi phông chữ",
+        "Xóa đoạn mà không dán",
+        "Cắt đoạn rồi dán ở cuối"
+      ],
+      "correctIndex": 3,
+      "explanation": "Cắt rồi dán di chuyển nội dung; sao chép sẽ để lại bản gốc."
+    },
+    {
+      "question": "Trước khi soạn một văn bản, em nên xác định gì?",
+      "options": [
+        "Nội dung và cách trình bày cần có",
+        "Màu dây điện",
+        "Số phím trên chuột",
+        "Tên máy in của bạn"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nội dung và cách trình bày cần có."
+    },
+    {
+      "question": "Em cần đưa đoạn mở đầu xuống cuối văn bản và không để bản sao ở đầu. Em chọn cách nào?",
+      "options": [
+        "Chỉ thay phông chữ",
+        "Cắt đoạn rồi dán ở cuối",
+        "Sao chép đoạn rồi dán ở cuối",
+        "Chỉ in văn bản"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cắt rồi dán di chuyển đoạn; sao chép sẽ giữ bản cũ và tạo bản mới."
+    },
+    {
+      "question": "Phần mềm đồ họa giúp em làm gì?",
+      "options": [
+        "Tạo và chỉnh sửa hình vẽ",
+        "Chỉ tính toán",
+        "Chỉ phát nhạc",
+        "Chỉ gõ phím"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tạo và chỉnh sửa hình vẽ."
+    },
+    {
+      "question": "Tấm thiệp số có chữ cùng màu với nền và ảnh che mất lời chúc. Em nên sửa gì?",
+      "options": [
+        "Thêm ảnh đè lên",
+        "Giữ nguyên vì đã có đủ chữ",
+        "Đổi màu chữ cho rõ và bố trí lại ảnh",
+        "Thu nhỏ chữ hơn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chữ cần dễ đọc và ảnh phải hỗ trợ, không che nội dung chính."
+    }
+  ]
+}
