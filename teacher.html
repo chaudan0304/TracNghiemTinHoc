@@ -479,10 +479,15 @@
         <p id="selected-lesson-name" class="selected-lesson-name" aria-live="polite"></p>
 
         <section aria-labelledby="question-stats-title" style="background: white; border: 1px solid #cdebdc; border-radius: 18px; padding: 18px; margin: 16px 0 22px;">
-          <h3 id="question-stats-title" style="color: #064e3b; margin: 0 0 5px;">📊 Câu hỏi học sinh thường sai</h3>
-          <p style="color: var(--muted); margin: 0 0 14px; font-size: .88rem;">Tính trên toàn bộ lượt nộp của bài và bộ lọc hiện tại, kể cả các lượt chưa hiển thị trong bảng bên dưới.</p>
-          <p id="question-stats-status" role="status" style="font-weight: 700; color: var(--muted); margin: 0 0 10px;"></p>
-          <div id="question-stats-list" style="display: grid; gap: 12px;"></div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+            <h3 id="question-stats-title" style="color: #064e3b; margin: 0;">📊 Câu hỏi học sinh thường sai</h3>
+            <button id="question-stats-toggle" type="button" class="btn btn-secondary" aria-controls="question-stats-body" aria-expanded="true">Ẩn thống kê</button>
+          </div>
+          <div id="question-stats-body" style="margin-top: 12px;">
+            <p style="color: var(--muted); margin: 0 0 14px; font-size: .88rem;">Tính trên toàn bộ lượt nộp của bài và bộ lọc hiện tại, kể cả các lượt chưa hiển thị trong bảng bên dưới.</p>
+            <p id="question-stats-status" role="status" style="font-weight: 700; color: var(--muted); margin: 0 0 10px;"></p>
+            <div id="question-stats-list" style="display: grid; gap: 12px;"></div>
+          </div>
         </section>
 
         <!-- Bảng kết quả -->
@@ -642,6 +647,23 @@
     const selectedLessonName = document.getElementById('selected-lesson-name');
     const questionStatsStatus = document.getElementById('question-stats-status');
     const questionStatsList = document.getElementById('question-stats-list');
+    const questionStatsBody = document.getElementById('question-stats-body');
+    const questionStatsToggle = document.getElementById('question-stats-toggle');
+    function setQuestionStatsVisible(visible) {
+      questionStatsBody.hidden = !visible;
+      questionStatsToggle.setAttribute('aria-expanded', String(visible));
+      questionStatsToggle.textContent = visible ? 'Ẩn thống kê' : 'Hiện thống kê';
+    }
+    try {
+      setQuestionStatsVisible(localStorage.getItem('teacher-question-stats-hidden') !== '1');
+    } catch {
+      setQuestionStatsVisible(true);
+    }
+    questionStatsToggle.addEventListener('click', () => {
+      const visible = questionStatsBody.hidden;
+      setQuestionStatsVisible(visible);
+      try { localStorage.setItem('teacher-question-stats-hidden', visible ? '0' : '1'); } catch {}
+    });
     const classFilter = document.getElementById('class-filter');
     const searchInput = document.getElementById('search-input');
     const refreshBtn = document.getElementById('refresh-btn');
