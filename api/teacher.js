@@ -1,4 +1,5 @@
-import { database, ensureTable, equalSecret, isTeacher, json, loginClientKey, sessionToken } from '../lib/server.js';
+import { database, ensureTable, equalSecret, isTeacher, json, loadLesson, loginClientKey, sessionToken } from '../lib/server.js';
+import { summarizeQuestionResponses } from '../lib/question-stats.js';
 
 export function createTeacherHandler(getDatabase = database, prepare = ensureTable) {
 return async function handler(request, response) {
@@ -84,6 +85,26 @@ return async function handler(request, response) {
       const lessonId = url.searchParams.get('lessonId') || '';
       const offset = Math.max(0, Math.min(100000, Number(url.searchParams.get('offset')) || 0));
       if (!/^[a-z0-9-]{1,64}$/.test(lessonId)) return json(response, 400, { error: 'INVALID_LESSON' });
+      if (type === 'classes') {
+        const classes = await sql`SELECT DISTINCT class_name FROM quiz_attempts
+          WHERE lesson_id = ${lessonId} ORDER BY class_name`;
+        return json(response, 200, { classes: classes.map(row => row.class_name) });
+      }
+      if (url.searchParams.get('questionStats') === '1') {
+        const className = url.searchParams.get('className') || '';
+        const search = url.searchParams.get('search')?.trim() || '';
+        if (className.length > 30 || search.length > 100) return json(response, 400, { error: 'INVALID_FILTER' });
+        const lesson = await loadLesson(lessonId);
+        const counts = await sql`SELECT (item.ordinal - 1)::int AS question_index,
+          item.answer AS answer, COUNT(*)::int AS count
+          FROM quiz_attempts AS attempt
+          CROSS JOIN LATERAL jsonb_array_elements_text(attempt.answers) WITH ORDINALITY AS item(answer, ordinal)
+          WHERE attempt.lesson_id = ${lessonId}
+          AND (${className} = '' OR attempt.class_name = ${className})
+          AND (${search} = '' OR position(lower(${search}) in lower(attempt.student_name)) > 0)
+          GROUP BY item.ordinal, item.answer`;
+        return json(response, 200, { questions: summarizeQuestionResponses(lesson, counts) });
+      }
       if (url.searchParams.get('stats') === '1') {
         const className = url.searchParams.get('className') || '';
         const search = url.searchParams.get('search')?.trim() || '';

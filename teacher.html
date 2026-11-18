@@ -478,6 +478,13 @@
         </div>
         <p id="selected-lesson-name" class="selected-lesson-name" aria-live="polite"></p>
 
+        <section aria-labelledby="question-stats-title" style="background: white; border: 1px solid #cdebdc; border-radius: 18px; padding: 18px; margin: 16px 0 22px;">
+          <h3 id="question-stats-title" style="color: #064e3b; margin: 0 0 5px;">📊 Câu hỏi học sinh thường sai</h3>
+          <p style="color: var(--muted); margin: 0 0 14px; font-size: .88rem;">Tính trên toàn bộ lượt nộp của bài và bộ lọc hiện tại, kể cả các lượt chưa hiển thị trong bảng bên dưới.</p>
+          <p id="question-stats-status" role="status" style="font-weight: 700; color: var(--muted); margin: 0 0 10px;"></p>
+          <div id="question-stats-list" style="display: grid; gap: 12px;"></div>
+        </section>
+
         <!-- Bảng kết quả -->
         <div class="table-responsive">
           <table>
@@ -633,6 +640,8 @@
     const lessonSearch = document.getElementById('lesson-search');
     const lessonSelect = document.getElementById('lesson-select');
     const selectedLessonName = document.getElementById('selected-lesson-name');
+    const questionStatsStatus = document.getElementById('question-stats-status');
+    const questionStatsList = document.getElementById('question-stats-list');
     const classFilter = document.getElementById('class-filter');
     const searchInput = document.getElementById('search-input');
     const refreshBtn = document.getElementById('refresh-btn');
@@ -1149,6 +1158,8 @@
       if (!lessonId) return;
       const params = new URLSearchParams({ lessonId, stats: '1', search: searchInput.value.trim() });
       if (classFilter.value !== 'ALL') params.set('className', classFilter.value);
+      questionStatsStatus.textContent = 'Đang tải thống kê từng câu...';
+      questionStatsList.replaceChildren();
       try {
         const { stats } = await api(`/api/teacher?${params}`);
         if (requestId !== statsRequestId) return;
@@ -1156,14 +1167,60 @@
         document.getElementById('stat-avg').textContent = Number(stats.avg).toFixed(1);
         document.getElementById('stat-max').textContent = Number(stats.max).toFixed(1);
         document.getElementById('stat-good-ratio').textContent = `${stats.goodRatio}%`;
+        params.delete('stats');
+        params.set('questionStats', '1');
+        const { questions } = await api(`/api/teacher?${params}`);
+        if (requestId !== statsRequestId) return;
+        renderQuestionStats(questions);
       } catch (error) {
-        if (requestId === statsRequestId) console.error('Không tải được thống kê:', error);
+        if (requestId === statsRequestId) {
+          questionStatsStatus.textContent = 'Không tải được thống kê từng câu.';
+          console.error('Không tải được thống kê:', error);
+        }
+      }
+    }
+
+    function renderQuestionStats(questions) {
+      questionStatsList.replaceChildren();
+      const attempted = questions.filter(q => q.total > 0);
+      if (!attempted.length) {
+        questionStatsStatus.textContent = 'Chưa có lượt làm phù hợp bộ lọc.';
+        return;
+      }
+      questionStatsStatus.textContent = `Đã thống kê ${attempted.length} câu; xếp theo số lượt trả lời sai.`;
+      attempted.sort((a, b) => b.wrongCount - a.wrongCount || a.questionIndex - b.questionIndex);
+      for (const q of attempted) {
+        const card = document.createElement('article');
+        card.style.cssText = 'background:#f8fffb;border:1px solid #cdebdc;border-radius:14px;padding:14px;';
+        const title = document.createElement('h4');
+        title.style.cssText = 'margin:0 0 8px;color:#064e3b;font-size:.96rem;';
+        title.textContent = `Câu ${q.questionIndex + 1}. ${q.question}`;
+        const summary = document.createElement('p');
+        summary.style.cssText = 'margin:0 0 9px;color:#334155;font-size:.86rem;font-weight:700;';
+        summary.textContent = `${q.wrongCount}/${q.total} lượt sai • ${q.correctCount} đúng • ${q.unansweredCount} bỏ trống`;
+        const bar = document.createElement('div');
+        bar.setAttribute('role', 'img');
+        bar.setAttribute('aria-label', `Tỉ lệ trả lời sai: ${Math.round(q.wrongCount * 100 / q.total)} phần trăm`);
+        bar.style.cssText = 'height:8px;background:#dceee5;border-radius:999px;overflow:hidden;margin-bottom:9px;';
+        const fill = document.createElement('div');
+        fill.style.cssText = `height:100%;width:${q.wrongCount * 100 / q.total}%;background:#e05a47;`;
+        bar.append(fill);
+        const options = document.createElement('div');
+        options.style.cssText = 'display:grid;gap:4px;font-size:.84rem;color:#334155;';
+        q.options.forEach((option, index) => {
+          const line = document.createElement('div');
+          line.textContent = `${'ABCD'[index]}. ${option} — ${q.optionCounts[index]} lượt chọn${index === q.correctIndex ? ' (đáp án đúng)' : ''}`;
+          if (index === q.correctIndex) line.style.color = '#047857';
+          options.append(line);
+        });
+        card.append(title, summary, bar, options);
+        questionStatsList.append(card);
       }
     }
 
     function updateClassFilterOptions(items) {
       const currentSelected = classFilter.value;
-      const classes = Array.from(new Set(items.map(r => r.class_name).filter(Boolean))).sort();
+      const classes = Array.from(new Set(items.filter(Boolean))).sort();
       classFilter.replaceChildren();
       const allOpt = document.createElement('option');
       allOpt.value = 'ALL';
@@ -1179,6 +1236,11 @@
       if (classes.includes(currentSelected)) {
         classFilter.value = currentSelected;
       }
+    }
+
+    async function fetchClassOptions(lessonId) {
+      const { classes } = await api(`/api/teacher?type=classes&lessonId=${encodeURIComponent(lessonId)}`);
+      if (lessonSelect.value === lessonId) updateClassFilterOptions(classes);
     }
 
     function renderTable() {
@@ -1271,7 +1333,7 @@
               body: JSON.stringify({ id: r.id })
             });
             allRows = allRows.filter(item => item.id !== r.id);
-            updateClassFilterOptions(allRows);
+            await fetchClassOptions(lessonSelect.value);
             renderTable();
             fetchStats();
           } catch (err) {
@@ -1300,6 +1362,8 @@
           tableStatus.textContent = 'Không tìm thấy bài học phù hợp.';
           for (const id of ['stat-total', 'stat-avg', 'stat-max']) document.getElementById(id).textContent = '0';
           document.getElementById('stat-good-ratio').textContent = '0%';
+          questionStatsList.replaceChildren();
+          questionStatsStatus.textContent = '';
           return;
         }
 
@@ -1311,7 +1375,8 @@
         offset += data.rows.length;
         loadMoreBtn.hidden = data.rows.length < 100;
 
-        updateClassFilterOptions(allRows);
+        if (reset) await fetchClassOptions(lessonId);
+        if (requestId !== resultsRequestId) return;
         renderTable();
         if (reset) fetchStats();
       } catch (e) {
@@ -1468,8 +1533,9 @@
           const test = await api(`/api/teacher?lessonId=${encodeURIComponent(firstLesson)}&offset=0`);
           showDashboard();
           allRows = test.rows;
-          updateClassFilterOptions(allRows);
+          await fetchClassOptions(firstLesson);
           renderTable();
+          fetchStats();
         }
       } catch (e) {
         showLogin();

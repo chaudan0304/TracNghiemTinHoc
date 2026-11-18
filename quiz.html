@@ -463,6 +463,15 @@
         <!-- Các nút hành động dành cho học sinh -->
         <div class="flex flex-wrap items-center justify-center gap-3 mb-6">
           <button
+            id="retry-wrong-btn"
+            type="button"
+            onclick="retryWrongQuestions()"
+            class="hidden btn-3d-emerald text-white font-black text-sm sm:text-base px-6 py-3 rounded-2xl inline-flex items-center gap-2 cursor-pointer"
+          >
+            <span>🎯</span>
+            <span id="retry-wrong-text">Ôn lại câu chưa đúng</span>
+          </button>
+          <button
             id="toggle-review-btn"
             type="button"
             onclick="toggleReviewList()"
@@ -519,6 +528,7 @@
 
   <!-- ==================== MÃ NGUỒN JAVASCRIPT ĐIỀU KHIỂN ==================== -->
   <script type="module">
+    import { selectIncorrectQuestions } from '/lib/retry-questions.js';
     /**
      * =========================================================================
      * 0. KẾT NỐI ĐỒNG BỘ DỮ LIỆU TRỰC TUYẾN (Học sinh nộp bài -> Giáo viên xem)
@@ -671,7 +681,8 @@
       timeLeft: LESSON_CONFIG.timeLimitSeconds,
       timerInterval: null,
       timedOut: false,
-      submitted: false
+      submitted: false,
+      retryMode: false
     };
 
     const OPTION_LABELS = ["A", "B", "C", "D"];
@@ -803,6 +814,7 @@
       state.timeLeft = LESSON_CONFIG.timeLimitSeconds;
       state.timedOut = false;
       state.submitted = false;
+      state.retryMode = false;
 
       buildShuffledQuestions();
 
@@ -819,6 +831,27 @@
       soundFX.playClick();
       stopTimer();
       showScreen("screen-welcome");
+    }
+
+    function retryWrongQuestions() {
+      const remaining = selectIncorrectQuestions(shuffledQuestions, state.userAnswers);
+      if (!state.submitted || remaining.length === 0) return;
+      soundFX.playClick();
+      shuffledQuestions = shuffle([...remaining]);
+      state.retryMode = true;
+      state.currentIndex = 0;
+      state.score = 0;
+      state.answered = false;
+      state.userAnswers = [];
+      state.reviewVisible = false;
+      state.timeLeft = LESSON_CONFIG.timeLimitSeconds;
+      state.timedOut = false;
+      state.submitted = false;
+      document.getElementById('review-container').classList.add('hidden');
+      document.getElementById('toggle-review-text').textContent = 'Xem lại bài làm';
+      showScreen('screen-quiz');
+      renderQuestion();
+      startTimer();
     }
 
     function renderDotsBar() {
@@ -980,6 +1013,10 @@
       document.getElementById("result-correct-count").textContent = `${correctCount} / ${totalQuestions}`;
       document.getElementById("result-time-taken").textContent = timeUsedFormatted;
       document.getElementById("result-score").textContent = `${finalScoreStr} / ${maxScore}`;
+      const remaining = selectIncorrectQuestions(shuffledQuestions, state.userAnswers);
+      const retryButton = document.getElementById('retry-wrong-btn');
+      retryButton.classList.toggle('hidden', remaining.length === 0);
+      document.getElementById('retry-wrong-text').textContent = `Ôn lại ${remaining.length} câu chưa đúng`;
 
       const timeoutBanner = document.getElementById("result-timeout-banner");
       if (state.timedOut) {
@@ -1010,6 +1047,11 @@
 
 
       const statusBanner = document.getElementById("result-submit-status");
+      if (state.retryMode) {
+        statusBanner.textContent = '🎯 Lượt ôn lại chỉ để luyện tập, không ghi thêm vào bảng điểm.';
+        statusBanner.className = 'mt-3 text-center text-xs font-extrabold text-[#047857]';
+        return;
+      }
       statusBanner.textContent = "📤 Đang gửi kết quả làm bài tới thầy/cô giáo...";
       statusBanner.className = "mt-3 text-center text-xs font-extrabold text-[#047857]";
 
@@ -1166,7 +1208,8 @@
       restartGame,
       selectAnswer,
       nextQuestion,
-      toggleReviewList
+      toggleReviewList,
+      retryWrongQuestions
     });
 
     if (document.readyState === "loading") window.addEventListener("DOMContentLoaded", initApp); else initApp();

@@ -188,6 +188,49 @@ test('teacher statistics cover the full lesson with class and name filters', asy
   }
 });
 
+test('teacher question statistics use every stored answer with class and name filters', async () => {
+  const previous = process.env.SESSION_SECRET;
+  process.env.SESSION_SECRET = 'test-secret';
+  const queries = [];
+  const sql = async (strings, ...values) => {
+    const query = strings.join('?');
+    queries.push({ query, values });
+    assert.match(query, /jsonb_array_elements_text/);
+    return [{ question_index: 0, answer: '0', count: 2 }, { question_index: 0, answer: null, count: 1 }];
+  };
+  try {
+    const handler = createTeacherHandler(() => sql, async () => {});
+    const result = response();
+    await handler({ method: 'GET', headers: { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` }, url: '/api/teacher?lessonId=lop-4-bai-6&questionStats=1&className=4A1&search=An' }, result);
+    assert.equal(result.code, 200);
+    assert.equal(result.body.questions.length, 20);
+    assert.equal(result.body.questions[0].wrongCount + result.body.questions[0].correctCount, 2);
+    assert.equal(result.body.questions[0].unansweredCount, 1);
+    assert.deepEqual(queries[0].values, ['lop-4-bai-6', '4A1', '4A1', 'An', 'An']);
+  } finally {
+    if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
+  }
+});
+
+test('teacher lists classes from all attempts for the selected lesson', async () => {
+  const previous = process.env.SESSION_SECRET;
+  process.env.SESSION_SECRET = 'test-secret';
+  const sql = async (strings, ...values) => {
+    assert.match(strings.join('?'), /SELECT DISTINCT class_name/);
+    assert.deepEqual(values, ['lop-4-bai-6']);
+    return [{ class_name: '4A1' }, { class_name: '4A2' }];
+  };
+  try {
+    const handler = createTeacherHandler(() => sql, async () => {});
+    const result = response();
+    await handler({ method: 'GET', headers: { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` }, url: '/api/teacher?lessonId=lop-4-bai-6&type=classes' }, result);
+    assert.equal(result.code, 200);
+    assert.deepEqual(result.body.classes, ['4A1', '4A2']);
+  } finally {
+    if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
+  }
+});
+
 test('teacher ranking returns class list and grade totals', async () => {
   const previous = process.env.SESSION_SECRET;
   process.env.SESSION_SECRET = 'test-secret';
