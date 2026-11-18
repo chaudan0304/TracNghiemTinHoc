@@ -1,0 +1,27 @@
+[hidden] { display: none !important; }
+
+@media (max-width: 640px) {
+  header { flex-wrap: wrap; }
+  main { min-width: 0; max-width: 100%; }
+  main .grid { grid-template-columns: minmax(0, 1fr); }
+  #quiz-dots-bar { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+  .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  main .card { min-width: 0; padding: 14px; }
+  .nav-tabs, .pill-group { flex-wrap: wrap; }
+  .tab-btn, .pill-btn { white-space: normal; }
+  .toolbar .filter-group { width: 100%; }
+  .toolbar .filter-item { flex: 1 1 100%; min-width: 0; }
+  .toolbar .filter-item input, .toolbar .filter-item select,
+  #lesson-grade, #lesson-search, #lesson-select {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+  input, select, textarea { font-size: 16px !important; }
+  button, .btn, .btn-start { min-height: 44px; }
+  .table-responsive { max-width: 100%; -webkit-overflow-scrolling: touch; }
+  .table-responsive table { min-width: 650px; }
+  #screen-quiz .option-card { min-height: 48px; overflow-wrap: break-word; }
+  #screen-quiz .option-card > span:last-child { min-width: 0; font-size: 1rem; }
+  #quiz-dots-bar > div { min-width: 0; }
+}

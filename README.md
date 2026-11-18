@@ -4,6 +4,8 @@
 
 ## Cấu trúc dự án
 
+Sau khi chỉnh JavaScript trong `ui/` hoặc đổi lớp CSS Tailwind của trang làm bài, chạy `npm run build:ui` và cập nhật các tệp sinh ra trong `assets/` trước khi triển khai.
+
 - `index.html`: Trang chủ liệt kê các bài học từ `lessons/index.json`.
 - `quiz.html`: Trang làm bài trắc nghiệm tương tác (`/quiz?bai=<id>`).
 - `teacher.html`: Trang quản trị giáo viên (`/teacher`) xem bảng điểm, thống kê toàn bộ lượt nộp theo bộ lọc, xóa lượt nộp và xuất Excel/CSV.
