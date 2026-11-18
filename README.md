@@ -7,6 +7,7 @@
 - `index.html`: Trang chủ liệt kê các bài học từ `lessons/index.json`.
 - `quiz.html`: Trang làm bài trắc nghiệm tương tác (`/quiz?bai=<id>`).
 - `teacher.html`: Trang quản trị giáo viên (`/teacher`) xem bảng điểm, thống kê toàn bộ lượt nộp theo bộ lọc, xóa lượt nộp và xuất Excel/CSV.
+- Mỗi lần mở trang giáo viên cần nhập lại mật khẩu; phiên đăng nhập cũ được xóa khi trang tải.
 - Sau khi nộp bài, học sinh có thể ôn lại riêng các câu trả lời sai hoặc bỏ trống; lượt ôn này không ghi thêm điểm. Giáo viên xem thống kê từng câu và số lượt chọn mỗi đáp án theo bài, lớp, tên học sinh.
 - `lessons/`: Ngân hàng câu hỏi trắc nghiệm dạng JSON.
 - `api/submit.js`: API nhận bài làm, chấm điểm trên máy chủ và lưu vào cơ sở dữ liệu; giới hạn 300 lượt nộp trong 15 phút cho mỗi địa chỉ và bài học.

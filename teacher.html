@@ -1414,13 +1414,19 @@
       authActions.replaceChildren();
     }
 
+    let loginReady = false;
+    const loginBtn = document.getElementById('login-btn');
+    loginBtn.disabled = true;
+    loginBtn.textContent = 'Đang chuẩn bị...';
+
     loginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (!loginReady) return;
+      loginReady = false;
       loginError.textContent = '';
       const password = document.getElementById('password').value;
-      const btn = document.getElementById('login-btn');
-      btn.disabled = true;
-      btn.textContent = 'Đang kiểm tra...';
+      loginBtn.disabled = true;
+      loginBtn.textContent = 'Đang kiểm tra...';
       try {
         await api('/api/teacher', {
           method: 'POST',
@@ -1433,8 +1439,9 @@
       } catch (err) {
         loginError.textContent = err.message;
       } finally {
-        btn.disabled = false;
-        btn.textContent = 'Đăng nhập';
+        loginReady = true;
+        loginBtn.disabled = false;
+        loginBtn.textContent = 'Đăng nhập';
       }
     });
 
@@ -1524,21 +1531,16 @@
       return `${mins}:${String(remainingSecs).padStart(2, '0')}`;
     }
 
-    // Tự động kiểm tra nếu đã có phiên đăng nhập
-    (async function checkExistingSession() {
+    // Mỗi lần mở trang giáo viên đều yêu cầu nhập lại mật khẩu.
+    // Xóa cookie phiên cũ trước khi cho phép gửi biểu mẫu đăng nhập.
+    (async function clearExistingSession() {
       try {
-        await loadLessonList();
-        const firstLesson = lessonSelect.value;
-        if (firstLesson) {
-          const test = await api(`/api/teacher?lessonId=${encodeURIComponent(firstLesson)}&offset=0`);
-          showDashboard();
-          allRows = test.rows;
-          await fetchClassOptions(firstLesson);
-          renderTable();
-          fetchStats();
-        }
+        await api('/api/teacher', { method: 'POST', body: JSON.stringify({ action: 'logout' }) });
+        loginReady = true;
+        loginBtn.disabled = false;
+        loginBtn.textContent = 'Đăng nhập';
       } catch (e) {
-        showLogin();
+        loginError.textContent = 'Không thể chuẩn bị đăng nhập. Vui lòng tải lại trang.';
       }
     })();
   </script>

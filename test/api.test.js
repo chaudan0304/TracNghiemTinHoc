@@ -113,7 +113,7 @@ test('teacher login blocks on the fifth attempt and does not issue a cookie', as
     const handler = createTeacherHandler(() => sql, async () => {});
     for (let i = 1; i <= 5; i++) {
       const result = response();
-      await handler({ method: 'POST', headers: {}, body: { password: 'wrong' } }, result);
+      await handler({ method: 'POST', headers: {}, body: { password: i === 1 ? 'corr' : 'wrong' } }, result);
       assert.equal(result.code, i === 5 ? 429 : 401);
       assert.equal(result.headers['Set-Cookie'], undefined);
     }
