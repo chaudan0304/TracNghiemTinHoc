@@ -1,4 +1,5 @@
 import './compat.js';
+import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/score-levels.js';
     import { csvCell } from '../lib/csv.js';
     const loginSection = document.getElementById('login-section');
     const dashboardSection = document.getElementById('dashboard-section');
@@ -58,7 +59,41 @@ import './compat.js';
     const classesRankingRows = document.getElementById('classes-ranking-rows');
     const studentsTableContainer = document.getElementById('students-table-container');
     const studentsRankingRows = document.getElementById('students-ranking-rows');
+    const studentScoreSummary = document.getElementById('student-score-summary');
+    const studentScoreSummaryTotal = document.getElementById('student-score-summary-total');
+    const studentScoreLevels = [
+      { min: EXCELLENT_SCORE, countElement: document.getElementById('student-score-good') },
+      { min: GOOD_SCORE, countElement: document.getElementById('student-score-fair') },
+      { min: PASS_SCORE, countElement: document.getElementById('student-score-pass') },
+      { min: -Infinity, countElement: document.getElementById('student-score-low') }
+    ];
     const rankingStatus = document.getElementById('ranking-status');
+    const editDialog = document.getElementById('student-edit-dialog');
+    const editForm = document.getElementById('student-edit-form');
+    const editSourceLabel = document.getElementById('student-edit-source');
+    const editName = document.getElementById('student-edit-name');
+    const editClass = document.getElementById('student-edit-class');
+    const editStatus = document.getElementById('student-edit-status');
+    const editCancel = document.getElementById('student-edit-cancel');
+    const editSubmit = document.getElementById('student-edit-submit');
+    let editSource = null;
+
+    const mergeDialog = document.getElementById('student-merge-dialog');
+    const mergeForm = document.getElementById('student-merge-form');
+    const mergeSourceLabel = document.getElementById('student-merge-source');
+    const mergeTarget = document.getElementById('student-merge-target');
+    const mergeStatus = document.getElementById('student-merge-status');
+    const mergeCancel = document.getElementById('student-merge-cancel');
+    const mergeSubmit = document.getElementById('student-merge-submit');
+    const mergeFeedback = document.getElementById('student-merge-feedback');
+    let mergeSource = null;
+
+    const attemptsDialog = document.getElementById('student-attempts-dialog');
+    const attemptsTitle = document.getElementById('student-attempts-title');
+    const attemptsStatus = document.getElementById('student-attempts-status');
+    const attemptsTable = document.getElementById('student-attempts-table');
+    const attemptsRows = attemptsTable.tBodies[0];
+    const attemptsMore = document.getElementById('student-attempts-more');
 
     const rankStatClasses = document.getElementById('rank-stat-classes');
     const rankStatStudents = document.getElementById('rank-stat-students');
@@ -78,7 +113,10 @@ import './compat.js';
     let rankingMode = 'classes';
     let rawClassRankings = [];
     let rawStudentRankings = [];
-    let rankingGradeTotals = { '3': 18, '4': 21, '5': 21, 'all': 60 };
+    let studentRankingRequest = 0;
+    let studentRankingLoaded = false;
+    const tableSortCollator = new Intl.Collator('vi', { numeric: true, sensitivity: 'base' });
+    let rankingGradeTotals = {};
     let isRankingLoaded = false;
     let rankingSearchTimer;
 
@@ -91,6 +129,11 @@ import './compat.js';
       if (!res.ok) {
         const errorMap = {
           INVALID_PASSWORD: 'Mật khẩu giáo viên chưa đúng.',
+          INVALID_STUDENT_MERGE: 'Hãy chọn hai tên khác nhau trong cùng lớp.',
+          INVALID_STUDENT_EDIT: 'Hãy nhập họ tên và lớp hợp lệ.',
+          STUDENT_EDIT_DUPLICATE: 'Lớp này đã có học sinh mang tên đó. Hãy kiểm tra lại họ tên và lớp. Nếu là cùng một em trong cùng lớp, hãy dùng Gộp tên.',
+          STUDENT_EDIT_CHANGED: 'Danh sách đã thay đổi. Hãy đóng hộp thoại và tải lại bảng.',
+          STUDENT_MERGE_CHANGED: 'Danh sách đã thay đổi. Hãy đóng hộp thoại, tải lại bảng và kiểm tra lại hai tên.',
           TOO_MANY_ATTEMPTS: 'Đã thử sai quá nhiều lần. Vui lòng thử lại sau 15 phút.',
           STORAGE_NOT_CONFIGURED: 'Cơ sở dữ liệu chưa được kết nối.',
           TEACHER_LOGIN_NOT_CONFIGURED: 'Mật khẩu giáo viên chưa được cấu hình.',
@@ -135,19 +178,18 @@ import './compat.js';
 
     function getTotalLessons(className) {
       const g = getGrade(className);
-      if (g === '3') return rankingGradeTotals['3'] || 18;
-      if (g === '4') return rankingGradeTotals['4'] || 21;
-      if (g === '5') return rankingGradeTotals['5'] || 21;
-      return rankingGradeTotals['all'] || 60;
+      return rankingGradeTotals[g || 'all'] ?? 0;
     }
 
     function switchRankingMode(mode) {
       rankingMode = mode;
+      mergeFeedback.hidden = true;
       if (mode === 'classes') {
         modeClassesBtn.classList.add('active');
         modeStudentsBtn.classList.remove('active');
         classesTableContainer.hidden = false;
         studentsTableContainer.hidden = true;
+        studentScoreSummary.hidden = true;
         rankingClassContainer.hidden = true;
         rankingSearchContainer.hidden = true;
         renderClassesTable();
@@ -170,7 +212,13 @@ import './compat.js';
         rankingStatus.textContent = 'Đang tải bảng xếp hạng và tiến độ các lớp...';
         const data = await api('/api/teacher?type=ranking');
         rawClassRankings = data.classes || [];
-        if (data.gradeTotals) rankingGradeTotals = data.gradeTotals;
+        rankingGradeTotals = data.gradeTotals;
+        document.getElementById('rank-stat-lessons').textContent = `${rankingGradeTotals.all} bài`;
+        for (const option of rankingGradeFilter.options) {
+          if (option.value !== 'ALL') {
+            option.textContent = `Khối ${option.value} (${rankingGradeTotals[option.value]} bài)`;
+          }
+        }
         isRankingLoaded = true;
 
         // Cập nhật thống kê tổng quan
@@ -178,14 +226,20 @@ import './compat.js';
         const totalStudents = rawClassRankings.reduce((sum, c) => sum + (Number(c.student_count) || 0), 0);
         rankStatStudents.textContent = totalStudents;
 
-        if (rawClassRankings.length > 0) {
-          const topClass = rawClassRankings[0];
-          const topGradeTotal = getTotalLessons(topClass.class_name);
-          const topPercent = topGradeTotal > 0 ? Math.round((topClass.completed_lessons / topGradeTotal) * 100) : 0;
-          rankStatTopClass.textContent = `Lớp ${topClass.class_name} (${topClass.completed_lessons}/${topGradeTotal} bài - ${topPercent}%)`;
-        } else {
-          rankStatTopClass.textContent = '--';
+        let topClass = null;
+        let topProgress = -1;
+        for (const classRanking of rawClassRankings) {
+          const total = getTotalLessons(classRanking.class_name);
+          if (!total || !getGrade(classRanking.class_name)) continue;
+          const progress = classRanking.completed_lessons / total;
+          if (progress > topProgress) {
+            topClass = classRanking;
+            topProgress = progress;
+          }
         }
+        rankStatTopClass.textContent = topClass
+          ? `Lớp ${topClass.class_name} (${topClass.completed_lessons}/${getTotalLessons(topClass.class_name)} bài - ${Math.round(topProgress * 100)}%)`
+          : '--';
 
         // Cập nhật dropdown lớp cho bảng vàng học sinh
         const currentSelectedClass = rankingClassSelect.value;
@@ -221,6 +275,11 @@ import './compat.js';
     }
 
     async function fetchStudentRankingData() {
+      const request = ++studentRankingRequest;
+      studentRankingLoaded = false;
+      rawStudentRankings = [];
+      studentsRankingRows.replaceChildren();
+      studentScoreSummary.hidden = true;
       try {
         rankingStatus.textContent = 'Đang tải bảng vàng học sinh...';
         const selectedClass = rankingClassSelect.value;
@@ -228,9 +287,12 @@ import './compat.js';
           ? `/api/teacher?type=ranking&mode=student&className=${encodeURIComponent(selectedClass)}`
           : '/api/teacher?type=ranking&mode=student';
         const data = await api(url);
+        if (request !== studentRankingRequest || rankingMode !== 'students') return;
         rawStudentRankings = data.students || [];
+        studentRankingLoaded = true;
         renderStudentsTable();
       } catch (err) {
+        if (request !== studentRankingRequest || rankingMode !== 'students') return;
         rankingStatus.textContent = 'Lỗi tải danh sách học sinh: ' + err.message;
       }
     }
@@ -256,6 +318,74 @@ import './compat.js';
       if (idx === 1) return '<span class="rank-badge rank-2">🥈 2</span>';
       if (idx === 2) return '<span class="rank-badge rank-3">🥉 3</span>';
       return `<span class="rank-badge rank-normal">#${idx + 1}</span>`;
+    }
+
+    function createTableSorter(body, defaultKey, defaultDirection, ascendingKeys, onChange) {
+      const buttons = body.closest('table').querySelectorAll('[data-table-sort]');
+      const rowKeys = new WeakMap();
+      let key = defaultKey;
+      let direction = defaultDirection;
+
+      function order(rows, getKeys) {
+        return rows.sort((a, b) => {
+          const first = getKeys(a);
+          const second = getKeys(b);
+          const left = first.values[key];
+          const right = second.values[key];
+          const leftMissing = left == null || Number.isNaN(left);
+          const rightMissing = right == null || Number.isNaN(right);
+          if (leftMissing || rightMissing) {
+            return Number(leftMissing) - Number(rightMissing) || first.position - second.position;
+          }
+          const comparison = typeof left === 'string'
+            ? tableSortCollator.compare(left, right)
+            : left - right;
+          return comparison * direction || first.position - second.position;
+        });
+      }
+
+      function apply() {
+        body.append(...order(Array.from(body.rows), row => rowKeys.get(row)));
+      }
+
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const nextKey = button.dataset.tableSort;
+          direction = nextKey === key ? -direction : (ascendingKeys.includes(nextKey) ? 1 : -1);
+          key = nextKey;
+          buttons.forEach(item => {
+            const header = item.closest('th');
+            const arrow = item.querySelector('span');
+            if (item === button) {
+              header.setAttribute('aria-sort', direction === 1 ? 'ascending' : 'descending');
+              arrow.textContent = direction === 1 ? '▲' : '▼';
+            } else {
+              header.removeAttribute('aria-sort');
+              arrow.textContent = '↕';
+            }
+          });
+          (onChange || apply)();
+        });
+      });
+
+      return {
+        add(row, values, position) {
+          rowKeys.set(row, { values, position });
+        },
+        apply,
+        order
+      };
+    }
+
+    const classTableSort = createTableSorter(classesRankingRows, 'rank', 1, ['rank', 'class', 'grade']);
+    const resultTableSort = createTableSorter(rowsEl, 'index', 1, ['index', 'name', 'class', 'duration']);
+    const attemptTableSort = createTableSorter(attemptsRows, 'submitted', -1, ['lesson', 'duration']);
+    const studentTableSort = createTableSorter(
+      studentsRankingRows, 'rank', 1, ['rank', 'student_name', 'class_name', 'avg_time_seconds'], renderStudentsTable
+    );
+
+    function durationSortValue(seconds) {
+      return seconds == null ? null : Number(seconds);
     }
 
     function renderClassesTable() {
@@ -292,7 +422,7 @@ import './compat.js';
           <td>${renderProgressBar(c.completed_lessons, totalLessons)}</td>
           <td style="text-align: center; font-weight: 700; color: var(--muted);">${c.total_attempts}</td>
           <td style="text-align: center;">
-            <span class="score-cell" style="color: ${Number(c.avg_score) >= 8 ? '#059669' : Number(c.avg_score) >= 6.5 ? '#b45309' : '#b91c1c'};">
+            <span class="score-cell" style="color: ${Number(c.avg_score) >= EXCELLENT_SCORE ? '#059669' : Number(c.avg_score) >= GOOD_SCORE ? '#b45309' : '#b91c1c'};">
               ${Number(c.avg_score).toFixed(1)}
             </span>
           </td>
@@ -311,11 +441,23 @@ import './compat.js';
           switchRankingMode('students');
         };
 
+        classTableSort.add(tr, {
+          rank: idx + 1,
+          class: c.class_name,
+          grade: g ? Number(g) : null,
+          students: Number(c.student_count),
+          progress: totalLessons > 0 ? Math.min(1, c.completed_lessons / totalLessons) : null,
+          attempts: Number(c.total_attempts),
+          average: Number(c.avg_score),
+          maximum: Number(c.max_score),
+          good: c.total_attempts > 0 ? c.good_count / c.total_attempts : 0
+        }, idx);
         classesRankingRows.append(tr);
       });
+      classTableSort.apply();
     }
 
-    function renderStudentsTable() {
+    function getSortedStudentRows() {
       const selectedGrade = rankingGradeFilter.value;
       const keyword = rankingSearchInput.value.trim().toLowerCase();
 
@@ -330,6 +472,47 @@ import './compat.js';
         return true;
       });
 
+      const rows = filtered.map((student, index) => {
+        const total = getTotalLessons(student.class_name);
+        return {
+          student,
+          rank: index + 1,
+          position: index,
+          values: {
+            rank: index + 1,
+            student_name: student.student_name,
+            class_name: student.class_name,
+            progress: total > 0 ? Math.min(1, student.completed_lessons / total) : null,
+            total_attempts: Number(student.total_attempts),
+            avg_score: Number(student.avg_score),
+            max_score: Number(student.max_score),
+            avg_time_seconds: durationSortValue(student.avg_time_seconds),
+            latest_submission: Date.parse(student.latest_submission)
+          }
+        };
+      });
+      return studentTableSort.order(rows, row => row);
+    }
+
+    function renderStudentScoreSummary(rows) {
+      const counts = studentScoreLevels.map(() => 0);
+      for (const row of rows) {
+        const score = Number(row.student.avg_score);
+        const level = studentScoreLevels.findIndex(entry => score >= entry.min);
+        counts[level] += 1;
+      }
+
+      studentScoreLevels.forEach((entry, index) => {
+        entry.countElement.textContent = counts[index];
+      });
+      studentScoreSummaryTotal.textContent = `Tổng cộng ${rows.length} học sinh theo bộ lọc hiện tại.`;
+      studentScoreSummary.hidden = false;
+    }
+
+    function renderStudentsTable() {
+      if (rankingMode !== 'students' || !studentRankingLoaded) return;
+      const filtered = getSortedStudentRows();
+      renderStudentScoreSummary(filtered);
       studentsRankingRows.replaceChildren();
 
       if (!filtered.length) {
@@ -339,23 +522,38 @@ import './compat.js';
         return;
       }
       rankingStatus.textContent = `Hiển thị bảng vàng ${filtered.length} học sinh.`;
+      const studentsPerClass = new Map();
+      for (const student of rawStudentRankings) {
+        studentsPerClass.set(student.class_name, (studentsPerClass.get(student.class_name) || 0) + 1);
+      }
 
-      filtered.forEach((s, idx) => {
+      filtered.forEach(row => {
+        const s = row.student;
         const tr = document.createElement('tr');
         const totalLessons = getTotalLessons(s.class_name);
 
         tr.innerHTML = `
-          <td style="text-align: center;">${renderRankBadge(idx)}</td>
-          <td>
-            <div style="font-weight: 800; font-size: 1rem; color: var(--text);">${escapeHtml(s.student_name)}</div>
+          <td style="text-align: center;">${renderRankBadge(row.rank - 1)}</td>
+          <td class="student-name-cell">
+            <div class="student-name">${escapeHtml(s.student_name)}</div>
+            <div class="student-row-actions">
+              <button type="button" class="student-row-action" data-edit-student aria-haspopup="dialog"
+                aria-label="Sửa thông tin ${escapeHtml(s.student_name)}, lớp ${escapeHtml(s.class_name)}">Sửa</button>
+              <button type="button" class="student-row-action" data-merge-student aria-haspopup="dialog"
+                aria-label="Gộp tên ${escapeHtml(s.student_name)}, lớp ${escapeHtml(s.class_name)}"
+                ${studentsPerClass.get(s.class_name) < 2 ? 'hidden' : ''}>Gộp tên</button>
+            </div>
           </td>
-          <td>
+          <td class="student-class-cell">
             <span style="font-weight: 800; color: var(--primary);">Lớp ${escapeHtml(s.class_name)}</span>
           </td>
           <td>${renderProgressBar(s.completed_lessons, totalLessons)}</td>
-          <td style="text-align: center; font-weight: 700; color: var(--muted);">${s.total_attempts}</td>
           <td style="text-align: center;">
-            <span class="score-cell" style="color: ${Number(s.avg_score) >= 8 ? '#059669' : Number(s.avg_score) >= 6.5 ? '#b45309' : '#b91c1c'};">
+            <button type="button" class="btn btn-secondary" aria-haspopup="dialog"
+              data-student-attempts aria-label="Xem ${s.total_attempts} lượt làm của ${escapeHtml(s.student_name)}, lớp ${escapeHtml(s.class_name)}">${s.total_attempts} lượt</button>
+          </td>
+          <td style="text-align: center;">
+            <span class="score-cell" style="color: ${Number(s.avg_score) >= EXCELLENT_SCORE ? '#059669' : Number(s.avg_score) >= GOOD_SCORE ? '#b45309' : '#b91c1c'};">
               ${Number(s.avg_score).toFixed(1)}
             </span>
           </td>
@@ -364,8 +562,193 @@ import './compat.js';
           <td style="color: var(--muted); font-size: 0.88rem;">${s.latest_submission ? new Date(s.latest_submission).toLocaleString('vi-VN') : '--'}</td>
         `;
 
+        tr.querySelector('[data-student-attempts]').addEventListener('click', () => showStudentAttempts(s));
+        tr.querySelector('[data-edit-student]').addEventListener('click', () => openStudentEdit(s));
+        tr.querySelector('[data-merge-student]').addEventListener('click', () => openStudentMerge(s));
         studentsRankingRows.append(tr);
       });
+    }
+
+    function openStudentEdit(student) {
+      editSource = student;
+      editName.value = student.student_name;
+      editClass.value = student.class_name;
+      editSourceLabel.textContent = `Thay đổi áp dụng cho ${student.total_attempts} lượt làm của “${student.student_name}” (lớp ${student.class_name}).`;
+      editStatus.textContent = '';
+      editSubmit.disabled = true;
+      mergeFeedback.hidden = true;
+      editDialog.showModal();
+    }
+
+    function updateEditSubmit() {
+      const targetName = editName.value.trim();
+      const targetClass = editClass.value.trim();
+      editSubmit.disabled = !targetName || !targetClass ||
+        (targetName === editSource.student_name && targetClass === editSource.class_name);
+    }
+
+    editForm.addEventListener('input', updateEditSubmit);
+    editCancel.addEventListener('click', () => editDialog.close());
+    editDialog.addEventListener('cancel', event => {
+      if (editCancel.disabled) event.preventDefault();
+    });
+
+    editForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (editSubmit.disabled) return;
+      const targetName = editName.value.trim();
+      const targetClass = editClass.value.trim();
+      editName.disabled = editClass.disabled = editCancel.disabled = editSubmit.disabled = true;
+      editStatus.textContent = 'Đang lưu thay đổi…';
+      try {
+        const data = await api('/api/teacher', {
+          method: 'POST',
+          body: JSON.stringify({
+            action: 'edit-student',
+            sourceName: editSource.student_name,
+            className: editSource.class_name,
+            targetName,
+            targetClass
+          })
+        });
+        if (rankingClassSelect.value !== 'ALL' && rankingClassSelect.value !== targetClass) {
+          rankingClassSelect.value = 'ALL';
+        }
+        if (rankingGradeFilter.value !== 'ALL' && rankingGradeFilter.value !== getGrade(targetClass)) {
+          rankingGradeFilter.value = 'ALL';
+        }
+        if (!targetName.toLowerCase().includes(rankingSearchInput.value.trim().toLowerCase())) {
+          rankingSearchInput.value = '';
+        }
+        editDialog.close();
+        mergeFeedback.hidden = false;
+        mergeFeedback.textContent = `Đã cập nhật ${data.updatedCount} lượt làm của “${targetName}” (lớp ${targetClass}).`;
+        await Promise.all([fetchRankingData(), fetchResults()]);
+      } catch (error) {
+        editStatus.textContent = error.message;
+      } finally {
+        editName.disabled = editClass.disabled = editCancel.disabled = false;
+        updateEditSubmit();
+      }
+    });
+
+    function openStudentMerge(student) {
+      mergeSource = student;
+      mergeSourceLabel.textContent = `Chuyển ${student.total_attempts} lượt làm của “${student.student_name}” (lớp ${student.class_name}) sang tên thầy/cô chọn. Điểm và đáp án của từng lượt được giữ nguyên.`;
+      const classmates = rawStudentRankings
+        .filter(item => item.class_name === student.class_name && item.student_name !== student.student_name)
+        .sort((a, b) => tableSortCollator.compare(a.student_name, b.student_name));
+      mergeTarget.replaceChildren(new Option('Chọn tên đúng…', ''));
+      for (const item of classmates) {
+        mergeTarget.append(new Option(`${item.student_name} (${item.total_attempts} lượt)`, item.student_name));
+      }
+      mergeStatus.textContent = '';
+      mergeFeedback.hidden = true;
+      mergeSubmit.disabled = true;
+      mergeDialog.showModal();
+    }
+
+    mergeTarget.addEventListener('change', () => {
+      mergeSubmit.disabled = !mergeTarget.value;
+    });
+
+    mergeCancel.addEventListener('click', () => mergeDialog.close());
+    mergeDialog.addEventListener('cancel', event => {
+      if (mergeCancel.disabled) event.preventDefault();
+    });
+
+    mergeForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (mergeSubmit.disabled) return;
+      const targetName = mergeTarget.value;
+      const sourceName = mergeSource.student_name;
+      const className = mergeSource.class_name;
+      mergeTarget.disabled = true;
+      mergeCancel.disabled = true;
+      mergeSubmit.disabled = true;
+      mergeStatus.textContent = 'Đang gộp lượt làm…';
+      try {
+        const data = await api('/api/teacher', {
+          method: 'POST',
+          body: JSON.stringify({ action: 'merge-students', sourceName, targetName, className })
+        });
+        if (!targetName.toLowerCase().includes(rankingSearchInput.value.trim().toLowerCase())) {
+          rankingSearchInput.value = '';
+        }
+        mergeDialog.close();
+        mergeFeedback.hidden = false;
+        mergeFeedback.textContent = `Đã chuyển ${data.mergedCount} lượt làm từ “${sourceName}” sang “${targetName}” (lớp ${className}).`;
+        await Promise.all([fetchRankingData(), fetchResults()]);
+      } catch (error) {
+        mergeStatus.textContent = error.message;
+      } finally {
+        mergeTarget.disabled = false;
+        mergeCancel.disabled = false;
+        mergeSubmit.disabled = !mergeTarget.value;
+      }
+    });
+
+    function showStudentAttempts(student) {
+      attemptsTitle.textContent = `Lượt làm của ${student.student_name} · Lớp ${student.class_name}`;
+      attemptsRows.replaceChildren();
+      attemptsTable.hidden = true;
+      attemptsMore.hidden = true;
+      const controller = new AbortController();
+      attemptsDialog.addEventListener('close', () => controller.abort(), { once: true });
+      attemptsDialog.showModal();
+
+      async function loadPage() {
+        attemptsMore.disabled = true;
+        attemptsStatus.textContent = 'Đang tải lượt làm…';
+        const params = new URLSearchParams({
+          type: 'student-attempts',
+          studentName: student.student_name,
+          className: student.class_name,
+          offset: String(attemptsRows.rows.length)
+        });
+
+        try {
+          const data = await api(`/api/teacher?${params}`, { signal: controller.signal });
+          if (controller.signal.aborted) return;
+          for (const attempt of data.rows) {
+            const title = lessonCatalog.find(lesson => lesson.id === attempt.lesson_id)?.title || attempt.lesson_id;
+            const position = attemptsRows.rows.length;
+            const row = attemptsRows.insertRow();
+            attemptTableSort.add(row, {
+              lesson: title,
+              score: Number(attempt.score),
+              correct: Number(attempt.correct_count),
+              duration: durationSortValue(attempt.time_taken_seconds),
+              submitted: Date.parse(attempt.submitted_at)
+            }, position);
+            const values = [
+              title,
+              Number(attempt.score).toFixed(1),
+              `${attempt.correct_count}/${attempt.total_questions}`,
+              formatDuration(attempt.time_taken_seconds),
+              new Date(attempt.submitted_at).toLocaleString('vi-VN')
+            ];
+            for (const value of values) row.insertCell().textContent = value;
+          }
+          attemptTableSort.apply();
+          const loaded = attemptsRows.rows.length;
+          attemptsTable.hidden = loaded === 0;
+          attemptsStatus.textContent = loaded ? `Đã tải ${loaded} lượt làm.` : 'Chưa có lượt làm.';
+          attemptsMore.textContent = 'Xem thêm';
+          attemptsMore.hidden = !data.hasMore;
+          if (data.hasMore) attemptsStatus.textContent += ' Sắp xếp áp dụng cho các lượt đã tải.';
+        } catch (error) {
+          if (controller.signal.aborted) return;
+          attemptsStatus.textContent = `Không tải được lượt làm. ${error.message}`;
+          attemptsMore.textContent = 'Thử lại';
+          attemptsMore.hidden = false;
+        } finally {
+          if (!controller.signal.aborted) attemptsMore.disabled = false;
+        }
+      }
+
+      attemptsMore.onclick = loadPage;
+      loadPage();
     }
 
     // Ranking Event Listeners
@@ -387,10 +770,46 @@ import './compat.js';
       fetchRankingData();
     });
 
-    rankingExportBtn.addEventListener('click', () => {
+    let reportExporter;
+
+    async function downloadReport(format, filename, title, scope, rows) {
+      let blob;
+      if (format === 'csv') {
+        const csv = '\uFEFF' + rows.map(row => row.map(csvCell).join(',')).join('\r\n');
+        blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+      } else {
+        if (!reportExporter) {
+          reportExporter = new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = '/assets/report-export.js';
+            script.onload = () => {
+              if (window.QuizReportExport) resolve(window.QuizReportExport);
+              else reject(new Error('Không thể khởi tạo bộ xuất báo cáo.'));
+            };
+            script.onerror = () => reject(new Error('Không thể tải bộ xuất báo cáo.'));
+            document.head.append(script);
+          }).catch(error => {
+            reportExporter = undefined;
+            throw error;
+          });
+        }
+        blob = await (await reportExporter).createReportFile(format, { title, scope, rows });
+      }
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${filename}.${format}`;
+      document.body.append(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 30000);
+    }
+
+    rankingExportBtn.addEventListener('click', async () => {
       try {
+        const format = document.getElementById('ranking-export-format').value;
         rankingExportBtn.disabled = true;
-        rankingExportBtn.textContent = 'Đang trích xuất...';
+        rankingExportBtn.textContent = 'Đang xuất…';
 
         if (rankingMode === 'classes') {
           const selectedGrade = rankingGradeFilter.value;
@@ -400,7 +819,7 @@ import './compat.js';
           });
 
           const lines = [
-            ['Hạng', 'Lớp', 'Khối', 'Sĩ số tham gia', 'Số bài hoàn thành', 'Tổng số bài khối', 'Tiến độ (%)', 'Tổng lượt làm', 'Điểm trung bình', 'Điểm cao nhất', 'Tỉ lệ Giỏi (>=8đ)', 'Lần nộp gần nhất'],
+            ['Hạng', 'Lớp', 'Khối', 'Sĩ số tham gia', 'Số bài hoàn thành', 'Tổng số bài khối', 'Tiến độ (%)', 'Tổng lượt làm', 'Điểm trung bình', 'Điểm cao nhất', 'Tỉ lệ Xuất sắc (>=9đ)', 'Lần nộp gần nhất'],
             ...filtered.map((c, i) => {
               const g = getGrade(c.class_name);
               const totalLessons = getTotalLessons(c.class_name);
@@ -415,46 +834,30 @@ import './compat.js';
                 totalLessons,
                 `${percent}%`,
                 c.total_attempts,
-                Number(c.avg_score).toFixed(1),
-                Number(c.max_score).toFixed(1),
+                exportScore(c.avg_score, format),
+                exportScore(c.max_score, format),
                 `${goodRatio}%`,
                 c.latest_submission ? new Date(c.latest_submission).toLocaleString('vi-VN') : '--'
               ];
             })
           ];
 
-          const csvContent = '\uFEFF' + lines.map(row => row.map(csvCell).join(',')).join('\r\n');
-          const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8' });
-          const url = URL.createObjectURL(blob);
-          const link = document.createElement('a');
-          link.href = url;
-          link.download = `Bang_Xep_Hang_Tien_Do_Cac_Lop_${selectedGrade === 'ALL' ? 'Toan_Truong' : 'Khoi_' + selectedGrade}.csv`;
-          link.click();
-          URL.revokeObjectURL(url);
+          const allGrades = selectedGrade === 'ALL';
+          await downloadReport(format, `Bang_Xep_Hang_Tien_Do_Cac_Lop_${allGrades ? 'Toan_Truong' : 'Khoi_' + selectedGrade}`,
+            'Bảng xếp hạng tiến độ các lớp', allGrades ? 'Toàn trường' : `Khối ${selectedGrade}`, lines);
         } else {
           const selectedClass = rankingClassSelect.value;
-          const selectedGrade = rankingGradeFilter.value;
-          const keyword = rankingSearchInput.value.trim().toLowerCase();
-
-          const filtered = rawStudentRankings.filter(s => {
-            if (selectedGrade !== 'ALL') {
-              const g = getGrade(s.class_name);
-              if (g !== selectedGrade) return false;
-            }
-            if (keyword && (!s.student_name || !s.student_name.toLowerCase().includes(keyword))) {
-              return false;
-            }
-            return true;
-          });
+          const filtered = getSortedStudentRows();
 
           const lines = [
             ['Hạng', 'Họ và tên', 'Lớp', 'Khối', 'Số bài hoàn thành', 'Tổng số bài khối', 'Tiến độ (%)', 'Tổng lượt làm', 'Điểm trung bình', 'Điểm cao nhất', 'Thời gian làm TB', 'Lần nộp gần nhất'],
-            ...filtered.map((s, i) => {
+            ...filtered.map(row => {
+              const s = row.student;
               const g = getGrade(s.class_name);
               const totalLessons = getTotalLessons(s.class_name);
               const percent = totalLessons > 0 ? Math.round((s.completed_lessons / totalLessons) * 100) : 0;
               return [
-                i + 1,
+                row.rank,
                 s.student_name,
                 s.class_name,
                 g ? `Khối ${g}` : '',
@@ -462,28 +865,26 @@ import './compat.js';
                 totalLessons,
                 `${percent}%`,
                 s.total_attempts,
-                Number(s.avg_score).toFixed(1),
-                Number(s.max_score).toFixed(1),
+                exportScore(s.avg_score, format),
+                exportScore(s.max_score, format),
                 formatDuration(s.avg_time_seconds),
                 s.latest_submission ? new Date(s.latest_submission).toLocaleString('vi-VN') : '--'
               ];
             })
           ];
 
-          const csvContent = '\uFEFF' + lines.map(row => row.map(csvCell).join(',')).join('\r\n');
-          const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8' });
-          const url = URL.createObjectURL(blob);
-          const link = document.createElement('a');
-          link.href = url;
-          link.download = `Bang_Vang_Hoc_Sinh_${selectedClass === 'ALL' ? 'Toan_Truong' : 'Lop_' + selectedClass}.csv`;
-          link.click();
-          URL.revokeObjectURL(url);
+          const allClasses = selectedClass === 'ALL';
+          const scope = [allClasses ? 'Toàn trường' : `Lớp ${selectedClass}`];
+          if (rankingGradeFilter.value !== 'ALL') scope.push(`Khối ${rankingGradeFilter.value}`);
+          if (rankingSearchInput.value.trim()) scope.push(`Tìm kiếm “${rankingSearchInput.value.trim()}”`);
+          await downloadReport(format, `Bang_Vang_Hoc_Sinh_${allClasses ? 'Toan_Truong' : 'Lop_' + selectedClass}`,
+            'Bảng xếp hạng học sinh', scope.join(' · '), lines);
         }
       } catch (err) {
         alert('Lỗi xuất file: ' + err.message);
       } finally {
         rankingExportBtn.disabled = false;
-        rankingExportBtn.textContent = '📥 Xuất file Excel (CSV)';
+        rankingExportBtn.textContent = '📥 Xuất file';
       }
     });
 
@@ -632,30 +1033,22 @@ import './compat.js';
       }
     }
 
-    async function fetchClassOptions(lessonId) {
+    async function fetchClassOptions(lessonId, requestId) {
       const classes = (await api(`/api/teacher?type=classes&lessonId=${encodeURIComponent(lessonId)}`)).classes;
-      if (lessonSelect.value === lessonId) updateClassFilterOptions(classes);
+      if (requestId === resultsRequestId && lessonSelect.value === lessonId) updateClassFilterOptions(classes);
     }
 
     function renderTable() {
-      const filterClass = classFilter.value;
-      const keyword = searchInput.value.trim().toLowerCase();
-
-      const filtered = allRows.filter(r => {
-        const matchClass = (filterClass === 'ALL' || r.class_name === filterClass);
-        const matchName = !keyword || (r.student_name && r.student_name.toLowerCase().includes(keyword));
-        return matchClass && matchName;
-      });
-
       rowsEl.replaceChildren();
 
-      if (!filtered.length) {
-        tableStatus.textContent = allRows.length ? 'Không có học sinh nào phù hợp với bộ lọc.' : 'Chưa có kết quả nộp bài cho bài học này.';
+      if (!allRows.length) {
+        tableStatus.textContent = (classFilter.value !== 'ALL' || searchInput.value.trim()) ? 'Không có học sinh nào phù hợp với bộ lọc.' : 'Chưa có kết quả nộp bài cho bài học này.';
         return;
       }
-      tableStatus.textContent = `Hiển thị ${filtered.length} lượt nộp bài.`;
+      tableStatus.textContent = `Hiển thị ${allRows.length} lượt nộp bài.`;
+      if (!loadMoreBtn.hidden) tableStatus.textContent += ' Sắp xếp áp dụng cho các lượt đã tải.';
 
-      filtered.forEach((r, idx) => {
+      allRows.forEach((r, idx) => {
         const tr = document.createElement('tr');
 
         // STT
@@ -685,13 +1078,14 @@ import './compat.js';
         const badge = document.createElement('span');
         badge.className = 'badge';
         const numScore = Number(r.score);
-        if (numScore >= 8.5) {
+        const scoreLevel = getScoreLevel(numScore);
+        if (scoreLevel === 3) {
           badge.className += ' badge-excellent';
           badge.textContent = 'Xuất sắc';
-        } else if (numScore >= 7.0) {
+        } else if (scoreLevel === 2) {
           badge.className += ' badge-good';
           badge.textContent = 'Khá';
-        } else if (numScore >= 5.0) {
+        } else if (scoreLevel === 1) {
           badge.className += ' badge-pass';
           badge.textContent = 'Đạt';
         } else {
@@ -726,27 +1120,41 @@ import './compat.js';
               method: 'DELETE',
               body: JSON.stringify({ id: r.id })
             });
-            allRows = allRows.filter(item => item.id !== r.id);
-            await fetchClassOptions(lessonSelect.value);
-            renderTable();
-            fetchStats();
+            await fetchResults();
+            if (isRankingLoaded) await fetchRankingData();
           } catch (err) {
             alert('Không thể xóa: ' + err.message);
           }
         };
         tdAction.append(delBtn);
 
+        resultTableSort.add(tr, {
+          index: idx + 1,
+          name: r.student_name,
+          class: r.class_name,
+          correct: Number(r.correct_count),
+          score: numScore,
+          level: scoreLevel,
+          duration: durationSortValue(r.time_taken_seconds),
+          submitted: Date.parse(r.submitted_at)
+        }, idx);
         tr.append(tdIdx, tdName, tdClass, tdCorrect, tdScore, tdBadge, tdDuration, tdTime, tdAction);
         rowsEl.append(tr);
       });
+      resultTableSort.apply();
     }
 
-    async function fetchResults(reset = true) {
+    async function fetchResults(reset = true, refreshClassOptions = reset) {
       const requestId = ++resultsRequestId;
       try {
+        loadMoreBtn.disabled = true;
         if (reset) {
+          clearTimeout(searchTimer);
+          ++statsRequestId;
           offset = 0;
           allRows = [];
+          rowsEl.replaceChildren();
+          loadMoreBtn.hidden = true;
         }
         const lessonId = lessonSelect.value;
         if (!lessonId) {
@@ -762,23 +1170,27 @@ import './compat.js';
         }
 
         tableStatus.textContent = 'Đang tải danh sách kết quả...';
-        const data = await api(`/api/teacher?lessonId=${encodeURIComponent(lessonId)}&offset=${offset}`);
+        if (refreshClassOptions) await fetchClassOptions(lessonId, requestId);
+        if (requestId !== resultsRequestId) return;
+        const params = new URLSearchParams({ lessonId, offset: String(offset), search: searchInput.value.trim() });
+        if (classFilter.value !== 'ALL') params.set('className', classFilter.value);
+        if (reset) fetchStats();
+        const data = await api(`/api/teacher?${params}`);
         if (requestId !== resultsRequestId) return;
         
         allRows = reset ? data.rows : [...allRows, ...data.rows];
         offset += data.rows.length;
         loadMoreBtn.hidden = data.rows.length < 100;
 
-        if (reset) await fetchClassOptions(lessonId);
-        if (requestId !== resultsRequestId) return;
         renderTable();
-        if (reset) fetchStats();
       } catch (e) {
         if (requestId !== resultsRequestId) return;
         tableStatus.textContent = e.message;
         if (e.message.includes('đăng nhập lại') || e.message.includes('hết hạn')) {
           showLogin();
         }
+      } finally {
+        if (requestId === resultsRequestId) loadMoreBtn.disabled = false;
       }
     }
 
@@ -856,20 +1268,31 @@ import './compat.js';
       fetchResults(true);
     });
     refreshBtn.addEventListener('click', () => fetchResults(true));
-    classFilter.addEventListener('change', () => { renderTable(); fetchStats(); });
+    classFilter.addEventListener('change', () => fetchResults(true, false));
     searchInput.addEventListener('input', () => {
-      renderTable();
+      ++resultsRequestId;
+      ++statsRequestId;
+      loadMoreBtn.disabled = true;
+      rowsEl.replaceChildren();
+      tableStatus.textContent = 'Đang lọc kết quả…';
       clearTimeout(searchTimer);
-      searchTimer = setTimeout(fetchStats, 250);
+      searchTimer = setTimeout(() => fetchResults(true, false), 250);
     });
     loadMoreBtn.addEventListener('click', () => fetchResults(false));
+
+    function exportScore(value, format) {
+      const score = Number(value).toFixed(1);
+      return format === 'xlsx' ? Number(score) : score;
+    }
 
     exportBtn.addEventListener('click', async () => {
       try {
         const id = lessonSelect.value;
         if (!id) return;
+        const format = document.getElementById('export-format').value;
+        const lesson = lessonCatalog.find(item => item.id === id);
         exportBtn.disabled = true;
-        exportBtn.textContent = 'Đang trích xuất...';
+        exportBtn.textContent = 'Đang xuất…';
 
         const all = [];
         for (let page = 0; ; page += 100) {
@@ -886,25 +1309,19 @@ import './compat.js';
             r.class_name,
             r.correct_count,
             r.total_questions,
-            Number(r.score).toFixed(1),
+            exportScore(r.score, format),
             formatDuration(r.time_taken_seconds),
             new Date(r.submitted_at).toLocaleString('vi-VN')
           ])
         ];
 
-        const csvContent = '\uFEFF' + lines.map(row => row.map(csvCell).join(',')).join('\r\n');
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `Ket_Qua_${id}.csv`;
-        link.click();
-        URL.revokeObjectURL(url);
+        await downloadReport(format, `Ket_Qua_${id}`, 'Kết quả luyện tập',
+          `${lesson ? lesson.title : id} · Tất cả các lớp`, lines);
       } catch (e) {
         alert('Lỗi xuất file: ' + e.message);
       } finally {
         exportBtn.disabled = false;
-        exportBtn.textContent = '📥 Xuất file Excel (CSV)';
+        exportBtn.textContent = '📥 Xuất file';
       }
     });
 

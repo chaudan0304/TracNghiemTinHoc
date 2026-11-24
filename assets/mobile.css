@@ -21,6 +21,8 @@
   button, .btn, .btn-start { min-height: 44px; }
   .table-responsive { max-width: 100%; -webkit-overflow-scrolling: touch; }
   .table-responsive table { min-width: 650px; }
+  #classes-table-container table,
+  #students-table-container table { min-width: 900px; }
   #screen-quiz .option-card { min-height: 48px; overflow-wrap: break-word; }
   #screen-quiz .option-card > span:last-child { min-width: 0; font-size: 1rem; }
   #quiz-dots-bar > div { min-width: 0; }

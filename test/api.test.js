@@ -32,6 +32,43 @@ test('teacher records stay private without login', async () => {
   assert.equal(result.code, 401);
 });
 
+test('student attempt history requires a session and pages exact name and class matches', async () => {
+  const previous = process.env.SESSION_SECRET;
+  process.env.SESSION_SECRET = 'test-secret';
+  const params = new URLSearchParams({
+    type: 'student-attempts', studentName: "Nguyễn An O'Neil", className: '3A1', offset: '50'
+  });
+  const url = `/api/teacher?${params}`;
+  const attempt = { lesson_id: 'lop-3-bai-1', correct_count: 17, total_questions: 20, score: 8.5, time_taken_seconds: null };
+  let calls = 0;
+  const sql = async (strings, ...values) => {
+    calls++;
+    assert.match(strings.join('?'), /WHERE student_name = \? AND class_name = \?\s+ORDER BY submitted_at DESC, id DESC/);
+    assert.deepEqual(values, ["Nguyễn An O'Neil", '3A1', 51, 50]);
+    return Array(51).fill(attempt);
+  };
+  try {
+    const handler = createTeacherHandler(() => sql, async () => {});
+    const request = { method: 'GET', url, headers: {} };
+    const unauthorized = response();
+    await handler(request, unauthorized);
+    assert.equal(unauthorized.code, 401);
+
+    request.headers.cookie = `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}`;
+    const result = response();
+    await handler(request, result);
+    assert.equal(result.code, 200);
+    assert.deepEqual(result.body, { rows: Array(50).fill(attempt), hasMore: true });
+
+    const invalid = response();
+    await handler({ ...request, url: url.replace('offset=50', 'offset=-1') }, invalid);
+    assert.equal(invalid.code, 400);
+    assert.equal(calls, 1);
+  } finally {
+    if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
+  }
+});
+
 test('teacher logout clears session cookie', async () => {
   const result = response();
   await teacher({ method: 'POST', body: { action: 'logout' } }, result);
@@ -57,6 +94,12 @@ test('submission accepts an identical retry and rejects a conflicting retry', as
   };
   const handler = createSubmitHandler(() => sql, async () => {});
   for (const expected of [200, 200, 409]) {
+    if (stored) {
+      stored.original_student_name = stored.original_student_name ?? stored.student_name;
+      stored.student_name = 'Tên đã sửa';
+      stored.original_class_name = stored.original_class_name ?? stored.class_name;
+      stored.class_name = '4A2';
+    }
     const result = response();
     await handler({ method: 'POST', body: expected === 409 ? { ...body, name: 'Người khác' } : body }, result);
     assert.equal(result.code, expected);
@@ -144,23 +187,24 @@ test('teacher delete requires a session and deletes the requested id', async () 
   }
 });
 
-test('teacher results use the requested lesson and page offset', async () => {
+test('teacher results filter before paging with a stable order', async () => {
   const previous = process.env.SESSION_SECRET;
   process.env.SESSION_SECRET = 'test-secret';
   const lessonId = 'lop-4-bai-6';
   let queryValues;
   const sql = async (strings, ...values) => {
     assert.match(strings.join('?'), /SELECT id, lesson_id/);
+    assert.match(strings.join('?'), /class_name = \?[\s\S]*position\(lower\(\?\) in lower\(student_name\)\)[\s\S]*ORDER BY submitted_at DESC, id DESC LIMIT 100 OFFSET/);
     queryValues = values;
     return [{ id: 'one' }];
   };
   try {
     const handler = createTeacherHandler(() => sql, async () => {});
     const result = response();
-    await handler({ method: 'GET', headers: { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` }, url: `/api/teacher?lessonId=${lessonId}&offset=100` }, result);
+    await handler({ method: 'GET', headers: { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` }, url: `/api/teacher?lessonId=${lessonId}&offset=100&className=4A1&search=An` }, result);
     assert.equal(result.code, 200);
     assert.deepEqual(result.body.rows, [{ id: 'one' }]);
-    assert.deepEqual(queryValues, [lessonId, 100]);
+    assert.deepEqual(queryValues, [lessonId, '4A1', '4A1', 'An', 'An', 100]);
   } finally {
     if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
   }
@@ -182,7 +226,7 @@ test('teacher statistics cover the full lesson with class and name filters', asy
     await handler({ method: 'GET', headers: { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` }, url: `/api/teacher?lessonId=${lessonId}&stats=1&className=4A1&search=An` }, result);
     assert.equal(result.code, 200);
     assert.deepEqual(result.body.stats, { total: 125, avg: 7.4, max: 10, goodRatio: 48 });
-    assert.deepEqual(queryValues, [lessonId, '4A1', '4A1', 'An', 'An']);
+    assert.deepEqual(queryValues, [9, lessonId, '4A1', '4A1', 'An', 'An']);
   } finally {
     if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
   }
@@ -235,8 +279,15 @@ test('teacher ranking returns class list and grade totals', async () => {
   const previous = process.env.SESSION_SECRET;
   process.env.SESSION_SECRET = 'test-secret';
   let queryCalled = false;
-  const sql = async (strings) => {
+  const sql = async (strings, ...values) => {
     assert.match(strings.join('?'), /COUNT\(DISTINCT student_name\)/);
+    assert.match(strings.join('?'), /ORDER BY \(COUNT\(\*\) FILTER \(WHERE score >= \?\)\)::numeric \/ COUNT\(\*\) DESC,\s*avg_score DESC, class_name ASC$/);
+    assert.match(strings.join('?'), /COUNT\(DISTINCT lesson_id\) FILTER[\s\S]*jsonb_exists/);
+    const catalog = JSON.parse(values[0]);
+    assert.equal(catalog['4'].length, 21);
+    assert.ok(catalog['4'].every(id => id.startsWith('lop-4-')));
+    assert.ok(catalog.all.some(id => id.startsWith('lop-3-')));
+    assert.deepEqual(values.slice(1), [9, 9]);
     queryCalled = true;
     return [{ class_name: '4A1', student_count: 30, completed_lessons: 15, total_attempts: 120, avg_score: 8.5, max_score: 10, good_count: 95, latest_submission: new Date().toISOString() }];
   };
@@ -260,6 +311,7 @@ test('teacher student ranking filters by class and returns student aggregations'
   let queryValues;
   const sql = async (strings, ...values) => {
     assert.match(strings.join('?'), /FROM quiz_attempts/);
+    assert.match(strings.join('?'), /ORDER BY avg_score DESC,\s*AVG\(time_taken_seconds\) ASC NULLS LAST,\s*student_name ASC, class_name ASC$/);
     queryValues = values;
     return [{ student_name: 'Nguyen Van A', class_name: '4A1', completed_lessons: 12, total_attempts: 15, avg_score: 9.0, max_score: 10, avg_time_seconds: 180, latest_submission: new Date().toISOString() }];
   };
@@ -270,8 +322,90 @@ test('teacher student ranking filters by class and returns student aggregations'
     assert.equal(result.code, 200);
     assert.equal(result.body.students.length, 1);
     assert.equal(result.body.students[0].student_name, 'Nguyen Van A');
-    assert.deepEqual(queryValues, ['4A1', '4A1', '4A1']);
+    assert.deepEqual(queryValues.slice(1), ['4A1', '4A1', '4A1']);
+    assert.ok(JSON.parse(queryValues[0])['4'].includes('lop-4-bai-6'));
   } finally {
     if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
   }
+});
+
+test('teacher merge requires a session, validates names and updates only the selected class', async t => {
+  const previous = process.env.SESSION_SECRET;
+  process.env.SESSION_SECRET = 'test-secret';
+  t.after(() => {
+    if (previous === undefined) delete process.env.SESSION_SECRET;
+    else process.env.SESSION_SECRET = previous;
+  });
+
+  let mergedCount = 2;
+  let transactions = 0;
+  const sql = {
+    async transaction(build) {
+      transactions++;
+      const queries = build((parts, ...values) => ({ text: parts.join('?'), values }));
+      assert.match(queries[0].text, /LOCK TABLE quiz_attempts IN SHARE ROW EXCLUSIVE MODE/);
+      assert.match(queries[1].text, /SET student_name = \?, original_student_name = COALESCE/);
+      assert.match(queries[1].text, /AND EXISTS/);
+      assert.deepEqual(queries[1].values, ['TÃªn Ä‘Ãºng', 'TÃªn sai', '3A1', 'TÃªn Ä‘Ãºng']);
+      return [[], [{ merged_count: mergedCount }]];
+    }
+  };
+  const handler = createTeacherHandler(() => sql, async () => {});
+  const headers = { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` };
+  const body = { action: 'merge-students', sourceName: 'TÃªn sai', targetName: 'TÃªn Ä‘Ãºng', className: '3A1' };
+  for (const [requestHeaders, input, status] of [
+    [{}, body, 401],
+    [headers, { ...body, targetName: body.sourceName }, 400],
+    [headers, { ...body, className: {} }, 400],
+    [headers, body, 200]
+  ]) {
+    const result = response();
+    await handler({ method: 'POST', body: input, headers: requestHeaders }, result);
+    assert.equal(result.code, status);
+    if (status === 200) assert.equal(result.body.mergedCount, 2);
+  }
+  assert.equal(transactions, 1);
+
+  mergedCount = 0;
+  const stale = response();
+  await handler({ method: 'POST', body, headers }, stale);
+  assert.equal(stale.code, 409);
+});
+
+test('teacher can edit a student identity without implicitly merging two students', async t => {
+  const previous = process.env.SESSION_SECRET;
+  process.env.SESSION_SECRET = 'test-secret';
+  t.after(() => {
+    if (previous === undefined) delete process.env.SESSION_SECRET;
+    else process.env.SESSION_SECRET = previous;
+  });
+
+  let databaseResult = { updated_count: 3, target_exists: false };
+  let calls = 0;
+  const sql = { async transaction(build) {
+    calls++;
+    const [lock, update] = build((parts, ...values) => ({ text: parts.join('?'), values }));
+    assert.match(lock.text, /SHARE ROW EXCLUSIVE/);
+    assert.match(update.text, /NOT target\.already_exists/);
+    assert.match(update.text, /original_class_name = COALESCE/);
+    assert.deepEqual(update.values, ['TÃªn má»›i', '4A1', 'TÃªn má»›i', '4A1', 'TÃªn cÅ©', '4A']);
+    return [[], [databaseResult]];
+  } };
+  const handler = createTeacherHandler(() => sql, async () => {});
+  const headers = { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` };
+  const body = { action: 'edit-student', sourceName: 'TÃªn cÅ©', className: '4A', targetName: ' TÃªn má»›i ', targetClass: ' 4A1 ' };
+  const send = async (input, requestHeaders = headers) => {
+    const result = response();
+    await handler({ method: 'POST', headers: requestHeaders, body: input }, result);
+    return result;
+  };
+  assert.equal((await send(body, {})).code, 401);
+  assert.equal((await send({ ...body, targetClass: ' ' })).code, 400);
+  assert.equal((await send({ ...body, targetName: body.sourceName, targetClass: body.className })).code, 400);
+  assert.equal(calls, 0);
+  assert.deepEqual((await send(body)).body, { updatedCount: 3 });
+  databaseResult = { updated_count: 0, target_exists: true };
+  assert.equal((await send(body)).body.error, 'STUDENT_EDIT_DUPLICATE');
+  databaseResult = { updated_count: 0, target_exists: false };
+  assert.equal((await send(body)).code, 409);
 });

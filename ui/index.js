@@ -3,6 +3,10 @@ import './compat.js';
     const grid = document.getElementById('lessons');
     const tabs = document.querySelectorAll('.tab-btn');
     const searchInput = document.getElementById('search-lesson');
+    const errorMessage = document.getElementById('error');
+    const retryButton = document.getElementById('retry-lessons');
+    const lessonsById = new Map();
+    let catalogIds = null;
     let loadedLessons = [];
     let currentGrade = 'all';
 
@@ -16,22 +20,46 @@ import './compat.js';
       document.getElementById('storage-status').textContent = 'Chưa xác nhận được trạng thái lưu trữ.';
     }
 
-    // Tải danh sách bài học
-    try {
-      const response = await fetch('/lessons/index.json');
-      if (!response.ok) throw new Error('Không tải được danh sách bài học');
-      const ids = await response.json();
+    retryButton.addEventListener('click', loadLessons);
+    await loadLessons();
 
-      loadedLessons = await Promise.all(ids.map(async id => {
-        if (!/^[a-z0-9-]+$/.test(id)) throw new Error('Mã bài học không hợp lệ');
-        const res = await fetch(`/lessons/${id}.json`);
-        if (!res.ok) throw new Error(`Không tải được bài ${id}`);
-        return res.json();
-      }));
-
-      renderLessons();
-    } catch (error) {
-      document.getElementById('error').textContent = error.message;
+    async function loadLessons() {
+      retryButton.disabled = true;
+      errorMessage.textContent = '';
+      try {
+        if (!catalogIds) {
+          const response = await fetch('/lessons/index.json');
+          if (!response.ok) throw new Error('Không tải được danh sách bài học.');
+          const ids = await response.json();
+          if (!Array.isArray(ids)) throw new Error('Invalid lesson catalog');
+          catalogIds = [...new Set(ids)];
+        }
+        const missing = catalogIds.filter(id => !lessonsById.has(id));
+        await Promise.all(missing.map(async id => {
+          try {
+            if (!/^[a-z0-9-]+$/.test(id)) return;
+            const response = await fetch(`/lessons/${id}.json`);
+            if (!response.ok) return;
+            const lesson = await response.json();
+            if (lesson.id === id && typeof lesson.lessonTitle === 'string' &&
+                Array.isArray(lesson.questions) && Number.isFinite(lesson.timeLimitSeconds)) {
+              lessonsById.set(id, lesson);
+            }
+          } catch {
+            // The failed lesson stays eligible for another request.
+          }
+        }));
+        loadedLessons = catalogIds.map(id => lessonsById.get(id)).filter(Boolean);
+        const failures = catalogIds.length - loadedLessons.length;
+        errorMessage.textContent = failures ? `Chưa tải được ${failures} bài học.` : '';
+        retryButton.hidden = failures === 0;
+        renderLessons();
+      } catch {
+        errorMessage.textContent = 'Không tải được danh sách bài học. Em có thể thử lại.';
+        retryButton.hidden = false;
+      } finally {
+        retryButton.disabled = false;
+      }
     }
 
     function renderLessons() {

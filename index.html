@@ -63,7 +63,6 @@
       flex: 1;
     }
     h1 {
-      font-size: 2rem;
       font-size: clamp(2rem, 5vw, 3rem);
       margin: 0 0 10px;
       font-weight: 900;
@@ -232,13 +231,14 @@
       color: #059669;
       font-weight: 700;
     }
+    footer a { color: #065f46; }
   </style>
   <link rel="stylesheet" href="/assets/mobile.css">
 </head>
 <body>
   <header>
     <div class="brand">💻 CHINH PHỤC TIN HỌC</div>
-    <a href="/teacher" class="teacher-link">🏆 Bảng điểm & Xếp hạng</a>
+    <a href="/teacher" class="teacher-link">🔒 Khu vực giáo viên</a>
   </header>
 
   <main>
@@ -257,11 +257,13 @@
     </div>
 
     <div id="lessons" class="grid" aria-live="polite"></div>
-    <p id="error" role="alert"></p>
+    <p id="error" role="status"></p>
+    <button id="retry-lessons" class="teacher-link" type="button" hidden>Tải lại bài chưa tải được</button>
   </main>
 
   <footer>
-    Học mà chơi – Chơi mà học • Chương trình Tin học Tiểu học (GDPT 2018)
+    Học mà chơi – Chơi mà học • Chương trình Tin học Tiểu học (GDPT 2018)<br>
+    <a href="/teacher">🔒 Khu vực giáo viên</a>
   </footer>
 
   <script defer src="/assets/index.js"></script>

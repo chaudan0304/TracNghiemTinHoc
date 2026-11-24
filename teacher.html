@@ -64,9 +64,9 @@
       gap: 8px;
     }
     main {
-      max-width: 1200px;
-      margin: 30px auto;
-      padding: 0 20px;
+      max-width: 1600px;
+      margin: 24px auto;
+      padding-inline: clamp(12px, 1.75vw, 28px);
     }
     .card {
       background: white;
@@ -201,6 +201,48 @@
       gap: 12px;
       align-items: center;
     }
+    .toolbar-actions {
+      margin-inline-start: auto;
+    }
+    .ranking-filters {
+      flex: 0 0 100%;
+    }
+    #ranking-search-container {
+      flex: 0 1 380px;
+      min-width: 0;
+    }
+    #ranking-search-input {
+      flex: 1;
+      min-width: 0;
+    }
+    #ranking-search-container label {
+      white-space: nowrap;
+    }
+    @media (max-width: 640px) {
+      #ranking-search-container { flex-basis: 100%; }
+    }
+    .export-controls {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      max-width: 100%;
+    }
+    .export-controls select,
+    .export-controls .btn {
+      min-width: 0;
+      min-height: 44px;
+      padding: 8px 12px;
+    }
+    .export-controls .btn {
+      min-width: 118px;
+      white-space: nowrap;
+    }
+    @media (max-width: 640px) {
+      .toolbar-actions .export-controls { flex: 1 1 220px; }
+      .export-controls select { padding-inline: 8px; }
+    }
     .filter-item {
       display: flex;
       align-items: center;
@@ -214,12 +256,50 @@
     }
     #lesson-grade { min-width: 100px; }
     #lesson-search { width: 180px; min-width: 150px; }
-    #lesson-select { width: min(320px, 72vw); min-width: 180px; max-width: 320px; }
+    .lesson-filters { flex: 0 0 100%; }
+    .lesson-picker { flex: 0 1 auto; min-width: 0; }
+    .lesson-picker label { white-space: nowrap; }
+    #lesson-select { width: min(320px, 72vw); min-width: 0; }
     .selected-lesson-name {
-      margin: -8px 0 16px;
+      margin: 0 0 16px;
       color: var(--primary-dark);
       font-weight: 700;
       overflow-wrap: anywhere;
+    }
+    @media (min-width: 1200px) {
+      .lesson-toolbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+      .lesson-toolbar .lesson-filter-row {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr) minmax(0, 320px) minmax(0, 0.95fr) minmax(0, 1.25fr);
+        gap: 12px;
+      }
+      .lesson-toolbar .lesson-filters,
+      .lesson-toolbar .result-filters {
+        display: contents;
+      }
+      .lesson-toolbar .filter-item {
+        display: block;
+        min-width: 0;
+      }
+      .lesson-toolbar .filter-item :is(input, select),
+      .lesson-toolbar #lesson-search {
+        width: 100%;
+        min-width: 0;
+        min-height: 44px;
+      }
+      .lesson-toolbar .selected-lesson-name {
+        grid-column: 1;
+        grid-row: 2;
+        margin: 0;
+      }
+    }
+    @media (max-width: 1199px) {
+      .lesson-filter-row { display: contents; }
+      .lesson-toolbar .selected-lesson-name { flex-basis: 100%; margin: 0; }
     }
     /* Table */
     .table-responsive {
@@ -381,6 +461,98 @@
       color: #0369a1;
       border: 1px solid #bae6fd;
     }
+    .ranking-sort {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 4px 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      text-align: inherit;
+      cursor: pointer;
+    }
+
+    #classes-table-container th,
+    #classes-table-container td,
+    #students-table-container th,
+    #students-table-container td {
+      padding: 9px 10px;
+    }
+
+    #classes-table-container th,
+    #students-table-container th {
+      white-space: normal;
+    }
+
+    #classes-table-container td:nth-child(2),
+    #classes-table-container td:nth-child(3) {
+      white-space: nowrap;
+    }
+
+    #students-table-container .student-name-cell {
+      min-width: 160px;
+    }
+
+    #students-table-container .student-class-cell {
+      white-space: nowrap;
+    }
+
+    #students-table-container .student-progress-cell {
+      min-width: 142px;
+    }
+
+    .student-name {
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+
+    .student-row-actions {
+      display: flex;
+      gap: 6px;
+      margin-top: 3px;
+    }
+
+    .student-row-action {
+      padding: 3px 8px;
+      min-height: 28px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      background: #fff;
+      color: var(--primary-dark);
+      font: inherit;
+      font-size: 0.8rem;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .student-row-action:hover,
+    .student-row-action:focus-visible {
+      border-color: var(--primary);
+      background: #ecfdf5;
+    }
+
+    .student-row-action[hidden] {
+      display: none;
+    }
+
+    #students-table-container [data-student-attempts] {
+      padding: 6px 10px;
+      white-space: nowrap;
+    }
+
+    .ranking-sort span {
+      color: var(--muted);
+      font-size: 0.75em;
+    }
+
+    .ranking-sort:hover,
+    th[aria-sort] .ranking-sort {
+      color: var(--primary);
+    }
+
   </style>
   <link rel="stylesheet" href="/assets/mobile.css">
 </head>
@@ -435,7 +607,7 @@
             <span id="stat-max" class="stat-value">0</span>
           </div>
           <div class="stat-card">
-            <span class="stat-title">🏆 Tỉ lệ Giỏi (≥ 8đ)</span>
+            <span class="stat-title">🏆 Tỉ lệ Xuất sắc (≥ 9đ)</span>
             <span id="stat-good-ratio" class="stat-value">0%</span>
           </div>
         </div>
@@ -443,41 +615,53 @@
         <p style="text-align: center; color: var(--muted); font-size: 0.85rem; margin: 8px 0 16px;">Thống kê tính trên toàn bộ lượt nộp phù hợp bộ lọc; bảng kết quả tải từng trang.</p>
 
         <!-- Thanh công cụ lọc & tìm kiếm -->
-        <div class="toolbar">
-          <div class="filter-group">
-            <div class="filter-item">
-              <label for="lesson-grade">Khối:</label>
-              <select id="lesson-grade">
-                <option value="3">Lớp 3</option>
-                <option value="4">Lớp 4</option>
-                <option value="5">Lớp 5</option>
-              </select>
+        <div class="toolbar lesson-toolbar">
+          <div class="lesson-filter-row">
+            <div class="filter-group lesson-filters">
+              <div class="filter-item">
+                <label for="lesson-grade">Khối:</label>
+                <select id="lesson-grade">
+                  <option value="3">Lớp 3</option>
+                  <option value="4">Lớp 4</option>
+                  <option value="5">Lớp 5</option>
+                </select>
+              </div>
+              <div class="filter-item">
+                <label for="lesson-search">Tìm bài:</label>
+                <input id="lesson-search" type="search" placeholder="Số hoặc tên bài">
+              </div>
+              <div class="filter-item lesson-picker">
+                <label for="lesson-select">Bài học:</label>
+                <select id="lesson-select"></select>
+              </div>
             </div>
-            <div class="filter-item">
-              <label for="lesson-search">Tìm bài:</label>
-              <input id="lesson-search" type="search" placeholder="Số hoặc tên bài">
-            </div>
-            <div class="filter-item">
-              <label for="lesson-select">Bài học:</label>
-              <select id="lesson-select"></select>
-            </div>
-            <div class="filter-item">
-              <label for="class-filter">Lớp:</label>
-              <select id="class-filter">
-                <option value="ALL">Tất cả các lớp</option>
-              </select>
-            </div>
-            <div class="filter-item">
-              <label for="search-input">Tìm học sinh:</label>
-              <input id="search-input" type="search" placeholder="Nhập tên học sinh...">
+            <div class="filter-group result-filters">
+              <div class="filter-item">
+                <label for="class-filter">Lớp:</label>
+                <select id="class-filter">
+                  <option value="ALL">Tất cả các lớp</option>
+                </select>
+              </div>
+              <div class="filter-item">
+                <label for="search-input">Tìm học sinh:</label>
+                <input id="search-input" type="search" placeholder="Nhập tên học sinh...">
+              </div>
             </div>
           </div>
-          <div class="filter-group">
+          <div class="filter-group toolbar-actions">
             <button id="refresh-btn" type="button" class="btn btn-secondary">🔄 Tải lại</button>
-            <button id="export-btn" type="button" class="btn btn-primary">📥 Xuất file Excel (CSV)</button>
+            <div class="export-controls">
+              <select id="export-format" aria-label="Định dạng xuất kết quả">
+                <option value="xlsx">Excel (.xlsx)</option>
+                <option value="docx">Word (.docx)</option>
+                <option value="pdf">PDF (.pdf)</option>
+                <option value="csv">CSV (.csv)</option>
+              </select>
+              <button id="export-btn" type="button" class="btn btn-primary">📥 Xuất file</button>
+            </div>
           </div>
+          <p id="selected-lesson-name" class="selected-lesson-name" aria-live="polite"></p>
         </div>
-        <p id="selected-lesson-name" class="selected-lesson-name" aria-live="polite"></p>
 
         <section aria-labelledby="question-stats-title" style="background: white; border: 1px solid #cdebdc; border-radius: 18px; padding: 18px; margin: 16px 0 22px;">
           <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
@@ -496,14 +680,14 @@
           <table>
             <thead>
               <tr>
-                <th style="width: 50px;">STT</th>
-                <th>Họ và tên</th>
-                <th>Lớp</th>
-                <th>Số câu đúng</th>
-                <th>Điểm số</th>
-                <th>Xếp loại</th>
-                <th>Thời gian làm bài</th>
-                <th>Thời gian nộp</th>
+                <th style="width: 50px;" scope="col" aria-sort="ascending"><button type="button" class="ranking-sort" data-table-sort="index">STT <span aria-hidden="true">▲</span></button></th>
+                <th scope="col"><button type="button" class="ranking-sort" data-table-sort="name">Họ và tên <span aria-hidden="true">↕</span></button></th>
+                <th scope="col"><button type="button" class="ranking-sort" data-table-sort="class">Lớp <span aria-hidden="true">↕</span></button></th>
+                <th scope="col"><button type="button" class="ranking-sort" data-table-sort="correct">Số câu đúng <span aria-hidden="true">↕</span></button></th>
+                <th scope="col"><button type="button" class="ranking-sort" data-table-sort="score">Điểm số <span aria-hidden="true">↕</span></button></th>
+                <th scope="col"><button type="button" class="ranking-sort" data-table-sort="level">Xếp loại <span aria-hidden="true">↕</span></button></th>
+                <th scope="col"><button type="button" class="ranking-sort" data-table-sort="duration">Thời gian làm bài <span aria-hidden="true">↕</span></button></th>
+                <th scope="col"><button type="button" class="ranking-sort" data-table-sort="submitted">Thời gian nộp <span aria-hidden="true">↕</span></button></th>
                 <th style="text-align: center;">Hành động</th>
               </tr>
             </thead>
@@ -532,7 +716,7 @@
           </div>
           <div class="stat-card">
             <span class="stat-title">📚 Tổng bài hệ thống</span>
-            <span class="stat-value">60 bài</span>
+            <span id="rank-stat-lessons" class="stat-value">—</span>
           </div>
           <div class="stat-card">
             <span class="stat-title">🥇 Dẫn đầu tiến độ</span>
@@ -542,21 +726,31 @@
 
         <!-- Thanh công cụ Xếp hạng -->
         <div class="toolbar">
-          <div class="filter-group">
-            <!-- Chuyển đổi Xếp hạng Lớp / Học sinh -->
-            <div class="pill-group">
-              <button id="mode-classes-btn" type="button" class="pill-btn active">🏫 Xếp hạng theo Lớp</button>
-              <button id="mode-students-btn" type="button" class="pill-btn">🧑‍🎓 Bảng vàng Học sinh</button>
+          <div class="pill-group">
+            <button id="mode-classes-btn" type="button" class="pill-btn active">🏫 Xếp hạng theo Lớp</button>
+            <button id="mode-students-btn" type="button" class="pill-btn">🧑‍🎓 Bảng vàng Học sinh</button>
+          </div>
+          <div class="filter-group toolbar-actions">
+            <button id="ranking-refresh-btn" type="button" class="btn btn-secondary">🔄 Tải lại</button>
+            <div class="export-controls">
+              <select id="ranking-export-format" aria-label="Định dạng xuất bảng xếp hạng">
+                <option value="xlsx">Excel (.xlsx)</option>
+                <option value="docx">Word (.docx)</option>
+                <option value="pdf">PDF (.pdf)</option>
+                <option value="csv">CSV (.csv)</option>
+              </select>
+              <button id="ranking-export-btn" type="button" class="btn btn-primary">📥 Xuất file</button>
             </div>
-
+          </div>
+          <div class="filter-group ranking-filters">
             <!-- Bộ lọc Khối -->
             <div class="filter-item">
               <label for="ranking-grade-filter">Khối:</label>
               <select id="ranking-grade-filter">
                 <option value="ALL">Tất cả các khối</option>
-                <option value="3">Khối 3 (18 bài)</option>
-                <option value="4">Khối 4 (21 bài)</option>
-                <option value="5">Khối 5 (21 bài)</option>
+                <option value="3">Khối 3</option>
+                <option value="4">Khối 4</option>
+                <option value="5">Khối 5</option>
               </select>
             </div>
 
@@ -575,10 +769,6 @@
             </div>
           </div>
 
-          <div class="filter-group">
-            <button id="ranking-refresh-btn" type="button" class="btn btn-secondary">🔄 Tải lại</button>
-            <button id="ranking-export-btn" type="button" class="btn btn-primary">📥 Xuất file Excel (CSV)</button>
-          </div>
         </div>
 
         <!-- BẢNG 1: XẾP HẠNG TIẾN ĐỘ THI ĐUA CÁC LỚP -->
@@ -586,15 +776,15 @@
           <table>
             <thead>
               <tr>
-                <th style="width: 70px; text-align: center;">Hạng</th>
-                <th>Lớp</th>
-                <th>Khối</th>
-                <th style="text-align: center;">Sĩ số tham gia</th>
-                <th style="min-width: 220px;">Tiến độ hoàn thành bài học</th>
-                <th style="text-align: center;">Tổng lượt làm</th>
-                <th style="text-align: center;">Điểm trung bình</th>
-                <th style="text-align: center;">Điểm cao nhất</th>
-                <th style="text-align: center;">Tỉ lệ Giỏi (≥ 8đ)</th>
+                <th style="width: 70px; text-align: center;" scope="col" aria-sort="ascending"><button type="button" class="ranking-sort" data-table-sort="rank">Hạng <span aria-hidden="true">▲</span></button></th>
+                <th scope="col"><button type="button" class="ranking-sort" data-table-sort="class">Lớp <span aria-hidden="true">↕</span></button></th>
+                <th scope="col"><button type="button" class="ranking-sort" data-table-sort="grade">Khối <span aria-hidden="true">↕</span></button></th>
+                <th style="text-align: center;" scope="col"><button type="button" class="ranking-sort" data-table-sort="students">Sĩ số tham gia <span aria-hidden="true">↕</span></button></th>
+                <th style="min-width: 220px;" scope="col"><button type="button" class="ranking-sort" data-table-sort="progress">Tiến độ hoàn thành bài học <span aria-hidden="true">↕</span></button></th>
+                <th style="text-align: center;" scope="col"><button type="button" class="ranking-sort" data-table-sort="attempts">Tổng lượt làm <span aria-hidden="true">↕</span></button></th>
+                <th style="text-align: center;" scope="col"><button type="button" class="ranking-sort" data-table-sort="average">Điểm trung bình <span aria-hidden="true">↕</span></button></th>
+                <th style="text-align: center;" scope="col"><button type="button" class="ranking-sort" data-table-sort="maximum">Điểm cao nhất <span aria-hidden="true">↕</span></button></th>
+                <th style="text-align: center;" scope="col"><button type="button" class="ranking-sort" data-table-sort="good">Tỉ lệ Xuất sắc (≥ 9đ) <span aria-hidden="true">↕</span></button></th>
                 <th style="text-align: center;">Chi tiết</th>
               </tr>
             </thead>
@@ -603,19 +793,43 @@
         </div>
 
         <!-- BẢNG 2: BẢNG VÀNG HỌC SINH -->
+        <p id="student-merge-feedback" role="status" hidden></p>
+        <section id="student-score-summary" aria-labelledby="student-score-summary-title" hidden>
+          <h3 id="student-score-summary-title">Số học sinh theo mức điểm trung bình</h3>
+          <p id="student-score-summary-total" role="status"></p>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-title">Từ 9 điểm trở lên (Xuất sắc)</span>
+              <span id="student-score-good" class="stat-value">0</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-title">Từ 7 đến dưới 9 điểm (Khá)</span>
+              <span id="student-score-fair" class="stat-value">0</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-title">Từ 5 đến dưới 7 điểm (Đạt)</span>
+              <span id="student-score-pass" class="stat-value">0</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-title">Dưới 5 điểm (Cần cố gắng)</span>
+              <span id="student-score-low" class="stat-value">0</span>
+            </div>
+          </div>
+        </section>
+
         <div id="students-table-container" class="table-responsive" hidden>
           <table>
             <thead>
               <tr>
-                <th style="width: 70px; text-align: center;">Hạng</th>
-                <th>Họ và tên</th>
-                <th>Lớp</th>
-                <th style="min-width: 200px;">Tiến độ bài học</th>
-                <th style="text-align: center;">Tổng lượt làm</th>
-                <th style="text-align: center;">Điểm trung bình</th>
-                <th style="text-align: center;">Điểm cao nhất</th>
-                <th style="text-align: center;">Thời gian làm TB</th>
-                <th>Lần nộp gần nhất</th>
+                <th style="width: 70px; text-align: center;" scope="col" aria-sort="ascending"><button type="button" class="ranking-sort" data-table-sort="rank">Hạng <span aria-hidden="true">▲</span></button></th>
+                <th class="student-name-cell" scope="col"><button type="button" class="ranking-sort" data-table-sort="student_name">Họ và tên <span aria-hidden="true">↕</span></button></th>
+                <th scope="col"><button type="button" class="ranking-sort" data-table-sort="class_name">Lớp <span aria-hidden="true">↕</span></button></th>
+                <th class="student-progress-cell" scope="col"><button type="button" class="ranking-sort" data-table-sort="progress">Tiến độ bài học <span aria-hidden="true">↕</span></button></th>
+                <th style="text-align: center;" scope="col"><button type="button" class="ranking-sort" data-table-sort="total_attempts">Tổng lượt làm <span aria-hidden="true">↕</span></button></th>
+                <th style="text-align: center;" scope="col"><button type="button" class="ranking-sort" data-table-sort="avg_score">Điểm trung bình <span aria-hidden="true">↕</span></button></th>
+                <th style="text-align: center;" scope="col"><button type="button" class="ranking-sort" data-table-sort="max_score">Điểm cao nhất <span aria-hidden="true">↕</span></button></th>
+                <th style="text-align: center;" scope="col"><button type="button" class="ranking-sort" data-table-sort="avg_time_seconds">Thời gian làm TB <span aria-hidden="true">↕</span></button></th>
+                <th scope="col"><button type="button" class="ranking-sort" data-table-sort="latest_submission">Lần nộp gần nhất <span aria-hidden="true">↕</span></button></th>
               </tr>
             </thead>
             <tbody id="students-ranking-rows"></tbody>
@@ -627,6 +841,65 @@
     </div>
   </main>
 
+  <dialog id="student-edit-dialog" aria-labelledby="student-edit-title"
+    style="width: min(460px, calc(100% - 24px)); box-sizing: border-box; border: 1px solid #cbd5e1; border-radius: 16px; padding: 20px; color: var(--text);">
+    <h2 id="student-edit-title" style="margin-top: 0;">Sửa thông tin học sinh</h2>
+    <p id="student-edit-source" style="overflow-wrap: anywhere;"></p>
+    <form id="student-edit-form">
+      <div class="filter-item" style="margin-bottom: 12px;">
+        <label for="student-edit-name">Họ và tên</label>
+        <input id="student-edit-name" type="text" style="width: 100%; min-width: 0;" maxlength="100" required autofocus>
+      </div>
+      <div class="filter-item">
+        <label for="student-edit-class">Lớp</label>
+        <input id="student-edit-class" type="text" style="width: 100%; min-width: 0;" maxlength="30" required>
+      </div>
+      <p id="student-edit-status" role="status"></p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <button id="student-edit-cancel" type="button" class="btn btn-secondary">Hủy</button>
+        <button id="student-edit-submit" type="submit" class="btn btn-primary" disabled>Lưu thay đổi</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="student-merge-dialog" aria-labelledby="student-merge-title"
+    style="width: min(460px, calc(100% - 24px)); box-sizing: border-box; border: 1px solid #cbd5e1; border-radius: 16px; padding: 20px; color: var(--text);">
+    <h2 id="student-merge-title" style="margin-top: 0;">Gộp tên học sinh</h2>
+    <p id="student-merge-source" style="overflow-wrap: anywhere;"></p>
+    <form id="student-merge-form">
+      <div class="filter-item">
+        <label for="student-merge-target">Tên đúng trong cùng lớp</label>
+        <select id="student-merge-target" style="width: 100%; min-width: 0;" required autofocus></select>
+      </div>
+      <p id="student-merge-status" role="status"></p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <button id="student-merge-cancel" type="button" class="btn btn-secondary">Hủy</button>
+        <button id="student-merge-submit" type="submit" class="btn btn-primary" disabled>Gộp lượt làm</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="student-attempts-dialog" aria-labelledby="student-attempts-title"
+    style="width: min(740px, calc(100% - 24px)); box-sizing: border-box; border: 1px solid #cbd5e1; border-radius: 16px; padding: 20px; color: var(--text);">
+    <form method="dialog" style="display: flex; align-items: start; justify-content: space-between; gap: 12px;">
+      <h2 id="student-attempts-title" style="margin: 0; overflow-wrap: anywhere;"></h2>
+      <button class="btn btn-secondary" autofocus>Đóng</button>
+    </form>
+    <p id="student-attempts-status" role="status"></p>
+    <div style="overflow-x: auto;">
+      <table id="student-attempts-table" hidden>
+        <thead><tr>
+          <th scope="col"><button type="button" class="ranking-sort" data-table-sort="lesson">Bài học <span aria-hidden="true">↕</span></button></th>
+          <th scope="col"><button type="button" class="ranking-sort" data-table-sort="score">Điểm <span aria-hidden="true">↕</span></button></th>
+          <th scope="col"><button type="button" class="ranking-sort" data-table-sort="correct">Số câu đúng <span aria-hidden="true">↕</span></button></th>
+          <th scope="col"><button type="button" class="ranking-sort" data-table-sort="duration">Thời gian làm <span aria-hidden="true">↕</span></button></th>
+          <th scope="col" aria-sort="descending"><button type="button" class="ranking-sort" data-table-sort="submitted">Lúc nộp <span aria-hidden="true">▼</span></button></th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <button id="student-attempts-more" type="button" class="btn btn-secondary" style="margin-top: 12px;" hidden>Xem thêm</button>
+  </dialog>
   <script defer src="/assets/teacher.js"></script>
 </body>
 </html>

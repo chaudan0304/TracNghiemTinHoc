@@ -1,4 +1,5 @@
 import './compat.js';
+import { getScoreLevel } from '../lib/score-levels.js';
     import { selectIncorrectQuestions } from '../lib/retry-questions.js';
 function createAttemptId() {
   const bytes = crypto.getRandomValues(new Uint8Array(16));
@@ -20,6 +21,9 @@ async function initializeQuiz() {
     if (!lessonResponse.ok) throw new Error("Không tải được bài học");
     const lesson = await lessonResponse.json();
     if (!Array.isArray(lesson.questions) || !lesson.questions.length || lesson.questions.some(q => !Array.isArray(q.options) || q.correctIndex < 0 || q.correctIndex >= q.options.length)) throw new Error("Dữ liệu câu hỏi không hợp lệ");
+    if (lesson.lessonTitle) {
+      document.title = `${lesson.lessonTitle} - Chinh phục Tin học`;
+    }
     /**
      * =========================================================================
      * 1. CẤU HÌNH BÀI HỌC (20 câu trắc nghiệm • 10 phút • 0,5 điểm/câu)
@@ -181,6 +185,7 @@ async function initializeQuiz() {
     }
 
     function initApp() {
+      document.title = `${LESSON_CONFIG.lessonTitle} - Chinh phục Tin học`;
       document.getElementById("header-subject-badge").textContent = LESSON_CONFIG.subjectBadge;
       document.getElementById("header-lesson-title").textContent = LESSON_CONFIG.lessonTitle;
       document.getElementById("welcome-main-title").textContent = LESSON_CONFIG.gameTitle;
@@ -198,6 +203,7 @@ async function initializeQuiz() {
       if (params.get("giaovien") === "1" || params.get("teacher") === "1") {
         location.replace('/teacher');
       }
+      document.getElementById("screen-welcome").hidden = false;
     }
 
     function toggleSound() {
@@ -309,7 +315,10 @@ async function initializeQuiz() {
       startTimer();
     }
 
+    let pendingSubmission = null;
+
     function restartGame() {
+      pendingSubmission = null;
       soundFX.playClick();
       stopTimer();
       showScreen("screen-welcome");
@@ -318,6 +327,7 @@ async function initializeQuiz() {
     function retryWrongQuestions() {
       const remaining = selectIncorrectQuestions(shuffledQuestions, state.userAnswers);
       if (!state.submitted || remaining.length === 0) return;
+      pendingSubmission = null;
       soundFX.playClick();
       shuffledQuestions = shuffle([...remaining]);
       state.retryMode = true;
@@ -383,7 +393,7 @@ async function initializeQuiz() {
         const btn = document.createElement("button");
         btn.type = "button";
         btn.className = "option-card w-full text-left bg-white border-2 border-slate-200 rounded-2xl p-3.5 sm:p-4 flex items-center gap-3 cursor-pointer";
-        btn.onclick = () => selectAnswer(idx);
+        btn.addEventListener("click", () => selectAnswer(idx));
 
         btn.innerHTML = `
           <span class="option-letter w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#ecfdf5] border border-[#6ee7b7] text-[#059669] font-black text-sm flex items-center justify-center shrink-0">
@@ -511,14 +521,19 @@ async function initializeQuiz() {
       const titleEl = document.getElementById("result-title");
       const subtitleEl = document.getElementById("result-subtitle");
 
-      if (state.score >= maxScore * 0.8) {
+      const level = getScoreLevel(state.score);
+      if (level === 3) {
         starsEl.innerHTML = "⭐⭐⭐";
         titleEl.textContent = `Xuất sắc! Chúc mừng ${state.studentName}!`;
         subtitleEl.textContent = "Em đã nắm rất vững nội dung bài học!";
-      } else if (state.score >= maxScore * 0.5) {
+      } else if (level === 2) {
         starsEl.innerHTML = "⭐⭐<span class='opacity-30'>⭐</span>";
         titleEl.textContent = `Giỏi lắm! ${state.studentName} làm bài rất tốt!`;
         subtitleEl.textContent = "Em đã hiểu được nhiều nội dung quan trọng. Hãy xem lại các câu chưa đúng để đạt điểm 10 tối đa nhé!";
+      } else if (level === 1) {
+        starsEl.innerHTML = "⭐⭐<span class='opacity-30'>⭐</span>";
+        titleEl.textContent = `Đạt! ${state.studentName} đã hoàn thành bài.`;
+        subtitleEl.textContent = "Em hãy xem lại các câu chưa đúng và thử lại nhé!";
       } else {
         starsEl.innerHTML = "⭐<span class='opacity-30'>⭐⭐</span>";
         titleEl.textContent = `Hoàn thành! Cố gắng thêm nhé ${state.studentName}!`;
@@ -529,24 +544,45 @@ async function initializeQuiz() {
 
 
       const statusBanner = document.getElementById("result-submit-status");
+      document.getElementById('resend-result-btn').hidden = true;
       if (state.retryMode) {
         statusBanner.textContent = '🎯 Lượt ôn lại chỉ để luyện tập, không ghi thêm vào bảng điểm.';
         statusBanner.className = 'mt-3 text-center text-xs font-extrabold text-[#047857]';
         return;
       }
-      statusBanner.textContent = "📤 Đang gửi kết quả làm bài tới thầy/cô giáo...";
-      statusBanner.className = "mt-3 text-center text-xs font-extrabold text-[#047857]";
+      pendingSubmission = {
+        payload: buildSubmission(state.studentName, state.studentClass, timeUsedSeconds),
+        sending: false
+      };
+      await sendPendingSubmission();
+    }
 
-      const saveResult = await saveStudentRecordCloud(state.studentName, state.studentClass, timeUsedSeconds);
+    async function sendPendingSubmission() {
+      const submission = pendingSubmission;
+      if (!submission || submission.sending) return;
+      const statusBanner = document.getElementById('result-submit-status');
+      const resend = document.getElementById('resend-result-btn');
+      submission.sending = true;
+      resend.disabled = true;
+      statusBanner.textContent = '📤 Đang gửi kết quả làm bài tới thầy/cô giáo...';
+      statusBanner.className = 'mt-3 text-center text-xs font-extrabold text-[#047857]';
 
-      if (saveResult.ok) {
-        statusBanner.textContent = "✅ Đã gửi kết quả thành công tới thầy/cô giáo!";
-        statusBanner.className = "mt-3 text-center text-xs font-extrabold text-[#059669]";
+      const result = await saveStudentRecordCloud(submission.payload);
+      if (pendingSubmission !== submission) return;
+      submission.sending = false;
+      resend.disabled = false;
+      resend.hidden = result.ok || !result.retryable;
+      if (result.ok) {
+        pendingSubmission = null;
+        statusBanner.textContent = '✅ Đã gửi kết quả thành công tới thầy/cô giáo!';
+        statusBanner.className = 'mt-3 text-center text-xs font-extrabold text-[#059669]';
       } else {
-        statusBanner.textContent = saveResult.rateLimited
-          ? "⚠️ Hệ thống đang nhận quá nhiều bài. Em hãy chụp màn hình phiếu điểm và báo thầy/cô."
-          : "⚠️ Chưa gửi được kết quả. Em hãy chụp màn hình phiếu điểm và báo thầy/cô.";
-        statusBanner.className = "mt-3 text-center text-xs font-extrabold text-red-700";
+        statusBanner.textContent = result.rateLimited
+          ? '⚠️ Hệ thống đang bận. Em hãy chờ một lúc rồi bấm Gửi lại kết quả.'
+          : result.retryable
+            ? '⚠️ Chưa gửi được kết quả. Em hãy kiểm tra mạng rồi bấm Gửi lại kết quả.'
+            : '⚠️ Chưa gửi được kết quả. Em hãy chụp màn hình phiếu điểm và báo thầy/cô.';
+        statusBanner.className = 'mt-3 text-center text-xs font-extrabold text-red-700';
       }
     }
 
@@ -603,30 +639,32 @@ async function initializeQuiz() {
      * 5. GỬI KẾT QUẢ LUYỆN TẬP
      * =========================================================================
      */
-    async function saveStudentRecordCloud(name, className, timeUsedSeconds) {
+    function buildSubmission(name, className, timeUsedSeconds) {
+      const answers = new Array(QUESTIONS.length).fill(null);
+      shuffledQuestions.forEach((question, index) => {
+        const answer = state.userAnswers[index];
+        if (answer && answer.selectedIndex != null) {
+          answers[question.originalQuestionIndex] = question.originalOptionIndices[answer.selectedIndex];
+        }
+      });
+      return {
+        id: createAttemptId(), lessonId, name, className, answers,
+        timeTakenSeconds: Math.max(0, Math.round(timeUsedSeconds))
+      };
+    }
+
+    async function saveStudentRecordCloud(payload) {
       try {
-        // Ánh xạ đáp án từ thứ tự xáo trộn về thứ tự gốc để server chấm đúng
-        const originalAnswers = new Array(QUESTIONS.length).fill(null);
-        shuffledQuestions.forEach((sq, shuffledIdx) => {
-          const ans = state.userAnswers[shuffledIdx];
-          if (ans && ans.selectedIndex != null) {
-            // Chuyển chỉ số đáp án xáo trộn -> chỉ số đáp án gốc
-            originalAnswers[sq.originalQuestionIndex] = sq.originalOptionIndices[ans.selectedIndex];
-          }
-        });
         const response = await fetch('/api/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            id: createAttemptId(), lessonId, name, className,
-            answers: originalAnswers,
-            timeTakenSeconds: typeof timeUsedSeconds === 'number' ? Math.max(0, Math.round(timeUsedSeconds)) : null
-          })
+          body: JSON.stringify(payload)
         });
-        return { ok: response.ok, rateLimited: response.status === 429 };
-      } catch (e) {
-        console.error('Không thể gửi kết quả:', e);
-        return { ok: false, rateLimited: false };
+        const rateLimited = response.status === 429;
+        return { ok: response.ok, rateLimited, retryable: rateLimited || response.status >= 500 };
+      } catch (error) {
+        console.error('Không thể gửi kết quả:', error);
+        return { ok: false, rateLimited: false, retryable: true };
       }
     }
 
@@ -682,17 +720,15 @@ async function initializeQuiz() {
       animate();
     }
 
-    // Gắn toàn bộ hàm xử lý lên window để các sự kiện HTML gọi được
-    Object.assign(window, {
-      toggleSound,
-      clearFormError,
-      startGame,
-      restartGame,
-      selectAnswer,
-      nextQuestion,
-      toggleReviewList,
-      retryWrongQuestions
-    });
+    document.getElementById("sound-toggle-btn").addEventListener("click", toggleSound);
+    document.getElementById("start-quiz-btn").addEventListener("click", startGame);
+    document.getElementById("next-question-btn").addEventListener("click", nextQuestion);
+    document.getElementById("resend-result-btn").addEventListener("click", sendPendingSubmission);
+    document.getElementById("retry-wrong-btn").addEventListener("click", retryWrongQuestions);
+    document.getElementById("toggle-review-btn").addEventListener("click", toggleReviewList);
+    document.getElementById("restart-quiz-btn").addEventListener("click", restartGame);
+    document.getElementById("student-name-input").addEventListener("input", clearFormError);
+    document.getElementById("student-class-input").addEventListener("input", clearFormError);
 
     if (document.readyState === "loading") window.addEventListener("DOMContentLoaded", initApp); else initApp();
 }

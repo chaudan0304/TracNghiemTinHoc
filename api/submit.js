@@ -25,9 +25,9 @@ return async function handler(request, response) {
       VALUES (${id}, ${lessonId}, ${name.trim()}, ${className.trim()}, ${JSON.stringify(answers)}::jsonb, ${result.correctCount}, ${result.totalQuestions}, ${result.score}, ${duration})
       ON CONFLICT (id) DO NOTHING RETURNING id`;
     if (inserted.length === 0) {
-      const [existing] = await sql`SELECT lesson_id, student_name, class_name, answers FROM quiz_attempts WHERE id = ${id}`;
-      if (!existing || existing.lesson_id !== lessonId || existing.student_name !== name.trim() ||
-          existing.class_name !== className.trim() || JSON.stringify(existing.answers) !== JSON.stringify(answers)) {
+      const [existing] = await sql`SELECT lesson_id, student_name, original_student_name, class_name, original_class_name, answers FROM quiz_attempts WHERE id = ${id}`;
+      if (!existing || existing.lesson_id !== lessonId || (existing.original_student_name ?? existing.student_name) !== name.trim() ||
+          (existing.original_class_name ?? existing.class_name) !== className.trim() || JSON.stringify(existing.answers) !== JSON.stringify(answers)) {
         return json(response, 409, { error: 'SUBMISSION_ID_CONFLICT' });
       }
     }
