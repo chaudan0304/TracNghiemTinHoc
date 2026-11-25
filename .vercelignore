@@ -3,6 +3,8 @@ lessons/
 scripts/seed-lessons.mjs
 scripts/lock-attempt-scores.mjs
 scripts/record-student-history.mjs
+scripts/migrate-schools.mjs
+scripts/verify-school-production.mjs
 README.md
 .git/
 .env*

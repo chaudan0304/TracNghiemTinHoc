@@ -10,6 +10,8 @@ export function initializeTeacherAccounts(api) {
   const displayName = form.elements.namedItem('displayName');
   const subject = form.elements.namedItem('subject');
   const classes = form.elements.namedItem('classes');
+  const school = form.elements.namedItem('schoolId');
+  let schools = [];
   const studentPermission = form.elements.namedItem('studentPermission');
   const active = form.elements.namedItem('active');
   const cancel = byId('account-cancel');
@@ -22,6 +24,7 @@ export function initializeTeacherAccounts(api) {
     displayName.value = account?.displayName || '';
     username.readOnly = editing;
     subject.value = account?.subject || '';
+    school.value = account?.schoolId || 'quynh-loc';
     classes.value = account ? account.classes.join(', ') : '';
     studentPermission.value = account?.canEditStudents ? 'edit' : 'view';
     active.value = account?.active === false ? 'false' : 'true';
@@ -37,12 +40,49 @@ export function initializeTeacherAccounts(api) {
     list.replaceChildren();
     status.textContent = 'Đang tải tài khoản...';
     try {
+      const selectedSchool = school.value;
+      schools = (await api('/api/teacher?type=schools')).schools;
+      school.replaceChildren();
+      for (const item of schools) school.add(new Option(item.name, item.id));
+      school.value = selectedSchool || 'quynh-loc';
       const data = await api('/api/teacher?type=accounts');
       for (const account of data.accounts) {
-        const row = document.createElement('li');
-        const summary = document.createElement('span');
-        const accountLabel = account.displayName ? `${account.displayName} (${account.username})` : account.username;
-        summary.textContent = `${accountLabel} · ${account.subject} · ${account.classes.length ? account.classes.join(', ') : 'Chưa giao lớp'} · Quyền: ${account.canEditStudents ? 'Chỉnh sửa' : 'Chỉ xem'} · ${account.active ? 'Đang hoạt động' : 'Đã khóa'}`;
+        const row = document.createElement('tr');
+        const cell = (label, text) => {
+          const element = document.createElement('td');
+          if (label) element.dataset.label = label;
+          if (text) element.textContent = text;
+          row.append(element);
+          return element;
+        };
+        const identity = cell('');
+        const name = document.createElement('strong');
+        name.className = 'account-name';
+        name.textContent = account.displayName || account.username;
+        identity.append(name);
+        if (account.displayName) {
+          const login = document.createElement('span');
+          login.className = 'account-username';
+          login.textContent = account.username;
+          identity.append(login);
+        }
+        cell('Môn dạy', account.subject);
+        const assignedClasses = cell('Lớp phụ trách');
+        const tags = document.createElement('div');
+        tags.className = 'account-class-tags';
+        for (const className of account.classes) {
+          const tag = document.createElement('span');
+          tag.className = 'account-class-tag';
+          tag.textContent = className;
+          tags.append(tag);
+        }
+        assignedClasses.append(account.classes.length ? tags : document.createTextNode('Chưa giao lớp'));
+        cell('Trường học', schools.find(item => item.id === account.schoolId)?.name || 'Trường Tiểu học Quỳnh Lộc');
+        cell('Quyền', account.canEditStudents ? 'Chỉnh sửa' : 'Chỉ xem');
+        const state = document.createElement('span');
+        state.className = `account-state${account.active ? '' : ' is-inactive'}`;
+        state.textContent = account.active ? 'Đang hoạt động' : 'Đã khóa';
+        cell('Trạng thái').append(state);
         const edit = document.createElement('button');
         edit.type = 'button';
         edit.className = 'btn btn-secondary';
@@ -53,7 +93,7 @@ export function initializeTeacherAccounts(api) {
           populate(account);
           subject.focus();
         });
-        row.append(summary, edit);
+        cell('').append(edit);
         list.append(row);
       }
       status.textContent = message || (data.accounts.length ? '' : 'Chưa có tài khoản giáo viên.');
@@ -68,7 +108,7 @@ export function initializeTeacherAccounts(api) {
     if (fields.disabled) return;
     const input = {
       action: editing ? 'update-account' : 'create-account', username: username.value, displayName: displayName.value,
-      subject: subject.value, classes: classes.value.split(',').map(value => value.trim()).filter(Boolean),
+      subject: subject.value, schoolId: school.value, classes: classes.value.split(',').map(value => value.trim()).filter(Boolean),
       active: active.value === 'true', canEditStudents: studentPermission.value === 'edit'
     };
     if (password.value || !editing) input.password = password.value;
@@ -84,6 +124,7 @@ export function initializeTeacherAccounts(api) {
       fields.disabled = false;
     }
   });
+  document.addEventListener('schools-updated', () => load());
   return load;
 }
 

@@ -1,11 +1,13 @@
-import { database, ensureTable, json } from '../lib/server.js';
+import { database, ensureTableOnce, json } from '../lib/server.js';
 import { authenticateTeacher, clearTeacherSession, loginTeacher } from '../lib/teacher-auth.js';
-import { handleTeacherAccounts } from '../lib/teacher-accounts.js';
+import { handleTeacherAccounts, updateTeacherProfile } from '../lib/teacher-accounts.js';
 import { listLessons, loadLesson } from '../lib/lesson-store.js';
 import { EXCELLENT_SCORE } from '../lib/score-levels.js';
 import { summarizeQuestionResponses } from '../lib/question-stats.js';
+import { DEFAULT_SCHOOL_ID, handleSchools, validSchoolId } from '../lib/schools.js';
+import { migrateSchools } from '../lib/school-migration.js';
 
-export function createTeacherHandler(getDatabase = database, prepare = ensureTable) {
+export function createTeacherHandler(getDatabase = database, prepare = ensureTableOnce) {
 return async function handler(request, response) {
   const action = request.method === 'POST' ? request.body?.action : null;
   const isMerge = action === 'merge-students';
@@ -15,16 +17,31 @@ return async function handler(request, response) {
     if (action === 'login') return await loginTeacher(request, response, getDatabase, prepare);
     const identity = await authenticateTeacher(request, getDatabase);
     if (!identity) return json(response, 401, { error: 'UNAUTHORIZED' });
+    if (action === 'update-profile') {
+      if (identity.role !== 'teacher') return json(response, 403, { error: 'FORBIDDEN' });
+      return await updateTeacherProfile(request, response, getDatabase(), identity);
+    }
 
     const params = request.method === 'GET' ? new URL(request.url, 'https://local.invalid').searchParams : null;
     const type = params?.get('type') || '';
+    const schoolRequest = type === 'schools' || ['create-school', 'update-school', 'migrate-schools'].includes(action);
     const accountRequest = type === 'accounts' || action === 'create-account' || action === 'update-account';
     if (identity.role !== 'admin' &&
-        (accountRequest || type === 'student-history' || isMerge ||
+        ((schoolRequest && request.method !== 'GET') || accountRequest || type === 'student-history' || isMerge ||
           (isEdit && !identity.canEditStudents) || request.method === 'DELETE')) {
       return json(response, 403, { error: 'FORBIDDEN' });
     }
     if (accountRequest) return await handleTeacherAccounts(request, response, getDatabase());
+    if (action === 'migrate-schools') return json(response, 200, await migrateSchools(getDatabase()));
+    if (schoolRequest) return await handleSchools(request, response, getDatabase(), identity.role === 'admin' ? null : identity.schoolId);
+    const requestedSchool = params?.get('schoolId') || request.body?.schoolId;
+    if (requestedSchool !== undefined && requestedSchool !== null && !validSchoolId(requestedSchool)) {
+      return json(response, 400, { error: 'INVALID_SCHOOL' });
+    }
+    if (identity.role !== 'admin' && requestedSchool && requestedSchool !== identity.schoolId) {
+      return json(response, 403, { error: 'FORBIDDEN' });
+    }
+    const schoolId = identity.role === 'admin' ? (requestedSchool || DEFAULT_SCHOOL_ID) : identity.schoolId;
     if (type === 'student-history') {
       const before = params.get('before');
       if (before !== null && !/^[1-9]\d{0,17}$/.test(before)) {
@@ -35,6 +52,7 @@ return async function handler(request, response) {
         previous_name, previous_class, current_name, current_class, attempt_count
         FROM quiz_student_history
         WHERE (${before}::bigint IS NULL OR quiz_student_history.id < ${before}::bigint)
+        AND COALESCE(to_jsonb(quiz_student_history)->>'school_id', 'quynh-loc') = ${schoolId}
         ORDER BY quiz_student_history.id DESC LIMIT 51`;
       const entries = rows.slice(0, 50);
       return json(response, 200, { entries, nextBefore: rows.length > 50 ? entries.at(-1).id : null });
@@ -73,7 +91,7 @@ return async function handler(request, response) {
         tx`WITH target AS (
           SELECT EXISTS (
             SELECT 1 FROM quiz_attempts
-            WHERE student_name = ${targetName.trim()} AND class_name = ${targetClass.trim()}
+            WHERE student_name = ${targetName.trim()} AND class_name = ${targetClass.trim()} AND school_id = ${schoolId}
           ) AS already_exists
         ), updated AS (
           UPDATE quiz_attempts AS source
@@ -81,7 +99,7 @@ return async function handler(request, response) {
             original_student_name = COALESCE(source.original_student_name, source.student_name),
             original_class_name = COALESCE(source.original_class_name, source.class_name)
           FROM target
-          WHERE source.student_name = ${sourceName} AND source.class_name = ${className}
+          WHERE source.student_name = ${sourceName} AND source.class_name = ${className} AND source.school_id = ${schoolId}
             AND NOT target.already_exists
           RETURNING source.id
         ) SELECT (SELECT COUNT(*)::int FROM updated) AS updated_count, already_exists AS target_exists
@@ -100,10 +118,10 @@ return async function handler(request, response) {
         tx`WITH moved AS (
           UPDATE quiz_attempts AS source
           SET student_name = ${targetName}, original_student_name = COALESCE(source.original_student_name, source.student_name)
-          WHERE source.student_name = ${sourceName} AND source.class_name = ${className}
+          WHERE source.student_name = ${sourceName} AND source.class_name = ${className} AND source.school_id = ${schoolId}
             AND EXISTS (
               SELECT 1 FROM quiz_attempts AS target
-              WHERE target.student_name = ${targetName} AND target.class_name = source.class_name
+              WHERE target.student_name = ${targetName} AND target.class_name = source.class_name AND target.school_id = source.school_id
             )
           RETURNING source.id
         ) SELECT COUNT(*)::int AS merged_count FROM moved`
@@ -130,6 +148,7 @@ return async function handler(request, response) {
         const pageSize = 50;
         const rows = await sql`SELECT lesson_id, correct_count, total_questions, score, time_taken_seconds, submitted_at
           FROM quiz_attempts WHERE student_name = ${studentName} AND class_name = ${className}
+          AND school_id = ${schoolId}
           AND COALESCE(jsonb_exists(${scope}::jsonb, upper(btrim(class_name))), true)
           ORDER BY submitted_at DESC, id DESC LIMIT ${pageSize + 1} OFFSET ${offset}`;
         return json(response, 200, { rows: rows.slice(0, pageSize), hasMore: rows.length > pageSize });
@@ -155,7 +174,8 @@ return async function handler(request, response) {
             MAX(submitted_at) AS latest_submission
             FROM quiz_attempts
             WHERE (${className} = '' OR ${className} = 'ALL' OR class_name = ${className})
-            AND COALESCE(jsonb_exists(${scope}::jsonb, upper(btrim(class_name))), true)
+            AND school_id = ${schoolId}
+          AND COALESCE(jsonb_exists(${scope}::jsonb, upper(btrim(class_name))), true)
             GROUP BY student_name, class_name
             ORDER BY avg_score DESC,
               AVG(time_taken_seconds) ASC NULLS LAST, student_name ASC, class_name ASC`;
@@ -173,7 +193,8 @@ return async function handler(request, response) {
           COUNT(*) FILTER (WHERE score >= ${EXCELLENT_SCORE})::int AS good_count,
           MAX(submitted_at) AS latest_submission
           FROM quiz_attempts
-          WHERE COALESCE(jsonb_exists(${scope}::jsonb, upper(btrim(class_name))), true)
+          WHERE school_id = ${schoolId}
+          AND COALESCE(jsonb_exists(${scope}::jsonb, upper(btrim(class_name))), true)
           GROUP BY class_name
           ORDER BY (COUNT(*) FILTER (WHERE score >= ${EXCELLENT_SCORE}))::numeric / COUNT(*) DESC,
             avg_score DESC, class_name ASC`;
@@ -186,6 +207,7 @@ return async function handler(request, response) {
       if (type === 'classes') {
         const classes = await sql`SELECT DISTINCT class_name FROM quiz_attempts
           WHERE lesson_id = ${lessonId}
+          AND school_id = ${schoolId}
           AND COALESCE(jsonb_exists(${scope}::jsonb, upper(btrim(class_name))), true)
           ORDER BY class_name`;
         return json(response, 200, { classes: classes.map(row => row.class_name) });
@@ -204,6 +226,7 @@ return async function handler(request, response) {
           WHERE attempt.lesson_id = ${lessonId}
           AND (${className} = '' OR attempt.class_name = ${className})
           AND (${search} = '' OR position(lower(${search}) in lower(attempt.student_name)) > 0)
+          AND attempt.school_id = ${schoolId}
           AND COALESCE(jsonb_exists(${scope}::jsonb, upper(btrim(attempt.class_name))), true)
           GROUP BY item.ordinal, item.answer`;
         return json(response, 200, { questions: summarizeQuestionResponses(lesson, counts) });
@@ -216,6 +239,7 @@ return async function handler(request, response) {
           FROM quiz_attempts WHERE lesson_id = ${lessonId}
           AND (${className} = '' OR class_name = ${className})
           AND (${search} = '' OR position(lower(${search}) in lower(student_name)) > 0)
+          AND school_id = ${schoolId}
           AND COALESCE(jsonb_exists(${scope}::jsonb, upper(btrim(class_name))), true)`;
         return json(response, 200, { stats: {
           total: row.total,
@@ -228,18 +252,20 @@ return async function handler(request, response) {
         FROM quiz_attempts WHERE lesson_id = ${lessonId}
         AND (${className} = '' OR class_name = ${className})
         AND (${search} = '' OR position(lower(${search}) in lower(student_name)) > 0)
-        AND COALESCE(jsonb_exists(${scope}::jsonb, upper(btrim(class_name))), true)
+        AND school_id = ${schoolId}
+          AND COALESCE(jsonb_exists(${scope}::jsonb, upper(btrim(class_name))), true)
         ORDER BY submitted_at DESC, id DESC LIMIT 100 OFFSET ${offset}`;
       return json(response, 200, { rows });
     }
     if (request.method === 'DELETE') {
       const id = String(request.body?.id || '');
       if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)) return json(response, 400, { error: 'INVALID_ID' });
-      await sql`DELETE FROM quiz_attempts WHERE id = ${id}`;
+      await sql`DELETE FROM quiz_attempts WHERE id = ${id} AND school_id = ${schoolId}`;
       return json(response, 200, { ok: true });
     }
     return json(response, 405, { error: 'METHOD_NOT_ALLOWED' });
   } catch (error) {
+    if (error.code === '23505') return json(response, 409, { error: 'SCHOOL_ALREADY_EXISTS' });
     if (error.message === 'DATABASE_NOT_CONFIGURED' || error.code === '42P01') return json(response, 503, { error: 'STORAGE_NOT_CONFIGURED' });
     if (error.message === 'LESSON_NOT_FOUND') return json(response, 404, { error: 'LESSON_NOT_FOUND' });
     console.error('Teacher API failed', error);

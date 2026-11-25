@@ -110,6 +110,107 @@ test('lessons use the signed-in teacher name and ignore author fields in the req
   assert.ok(stored.every(lesson => lesson.authorName === username));
 });
 
+test('custom lessons can be managed, edited, hidden from students, and deleted only when unused', async t => {
+  const settings = ['SESSION_SECRET', 'ADMIN_PASSWORD'];
+  const previous = settings.map(name => process.env[name]);
+  t.after(() => {
+    settings.forEach((name, index) => {
+      if (previous[index] === undefined) delete process.env[name];
+      else process.env[name] = previous[index];
+    });
+  });
+  process.env.SESSION_SECRET = 'manage-lessons-secret';
+  process.env.ADMIN_PASSWORD = 'manage-lessons-admin';
+
+  const builtin = { ...normalizeNewLessons([{ ...input, title: 'Bài gốc hệ thống' }])[0] };
+  const custom = {
+    ...normalizeNewLessons([input])[0],
+    authorName: 'Cô An',
+    authorUsername: 'gv.an'
+  };
+  let hasAttempts = false;
+  const store = new Map([[builtin.id, builtin], [custom.id, custom]]);
+  const sql = async (parts, ...values) => {
+    const query = parts.join('?');
+    if (query.includes('FROM teacher_accounts')) {
+      return [{ active: true, session_version: '123e4567-e89b-42d3-a456-426614174023', classes: ['4A1'], display_name: 'Cô An', subject: 'Tin học' }];
+    }
+    if (query.includes('ORDER BY position')) {
+      return [...store.values()].map(item => ({
+        id: item.id, grade: item.grade, lessonTitle: item.lessonTitle,
+        authorName: item.authorName ?? null, authorUsername: item.authorUsername ?? null,
+        hidden: Boolean(item.hidden), subjectBadge: item.subjectBadge,
+        timeLimitSeconds: item.timeLimitSeconds, questionCount: item.questions.length
+      }));
+    }
+    if (query.includes('SELECT document AS lesson FROM quiz_lessons')) {
+      const found = store.get(values[0]);
+      return found ? [{ lesson: found }] : [];
+    }
+    if (query.includes('UPDATE quiz_lessons SET document')) {
+      const next = JSON.parse(values[0]);
+      const id = values[1];
+      if (!store.has(id)) return [];
+      store.set(id, next);
+      return [{ id }];
+    }
+    if (query.includes('DELETE FROM quiz_lessons')) {
+      if (hasAttempts || !store.has(values[0])) return [];
+      store.delete(values[0]);
+      return [{ id: values[0] }];
+    }
+    if (query.includes('SELECT id FROM quiz_lessons WHERE id =')) {
+      return store.has(values[0]) ? [{ id: values[0] }] : [];
+    }
+    assert.fail(query);
+  };
+
+  const handler = createLessonsHandler(() => sql);
+  const teacherCookie = { cookie: 'teacher_session=' + teacherSessionToken('gv.an', '123e4567-e89b-42d3-a456-426614174023') };
+  const adminCookie = { cookie: 'teacher_session=' + teacherSessionToken('admin') };
+
+  const send = async (method, url, body, headers = {}) => {
+    const res = response();
+    await handler({ method, url, body, headers }, res);
+    return res;
+  };
+
+  // Built-in lesson without author cannot be edited by teacher or deleted
+  assert.equal((await send('PUT', '/api/lessons', { action: 'toggle-hidden', id: builtin.id, hidden: true }, teacherCookie)).code, 403);
+  assert.equal((await send('DELETE', '/api/lessons?id=' + builtin.id, null, adminCookie)).code, 403);
+
+  // Author can edit custom lesson and load edit details
+  const detail = await send('GET', `/api/lessons?id=${custom.id}&edit=1`, null, teacherCookie);
+  assert.equal(detail.code, 200);
+  assert.equal(detail.body.questions[0].correctIndex, 0);
+
+  const edited = await send('PUT', '/api/lessons', {
+    id: custom.id, grade: 4, title: 'Bài tập về bàn phím (mới)', minutes: 20,
+    questions: [{ question: 'Phím nào xuống dòng?', options: ['Enter', 'Space', 'Shift', 'Tab'], correctIndex: 0, explanation: 'Enter dùng để xuống dòng.' }]
+  }, teacherCookie);
+  assert.equal(edited.code, 200);
+  assert.equal(store.get(custom.id).lessonTitle, 'Bài tập về bàn phím (mới)');
+
+  // Hide from students while visible to manager
+  assert.equal((await send('PUT', '/api/lessons', { action: 'toggle-hidden', id: custom.id, hidden: true }, teacherCookie)).code, 200);
+  const publicList = await send('GET', '/api/lessons');
+  assert.equal(publicList.body.lessons.some(item => item.id === custom.id), false);
+  assert.equal((await send('GET', `/api/lessons?id=${custom.id}`)).code, 404);
+  const managedList = await send('GET', '/api/lessons?manage=1', null, teacherCookie);
+  assert.equal(managedList.body.lessons.find(item => item.id === custom.id).editable, true);
+  assert.equal(managedList.body.lessons.find(item => item.id === custom.id).hidden, true);
+
+  // Cannot delete when attempts exist, succeeds once unused
+  hasAttempts = true;
+  const blockedDelete = await send('DELETE', `/api/lessons?id=${custom.id}`, null, teacherCookie);
+  assert.equal(blockedDelete.code, 409);
+  assert.equal(blockedDelete.body.error, 'LESSON_HAS_ATTEMPTS');
+
+  hasAttempts = false;
+  assert.equal((await send('DELETE', `/api/lessons?id=${custom.id}`, null, teacherCookie)).code, 200);
+  assert.equal(store.has(custom.id), false);
+});
+
 test('Excel template round-trips rows from multiple lessons and reports an invalid answer by row', async () => {
   const workbook = new ExcelJS.Workbook();
   await workbook.xlsx.load(await (await createLessonTemplate()).arrayBuffer());

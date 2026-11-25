@@ -16,6 +16,20 @@ for (const page of ['index', 'quiz', 'teacher']) {
   });
 }
 await build({
+  entryPoints: ['ui/teacher.css'],
+  outfile: 'assets/teacher.css',
+  minify: true
+});
+await build({
+  entryPoints: ['ui/lesson-workbook.js'],
+  bundle: true,
+  format: 'iife',
+  globalName: 'QuizLessonWorkbook',
+  target: 'es2020',
+  outfile: 'assets/lesson-workbook.js',
+  minify: true
+});
+await build({
   entryPoints: ['ui/report-export.js'],
   bundle: true,
   format: 'iife',

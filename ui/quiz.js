@@ -11,6 +11,42 @@ function createAttemptId() {
 }
 
 async function initializeQuiz() {
+    const LAST_SCHOOL_KEY = 'quiz-last-school-id';
+    const schoolSelect = document.getElementById('student-school-input');
+    let schools = [];
+    async function loadSchools() {
+      const status = document.getElementById('school-load-status');
+      const reload = document.getElementById('school-reload');
+      schoolSelect.disabled = true;
+      reload.hidden = true;
+      status.textContent = 'Đang tải danh sách trường…';
+      try {
+        const response = await fetch('/api/schools', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Không tải được danh sách trường.');
+        const data = await response.json();
+        schools = data.schools;
+        schoolSelect.replaceChildren(new Option('Chọn trường của em', ''));
+        for (const school of schools) schoolSelect.add(new Option(school.name, school.id));
+        if (schools.length === 1) {
+          schoolSelect.value = schools[0].id;
+        } else {
+          try {
+            const lastSchoolId = localStorage.getItem(LAST_SCHOOL_KEY);
+            if (lastSchoolId && schools.some(school => school.id === lastSchoolId)) {
+              schoolSelect.value = lastSchoolId;
+            }
+          } catch {}
+        }
+        schoolSelect.disabled = !schools.length;
+        status.textContent = schools.length ? '' : 'Chưa có trường đang nhận bài. Em hãy báo giáo viên.';
+      } catch {
+        status.textContent = 'Không tải được trường học. Em hãy kiểm tra kết nối và tải lại.';
+        reload.hidden = false;
+      }
+    }
+    document.getElementById('school-reload').addEventListener('click', loadSchools);
+    schoolSelect.addEventListener('change', clearFormError);
+    await loadSchools();
     /**
      * =========================================================================
      * 0. KẾT NỐI ĐỒNG BỘ DỮ LIỆU TRỰC TUYẾN (Học sinh nộp bài -> Giáo viên xem)
@@ -156,6 +192,8 @@ async function initializeQuiz() {
     const state = {
       studentName: "",
       studentClass: "",
+      schoolId: "",
+      schoolName: "",
       currentIndex: 0,
       score: 0,
       answered: false,
@@ -273,6 +311,12 @@ async function initializeQuiz() {
 
       const cleanName = nameInput.value.trim();
       const cleanClass = classInput.value.trim().toUpperCase();
+      const school = schools.find(item => item.id === schoolSelect.value);
+      if (!school || schoolSelect.disabled) {
+        showFormError('Em hãy chọn trường học trước khi bắt đầu nhé!');
+        schoolSelect.focus();
+        return;
+      }
 
       if (!cleanName) {
         showFormError("Em hãy nhập Họ và tên học sinh trước khi bấm Bắt đầu nhé!");
@@ -286,11 +330,14 @@ async function initializeQuiz() {
       }
 
       clearFormError();
+      try { localStorage.setItem(LAST_SCHOOL_KEY, school.id); } catch {}
       soundFX.initContext();
       soundFX.playClick();
 
       state.studentName = cleanName;
       state.studentClass = cleanClass;
+      state.schoolId = school.id;
+      state.schoolName = school.name;
       state.currentIndex = 0;
       state.score = 0;
       state.answered = false;
@@ -303,7 +350,7 @@ async function initializeQuiz() {
 
       buildShuffledQuestions();
 
-      document.getElementById("quiz-student-badge").textContent = `👤 ${state.studentName} • Lớp ${state.studentClass}`;
+      document.getElementById("quiz-student-badge").textContent = `👤 ${state.studentName} • Lớp ${state.studentClass} • ${state.schoolName}`;
       document.getElementById("review-container").classList.add("hidden");
       document.getElementById("toggle-review-text").textContent = "Xem lại bài làm";
 
@@ -518,6 +565,7 @@ async function initializeQuiz() {
       const timeUsedSeconds = LESSON_CONFIG.timeLimitSeconds - Math.max(0, state.timeLeft);
       document.getElementById("result-student-name").textContent = state.studentName;
       document.getElementById("result-student-class").textContent = state.studentClass;
+      document.getElementById("result-student-school").textContent = state.schoolName;
       document.getElementById("result-time-taken").textContent = formatTimeMMSS(timeUsedSeconds);
       document.getElementById("result-timeout-banner").classList.toggle("hidden", !state.timedOut);
       renderResults();
@@ -684,7 +732,7 @@ async function initializeQuiz() {
         }
       });
       return {
-        id: createAttemptId(), lessonId, name, className, answers, includeReview: true,
+        id: createAttemptId(), lessonId, name, className, schoolId: state.schoolId, answers, includeReview: true,
         timeTakenSeconds: Math.max(0, Math.round(timeUsedSeconds))
       };
     }

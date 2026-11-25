@@ -1,35 +1,56 @@
 import './compat.js';
-import { lessonDisplayTitle } from './lesson-title.js';
+import { lessonDisplayTitle, normalizeSearch } from './lesson-title.js';
 (async function initializeHome() {
     const grid = document.getElementById('lessons');
     const tabs = document.querySelectorAll('.tab-btn');
     const searchInput = document.getElementById('search-lesson');
     const errorMessage = document.getElementById('error');
     const retryButton = document.getElementById('retry-lessons');
+    const statusBadge = document.getElementById('storage-status');
     let loadedLessons = [];
     let currentGrade = 'all';
 
     // Kiểm tra trạng thái máy chủ
     try {
       const status = await (await fetch('/api/status')).json();
-      document.getElementById('storage-status').innerHTML = status.ready
+      statusBadge.innerHTML = status.ready
         ? '🟢 <strong>Hệ thống sẵn sàng:</strong> Kết quả nộp bài sẽ tự động gửi tới thầy/cô giáo.'
         : '🟡 <strong>Lưu ý:</strong> Máy chủ chưa sẵn sàng nhận kết quả. Hãy báo thầy/cô nếu em làm bài lúc này.';
     } catch {
-      document.getElementById('storage-status').textContent = 'Chưa xác nhận được trạng thái lưu trữ.';
+      statusBadge.textContent = 'Chưa xác nhận được trạng thái lưu trữ.';
     }
 
     retryButton.addEventListener('click', loadLessons);
     await loadLessons();
+
+    function updateGradeTabCounts() {
+      const counts = { all: loadedLessons.length, '3': 0, '4': 0, '5': 0 };
+      for (const lesson of loadedLessons) {
+        const key = String(lesson.grade);
+        if (key in counts) counts[key] += 1;
+      }
+      tabs.forEach(btn => {
+        const grade = btn.dataset.grade;
+        const label = grade === 'all' ? 'Tất cả bài học' : `Lớp ${grade}`;
+        btn.textContent = `${label} (${counts[grade] ?? 0})`;
+      });
+    }
 
     async function loadLessons() {
       retryButton.disabled = true;
       errorMessage.textContent = '';
       try {
         const response = await fetch('/api/lessons');
-        if (!response.ok) throw new Error('Không tải được danh sách bài học.');
+        if (!response.ok) {
+          const payload = await response.json().catch(() => ({}));
+          if (payload.error === 'STORAGE_NOT_CONFIGURED') {
+            statusBadge.innerHTML = '🟡 <strong>Lưu ý:</strong> Cơ sở dữ liệu bài học chưa được khởi tạo hoặc chưa kết nối.';
+          }
+          throw new Error('Không tải được danh sách bài học.');
+        }
         loadedLessons = (await response.json()).lessons;
         retryButton.hidden = true;
+        updateGradeTabCounts();
         renderLessons();
       } catch {
         errorMessage.textContent = 'Không tải được danh sách bài học. Em có thể thử lại.';
@@ -40,13 +61,14 @@ import { lessonDisplayTitle } from './lesson-title.js';
     }
 
     function renderLessons() {
-      const keyword = searchInput.value.trim().toLowerCase();
+      const keyword = normalizeSearch(searchInput.value.trim());
 
       const filtered = loadedLessons.filter(lesson => {
         const matchGrade = currentGrade === 'all' || String(lesson.grade) === currentGrade;
         const matchText = !keyword || (
-          (lesson.lessonTitle && lesson.lessonTitle.toLowerCase().includes(keyword)) ||
-          (lesson.subjectBadge && lesson.subjectBadge.toLowerCase().includes(keyword))
+          normalizeSearch(lesson.lessonTitle).includes(keyword) ||
+          normalizeSearch(lesson.subjectBadge).includes(keyword) ||
+          normalizeSearch(lesson.authorName).includes(keyword)
         );
         return matchGrade && matchText;
       });

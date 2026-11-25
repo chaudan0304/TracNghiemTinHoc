@@ -3,8 +3,10 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
     import { csvCell } from '../lib/csv.js';
     import { initializeLessonEditor } from './lesson-editor.js';
     import { initializeTeacherAccounts } from './teacher-access.js';
+    import { initializeSchools } from './schools.js';
     import { initializeStudentHistory } from './student-history.js';
-    import { lessonDisplayTitle } from './lesson-title.js';
+    import { lessonDisplayTitle, normalizeSearch } from './lesson-title.js';
+    import { createTableSorter } from './table-sort.js';
     const loginSection = document.getElementById('login-section');
     const dashboardSection = document.getElementById('dashboard-section');
     const loginForm = document.getElementById('login-form');
@@ -12,8 +14,16 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
     const accountMenu = document.getElementById('teacher-account-menu');
     const avatar = document.getElementById('teacher-avatar');
     const accountName = document.getElementById('teacher-account-name');
+    const accountDetails = document.getElementById('teacher-account-details');
     const avatarInitials = document.getElementById('teacher-avatar-initials');
     const logoutBtn = document.getElementById('teacher-logout');
+    const personalEdit = document.getElementById('teacher-personal-edit');
+    const personalForm = document.getElementById('teacher-personal-form');
+    const personalCancel = document.getElementById('teacher-personal-cancel');
+    const personalStatus = document.getElementById('teacher-personal-status');
+    const personalName = personalForm.elements.namedItem('displayName');
+    const personalSubject = personalForm.elements.namedItem('subject');
+    const passwordFields = document.getElementById('teacher-password-fields');
 
     // Tab buttons & Views
     const tabLessonsBtn = document.getElementById('tab-lessons-btn');
@@ -78,6 +88,7 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
     const classesRankingRows = document.getElementById('classes-ranking-rows');
     const studentsTableContainer = document.getElementById('students-table-container');
     const studentsRankingRows = document.getElementById('students-ranking-rows');
+    const rankingStudentsMoreBtn = document.getElementById('ranking-students-more');
     const studentScoreSummary = document.getElementById('student-score-summary');
     const studentScoreSummaryTotal = document.getElementById('student-score-summary-total');
     const studentScoreLevels = [
@@ -136,20 +147,47 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
     let rawStudentRankings = [];
     let studentRankingRequest = 0;
     let studentRankingLoaded = false;
+    let studentVisibleLimit = 100;
+    const STUDENT_PAGE_SIZE = 100;
     const tableSortCollator = new Intl.Collator('vi', { numeric: true, sensitivity: 'base' });
     let rankingGradeTotals = {};
     let isRankingLoaded = false;
     let rankingSearchTimer;
 
     async function api(url, options = {}) {
+      const schoolId = teacherIdentity ? schoolManagement.id : '';
+      let schoolScoped = false;
+      if (url.startsWith('/api/teacher') && schoolId) {
+        const target = new URL(url, location.origin);
+        const type = target.searchParams.get('type');
+        if (!['schools', 'accounts'].includes(type)) {
+          if (!options.method || options.method === 'GET') {
+            target.searchParams.set('schoolId', schoolId);
+            url = target.pathname + target.search;
+            schoolScoped = true;
+          } else if (options.body) {
+            const body = JSON.parse(options.body);
+            if (['edit-student', 'merge-students'].includes(body.action) || options.method === 'DELETE') {
+              options = { ...options, body: JSON.stringify({ ...body, schoolId }) };
+              schoolScoped = true;
+            }
+          }
+        }
+      }
       const res = await fetch(url, {
         ...options,
         headers: { 'Content-Type': 'application/json', ...(options.headers || {}) }
       });
       const data = await res.json().catch(() => ({}));
+      if (schoolScoped && schoolId !== schoolManagement.id) throw new Error('Trường đang xem đã thay đổi. Hãy tải lại bảng.');
       if (!res.ok) {
         const errorMap = {
+          INVALID_SCHOOL: 'Hãy kiểm tra trường học và tên trường (tối đa 180 ký tự).',
+          SCHOOL_NOT_FOUND: 'Không tìm thấy trường học. Hãy tải lại danh sách.',
+          SCHOOL_ALREADY_EXISTS: 'Tên trường đã có trong danh sách. Hãy chọn Sửa để cập nhật.',
           INVALID_PASSWORD: 'Tên đăng nhập hoặc mật khẩu chưa đúng, hoặc tài khoản đã bị khóa.',
+          INVALID_PROFILE: 'Kiểm tra tên hiển thị và môn dạy trước khi lưu.',
+          INVALID_CURRENT_PASSWORD: 'Mật khẩu hiện tại chưa đúng.',
           FORBIDDEN: 'Tài khoản của thầy/cô không có quyền thực hiện thao tác này.',
           INVALID_TEACHER_ACCOUNT: 'Kiểm tra tên đăng nhập, tên hiển thị, môn dạy và lớp phụ trách. Tên đăng nhập dùng 3–40 ký tự chữ không dấu, số, dấu chấm, gạch dưới hoặc gạch ngang.',
           INVALID_ACCOUNT_PASSWORD: 'Mật khẩu cần từ 12 đến 128 ký tự.',
@@ -158,6 +196,8 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
           INVALID_STUDENT_MERGE: 'Hãy chọn hai tên khác nhau trong cùng lớp.',
           INVALID_STUDENT_EDIT: 'Hãy nhập họ tên và lớp hợp lệ.',
           LESSON_ALREADY_EXISTS: 'Tên hoặc mã bài đã có trong khối. Hãy kiểm tra và đổi tên bài trùng trước khi lưu lại.',
+          LESSON_HAS_ATTEMPTS: 'Bài học này đã có học sinh nộp bài nên không thể xóa. Thầy/cô hãy chọn Ẩn bài nếu muốn tạm ẩn khỏi trang học sinh.',
+          LESSON_NOT_FOUND: 'Không tìm thấy bài học.',
           STUDENT_EDIT_DUPLICATE: 'Lớp này đã có học sinh mang tên đó. Hãy kiểm tra lại họ tên và lớp. Nếu là cùng một em trong cùng lớp, hãy dùng Gộp tên.',
           STUDENT_EDIT_CHANGED: 'Danh sách đã thay đổi. Hãy đóng hộp thoại và tải lại bảng.',
           STUDENT_MERGE_CHANGED: 'Danh sách đã thay đổi. Hãy đóng hộp thoại, tải lại bảng và kiểm tra lại hai tên.',
@@ -194,6 +234,7 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
         entry.view.hidden = entry.name !== tab;
       }
       if (tab === 'ranking' && !isRankingLoaded) fetchRankingData();
+      if (tab === 'create') loadManagedLessons();
       if (tab === 'accounts') loadTeacherAccounts();
       if (tab === 'history') loadStudentHistory();
     }
@@ -217,6 +258,18 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
       if (viewMode && (currentTab === 'create' || currentTab === 'accounts')) switchTab('lessons');
     }
     const loadTeacherAccounts = initializeTeacherAccounts(api);
+    const schoolManagement = initializeSchools(api, () => {
+      isRankingLoaded = false;
+      studentRankingLoaded = false;
+      rawClassRankings = [];
+      rawStudentRankings = [];
+      allRows = [];
+      for (const dialog of [editDialog, mergeDialog, attemptsDialog]) if (dialog.open) dialog.close();
+      updateClassFilterOptions([]);
+      fetchResults(true);
+      if (currentTab === 'ranking') fetchRankingData();
+      if (currentTab === 'history') loadStudentHistory();
+    });
     const loadStudentHistory = initializeStudentHistory(api);
 
     /* ========================================================
@@ -240,6 +293,7 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
         modeStudentsBtn.classList.remove('active');
         classesTableContainer.hidden = false;
         studentsTableContainer.hidden = true;
+        rankingStudentsMoreBtn.hidden = true;
         studentScoreSummary.hidden = true;
         rankingClassContainer.hidden = true;
         rankingSearchContainer.hidden = true;
@@ -258,39 +312,44 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
     modeClassesBtn.addEventListener('click', () => switchRankingMode('classes'));
     modeStudentsBtn.addEventListener('click', () => switchRankingMode('students'));
 
+    function updateRankingSummaryCards(selectedGrade) {
+      const classesInScope = rawClassRankings.filter(c => selectedGrade === 'ALL' || getGrade(c.class_name) === selectedGrade);
+      const lessonsEl = document.getElementById('rank-stat-lessons');
+      const totalForGrade = selectedGrade === 'ALL' ? rankingGradeTotals.all : rankingGradeTotals[selectedGrade];
+      lessonsEl.textContent = `${totalForGrade ?? 0} bài`;
+      rankStatClasses.textContent = classesInScope.length;
+      const totalStudents = classesInScope.reduce((sum, c) => sum + (Number(c.student_count) || 0), 0);
+      rankStatStudents.textContent = totalStudents;
+
+      let topClass = null;
+      let topProgress = -1;
+      for (const classRanking of classesInScope) {
+        const total = getTotalLessons(classRanking.class_name);
+        if (!total || !getGrade(classRanking.class_name)) continue;
+        const progress = classRanking.completed_lessons / total;
+        if (progress > topProgress) {
+          topClass = classRanking;
+          topProgress = progress;
+        }
+      }
+      rankStatTopClass.textContent = topClass
+        ? `Lớp ${topClass.class_name} (${topClass.completed_lessons}/${getTotalLessons(topClass.class_name)} bài - ${Math.round(topProgress * 100)}%)`
+        : '--';
+    }
+
     async function fetchRankingData() {
       try {
         rankingStatus.textContent = 'Đang tải bảng xếp hạng và tiến độ các lớp...';
         const data = await api('/api/teacher?type=ranking');
         rawClassRankings = data.classes || [];
         rankingGradeTotals = data.gradeTotals;
-        document.getElementById('rank-stat-lessons').textContent = `${rankingGradeTotals.all} bài`;
         for (const option of rankingGradeFilter.options) {
           if (option.value !== 'ALL') {
             option.textContent = `Khối ${option.value} (${rankingGradeTotals[option.value]} bài)`;
           }
         }
         isRankingLoaded = true;
-
-        // Cập nhật thống kê tổng quan
-        rankStatClasses.textContent = rawClassRankings.length;
-        const totalStudents = rawClassRankings.reduce((sum, c) => sum + (Number(c.student_count) || 0), 0);
-        rankStatStudents.textContent = totalStudents;
-
-        let topClass = null;
-        let topProgress = -1;
-        for (const classRanking of rawClassRankings) {
-          const total = getTotalLessons(classRanking.class_name);
-          if (!total || !getGrade(classRanking.class_name)) continue;
-          const progress = classRanking.completed_lessons / total;
-          if (progress > topProgress) {
-            topClass = classRanking;
-            topProgress = progress;
-          }
-        }
-        rankStatTopClass.textContent = topClass
-          ? `Lớp ${topClass.class_name} (${topClass.completed_lessons}/${getTotalLessons(topClass.class_name)} bài - ${Math.round(topProgress * 100)}%)`
-          : '--';
+        updateRankingSummaryCards(rankingGradeFilter.value);
 
         // Cập nhật dropdown lớp cho bảng vàng học sinh
         const currentSelectedClass = rankingClassSelect.value;
@@ -371,68 +430,11 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
       return `<span class="rank-badge rank-normal">#${idx + 1}</span>`;
     }
 
-    function createTableSorter(body, defaultKey, defaultDirection, ascendingKeys, onChange) {
-      const buttons = body.closest('table').querySelectorAll('[data-table-sort]');
-      const rowKeys = new WeakMap();
-      let key = defaultKey;
-      let direction = defaultDirection;
-
-      function order(rows, getKeys) {
-        return rows.sort((a, b) => {
-          const first = getKeys(a);
-          const second = getKeys(b);
-          const left = first.values[key];
-          const right = second.values[key];
-          const leftMissing = left == null || Number.isNaN(left);
-          const rightMissing = right == null || Number.isNaN(right);
-          if (leftMissing || rightMissing) {
-            return Number(leftMissing) - Number(rightMissing) || first.position - second.position;
-          }
-          const comparison = typeof left === 'string'
-            ? tableSortCollator.compare(left, right)
-            : left - right;
-          return comparison * direction || first.position - second.position;
-        });
-      }
-
-      function apply() {
-        body.append(...order(Array.from(body.rows), row => rowKeys.get(row)));
-      }
-
-      buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          const nextKey = button.dataset.tableSort;
-          direction = nextKey === key ? -direction : (ascendingKeys.includes(nextKey) ? 1 : -1);
-          key = nextKey;
-          buttons.forEach(item => {
-            const header = item.closest('th');
-            const arrow = item.querySelector('span');
-            if (item === button) {
-              header.setAttribute('aria-sort', direction === 1 ? 'ascending' : 'descending');
-              arrow.textContent = direction === 1 ? '▲' : '▼';
-            } else {
-              header.removeAttribute('aria-sort');
-              arrow.textContent = '↕';
-            }
-          });
-          (onChange || apply)();
-        });
-      });
-
-      return {
-        add(row, values, position) {
-          rowKeys.set(row, { values, position });
-        },
-        apply,
-        order
-      };
-    }
-
-    const classTableSort = createTableSorter(classesRankingRows, 'rank', 1, ['rank', 'class', 'grade']);
-    const resultTableSort = createTableSorter(rowsEl, 'index', 1, ['index', 'name', 'class', 'duration']);
-    const attemptTableSort = createTableSorter(attemptsRows, 'submitted', -1, ['lesson', 'duration']);
+    const classTableSort = createTableSorter(classesRankingRows, tableSortCollator, 'rank', 1, ['rank', 'class', 'grade']);
+    const resultTableSort = createTableSorter(rowsEl, tableSortCollator, 'index', 1, ['index', 'name', 'class', 'duration']);
+    const attemptTableSort = createTableSorter(attemptsRows, tableSortCollator, 'submitted', -1, ['lesson', 'duration']);
     const studentTableSort = createTableSorter(
-      studentsRankingRows, 'rank', 1, ['rank', 'student_name', 'class_name', 'avg_time_seconds'], renderStudentsTable
+      studentsRankingRows, tableSortCollator, 'rank', 1, ['rank', 'student_name', 'class_name', 'avg_time_seconds'], renderStudentsTable
     );
 
     function durationSortValue(seconds) {
@@ -441,6 +443,7 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
 
     function renderClassesTable() {
       const selectedGrade = rankingGradeFilter.value;
+      updateRankingSummaryCards(selectedGrade);
       const filtered = rawClassRankings.filter(c => {
         if (selectedGrade === 'ALL') return true;
         const g = getGrade(c.class_name);
@@ -510,14 +513,14 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
 
     function getSortedStudentRows() {
       const selectedGrade = rankingGradeFilter.value;
-      const keyword = rankingSearchInput.value.trim().toLowerCase();
+      const keyword = normalizeSearch(rankingSearchInput.value.trim());
 
       const filtered = rawStudentRankings.filter(s => {
         if (selectedGrade !== 'ALL') {
           const g = getGrade(s.class_name);
           if (g !== selectedGrade) return false;
         }
-        if (keyword && (!s.student_name || !s.student_name.toLowerCase().includes(keyword))) {
+        if (keyword && (!s.student_name || !normalizeSearch(s.student_name).includes(keyword))) {
           return false;
         }
         return true;
@@ -560,25 +563,31 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
       studentScoreSummary.hidden = false;
     }
 
-    function renderStudentsTable() {
+    function renderStudentsTable(resetLimit = true) {
       if (rankingMode !== 'students' || !studentRankingLoaded) return;
+      if (resetLimit) studentVisibleLimit = STUDENT_PAGE_SIZE;
       const filtered = getSortedStudentRows();
       renderStudentScoreSummary(filtered);
       studentsRankingRows.replaceChildren();
 
       if (!filtered.length) {
+        rankingStudentsMoreBtn.hidden = true;
         rankingStatus.textContent = rawStudentRankings.length
           ? 'Không tìm thấy học sinh nào phù hợp bộ lọc.'
           : 'Chưa có dữ liệu học sinh nộp bài.';
         return;
       }
-      rankingStatus.textContent = `Hiển thị bảng vàng ${filtered.length} học sinh.`;
+      const visible = filtered.slice(0, studentVisibleLimit);
+      rankingStudentsMoreBtn.hidden = visible.length >= filtered.length;
+      rankingStatus.textContent = visible.length < filtered.length
+        ? `Hiển thị ${visible.length} / ${filtered.length} học sinh trong bảng vàng.`
+        : `Hiển thị bảng vàng ${filtered.length} học sinh.`;
       const studentsPerClass = new Map();
       for (const student of rawStudentRankings) {
         studentsPerClass.set(student.class_name, (studentsPerClass.get(student.class_name) || 0) + 1);
       }
 
-      filtered.forEach(row => {
+      visible.forEach(row => {
         const s = row.student;
         const tr = document.createElement('tr');
         const totalLessons = getTotalLessons(s.class_name);
@@ -825,8 +834,14 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
 
     // Ranking Event Listeners
     rankingGradeFilter.addEventListener('change', () => {
+      updateRankingSummaryCards(rankingGradeFilter.value);
       if (rankingMode === 'classes') renderClassesTable();
       else renderStudentsTable();
+    });
+
+    rankingStudentsMoreBtn.addEventListener('click', () => {
+      studentVisibleLimit += STUDENT_PAGE_SIZE;
+      renderStudentsTable(false);
     });
 
     rankingClassSelect.addEventListener('change', () => {
@@ -842,33 +857,42 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
       fetchRankingData();
     });
 
-    let reportExporter;
-    function loadWorkbookTools() {
-      if (!reportExporter) {
-        reportExporter = new Promise((resolve, reject) => {
+    const scriptPromises = new Map();
+    function loadGlobalScript(src, globalName) {
+      if (!scriptPromises.has(src)) {
+        scriptPromises.set(src, new Promise((resolve, reject) => {
           const script = document.createElement('script');
-          script.src = '/assets/report-export.js';
+          script.src = src;
           script.onload = () => {
-            if (window.QuizReportExport) resolve(window.QuizReportExport);
+            if (window[globalName]) resolve(window[globalName]);
             else reject(new Error('Không thể khởi tạo công cụ xử lý tệp.'));
           };
           script.onerror = () => reject(new Error('Không thể tải công cụ xử lý tệp.'));
           document.head.append(script);
         }).catch(error => {
-          reportExporter = undefined;
+          scriptPromises.delete(src);
           throw error;
-        });
+        }));
       }
-      return reportExporter;
+      return scriptPromises.get(src);
+    }
+
+    function loadWorkbookTools() {
+      return loadGlobalScript('/assets/lesson-workbook.js', 'QuizLessonWorkbook');
     }
 
     async function downloadReport(format, filename, title, scope, rows) {
+      const schoolName = schoolManagement.name;
+      scope = [schoolName, scope].filter(Boolean).join(' · ');
+      filename = schoolName + '-' + filename;
       let blob;
       if (format === 'csv') {
+        rows = [rows[0].concat('Trường học'), ...rows.slice(1).map(row => row.concat(schoolName))];
         const csv = '\uFEFF' + rows.map(row => row.map(csvCell).join(',')).join('\r\n');
         blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
       } else {
-        blob = await (await loadWorkbookTools()).createReportFile(format, { title, scope, rows });
+        const exporter = await loadGlobalScript('/assets/report-export.js', 'QuizReportExport');
+        blob = await exporter.createReportFile(format, { title, scope, rows });
       }
       downloadFile(blob, `${filename}.${format}`);
     }
@@ -967,17 +991,12 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
       }
     });
 
-    function normalizeLessonSearch(value) {
-      return String(value || '').toLocaleLowerCase('vi')
-        .normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd');
-    }
-
     function renderLessonOptions() {
       const selectedId = lessonSelect.value;
-      const keyword = normalizeLessonSearch(lessonSearch.value.trim());
+      const keyword = normalizeSearch(lessonSearch.value.trim());
       const matches = lessonCatalog.filter(lesson =>
         lesson.grade === lessonGrade.value &&
-        (!keyword || normalizeLessonSearch(lesson.title).includes(keyword))
+        (!keyword || normalizeSearch(lesson.title).includes(keyword))
       );
       lessonSelect.replaceChildren();
       lessonSelect.disabled = matches.length === 0;
@@ -1011,8 +1030,12 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
       renderLessonOptions();
     }
 
-    initializeLessonEditor({
+    const loadManagedLessons = initializeLessonEditor({
       save: body => api('/api/lessons', { method: 'POST', body }),
+      update: body => api('/api/lessons', { method: 'PUT', body }),
+      remove: id => api(`/api/lessons?id=${encodeURIComponent(id)}`, { method: 'DELETE' }),
+      listManaged: () => api('/api/lessons?manage=1'),
+      loadOne: id => api(`/api/lessons?id=${encodeURIComponent(id)}&edit=1`),
       refresh: async () => {
         isRankingLoaded = false;
         studentRankingLoaded = false;
@@ -1273,29 +1296,111 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
       }
     }
 
-    function showDashboard(identity) {
+    async function showDashboard(identity) {
       teacherIdentity = identity;
+      await schoolManagement.load(identity);
       tabAccountsBtn.hidden = identity.role !== 'admin';
       tabHistoryBtn.hidden = identity.role !== 'admin';
       document.getElementById('result-actions-heading').hidden = identity.role !== 'admin';
-      document.getElementById('teacher-profile').textContent = identity.role === 'admin'
-        ? 'Tất cả các lớp'
-        : `Môn dạy: ${identity.subject} · ${identity.classes.length ? 'Lớp phụ trách: ' + identity.classes.join(', ') : 'Chưa được giao lớp'} · Quyền học sinh: ${identity.canEditStudents ? 'Chỉnh sửa' : 'Chỉ xem'}`;
       setEditingMode(false);
       switchTab('lessons');
       updateClassFilterOptions([]);
       loginSection.hidden = true;
       dashboardSection.hidden = false;
+      renderAccount(identity);
+      personalForm.hidden = true;
+      personalEdit.hidden = identity.role !== 'teacher';
+      personalStatus.textContent = '';
+      accountMenu.open = false;
+      accountMenu.hidden = false;
+    }
+
+    function renderAccount(identity) {
       const name = identity.displayName || identity.username;
       const words = name.trim().split(/\s+/);
       const first = Array.from(words[0]);
       const initials = words.length > 1 ? first[0] + Array.from(words[words.length - 1])[0] : first.slice(0, 2).join('');
       accountName.textContent = name;
+      const details = name === identity.username ? [] : [['Tên đăng nhập', identity.username]];
+      if (identity.role === 'admin') {
+        details.push(['Vai trò', 'Quản trị viên'], ['Phạm vi', 'Tất cả các trường và lớp']);
+      } else {
+        if (schoolManagement.name) details.push(['Trường học', schoolManagement.name]);
+        details.push(
+          ['Môn dạy', identity.subject],
+          ['Lớp phụ trách', identity.classes.join(', ') || 'Chưa được giao lớp'],
+          ['Quyền học sinh', identity.canEditStudents ? 'Chỉnh sửa' : 'Chỉ xem']
+        );
+      }
+      accountDetails.replaceChildren();
+      for (const detail of details) {
+        const label = document.createElement('dt');
+        const value = document.createElement('dd');
+        label.textContent = detail[0];
+        value.textContent = detail[1];
+        accountDetails.append(label, value);
+      }
       avatarInitials.textContent = initials.toLocaleUpperCase('vi');
       avatar.setAttribute('aria-label', `Tài khoản ${name}`);
-      accountMenu.open = false;
-      accountMenu.hidden = false;
     }
+
+    personalEdit.addEventListener('click', () => {
+      personalForm.reset();
+      passwordFields.open = false;
+      personalName.value = teacherIdentity.displayName === teacherIdentity.username ? '' : teacherIdentity.displayName;
+      personalSubject.value = teacherIdentity.subject;
+      personalStatus.textContent = '';
+      personalEdit.hidden = true;
+      personalForm.hidden = false;
+      personalName.focus();
+    });
+
+    function closePersonalForm() {
+      personalForm.reset();
+      personalForm.hidden = true;
+      personalEdit.hidden = false;
+      personalEdit.focus();
+    }
+    personalCancel.addEventListener('click', closePersonalForm);
+
+    personalForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      const controls = Array.from(personalForm.elements);
+      if (personalName.disabled) return;
+      const data = {
+        action: 'update-profile', displayName: personalName.value, subject: personalSubject.value
+      };
+      const currentPassword = personalForm.elements.namedItem('currentPassword').value;
+      const newPassword = personalForm.elements.namedItem('newPassword').value;
+      const confirmPassword = personalForm.elements.namedItem('confirmPassword').value;
+      if (passwordFields.open && (currentPassword || newPassword || confirmPassword)) {
+        if (!currentPassword || newPassword.length < 12 || newPassword !== confirmPassword) {
+          personalStatus.textContent = 'Nhập mật khẩu hiện tại và xác nhận mật khẩu mới có ít nhất 12 ký tự.';
+          return;
+        }
+        data.currentPassword = currentPassword;
+        data.newPassword = newPassword;
+      }
+      controls.forEach(control => { control.disabled = true; });
+      personalStatus.textContent = 'Đang lưu…';
+      try {
+        const updated = await api('/api/teacher', { method: 'POST', body: JSON.stringify(data) });
+        if (updated.passwordChanged) {
+          personalForm.reset();
+          location.reload();
+          return;
+        }
+        teacherIdentity.displayName = updated.displayName;
+        teacherIdentity.subject = updated.subject;
+        renderAccount(teacherIdentity);
+        closePersonalForm();
+        personalStatus.textContent = 'Đã lưu thông tin.';
+      } catch (error) {
+        personalStatus.textContent = error.message;
+      } finally {
+        controls.forEach(control => { control.disabled = false; });
+      }
+    });
 
     logoutBtn.addEventListener('click', async () => {
       logoutBtn.disabled = true;
@@ -1345,7 +1450,7 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
           body: JSON.stringify({ action: 'login', username, password })
         });
         document.getElementById('password').value = '';
-        showDashboard(result.teacher);
+        await showDashboard(result.teacher);
         await loadLessonList();
         await fetchResults(true);
       } catch (err) {
@@ -1404,12 +1509,17 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
         if (!id) return;
         const format = document.getElementById('export-format').value;
         const lesson = lessonCatalog.find(item => item.id === id);
+        const selectedClass = classFilter.value;
+        const keyword = searchInput.value.trim();
         exportBtn.disabled = true;
         exportBtn.textContent = 'Đang xuất…';
 
         const all = [];
         for (let page = 0; ; page += 100) {
-          const rows = (await api(`/api/teacher?lessonId=${encodeURIComponent(id)}&offset=${page}`)).rows;
+          const params = new URLSearchParams({ lessonId: id, offset: String(page) });
+          if (selectedClass !== 'ALL') params.set('className', selectedClass);
+          if (keyword) params.set('search', keyword);
+          const rows = (await api(`/api/teacher?${params}`)).rows;
           all.push(...rows);
           if (rows.length < 100) break;
         }
@@ -1428,8 +1538,10 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
           ])
         ];
 
-        await downloadReport(format, `Ket_Qua_${id}`, 'Kết quả luyện tập',
-          `${lesson ? lesson.title : id} · ${allClassesLabel()}`, lines);
+        const scopeParts = [lesson ? lesson.title : id, selectedClass !== 'ALL' ? `Lớp ${selectedClass}` : allClassesLabel()];
+        if (keyword) scopeParts.push(`Tìm kiếm “${keyword}”`);
+        const fileSuffix = selectedClass !== 'ALL' ? `_Lop_${selectedClass}` : '';
+        await downloadReport(format, `Ket_Qua_${id}${fileSuffix}`, 'Kết quả luyện tập', scopeParts.join(' · '), lines);
       } catch (e) {
         alert('Lỗi xuất file: ' + e.message);
       } finally {

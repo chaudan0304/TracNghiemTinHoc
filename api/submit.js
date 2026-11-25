@@ -1,18 +1,23 @@
-import { database, ensureTable, grade, json, loginClientKey } from '../lib/server.js';
+import { database, ensureTableOnce, grade, json, loginClientKey } from '../lib/server.js';
 import { loadLesson, questionFeedback, validLessonId } from '../lib/lesson-store.js';
+import { DEFAULT_SCHOOL_ID, validSchoolId } from '../lib/schools.js';
 
-export function createSubmitHandler(getDatabase = database, prepare = ensureTable) {
+export function createSubmitHandler(getDatabase = database, prepare = ensureTableOnce) {
 return async function handler(request, response) {
   if (request.method !== 'POST') return json(response, 405, { error: 'METHOD_NOT_ALLOWED' });
   try {
     const { id, lessonId, name, className, answers, timeTakenSeconds, includeReview } = request.body || {};
     if (typeof id !== 'string' || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id) || typeof name !== 'string' || !name.trim() || name.length > 100 || typeof className !== 'string' || !className.trim() || className.length > 30) return json(response, 400, { error: 'INVALID_SUBMISSION' });
+    const schoolId = request.body.schoolId ?? DEFAULT_SCHOOL_ID;
+    if (!validSchoolId(schoolId)) return json(response, 400, { error: 'INVALID_SCHOOL' });
     const duration = Number.isInteger(timeTakenSeconds) && timeTakenSeconds >= 0 && timeTakenSeconds <= 86400 ? timeTakenSeconds : null;
     if (!validLessonId(lessonId)) return json(response, 400, { error: 'INVALID_LESSON' });
     const sql = getDatabase();
     const lesson = await loadLesson(sql, lessonId);
     const result = grade(lesson, answers);
     await prepare(sql);
+    const [school] = await sql`SELECT id FROM quiz_schools WHERE id = ${schoolId} AND active = true`;
+    if (!school) return json(response, 400, { error: 'SCHOOL_NOT_AVAILABLE' });
     const clientKey = loginClientKey(request, `${process.env.SESSION_SECRET || 'quiz-submit'}:${lessonId}`);
     const [limit] = await sql`INSERT INTO submission_limits (client_key, attempts) VALUES (${clientKey}, 1)
       ON CONFLICT (client_key) DO UPDATE SET
@@ -23,12 +28,12 @@ return async function handler(request, response) {
       response.setHeader('Retry-After', '900');
       return json(response, 429, { error: 'TOO_MANY_SUBMISSIONS' });
     }
-    const inserted = await sql`INSERT INTO quiz_attempts (id, lesson_id, student_name, class_name, answers, correct_count, total_questions, score, time_taken_seconds)
-      VALUES (${id}, ${lessonId}, ${name.trim()}, ${className.trim()}, ${JSON.stringify(answers)}::jsonb, ${result.correctCount}, ${result.totalQuestions}, ${result.score}, ${duration})
+    const inserted = await sql`INSERT INTO quiz_attempts (id, lesson_id, student_name, class_name, answers, correct_count, total_questions, score, time_taken_seconds, school_id)
+      VALUES (${id}, ${lessonId}, ${name.trim()}, ${className.trim()}, ${JSON.stringify(answers)}::jsonb, ${result.correctCount}, ${result.totalQuestions}, ${result.score}, ${duration}, ${schoolId})
       ON CONFLICT (id) DO NOTHING RETURNING id`;
     if (inserted.length === 0) {
-      const [existing] = await sql`SELECT lesson_id, student_name, original_student_name, class_name, original_class_name, answers FROM quiz_attempts WHERE id = ${id}`;
-      if (!existing || existing.lesson_id !== lessonId || (existing.original_student_name ?? existing.student_name) !== name.trim() ||
+      const [existing] = await sql`SELECT lesson_id, student_name, original_student_name, class_name, original_class_name, answers, school_id FROM quiz_attempts WHERE id = ${id}`;
+      if (!existing || (existing.school_id ?? DEFAULT_SCHOOL_ID) !== schoolId || existing.lesson_id !== lessonId || (existing.original_student_name ?? existing.student_name) !== name.trim() ||
           (existing.original_class_name ?? existing.class_name) !== className.trim() || JSON.stringify(existing.answers) !== JSON.stringify(answers)) {
         return json(response, 409, { error: 'SUBMISSION_ID_CONFLICT' });
       }

@@ -42,6 +42,10 @@ Tên bài mới hiển thị kèm người tạo. Admin có thể đặt **Tên 
 ## Tài khoản và phân quyền
 
 - **Admin** đăng nhập bằng tên `admin` và mật khẩu giáo viên hiện tại. Mục **Tài khoản giáo viên** dùng để tạo tài khoản, ghi môn dạy, giao lớp, chọn quyền quản lý thông tin học sinh, đặt lại mật khẩu và khóa tài khoản. Admin xem điểm tất cả các lớp, có quyền sửa thông tin hoặc gộp tên học sinh và xóa lượt làm.
+
+Admin quản lý danh sách trường trong **Tài khoản giáo viên → Quản lý trường học**. Khi tạo hoặc sửa tài khoản, chọn trường rồi giao lớp cho giáo viên. Học sinh chọn trường trước khi làm bài. Bộ lọc **Trường học** ở bảng giáo viên áp dụng cho kết quả, thống kê, lịch sử và file xuất. Mỗi tài khoản giáo viên được truy cập trường và lớp đã giao. Đổi tên trường giữ nguyên kết quả đã lưu. Tắt **Cho học sinh chọn** sẽ ẩn trường ở màn hình làm bài, admin vẫn xem được dữ liệu.
+
+Dữ liệu có trước chức năng quản lý trường thuộc **Trường Tiểu học Quỳnh Lộc**. Khi nâng cấp, chạy `node scripts/migrate-schools.mjs` với cấu hình CSDL tương ứng trước khi triển khai giao diện mới.
 - **Giáo viên** đăng nhập bằng tài khoản riêng để xem và xuất điểm các lớp được giao. Quyền **Chỉ xem** là mặc định. Quyền **Chỉnh sửa** cho phép sửa họ tên và chuyển học sinh giữa các lớp được giao trong **Bảng xếp hạng → Bảng vàng Học sinh**. Giáo viên đăng nhập lại sau khi admin đổi quyền. Cả hai vai trò đều được thêm bài trực tiếp và nhập bài từ Excel.
 
 Admin và giáo viên có quyền sửa thông tin học sinh thấy hai nút **Xem** và **Chỉnh sửa**. Trang mở ở chế độ **Xem**. Tài khoản **Chỉ xem** có thể mở **Thêm bài học** trực tiếp.

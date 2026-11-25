@@ -5,7 +5,6 @@ import {
 import ExcelJS from 'exceljs';
 import pdfMake from 'pdfmake/build/pdfmake.js';
 import fonts from 'pdfmake/build/vfs_fonts.js';
-export { createLessonTemplate, readLessonWorkbook } from './lesson-workbook.js';
 
 const navy = '183153';
 const light = 'F0F5FA';

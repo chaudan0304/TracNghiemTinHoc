@@ -85,7 +85,7 @@ test('teacher class scope applies to reads and admin tools, and score edits are 
     assert.deepEqual(queries[1].values, [username]);
     assert.match(queries[2].text, /SET student_name = \?, class_name = \?/);
     assert.doesNotMatch(queries[2].text, /SET score|original_score/);
-    assert.deepEqual(queries[2].values, ['An đúng', '4A1', 'An đúng', '4A1', 'An sai', '4A1']);
+    assert.deepEqual(queries[2].values, ['An đúng', '4A1', 'quynh-loc', 'An đúng', '4A1', 'An sai', '4A1', 'quynh-loc']);
     return [[], [], [{ updated_count: 2, target_exists: false }]];
   };
   const handler = createTeacherHandler(() => sql, async () => {});
@@ -139,7 +139,7 @@ test('student edit history requires admin and paginates before the supplied id',
   const sql = async (parts, ...values) => {
     reads++;
     assert.match(parts.join('?'), /FROM quiz_student_history[\s\S]*id <[\s\S]*ORDER BY quiz_student_history.id DESC LIMIT 51/);
-    assert.deepEqual(values, ['123', '123']);
+    assert.deepEqual(values, ['123', '123', 'quynh-loc']);
     return Array.from({ length: 51 }, (_, i) => ({ id: String(122 - i) }));
   };
   const handler = createTeacherHandler(() => sql, async () => assert.fail('Reading history should not prepare other tables'));
@@ -161,4 +161,46 @@ test('student edit history requires admin and paginates before the supplied id',
   assert.equal(page.data.entries.length, 50);
   assert.equal(page.data.nextBefore, '73');
   assert.equal(reads, 1);
+});
+
+test('teacher login rate limit isolates failures by username on a shared IP', async t => {
+  const settings = ['SESSION_SECRET', 'ADMIN_PASSWORD'];
+  const previous = settings.map(name => process.env[name]);
+  t.after(() => {
+    settings.forEach((name, index) => {
+      if (previous[index] === undefined) delete process.env[name];
+      else process.env[name] = previous[index];
+    });
+  });
+  process.env.SESSION_SECRET = 'shared-ip-secret';
+  process.env.ADMIN_PASSWORD = 'admin-secret-password';
+  const limits = new Map();
+  const sql = async (parts, ...values) => {
+    const query = parts.join('?');
+    if (query.includes('INSERT INTO teacher_login_limits')) {
+      const key = values[0];
+      const count = (limits.get(key) || 0) + 1;
+      limits.set(key, count);
+      return [{ blocked_until: count >= 5 ? new Date(Date.now() + 60000) : new Date(0) }];
+    }
+    if (query.includes('DELETE FROM teacher_login_limits')) {
+      limits.delete(values[0]);
+      return [];
+    }
+    if (query.includes('FROM teacher_accounts')) return [];
+    assert.fail(query);
+  };
+  const handler = createTeacherHandler(() => sql, async () => {});
+  const sharedHeaders = { 'x-forwarded-for': '203.0.113.10' };
+  const attempt = async (username, password) => {
+    const res = {
+      headers: {}, setHeader(k, v) { this.headers[k] = v; },
+      status(c) { this.code = c; return this; }, json(d) { this.data = d; }
+    };
+    await handler({ method: 'POST', headers: sharedHeaders, body: { action: 'login', username, password } }, res);
+    return res;
+  };
+  for (let i = 0; i < 5; i++) await attempt('gv.locked', 'wrong');
+  assert.equal((await attempt('gv.locked', 'wrong')).code, 429);
+  assert.equal((await attempt('admin', 'admin-secret-password')).code, 200);
 });

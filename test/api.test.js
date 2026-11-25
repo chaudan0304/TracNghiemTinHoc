@@ -47,7 +47,7 @@ test('student attempt history requires a session and pages exact name and class 
   const sql = async (strings, ...values) => {
     calls++;
     assert.match(strings.join('?'), /WHERE student_name = \? AND class_name = \?[\s\S]+ORDER BY submitted_at DESC, id DESC/);
-    assert.deepEqual(values, ["Nguyễn An O'Neil", '3A1', null, 51, 50]);
+    assert.deepEqual(values, ["Nguyễn An O'Neil", '3A1', 'quynh-loc', null, 51, 50]);
     return Array(51).fill(attempt);
   };
   try {
@@ -86,6 +86,7 @@ test('submission accepts an identical retry and rejects a conflicting retry', as
   let stored;
   const sql = async (strings, ...values) => {
     const query = strings.join('?');
+    if (query.includes('FROM quiz_schools')) return [{ id: values[0] }];
     if (query.includes('FROM quiz_lessons')) return [{ lesson: seedLesson(values[0]) }];
     if (query.includes('INSERT INTO submission_limits')) return [{ attempts: 1 }];
     if (query.includes('INSERT INTO quiz_attempts')) {
@@ -115,6 +116,7 @@ test('submission rate limit rejects excess attempts before saving', async () => 
   let attemptedInsert = false;
   const sql = async (strings, ...values) => {
     const query = strings.join('?');
+    if (query.includes('FROM quiz_schools')) return [{ id: values[0] }];
     if (query.includes('FROM quiz_lessons')) return [{ lesson: seedLesson(values[0]) }];
     if (query.includes('INSERT INTO submission_limits')) return [{ attempts: 301 }];
     if (query.includes('INSERT INTO quiz_attempts')) attemptedInsert = true;
@@ -133,6 +135,7 @@ test('submission records timeTakenSeconds when provided', async () => {
   let savedDuration;
   const sql = async (strings, ...values) => {
     const query = strings.join('?');
+    if (query.includes('FROM quiz_schools')) return [{ id: values[0] }];
     if (query.includes('FROM quiz_lessons')) return [{ lesson: seedLesson(values[0]) }];
     if (query.includes('INSERT INTO submission_limits')) return [{ attempts: 1 }];
     if (query.includes('INSERT INTO quiz_attempts')) {
@@ -210,7 +213,7 @@ test('teacher results filter before paging with a stable order', async () => {
     await handler({ method: 'GET', headers: { cookie: `teacher_session=${teacherSessionToken('admin')}` }, url: `/api/teacher?lessonId=${lessonId}&offset=100&className=4A1&search=An` }, result);
     assert.equal(result.code, 200);
     assert.deepEqual(result.body.rows, [{ id: 'one' }]);
-    assert.deepEqual(queryValues, [lessonId, '4A1', '4A1', 'An', 'An', null, 100]);
+    assert.deepEqual(queryValues, [lessonId, '4A1', '4A1', 'An', 'An', 'quynh-loc', null, 100]);
   } finally {
     if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
   }
@@ -232,7 +235,7 @@ test('teacher statistics cover the full lesson with class and name filters', asy
     await handler({ method: 'GET', headers: { cookie: `teacher_session=${teacherSessionToken('admin')}` }, url: `/api/teacher?lessonId=${lessonId}&stats=1&className=4A1&search=An` }, result);
     assert.equal(result.code, 200);
     assert.deepEqual(result.body.stats, { total: 125, avg: 7.4, max: 10, goodRatio: 48 });
-    assert.deepEqual(queryValues, [9, lessonId, '4A1', '4A1', 'An', 'An', null]);
+    assert.deepEqual(queryValues, [9, lessonId, '4A1', '4A1', 'An', 'An', 'quynh-loc', null]);
   } finally {
     if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
   }
@@ -244,6 +247,7 @@ test('teacher question statistics use every stored answer with class and name fi
   const queries = [];
   const sql = async (strings, ...values) => {
     const query = strings.join('?');
+    if (query.includes('FROM quiz_schools')) return [{ id: values[0] }];
     if (query.includes('FROM quiz_lessons')) return [{ lesson: seedLesson(values[0]) }];
     queries.push({ query, values });
     assert.match(query, /jsonb_array_elements_text/);
@@ -257,7 +261,7 @@ test('teacher question statistics use every stored answer with class and name fi
     assert.equal(result.body.questions.length, 20);
     assert.equal(result.body.questions[0].wrongCount + result.body.questions[0].correctCount, 2);
     assert.equal(result.body.questions[0].unansweredCount, 1);
-    assert.deepEqual(queries[0].values, ['lop-4-bai-6', '4A1', '4A1', 'An', 'An', null]);
+    assert.deepEqual(queries[0].values, ['lop-4-bai-6', '4A1', '4A1', 'An', 'An', 'quynh-loc', null]);
   } finally {
     if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
   }
@@ -268,7 +272,7 @@ test('teacher lists classes from all attempts for the selected lesson', async ()
   process.env.SESSION_SECRET = 'test-secret';
   const sql = async (strings, ...values) => {
     assert.match(strings.join('?'), /SELECT DISTINCT class_name/);
-    assert.deepEqual(values, ['lop-4-bai-6', null]);
+    assert.deepEqual(values, ['lop-4-bai-6', 'quynh-loc', null]);
     return [{ class_name: '4A1' }, { class_name: '4A2' }];
   };
   try {
@@ -295,7 +299,7 @@ test('teacher ranking returns class list and grade totals', async () => {
     assert.equal(catalog['4'].length, 21);
     assert.ok(catalog['4'].every(id => id.startsWith('lop-4-')));
     assert.ok(catalog.all.some(id => id.startsWith('lop-3-')));
-    assert.deepEqual(values.slice(1), [9, null, 9]);
+    assert.deepEqual(values.slice(1), [9, 'quynh-loc', null, 9]);
     queryCalled = true;
     return [{ class_name: '4A1', student_count: 30, completed_lessons: 15, total_attempts: 120, avg_score: 8.5, max_score: 10, good_count: 95, latest_submission: new Date().toISOString() }];
   };
@@ -331,7 +335,7 @@ test('teacher student ranking filters by class and returns student aggregations'
     assert.equal(result.code, 200);
     assert.equal(result.body.students.length, 1);
     assert.equal(result.body.students[0].student_name, 'Nguyen Van A');
-    assert.deepEqual(queryValues.slice(1), ['4A1', '4A1', '4A1', null]);
+    assert.deepEqual(queryValues.slice(1), ['4A1', '4A1', '4A1', 'quynh-loc', null]);
     assert.ok(JSON.parse(queryValues[0])['4'].includes('lop-4-bai-6'));
   } finally {
     if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
@@ -357,7 +361,7 @@ test('teacher merge requires a session, validates names and updates only the sel
       assert.deepEqual(queries[1].values, ['admin']);
       assert.match(queries[2].text, /SET student_name = \?, original_student_name = COALESCE/);
       assert.match(queries[2].text, /AND EXISTS/);
-      assert.deepEqual(queries[2].values, ['TÃªn Ä‘Ãºng', 'TÃªn sai', '3A1', 'TÃªn Ä‘Ãºng']);
+      assert.deepEqual(queries[2].values, ['TÃªn Ä‘Ãºng', 'TÃªn sai', '3A1', 'quynh-loc', 'TÃªn Ä‘Ãºng']);
       return [[], [], [{ merged_count: mergedCount }]];
     }
   };
@@ -401,7 +405,7 @@ test('teacher can edit a student identity without implicitly merging two student
     assert.deepEqual(context.values, ['admin']);
     assert.match(update.text, /NOT target\.already_exists/);
     assert.match(update.text, /original_class_name = COALESCE/);
-    assert.deepEqual(update.values, ['TÃªn má»›i', '4A1', 'TÃªn má»›i', '4A1', 'TÃªn cÅ©', '4A']);
+    assert.deepEqual(update.values, ['TÃªn má»›i', '4A1', 'quynh-loc', 'TÃªn má»›i', '4A1', 'TÃªn cÅ©', '4A', 'quynh-loc']);
     return [[], [], [databaseResult]];
   } };
   const handler = createTeacherHandler(() => sql, async () => {});
