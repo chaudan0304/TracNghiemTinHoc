@@ -5,6 +5,7 @@ import {
 import ExcelJS from 'exceljs';
 import pdfMake from 'pdfmake/build/pdfmake.js';
 import fonts from 'pdfmake/build/vfs_fonts.js';
+export { createLessonTemplate, readLessonWorkbook } from './lesson-workbook.js';
 
 const navy = '183153';
 const light = 'F0F5FA';
@@ -95,7 +96,7 @@ async function excelFile({ title, subtitle, headers, values }) {
         cell.value = Number(value.slice(0, -1)) / 100;
         cell.numFmt = '0%';
       }
-      if (index > 0 && typeof value === 'number' && /^Điểm/.test(headers[col])) cell.numFmt = '0.0';
+      if (index > 0 && typeof value === 'number' && /^Điểm/.test(headers[col])) cell.numFmt = '0.0#';
       cell.font = { name: 'Arial', size: 10, bold: index === 0, color: { argb: 'FF' + (index === 0 ? 'FFFFFF' : ink) } };
       cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF' + (index === 0 ? navy : index % 2 ? 'FFFFFF' : light) } };
       cell.alignment = { vertical: 'middle', horizontal: alignedLeft(headers[col]) ? 'left' : 'center', wrapText: true };

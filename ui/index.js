@@ -1,12 +1,11 @@
 import './compat.js';
+import { lessonDisplayTitle } from './lesson-title.js';
 (async function initializeHome() {
     const grid = document.getElementById('lessons');
     const tabs = document.querySelectorAll('.tab-btn');
     const searchInput = document.getElementById('search-lesson');
     const errorMessage = document.getElementById('error');
     const retryButton = document.getElementById('retry-lessons');
-    const lessonsById = new Map();
-    let catalogIds = null;
     let loadedLessons = [];
     let currentGrade = 'all';
 
@@ -27,32 +26,10 @@ import './compat.js';
       retryButton.disabled = true;
       errorMessage.textContent = '';
       try {
-        if (!catalogIds) {
-          const response = await fetch('/lessons/index.json');
-          if (!response.ok) throw new Error('Không tải được danh sách bài học.');
-          const ids = await response.json();
-          if (!Array.isArray(ids)) throw new Error('Invalid lesson catalog');
-          catalogIds = [...new Set(ids)];
-        }
-        const missing = catalogIds.filter(id => !lessonsById.has(id));
-        await Promise.all(missing.map(async id => {
-          try {
-            if (!/^[a-z0-9-]+$/.test(id)) return;
-            const response = await fetch(`/lessons/${id}.json`);
-            if (!response.ok) return;
-            const lesson = await response.json();
-            if (lesson.id === id && typeof lesson.lessonTitle === 'string' &&
-                Array.isArray(lesson.questions) && Number.isFinite(lesson.timeLimitSeconds)) {
-              lessonsById.set(id, lesson);
-            }
-          } catch {
-            // The failed lesson stays eligible for another request.
-          }
-        }));
-        loadedLessons = catalogIds.map(id => lessonsById.get(id)).filter(Boolean);
-        const failures = catalogIds.length - loadedLessons.length;
-        errorMessage.textContent = failures ? `Chưa tải được ${failures} bài học.` : '';
-        retryButton.hidden = failures === 0;
+        const response = await fetch('/api/lessons');
+        if (!response.ok) throw new Error('Không tải được danh sách bài học.');
+        loadedLessons = (await response.json()).lessons;
+        retryButton.hidden = true;
         renderLessons();
       } catch {
         errorMessage.textContent = 'Không tải được danh sách bài học. Em có thể thử lại.';
@@ -66,7 +43,7 @@ import './compat.js';
       const keyword = searchInput.value.trim().toLowerCase();
 
       const filtered = loadedLessons.filter(lesson => {
-        const matchGrade = (currentGrade === 'all') || (lesson.id && lesson.id.startsWith(currentGrade));
+        const matchGrade = currentGrade === 'all' || String(lesson.grade) === currentGrade;
         const matchText = !keyword || (
           (lesson.lessonTitle && lesson.lessonTitle.toLowerCase().includes(keyword)) ||
           (lesson.subjectBadge && lesson.subjectBadge.toLowerCase().includes(keyword))
@@ -95,13 +72,13 @@ import './compat.js';
         tag.textContent = lesson.subjectBadge || 'TIN HỌC TIỂU HỌC';
 
         const title = document.createElement('h2');
-        title.textContent = lesson.lessonTitle;
+        title.textContent = lessonDisplayTitle(lesson);
         top.append(tag, title);
 
         const bottom = document.createElement('div');
         const meta = document.createElement('div');
         meta.className = 'meta';
-        meta.textContent = `🎯 ${lesson.questions.length} câu hỏi • ⏱️ ${Math.ceil(lesson.timeLimitSeconds / 60)} phút`;
+        meta.textContent = `🎯 ${lesson.questionCount} câu hỏi • ⏱️ ${Math.ceil(lesson.timeLimitSeconds / 60)} phút`;
 
         const btn = document.createElement('div');
         btn.className = 'btn-start';

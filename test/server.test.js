@@ -1,11 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
-import { grade, loadLesson, sessionToken, isTeacher } from '../lib/server.js';
+import { grade } from '../lib/server.js';
+import { authenticateTeacher, teacherSessionToken } from '../lib/teacher-auth.js';
+import { loadLesson } from '../lib/lesson-store.js';
+import { seedIds, seedLesson } from './seed-fixtures.js';
+
+const sql = async (_query, id) => [{ lesson: seedLesson(id) }];
 
 test('each listed lesson loads and has valid grading', async () => {
-  const ids = JSON.parse(await readFile(join(process.cwd(), 'lessons', 'index.json'), 'utf8'));
+  const ids = seedIds;
   assert.equal(ids.length, 60);
   for (const grade of [3, 4, 5]) {
     for (const term of [1, 2]) {
@@ -14,7 +17,7 @@ test('each listed lesson loads and has valid grading', async () => {
   }
   assert.equal(new Set(ids).size, ids.length);
   for (const id of ids) {
-    const lesson = await loadLesson(id);
+    const lesson = await loadLesson(sql, id);
     assert.equal(lesson.id, id);
     assert.equal(lesson.questions.length, 20, `${id} cần đúng 20 câu hỏi`);
     assert.equal(new Set(lesson.questions.map(q => q.question)).size, lesson.questions.length, `${id} có câu hỏi trùng`);
@@ -36,21 +39,28 @@ test('each listed lesson loads and has valid grading', async () => {
 });
 
 test('rejects invalid answers and lesson paths', async () => {
-  await assert.rejects(loadLesson('../source/trangchu'), /INVALID_LESSON/);
-  const lesson = await loadLesson('lop-4-on-tap-may-tinh');
+  await assert.rejects(loadLesson(sql, '../source/trangchu'), /INVALID_LESSON/);
+  const lesson = await loadLesson(sql, 'lop-4-on-tap-may-tinh');
   assert.throws(() => grade(lesson, [9]), /INVALID_ANSWERS/);
   assert.throws(() => grade(lesson, Array(100).fill(0)), /INVALID_ANSWERS/);
 });
 
-test('teacher session requires a valid signature and expiry', () => {
+test('admin session requires a valid signature, expiry and current password', async () => {
   const previous = process.env.SESSION_SECRET;
+  const previousPassword = process.env.ADMIN_PASSWORD;
   process.env.SESSION_SECRET = 'test-secret';
+  process.env.ADMIN_PASSWORD = 'admin-password';
   try {
-    const valid = sessionToken('test-secret', Date.now() + 10000);
-    assert.equal(isTeacher({ headers: { cookie: `teacher_session=${valid}` } }), true);
-    assert.equal(isTeacher({ headers: { cookie: `teacher_session=${valid.slice(0, -1)}0` } }), false);
-    assert.equal(isTeacher({ headers: { cookie: `teacher_session=${sessionToken('test-secret', Date.now() - 10000)}` } }), false);
+    const valid = teacherSessionToken('admin');
+    const check = token => authenticateTeacher({ headers: { cookie: `teacher_session=${token}` } });
+    assert.equal((await check(valid)).role, 'admin');
+    assert.equal(await check(`${valid}0`), null);
+    assert.equal(await check(teacherSessionToken('admin', null, Date.now() - 10000)), null);
+    assert.equal(await check(`${Date.now() + 10000}.legacy`), null);
+    process.env.ADMIN_PASSWORD = 'new-admin-password';
+    assert.equal(await check(valid), null);
   } finally {
     if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
+    if (previousPassword === undefined) delete process.env.ADMIN_PASSWORD; else process.env.ADMIN_PASSWORD = previousPassword;
   }
 });

@@ -2,7 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import submit, { createSubmitHandler } from '../api/submit.js';
 import teacher, { createTeacherHandler } from '../api/teacher.js';
-import { sessionToken } from '../lib/server.js';
+import { teacherSessionToken } from '../lib/teacher-auth.js';
+import { seedCatalog, seedLesson } from './seed-fixtures.js';
+
+process.env.ADMIN_PASSWORD = 'test-admin-password';
 
 function response() {
   return {
@@ -43,8 +46,8 @@ test('student attempt history requires a session and pages exact name and class 
   let calls = 0;
   const sql = async (strings, ...values) => {
     calls++;
-    assert.match(strings.join('?'), /WHERE student_name = \? AND class_name = \?\s+ORDER BY submitted_at DESC, id DESC/);
-    assert.deepEqual(values, ["Nguyễn An O'Neil", '3A1', 51, 50]);
+    assert.match(strings.join('?'), /WHERE student_name = \? AND class_name = \?[\s\S]+ORDER BY submitted_at DESC, id DESC/);
+    assert.deepEqual(values, ["Nguyễn An O'Neil", '3A1', null, 51, 50]);
     return Array(51).fill(attempt);
   };
   try {
@@ -54,7 +57,7 @@ test('student attempt history requires a session and pages exact name and class 
     await handler(request, unauthorized);
     assert.equal(unauthorized.code, 401);
 
-    request.headers.cookie = `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}`;
+    request.headers.cookie = `teacher_session=${teacherSessionToken('admin')}`;
     const result = response();
     await handler(request, result);
     assert.equal(result.code, 200);
@@ -83,6 +86,7 @@ test('submission accepts an identical retry and rejects a conflicting retry', as
   let stored;
   const sql = async (strings, ...values) => {
     const query = strings.join('?');
+    if (query.includes('FROM quiz_lessons')) return [{ lesson: seedLesson(values[0]) }];
     if (query.includes('INSERT INTO submission_limits')) return [{ attempts: 1 }];
     if (query.includes('INSERT INTO quiz_attempts')) {
       if (stored) return [];
@@ -109,8 +113,9 @@ test('submission accepts an identical retry and rejects a conflicting retry', as
 test('submission rate limit rejects excess attempts before saving', async () => {
   const body = { id: '123e4567-e89b-42d3-a456-426614174000', lessonId: 'lop-4-on-tap-may-tinh', name: 'Học sinh', className: '4A1', answers: [null, null, null, null, null] };
   let attemptedInsert = false;
-  const sql = async (strings) => {
+  const sql = async (strings, ...values) => {
     const query = strings.join('?');
+    if (query.includes('FROM quiz_lessons')) return [{ lesson: seedLesson(values[0]) }];
     if (query.includes('INSERT INTO submission_limits')) return [{ attempts: 301 }];
     if (query.includes('INSERT INTO quiz_attempts')) attemptedInsert = true;
     return [];
@@ -128,6 +133,7 @@ test('submission records timeTakenSeconds when provided', async () => {
   let savedDuration;
   const sql = async (strings, ...values) => {
     const query = strings.join('?');
+    if (query.includes('FROM quiz_lessons')) return [{ lesson: seedLesson(values[0]) }];
     if (query.includes('INSERT INTO submission_limits')) return [{ attempts: 1 }];
     if (query.includes('INSERT INTO quiz_attempts')) {
       savedDuration = values[8];
@@ -143,8 +149,8 @@ test('submission records timeTakenSeconds when provided', async () => {
 });
 
 test('teacher login blocks on the fifth attempt and does not issue a cookie', async () => {
-  const previous = { password: process.env.TEACHER_PASSWORD, secret: process.env.SESSION_SECRET };
-  process.env.TEACHER_PASSWORD = 'correct';
+  const previous = { password: process.env.ADMIN_PASSWORD, secret: process.env.SESSION_SECRET };
+  process.env.ADMIN_PASSWORD = 'correct';
   process.env.SESSION_SECRET = 'test-secret';
   let attempts = 0;
   const sql = async (strings) => {
@@ -156,12 +162,12 @@ test('teacher login blocks on the fifth attempt and does not issue a cookie', as
     const handler = createTeacherHandler(() => sql, async () => {});
     for (let i = 1; i <= 5; i++) {
       const result = response();
-      await handler({ method: 'POST', headers: {}, body: { password: i === 1 ? 'corr' : 'wrong' } }, result);
+      await handler({ method: 'POST', headers: {}, body: { action: 'login', username: 'admin', password: i === 1 ? 'corr' : 'wrong' } }, result);
       assert.equal(result.code, i === 5 ? 429 : 401);
       assert.equal(result.headers['Set-Cookie'], undefined);
     }
   } finally {
-    if (previous.password === undefined) delete process.env.TEACHER_PASSWORD; else process.env.TEACHER_PASSWORD = previous.password;
+    if (previous.password === undefined) delete process.env.ADMIN_PASSWORD; else process.env.ADMIN_PASSWORD = previous.password;
     if (previous.secret === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous.secret;
   }
 });
@@ -179,7 +185,7 @@ test('teacher delete requires a session and deletes the requested id', async () 
   try {
     const handler = createTeacherHandler(() => sql, async () => {});
     const result = response();
-    await handler({ method: 'DELETE', headers: { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` }, body: { id } }, result);
+    await handler({ method: 'DELETE', headers: { cookie: `teacher_session=${teacherSessionToken('admin')}` }, body: { id } }, result);
     assert.equal(result.code, 200);
     assert.equal(deleted, id);
   } finally {
@@ -201,10 +207,10 @@ test('teacher results filter before paging with a stable order', async () => {
   try {
     const handler = createTeacherHandler(() => sql, async () => {});
     const result = response();
-    await handler({ method: 'GET', headers: { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` }, url: `/api/teacher?lessonId=${lessonId}&offset=100&className=4A1&search=An` }, result);
+    await handler({ method: 'GET', headers: { cookie: `teacher_session=${teacherSessionToken('admin')}` }, url: `/api/teacher?lessonId=${lessonId}&offset=100&className=4A1&search=An` }, result);
     assert.equal(result.code, 200);
     assert.deepEqual(result.body.rows, [{ id: 'one' }]);
-    assert.deepEqual(queryValues, [lessonId, '4A1', '4A1', 'An', 'An', 100]);
+    assert.deepEqual(queryValues, [lessonId, '4A1', '4A1', 'An', 'An', null, 100]);
   } finally {
     if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
   }
@@ -223,10 +229,10 @@ test('teacher statistics cover the full lesson with class and name filters', asy
   try {
     const handler = createTeacherHandler(() => sql, async () => {});
     const result = response();
-    await handler({ method: 'GET', headers: { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` }, url: `/api/teacher?lessonId=${lessonId}&stats=1&className=4A1&search=An` }, result);
+    await handler({ method: 'GET', headers: { cookie: `teacher_session=${teacherSessionToken('admin')}` }, url: `/api/teacher?lessonId=${lessonId}&stats=1&className=4A1&search=An` }, result);
     assert.equal(result.code, 200);
     assert.deepEqual(result.body.stats, { total: 125, avg: 7.4, max: 10, goodRatio: 48 });
-    assert.deepEqual(queryValues, [9, lessonId, '4A1', '4A1', 'An', 'An']);
+    assert.deepEqual(queryValues, [9, lessonId, '4A1', '4A1', 'An', 'An', null]);
   } finally {
     if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
   }
@@ -238,6 +244,7 @@ test('teacher question statistics use every stored answer with class and name fi
   const queries = [];
   const sql = async (strings, ...values) => {
     const query = strings.join('?');
+    if (query.includes('FROM quiz_lessons')) return [{ lesson: seedLesson(values[0]) }];
     queries.push({ query, values });
     assert.match(query, /jsonb_array_elements_text/);
     return [{ question_index: 0, answer: '0', count: 2 }, { question_index: 0, answer: null, count: 1 }];
@@ -245,12 +252,12 @@ test('teacher question statistics use every stored answer with class and name fi
   try {
     const handler = createTeacherHandler(() => sql, async () => {});
     const result = response();
-    await handler({ method: 'GET', headers: { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` }, url: '/api/teacher?lessonId=lop-4-bai-6&questionStats=1&className=4A1&search=An' }, result);
+    await handler({ method: 'GET', headers: { cookie: `teacher_session=${teacherSessionToken('admin')}` }, url: '/api/teacher?lessonId=lop-4-bai-6&questionStats=1&className=4A1&search=An' }, result);
     assert.equal(result.code, 200);
     assert.equal(result.body.questions.length, 20);
     assert.equal(result.body.questions[0].wrongCount + result.body.questions[0].correctCount, 2);
     assert.equal(result.body.questions[0].unansweredCount, 1);
-    assert.deepEqual(queries[0].values, ['lop-4-bai-6', '4A1', '4A1', 'An', 'An']);
+    assert.deepEqual(queries[0].values, ['lop-4-bai-6', '4A1', '4A1', 'An', 'An', null]);
   } finally {
     if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
   }
@@ -261,13 +268,13 @@ test('teacher lists classes from all attempts for the selected lesson', async ()
   process.env.SESSION_SECRET = 'test-secret';
   const sql = async (strings, ...values) => {
     assert.match(strings.join('?'), /SELECT DISTINCT class_name/);
-    assert.deepEqual(values, ['lop-4-bai-6']);
+    assert.deepEqual(values, ['lop-4-bai-6', null]);
     return [{ class_name: '4A1' }, { class_name: '4A2' }];
   };
   try {
     const handler = createTeacherHandler(() => sql, async () => {});
     const result = response();
-    await handler({ method: 'GET', headers: { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` }, url: '/api/teacher?lessonId=lop-4-bai-6&type=classes' }, result);
+    await handler({ method: 'GET', headers: { cookie: `teacher_session=${teacherSessionToken('admin')}` }, url: '/api/teacher?lessonId=lop-4-bai-6&type=classes' }, result);
     assert.equal(result.code, 200);
     assert.deepEqual(result.body.classes, ['4A1', '4A2']);
   } finally {
@@ -280,6 +287,7 @@ test('teacher ranking returns class list and grade totals', async () => {
   process.env.SESSION_SECRET = 'test-secret';
   let queryCalled = false;
   const sql = async (strings, ...values) => {
+    if (strings.join('?').includes('FROM quiz_lessons')) return seedCatalog();
     assert.match(strings.join('?'), /COUNT\(DISTINCT student_name\)/);
     assert.match(strings.join('?'), /ORDER BY \(COUNT\(\*\) FILTER \(WHERE score >= \?\)\)::numeric \/ COUNT\(\*\) DESC,\s*avg_score DESC, class_name ASC$/);
     assert.match(strings.join('?'), /COUNT\(DISTINCT lesson_id\) FILTER[\s\S]*jsonb_exists/);
@@ -287,14 +295,14 @@ test('teacher ranking returns class list and grade totals', async () => {
     assert.equal(catalog['4'].length, 21);
     assert.ok(catalog['4'].every(id => id.startsWith('lop-4-')));
     assert.ok(catalog.all.some(id => id.startsWith('lop-3-')));
-    assert.deepEqual(values.slice(1), [9, 9]);
+    assert.deepEqual(values.slice(1), [9, null, 9]);
     queryCalled = true;
     return [{ class_name: '4A1', student_count: 30, completed_lessons: 15, total_attempts: 120, avg_score: 8.5, max_score: 10, good_count: 95, latest_submission: new Date().toISOString() }];
   };
   try {
     const handler = createTeacherHandler(() => sql, async () => {});
     const result = response();
-    await handler({ method: 'GET', headers: { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` }, url: '/api/teacher?type=ranking' }, result);
+    await handler({ method: 'GET', headers: { cookie: `teacher_session=${teacherSessionToken('admin')}` }, url: '/api/teacher?type=ranking' }, result);
     assert.equal(result.code, 200);
     assert.equal(queryCalled, true);
     assert.equal(result.body.classes.length, 1);
@@ -310,6 +318,7 @@ test('teacher student ranking filters by class and returns student aggregations'
   process.env.SESSION_SECRET = 'test-secret';
   let queryValues;
   const sql = async (strings, ...values) => {
+    if (strings.join('?').includes('FROM quiz_lessons')) return seedCatalog();
     assert.match(strings.join('?'), /FROM quiz_attempts/);
     assert.match(strings.join('?'), /ORDER BY avg_score DESC,\s*AVG\(time_taken_seconds\) ASC NULLS LAST,\s*student_name ASC, class_name ASC$/);
     queryValues = values;
@@ -318,11 +327,11 @@ test('teacher student ranking filters by class and returns student aggregations'
   try {
     const handler = createTeacherHandler(() => sql, async () => {});
     const result = response();
-    await handler({ method: 'GET', headers: { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` }, url: '/api/teacher?type=ranking&mode=student&className=4A1' }, result);
+    await handler({ method: 'GET', headers: { cookie: `teacher_session=${teacherSessionToken('admin')}` }, url: '/api/teacher?type=ranking&mode=student&className=4A1' }, result);
     assert.equal(result.code, 200);
     assert.equal(result.body.students.length, 1);
     assert.equal(result.body.students[0].student_name, 'Nguyen Van A');
-    assert.deepEqual(queryValues.slice(1), ['4A1', '4A1', '4A1']);
+    assert.deepEqual(queryValues.slice(1), ['4A1', '4A1', '4A1', null]);
     assert.ok(JSON.parse(queryValues[0])['4'].includes('lop-4-bai-6'));
   } finally {
     if (previous === undefined) delete process.env.SESSION_SECRET; else process.env.SESSION_SECRET = previous;
@@ -344,14 +353,16 @@ test('teacher merge requires a session, validates names and updates only the sel
       transactions++;
       const queries = build((parts, ...values) => ({ text: parts.join('?'), values }));
       assert.match(queries[0].text, /LOCK TABLE quiz_attempts IN SHARE ROW EXCLUSIVE MODE/);
-      assert.match(queries[1].text, /SET student_name = \?, original_student_name = COALESCE/);
-      assert.match(queries[1].text, /AND EXISTS/);
-      assert.deepEqual(queries[1].values, ['TÃªn Ä‘Ãºng', 'TÃªn sai', '3A1', 'TÃªn Ä‘Ãºng']);
-      return [[], [{ merged_count: mergedCount }]];
+      assert.match(queries[1].text, /quiz.audit_action', 'merge-students'/);
+      assert.deepEqual(queries[1].values, ['admin']);
+      assert.match(queries[2].text, /SET student_name = \?, original_student_name = COALESCE/);
+      assert.match(queries[2].text, /AND EXISTS/);
+      assert.deepEqual(queries[2].values, ['TÃªn Ä‘Ãºng', 'TÃªn sai', '3A1', 'TÃªn Ä‘Ãºng']);
+      return [[], [], [{ merged_count: mergedCount }]];
     }
   };
   const handler = createTeacherHandler(() => sql, async () => {});
-  const headers = { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` };
+  const headers = { cookie: `teacher_session=${teacherSessionToken('admin')}` };
   const body = { action: 'merge-students', sourceName: 'TÃªn sai', targetName: 'TÃªn Ä‘Ãºng', className: '3A1' };
   for (const [requestHeaders, input, status] of [
     [{}, body, 401],
@@ -384,15 +395,17 @@ test('teacher can edit a student identity without implicitly merging two student
   let calls = 0;
   const sql = { async transaction(build) {
     calls++;
-    const [lock, update] = build((parts, ...values) => ({ text: parts.join('?'), values }));
+    const [lock, context, update] = build((parts, ...values) => ({ text: parts.join('?'), values }));
     assert.match(lock.text, /SHARE ROW EXCLUSIVE/);
+    assert.match(context.text, /quiz.audit_action', 'edit-student'/);
+    assert.deepEqual(context.values, ['admin']);
     assert.match(update.text, /NOT target\.already_exists/);
     assert.match(update.text, /original_class_name = COALESCE/);
     assert.deepEqual(update.values, ['TÃªn má»›i', '4A1', 'TÃªn má»›i', '4A1', 'TÃªn cÅ©', '4A']);
-    return [[], [databaseResult]];
+    return [[], [], [databaseResult]];
   } };
   const handler = createTeacherHandler(() => sql, async () => {});
-  const headers = { cookie: `teacher_session=${sessionToken('test-secret', Date.now() + 60000)}` };
+  const headers = { cookie: `teacher_session=${teacherSessionToken('admin')}` };
   const body = { action: 'edit-student', sourceName: 'TÃªn cÅ©', className: '4A', targetName: ' TÃªn má»›i ', targetClass: ' 4A1 ' };
   const send = async (input, requestHeaders = headers) => {
     const result = response();

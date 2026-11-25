@@ -1,17 +1,36 @@
 import './compat.js';
 import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/score-levels.js';
     import { csvCell } from '../lib/csv.js';
+    import { initializeLessonEditor } from './lesson-editor.js';
+    import { initializeTeacherAccounts } from './teacher-access.js';
+    import { initializeStudentHistory } from './student-history.js';
+    import { lessonDisplayTitle } from './lesson-title.js';
     const loginSection = document.getElementById('login-section');
     const dashboardSection = document.getElementById('dashboard-section');
     const loginForm = document.getElementById('login-form');
     const loginError = document.getElementById('login-error');
-    const authActions = document.getElementById('auth-actions');
+    const accountMenu = document.getElementById('teacher-account-menu');
+    const avatar = document.getElementById('teacher-avatar');
+    const accountName = document.getElementById('teacher-account-name');
+    const avatarInitials = document.getElementById('teacher-avatar-initials');
+    const logoutBtn = document.getElementById('teacher-logout');
 
     // Tab buttons & Views
     const tabLessonsBtn = document.getElementById('tab-lessons-btn');
     const tabRankingBtn = document.getElementById('tab-ranking-btn');
+    const tabCreateBtn = document.getElementById('tab-create-btn');
+    const tabAccountsBtn = document.getElementById('tab-accounts-btn');
+    const tabHistoryBtn = document.getElementById('tab-student-history-btn');
+    const modeSwitch = document.getElementById('teacher-mode-switch');
+    const viewModeBtn = document.getElementById('teacher-view-mode');
+    const editModeBtn = document.getElementById('teacher-edit-mode');
     const viewLessons = document.getElementById('view-lessons');
     const viewRanking = document.getElementById('view-ranking');
+    const viewCreate = document.getElementById('view-create');
+    const viewAccounts = document.getElementById('view-accounts');
+    const viewHistory = document.getElementById('view-student-history');
+    let teacherIdentity = null;
+    let editingMode = false;
 
     // View 1 (Lessons) Elements
     const lessonGrade = document.getElementById('lesson-grade');
@@ -73,6 +92,8 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
     const editSourceLabel = document.getElementById('student-edit-source');
     const editName = document.getElementById('student-edit-name');
     const editClass = document.getElementById('student-edit-class');
+    const editClassChoice = document.getElementById('student-edit-class-choice');
+    const editClassLabel = document.getElementById('student-edit-class-label');
     const editStatus = document.getElementById('student-edit-status');
     const editCancel = document.getElementById('student-edit-cancel');
     const editSubmit = document.getElementById('student-edit-submit');
@@ -128,9 +149,15 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
         const errorMap = {
-          INVALID_PASSWORD: 'Mật khẩu giáo viên chưa đúng.',
+          INVALID_PASSWORD: 'Tên đăng nhập hoặc mật khẩu chưa đúng, hoặc tài khoản đã bị khóa.',
+          FORBIDDEN: 'Tài khoản của thầy/cô không có quyền thực hiện thao tác này.',
+          INVALID_TEACHER_ACCOUNT: 'Kiểm tra tên đăng nhập, tên hiển thị, môn dạy và lớp phụ trách. Tên đăng nhập dùng 3–40 ký tự chữ không dấu, số, dấu chấm, gạch dưới hoặc gạch ngang.',
+          INVALID_ACCOUNT_PASSWORD: 'Mật khẩu cần từ 12 đến 128 ký tự.',
+          TEACHER_ACCOUNT_EXISTS: 'Tên đăng nhập này đã được sử dụng.',
+          TEACHER_ACCOUNT_NOT_FOUND: 'Không tìm thấy tài khoản giáo viên.',
           INVALID_STUDENT_MERGE: 'Hãy chọn hai tên khác nhau trong cùng lớp.',
           INVALID_STUDENT_EDIT: 'Hãy nhập họ tên và lớp hợp lệ.',
+          LESSON_ALREADY_EXISTS: 'Tên hoặc mã bài đã có trong khối. Hãy kiểm tra và đổi tên bài trùng trước khi lưu lại.',
           STUDENT_EDIT_DUPLICATE: 'Lớp này đã có học sinh mang tên đó. Hãy kiểm tra lại họ tên và lớp. Nếu là cùng một em trong cùng lớp, hãy dùng Gộp tên.',
           STUDENT_EDIT_CHANGED: 'Danh sách đã thay đổi. Hãy đóng hộp thoại và tải lại bảng.',
           STUDENT_MERGE_CHANGED: 'Danh sách đã thay đổi. Hãy đóng hộp thoại, tải lại bảng và kiểm tra lại hai tên.',
@@ -139,7 +166,12 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
           TEACHER_LOGIN_NOT_CONFIGURED: 'Mật khẩu giáo viên chưa được cấu hình.',
           UNAUTHORIZED: 'Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.'
         };
-        throw new Error(errorMap[data.error] || 'Có lỗi xảy ra, vui lòng thử lại.');
+        if (data.error === 'UNAUTHORIZED' && teacherIdentity) {
+          teacherIdentity = null;
+          showLogin();
+          location.reload();
+        }
+        throw new Error(errorMap[data.error] || data.message || 'Có lỗi xảy ra, vui lòng thử lại.');
       }
       return data;
     }
@@ -148,25 +180,44 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
        TAB SWITCHING
        ======================================================== */
     function switchTab(tab) {
+      if ((tab === 'accounts' || tab === 'history') && teacherIdentity?.role !== 'admin') return;
+      if (canEditStudentInfo() && !editingMode && (tab === 'create' || tab === 'accounts')) return;
       currentTab = tab;
-      if (tab === 'lessons') {
-        tabLessonsBtn.classList.add('active');
-        tabRankingBtn.classList.remove('active');
-        viewLessons.hidden = false;
-        viewRanking.hidden = true;
-      } else {
-        tabRankingBtn.classList.add('active');
-        tabLessonsBtn.classList.remove('active');
-        viewLessons.hidden = true;
-        viewRanking.hidden = false;
-        if (!isRankingLoaded) {
-          fetchRankingData();
-        }
+      for (const entry of [
+        { name: 'lessons', button: tabLessonsBtn, view: viewLessons },
+        { name: 'ranking', button: tabRankingBtn, view: viewRanking },
+        { name: 'create', button: tabCreateBtn, view: viewCreate },
+        { name: 'accounts', button: tabAccountsBtn, view: viewAccounts },
+        { name: 'history', button: tabHistoryBtn, view: viewHistory }
+      ]) {
+        entry.button.classList.toggle('active', entry.name === tab);
+        entry.view.hidden = entry.name !== tab;
       }
+      if (tab === 'ranking' && !isRankingLoaded) fetchRankingData();
+      if (tab === 'accounts') loadTeacherAccounts();
+      if (tab === 'history') loadStudentHistory();
     }
 
     tabLessonsBtn.addEventListener('click', () => switchTab('lessons'));
     tabRankingBtn.addEventListener('click', () => switchTab('ranking'));
+    tabCreateBtn.addEventListener('click', () => switchTab('create'));
+    tabAccountsBtn.addEventListener('click', () => switchTab('accounts'));
+    tabHistoryBtn.addEventListener('click', () => switchTab('history'));
+    viewModeBtn.addEventListener('click', () => setEditingMode(false));
+    editModeBtn.addEventListener('click', () => setEditingMode(true));
+
+    function setEditingMode(enabled) {
+      const canSwitchModes = canEditStudentInfo();
+      editingMode = canSwitchModes && enabled;
+      const viewMode = canSwitchModes && !editingMode;
+      modeSwitch.hidden = !canSwitchModes;
+      dashboardSection.classList.toggle('view-mode', viewMode);
+      viewModeBtn.setAttribute('aria-pressed', String(!editingMode));
+      editModeBtn.setAttribute('aria-pressed', String(editingMode));
+      if (viewMode && (currentTab === 'create' || currentTab === 'accounts')) switchTab('lessons');
+    }
+    const loadTeacherAccounts = initializeTeacherAccounts(api);
+    const loadStudentHistory = initializeStudentHistory(api);
 
     /* ========================================================
        RANKING & PROGRESS LOGIC
@@ -246,7 +297,7 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
         rankingClassSelect.replaceChildren();
         const allOption = document.createElement('option');
         allOption.value = 'ALL';
-        allOption.textContent = 'Tất cả các lớp';
+        allOption.textContent = allClassesLabel();
         rankingClassSelect.append(allOption);
 
         const sortedClasses = [...rawClassRankings].sort((a, b) => a.class_name.localeCompare(b.class_name));
@@ -426,7 +477,7 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
               ${Number(c.avg_score).toFixed(1)}
             </span>
           </td>
-          <td style="text-align: center; font-weight: 800; color: #047857;">⭐ ${Number(c.max_score).toFixed(1)}</td>
+          <td style="text-align: center; font-weight: 800; color: #047857;">⭐ ${formatScore(c.max_score)}</td>
           <td style="text-align: center; font-weight: 800; color: ${goodRatio >= 70 ? '#059669' : '#b45309'};">${goodRatio}%</td>
           <td style="text-align: center;">
             <button type="button" class="btn btn-secondary view-students-btn" style="padding: 6px 12px; font-size: 0.82rem;" data-class="${escapeHtml(c.class_name)}">
@@ -536,13 +587,13 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
           <td style="text-align: center;">${renderRankBadge(row.rank - 1)}</td>
           <td class="student-name-cell">
             <div class="student-name">${escapeHtml(s.student_name)}</div>
-            <div class="student-row-actions">
+            ${canEditStudentInfo() ? `<div class="student-row-actions" data-edit-mode>
               <button type="button" class="student-row-action" data-edit-student aria-haspopup="dialog"
                 aria-label="Sửa thông tin ${escapeHtml(s.student_name)}, lớp ${escapeHtml(s.class_name)}">Sửa</button>
-              <button type="button" class="student-row-action" data-merge-student aria-haspopup="dialog"
+              ${teacherIdentity.role === 'admin' ? `<button type="button" class="student-row-action" data-merge-student aria-haspopup="dialog"
                 aria-label="Gộp tên ${escapeHtml(s.student_name)}, lớp ${escapeHtml(s.class_name)}"
-                ${studentsPerClass.get(s.class_name) < 2 ? 'hidden' : ''}>Gộp tên</button>
-            </div>
+                ${studentsPerClass.get(s.class_name) < 2 ? 'hidden' : ''}>Gộp tên</button>` : ''}
+            </div>` : ''}
           </td>
           <td class="student-class-cell">
             <span style="font-weight: 800; color: var(--primary);">Lớp ${escapeHtml(s.class_name)}</span>
@@ -557,22 +608,41 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
               ${Number(s.avg_score).toFixed(1)}
             </span>
           </td>
-          <td style="text-align: center; font-weight: 800; color: #047857;">⭐ ${Number(s.max_score).toFixed(1)}</td>
+          <td style="text-align: center; font-weight: 800; color: #047857;">⭐ ${formatScore(s.max_score)}</td>
           <td style="text-align: center; font-weight: 700; color: #047857;">${formatDuration(s.avg_time_seconds)}</td>
           <td style="color: var(--muted); font-size: 0.88rem;">${s.latest_submission ? new Date(s.latest_submission).toLocaleString('vi-VN') : '--'}</td>
         `;
 
         tr.querySelector('[data-student-attempts]').addEventListener('click', () => showStudentAttempts(s));
-        tr.querySelector('[data-edit-student]').addEventListener('click', () => openStudentEdit(s));
-        tr.querySelector('[data-merge-student]').addEventListener('click', () => openStudentMerge(s));
+        tr.querySelector('[data-edit-student]')?.addEventListener('click', () => openStudentEdit(s));
+        tr.querySelector('[data-merge-student]')?.addEventListener('click', () => openStudentMerge(s));
         studentsRankingRows.append(tr);
       });
     }
 
+    function canEditStudentInfo() {
+      return teacherIdentity?.role === 'admin' || teacherIdentity?.canEditStudents === true;
+    }
+
+    function editClassField() {
+      return teacherIdentity?.role === 'admin' ? editClass : editClassChoice;
+    }
+
     function openStudentEdit(student) {
+      if (!editingMode || !canEditStudentInfo()) return;
       editSource = student;
       editName.value = student.student_name;
-      editClass.value = student.class_name;
+      const isAdmin = teacherIdentity.role === 'admin';
+      editClass.hidden = editClass.disabled = !isAdmin;
+      editClassChoice.hidden = editClassChoice.disabled = isAdmin;
+      if (!isAdmin) {
+        const currentClass = student.class_name.trim().toUpperCase();
+        const values = [student.class_name, ...teacherIdentity.classes.filter(value => value !== currentClass)];
+        editClassChoice.replaceChildren(...values.map(value => new Option(value, value)));
+      }
+      const field = editClassField();
+      field.value = student.class_name;
+      editClassLabel.htmlFor = field.id;
       editSourceLabel.textContent = `Thay đổi áp dụng cho ${student.total_attempts} lượt làm của “${student.student_name}” (lớp ${student.class_name}).`;
       editStatus.textContent = '';
       editSubmit.disabled = true;
@@ -582,12 +652,13 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
 
     function updateEditSubmit() {
       const targetName = editName.value.trim();
-      const targetClass = editClass.value.trim();
+      const targetClass = editClassField().value.trim();
       editSubmit.disabled = !targetName || !targetClass ||
         (targetName === editSource.student_name && targetClass === editSource.class_name);
     }
 
     editForm.addEventListener('input', updateEditSubmit);
+    editClassChoice.addEventListener('change', updateEditSubmit);
     editCancel.addEventListener('click', () => editDialog.close());
     editDialog.addEventListener('cancel', event => {
       if (editCancel.disabled) event.preventDefault();
@@ -597,8 +668,9 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
       event.preventDefault();
       if (editSubmit.disabled) return;
       const targetName = editName.value.trim();
-      const targetClass = editClass.value.trim();
-      editName.disabled = editClass.disabled = editCancel.disabled = editSubmit.disabled = true;
+      const classField = editClassField();
+      const targetClass = classField.value.trim();
+      editName.disabled = classField.disabled = editCancel.disabled = editSubmit.disabled = true;
       editStatus.textContent = 'Đang lưu thay đổi…';
       try {
         const data = await api('/api/teacher', {
@@ -627,7 +699,7 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
       } catch (error) {
         editStatus.textContent = error.message;
       } finally {
-        editName.disabled = editClass.disabled = editCancel.disabled = false;
+        editName.disabled = classField.disabled = editCancel.disabled = false;
         updateEditSubmit();
       }
     });
@@ -723,7 +795,7 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
             }, position);
             const values = [
               title,
-              Number(attempt.score).toFixed(1),
+              formatScore(attempt.score),
               `${attempt.correct_count}/${attempt.total_questions}`,
               formatDuration(attempt.time_taken_seconds),
               new Date(attempt.submitted_at).toLocaleString('vi-VN')
@@ -771,6 +843,24 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
     });
 
     let reportExporter;
+    function loadWorkbookTools() {
+      if (!reportExporter) {
+        reportExporter = new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = '/assets/report-export.js';
+          script.onload = () => {
+            if (window.QuizReportExport) resolve(window.QuizReportExport);
+            else reject(new Error('Không thể khởi tạo công cụ xử lý tệp.'));
+          };
+          script.onerror = () => reject(new Error('Không thể tải công cụ xử lý tệp.'));
+          document.head.append(script);
+        }).catch(error => {
+          reportExporter = undefined;
+          throw error;
+        });
+      }
+      return reportExporter;
+    }
 
     async function downloadReport(format, filename, title, scope, rows) {
       let blob;
@@ -778,27 +868,16 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
         const csv = '\uFEFF' + rows.map(row => row.map(csvCell).join(',')).join('\r\n');
         blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
       } else {
-        if (!reportExporter) {
-          reportExporter = new Promise((resolve, reject) => {
-            const script = document.createElement('script');
-            script.src = '/assets/report-export.js';
-            script.onload = () => {
-              if (window.QuizReportExport) resolve(window.QuizReportExport);
-              else reject(new Error('Không thể khởi tạo bộ xuất báo cáo.'));
-            };
-            script.onerror = () => reject(new Error('Không thể tải bộ xuất báo cáo.'));
-            document.head.append(script);
-          }).catch(error => {
-            reportExporter = undefined;
-            throw error;
-          });
-        }
-        blob = await (await reportExporter).createReportFile(format, { title, scope, rows });
+        blob = await (await loadWorkbookTools()).createReportFile(format, { title, scope, rows });
       }
+      downloadFile(blob, `${filename}.${format}`);
+    }
+
+    function downloadFile(blob, filename) {
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `${filename}.${format}`;
+      link.download = filename;
       document.body.append(link);
       link.click();
       link.remove();
@@ -927,25 +1006,22 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
     }
 
     async function loadLessonList() {
-      const res = await fetch('/lessons/index.json');
-      if (!res.ok) throw new Error('Không tải được danh sách bài học.');
-      const ids = await res.json();
-      const lessons = await Promise.all(ids.map(async id => {
-        try {
-          const response = await fetch(`/lessons/${id}.json`);
-          if (!response.ok) return null;
-          const lesson = await response.json();
-          const grade = id.match(/^lop-([345])-/)?.[1];
-          return grade && lesson.lessonTitle ? { id, grade, title: lesson.lessonTitle } : null;
-        } catch (error) {
-          console.error('Không tải được bài học:', id, error);
-          return null;
-        }
-      }));
-      lessonCatalog = lessons.filter(Boolean);
-      if (!lessonCatalog.length) throw new Error('Không có bài học để hiển thị.');
+      const data = await api('/api/lessons');
+      lessonCatalog = data.lessons.map(lesson => ({ id: lesson.id, grade: String(lesson.grade), title: lessonDisplayTitle(lesson) }));
       renderLessonOptions();
     }
+
+    initializeLessonEditor({
+      save: body => api('/api/lessons', { method: 'POST', body }),
+      refresh: async () => {
+        isRankingLoaded = false;
+        studentRankingLoaded = false;
+        if (currentTab === 'ranking') fetchRankingData();
+        await loadLessonList();
+      },
+      loadWorkbookTools,
+      download: downloadFile
+    });
 
     async function fetchStats() {
       const requestId = ++statsRequestId;
@@ -960,7 +1036,7 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
         if (requestId !== statsRequestId) return;
         document.getElementById('stat-total').textContent = stats.total;
         document.getElementById('stat-avg').textContent = Number(stats.avg).toFixed(1);
-        document.getElementById('stat-max').textContent = Number(stats.max).toFixed(1);
+        document.getElementById('stat-max').textContent = formatScore(stats.max);
         document.getElementById('stat-good-ratio').textContent = `${stats.goodRatio}%`;
         params.delete('stats');
         params.set('questionStats', '1');
@@ -1019,7 +1095,7 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
       classFilter.replaceChildren();
       const allOpt = document.createElement('option');
       allOpt.value = 'ALL';
-      allOpt.textContent = 'Tất cả các lớp';
+      allOpt.textContent = allClassesLabel();
       classFilter.append(allOpt);
 
       for (const cls of classes) {
@@ -1071,7 +1147,7 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
         // Điểm
         const tdScore = document.createElement('td');
         tdScore.className = 'score-cell';
-        tdScore.textContent = Number(r.score).toFixed(1);
+        tdScore.textContent = formatScore(r.score);
 
         // Xếp loại badge
         const tdBadge = document.createElement('td');
@@ -1105,28 +1181,32 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
         tdTime.style.color = 'var(--muted)';
         tdTime.textContent = new Date(r.submitted_at).toLocaleString('vi-VN');
 
-        // Thao tác (Xóa)
-        const tdAction = document.createElement('td');
-        tdAction.style.textAlign = 'center';
-        const delBtn = document.createElement('button');
-        delBtn.type = 'button';
-        delBtn.className = 'btn-danger';
-        delBtn.innerHTML = '🗑️ Xóa';
-        delBtn.title = 'Xóa lượt nộp này';
-        delBtn.onclick = async () => {
-          if (!confirm(`Thầy/cô có chắc muốn xóa lượt làm bài của em "${r.student_name}" (Lớp ${r.class_name})?`)) return;
-          try {
-            await api('/api/teacher', {
-              method: 'DELETE',
-              body: JSON.stringify({ id: r.id })
-            });
-            await fetchResults();
-            if (isRankingLoaded) await fetchRankingData();
-          } catch (err) {
-            alert('Không thể xóa: ' + err.message);
-          }
-        };
-        tdAction.append(delBtn);
+        tr.append(tdIdx, tdName, tdClass, tdCorrect, tdScore, tdBadge, tdDuration, tdTime);
+        if (teacherIdentity?.role === 'admin') {
+          const tdAction = document.createElement('td');
+          tdAction.setAttribute('data-edit-mode', '');
+          tdAction.style.textAlign = 'center';
+          const delBtn = document.createElement('button');
+          delBtn.type = 'button';
+          delBtn.className = 'btn-danger';
+          delBtn.textContent = '🗑️ Xóa';
+          delBtn.title = 'Xóa lượt nộp này';
+          delBtn.onclick = async () => {
+            if (!confirm(`Thầy/cô có chắc muốn xóa lượt làm bài của em "${r.student_name}" (Lớp ${r.class_name})?`)) return;
+            try {
+              await api('/api/teacher', {
+                method: 'DELETE',
+                body: JSON.stringify({ id: r.id })
+              });
+              await fetchResults();
+              if (isRankingLoaded) await fetchRankingData();
+            } catch (err) {
+              alert('Không thể xóa: ' + err.message);
+            }
+          };
+          tdAction.append(delBtn);
+          tr.append(tdAction);
+        }
 
         resultTableSort.add(tr, {
           index: idx + 1,
@@ -1138,7 +1218,6 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
           duration: durationSortValue(r.time_taken_seconds),
           submitted: Date.parse(r.submitted_at)
         }, idx);
-        tr.append(tdIdx, tdName, tdClass, tdCorrect, tdScore, tdBadge, tdDuration, tdTime, tdAction);
         rowsEl.append(tr);
       });
       resultTableSort.apply();
@@ -1194,30 +1273,56 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
       }
     }
 
-    function showDashboard() {
+    function showDashboard(identity) {
+      teacherIdentity = identity;
+      tabAccountsBtn.hidden = identity.role !== 'admin';
+      tabHistoryBtn.hidden = identity.role !== 'admin';
+      document.getElementById('result-actions-heading').hidden = identity.role !== 'admin';
+      document.getElementById('teacher-profile').textContent = identity.role === 'admin'
+        ? 'Tất cả các lớp'
+        : `Môn dạy: ${identity.subject} · ${identity.classes.length ? 'Lớp phụ trách: ' + identity.classes.join(', ') : 'Chưa được giao lớp'} · Quyền học sinh: ${identity.canEditStudents ? 'Chỉnh sửa' : 'Chỉ xem'}`;
+      setEditingMode(false);
+      switchTab('lessons');
+      updateClassFilterOptions([]);
       loginSection.hidden = true;
       dashboardSection.hidden = false;
-      const logoutBtn = document.createElement('button');
-      logoutBtn.className = 'logout-btn';
-      logoutBtn.textContent = '🚪 Đăng xuất';
-      logoutBtn.onclick = async () => {
-        try {
-          await api('/api/teacher', {
-            method: 'POST',
-            body: JSON.stringify({ action: 'logout' })
-          });
-        } catch (e) {
-          console.error('Logout error:', e);
-        }
-        location.reload();
-      };
-      authActions.replaceChildren(logoutBtn);
+      const name = identity.displayName || identity.username;
+      const words = name.trim().split(/\s+/);
+      const first = Array.from(words[0]);
+      const initials = words.length > 1 ? first[0] + Array.from(words[words.length - 1])[0] : first.slice(0, 2).join('');
+      accountName.textContent = name;
+      avatarInitials.textContent = initials.toLocaleUpperCase('vi');
+      avatar.setAttribute('aria-label', `Tài khoản ${name}`);
+      accountMenu.open = false;
+      accountMenu.hidden = false;
     }
+
+    logoutBtn.addEventListener('click', async () => {
+      logoutBtn.disabled = true;
+      try {
+        await api('/api/teacher', { method: 'POST', body: JSON.stringify({ action: 'logout' }) });
+      } catch (error) {
+        console.error('Logout error:', error);
+      }
+      location.reload();
+    });
+
+    document.addEventListener('click', event => {
+      if (accountMenu.open && !accountMenu.contains(event.target)) accountMenu.open = false;
+    });
+
+    accountMenu.addEventListener('keydown', event => {
+      if (event.key !== 'Escape' || !accountMenu.open) return;
+      event.preventDefault();
+      accountMenu.open = false;
+      avatar.focus();
+    });
 
     function showLogin() {
       loginSection.hidden = false;
       dashboardSection.hidden = true;
-      authActions.replaceChildren();
+      accountMenu.open = false;
+      accountMenu.hidden = true;
     }
 
     let loginReady = false;
@@ -1231,15 +1336,16 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
       loginReady = false;
       loginError.textContent = '';
       const password = document.getElementById('password').value;
+      const username = document.getElementById('teacher-username').value;
       loginBtn.disabled = true;
       loginBtn.textContent = 'Đang kiểm tra...';
       try {
-        await api('/api/teacher', {
+        const result = await api('/api/teacher', {
           method: 'POST',
-          body: JSON.stringify({ password })
+          body: JSON.stringify({ action: 'login', username, password })
         });
         document.getElementById('password').value = '';
-        showDashboard();
+        showDashboard(result.teacher);
         await loadLessonList();
         await fetchResults(true);
       } catch (err) {
@@ -1280,9 +1386,16 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
     });
     loadMoreBtn.addEventListener('click', () => fetchResults(false));
 
+    function allClassesLabel() {
+      return teacherIdentity?.role === 'admin' ? 'Tất cả các lớp' : 'Tất cả lớp được giao';
+    }
+
+    function formatScore(value) {
+      return Number(value).toFixed(2).replace(/0$/, '');
+    }
+
     function exportScore(value, format) {
-      const score = Number(value).toFixed(1);
-      return format === 'xlsx' ? Number(score) : score;
+      return format === 'xlsx' ? Number(value) : formatScore(value);
     }
 
     exportBtn.addEventListener('click', async () => {
@@ -1316,7 +1429,7 @@ import { EXCELLENT_SCORE, GOOD_SCORE, PASS_SCORE, getScoreLevel } from '../lib/s
         ];
 
         await downloadReport(format, `Ket_Qua_${id}`, 'Kết quả luyện tập',
-          `${lesson ? lesson.title : id} · Tất cả các lớp`, lines);
+          `${lesson ? lesson.title : id} · ${allClassesLabel()}`, lines);
       } catch (e) {
         alert('Lỗi xuất file: ' + e.message);
       } finally {

@@ -1,7 +1,12 @@
 source/
-build_multilesson.cjs
+lessons/
+scripts/seed-lessons.mjs
+scripts/lock-attempt-scores.mjs
+scripts/record-student-history.mjs
 README.md
 .git/
+.env*
+doan_chat.md
 __pycache__/
 *.pyc
 lesson-bank.py

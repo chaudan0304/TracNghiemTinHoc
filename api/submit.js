@@ -1,15 +1,17 @@
-import { database, ensureTable, loadLesson, grade, json, loginClientKey } from '../lib/server.js';
+import { database, ensureTable, grade, json, loginClientKey } from '../lib/server.js';
+import { loadLesson, questionFeedback, validLessonId } from '../lib/lesson-store.js';
 
 export function createSubmitHandler(getDatabase = database, prepare = ensureTable) {
 return async function handler(request, response) {
   if (request.method !== 'POST') return json(response, 405, { error: 'METHOD_NOT_ALLOWED' });
   try {
-    const { id, lessonId, name, className, answers, timeTakenSeconds } = request.body || {};
+    const { id, lessonId, name, className, answers, timeTakenSeconds, includeReview } = request.body || {};
     if (typeof id !== 'string' || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id) || typeof name !== 'string' || !name.trim() || name.length > 100 || typeof className !== 'string' || !className.trim() || className.length > 30) return json(response, 400, { error: 'INVALID_SUBMISSION' });
     const duration = Number.isInteger(timeTakenSeconds) && timeTakenSeconds >= 0 && timeTakenSeconds <= 86400 ? timeTakenSeconds : null;
-    const lesson = await loadLesson(lessonId);
-    const result = grade(lesson, answers);
+    if (!validLessonId(lessonId)) return json(response, 400, { error: 'INVALID_LESSON' });
     const sql = getDatabase();
+    const lesson = await loadLesson(sql, lessonId);
+    const result = grade(lesson, answers);
     await prepare(sql);
     const clientKey = loginClientKey(request, `${process.env.SESSION_SECRET || 'quiz-submit'}:${lessonId}`);
     const [limit] = await sql`INSERT INTO submission_limits (client_key, attempts) VALUES (${clientKey}, 1)
@@ -31,9 +33,10 @@ return async function handler(request, response) {
         return json(response, 409, { error: 'SUBMISSION_ID_CONFLICT' });
       }
     }
-    return json(response, 200, { id, ...result });
+    return json(response, 200, { id, ...result, ...(includeReview === true ? { review: lesson.questions.map(questionFeedback) } : {}) });
   } catch (error) {
-    if (error.message === 'DATABASE_NOT_CONFIGURED') return json(response, 503, { error: 'STORAGE_NOT_CONFIGURED' });
+    if (error.message === 'DATABASE_NOT_CONFIGURED' || error.code === '42P01') return json(response, 503, { error: 'STORAGE_NOT_CONFIGURED' });
+    if (error.message === 'LESSON_NOT_FOUND') return json(response, 404, { error: 'LESSON_NOT_FOUND' });
     if (error.message.startsWith('INVALID_')) return json(response, 400, { error: error.message });
     console.error('Quiz submission failed', error);
     return json(response, 500, { error: 'SERVER_ERROR' });

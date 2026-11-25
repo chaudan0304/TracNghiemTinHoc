@@ -34,12 +34,14 @@
       background: white;
       border-bottom: 2px solid var(--border);
       padding: 16px 24px;
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
       align-items: center;
+      gap: 10px 16px;
       box-shadow: 0 2px 10px rgba(6, 78, 59, 0.05);
     }
     .back-link {
+      justify-self: start;
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -350,16 +352,61 @@
       color: #b91c1c;
       text-align: center;
     }
+    .account-menu {
+      position: relative;
+      justify-self: end;
+    }
+    .account-avatar {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 900;
+      cursor: pointer;
+      list-style: none;
+    }
+    .account-avatar::-webkit-details-marker { display: none; }
+    .account-avatar:hover, .account-menu[open] .account-avatar { background: #d1fae5; }
+    .account-popover {
+      position: absolute;
+      z-index: 10;
+      top: calc(100% + 8px);
+      right: 0;
+      width: 230px;
+      max-width: calc(100vw - 48px);
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(6, 78, 59, 0.15);
+    }
+    .account-menu-name {
+      margin: 0 0 8px;
+      font-weight: 900;
+      overflow-wrap: break-word;
+    }
     .logout-btn {
+      width: 100%;
       color: #64748b;
       background: none;
       border: none;
+      border-top: 1px solid #e2e8f0;
+      font: inherit;
       font-weight: 700;
       cursor: pointer;
-      text-decoration: underline;
-      padding: 6px 10px;
+      padding: 8px 0 0;
+      text-align: left;
     }
     .logout-btn:hover { color: #b91c1c; }
+    @media (max-width: 760px) {
+      header { grid-template-columns: minmax(0, 1fr) auto; }
+      .header-title { grid-column: 1 / -1; grid-row: 2; }
+      .account-menu { grid-column: 2; grid-row: 1; }
+    }
 
     /* Tabs & Ranking Styles */
     .nav-tabs {
@@ -553,6 +600,67 @@
       color: var(--primary);
     }
 
+    .lesson-editor-grid, .lesson-question-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+      gap: 12px;
+    }
+    .lesson-editor-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+    .lesson-editor-actions [aria-pressed="true"] { box-shadow: inset 0 0 0 2px currentColor; }
+    .lesson-editor-question { min-width: 0; border: 1px solid var(--border, #dbe3ee); border-radius: 12px; padding: 12px; margin: 0 0 12px; }
+    .lesson-editor-question legend { font-weight: 800; padding: 0 6px; }
+    #view-create .form-group { min-width: 0; margin: 0; }
+    #view-create .form-group input, #view-create .form-group select { width: 100%; }
+    #lesson-manual-questions { margin-top: 16px; }
+    #view-create .lesson-editor-question > .form-group { margin-bottom: 12px; }
+    .lesson-editor-question .lesson-question-options { margin-bottom: 12px; }
+    .lesson-remove-question { margin-top: 12px; }
+    #lesson-create-status { overflow-wrap: anywhere; }
+    #lesson-create-status[data-kind="error"] { color: var(--danger); }
+    #lesson-create-status a { display: inline-block; margin-left: 8px; }
+    #lesson-import-preview { padding-left: 24px; overflow-wrap: anywhere; }
+    .teacher-dashboard-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+    #teacher-profile { margin: 0; color: var(--muted); overflow-wrap: anywhere; }
+    .teacher-mode-switch { display: flex; flex-wrap: wrap; gap: 6px; }
+    .teacher-mode-switch[hidden] { display: none; }
+    .teacher-mode-switch [aria-pressed="true"] { box-shadow: inset 0 0 0 2px currentColor; }
+    #dashboard-section.view-mode [data-edit-mode] { display: none; }
+    #tab-accounts-btn[hidden], #tab-student-history-btn[hidden], #student-history-more[hidden],
+    #account-cancel[hidden], #account-active-label[hidden], #result-actions-heading[hidden],
+    #student-edit-class[hidden], #student-edit-class-choice[hidden] { display: none; }
+    #student-history-table th { white-space: nowrap; }
+    #student-history-table td { overflow-wrap: anywhere; }
+    #student-history-table td:nth-child(4), #student-history-table td:nth-child(5) { min-width: 115px; }
+    .student-history-class { display: block; margin-top: 3px; color: var(--muted); font-size: .875rem; }
+    @media (max-width: 680px) {
+      #student-history-table-container { border: 0; overflow: visible; }
+      #student-history-table { display: block; min-width: 0; }
+      #student-history-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+      #student-history-table tbody { display: grid; gap: 12px; }
+      #student-history-table tr {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px 14px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 12px;
+      }
+      #student-history-table td { display: block; padding: 0; border: 0; min-width: 0; }
+      #student-history-table td:nth-child(1) { grid-column: 1 / -1; font-weight: 800; }
+      #student-history-table td:nth-child(4), #student-history-table td:nth-child(5) { min-width: 0; }
+      #student-history-table td[data-label]::before {
+        content: attr(data-label);
+        display: block;
+        color: var(--muted);
+        font-size: .775rem;
+        font-weight: 800;
+        margin-bottom: 3px;
+      }
+    }
+    #view-accounts label.form-group { margin: 0; }
+    #account-list { padding: 0; list-style: none; }
+    #account-list li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); overflow-wrap: anywhere; }
   </style>
   <link rel="stylesheet" href="/assets/mobile.css">
 </head>
@@ -560,7 +668,15 @@
   <header>
     <a href="/" class="back-link">← Danh sách bài học</a>
     <div class="header-title">🎓 BẢNG KẾT QUẢ GIÁO VIÊN</div>
-    <div id="auth-actions"></div>
+    <details id="teacher-account-menu" class="account-menu" hidden>
+      <summary id="teacher-avatar" class="account-avatar" aria-label="Tài khoản">
+        <span id="teacher-avatar-initials" aria-hidden="true"></span>
+      </summary>
+      <div class="account-popover">
+        <p id="teacher-account-name" class="account-menu-name"></p>
+        <button id="teacher-logout" class="logout-btn" type="button">Đăng xuất</button>
+      </div>
+    </details>
   </header>
 
   <main>
@@ -570,8 +686,12 @@
       <p style="color: var(--muted); font-size: 0.95rem;">Nhập mật khẩu quản trị để xem bảng điểm và quản lý lượt nộp bài của học sinh.</p>
       <form id="login-form">
         <div class="form-group">
+          <label for="teacher-username">Tên đăng nhập</label>
+          <input id="teacher-username" type="text" maxlength="40" autocomplete="username" autocapitalize="none" spellcheck="false" required autofocus>
+        </div>
+        <div class="form-group">
           <label for="password">Mật khẩu giáo viên:</label>
-          <input id="password" type="password" placeholder="Nhập mật khẩu..." autocomplete="current-password" required autofocus>
+          <input id="password" type="password" maxlength="128" autocomplete="current-password" required>
         </div>
         <button id="login-btn" class="btn btn-primary" style="width: 100%;">Đăng nhập</button>
       </form>
@@ -580,6 +700,13 @@
 
     <!-- MÀN HÌNH QUẢN LÝ KẾT QUẢ -->
     <div id="dashboard-section" class="card" hidden>
+      <div class="teacher-dashboard-header">
+        <p id="teacher-profile"></p>
+        <div id="teacher-mode-switch" class="teacher-mode-switch" role="group" aria-label="Chế độ làm việc" hidden>
+          <button id="teacher-view-mode" type="button" class="btn btn-secondary" aria-pressed="true">Xem</button>
+          <button id="teacher-edit-mode" type="button" class="btn btn-secondary" aria-pressed="false">Chỉnh sửa</button>
+        </div>
+      </div>
       <!-- Navigation Tabs -->
       <div class="nav-tabs">
         <button id="tab-lessons-btn" type="button" class="tab-btn active">
@@ -588,7 +715,144 @@
         <button id="tab-ranking-btn" type="button" class="tab-btn">
           🏆 Bảng xếp hạng & Tiến độ các lớp
         </button>
+        <button id="tab-create-btn" type="button" class="tab-btn" data-edit-mode>Thêm bài học</button>
+        <button id="tab-accounts-btn" type="button" class="tab-btn" data-edit-mode hidden>Tài khoản giáo viên</button>
+        <button id="tab-student-history-btn" type="button" class="tab-btn" hidden>Lịch sử chỉnh sửa</button>
       </div>
+
+      <section id="view-student-history" aria-labelledby="student-history-title" hidden>
+        <h2 id="student-history-title">Lịch sử chỉnh sửa</h2>
+        <p>Các lần sửa hoặc gộp thông tin học sinh được sắp xếp từ mới đến cũ.</p>
+        <div class="lesson-editor-actions">
+          <button id="student-history-refresh" type="button" class="btn btn-secondary">Tải lại</button>
+        </div>
+        <div id="student-history-table-container" class="table-responsive" tabindex="0" role="region" aria-labelledby="student-history-title" hidden>
+          <table id="student-history-table" role="table">
+            <thead role="rowgroup"><tr role="row">
+              <th scope="col" role="columnheader">Thời điểm (giờ Việt Nam)</th>
+              <th scope="col" role="columnheader">Tài khoản</th>
+              <th scope="col" role="columnheader">Thao tác</th>
+              <th scope="col" role="columnheader">Trước</th>
+              <th scope="col" role="columnheader">Sau</th>
+              <th scope="col" role="columnheader">Số lượt làm</th>
+            </tr></thead>
+            <tbody id="student-history-rows" role="rowgroup"></tbody>
+          </table>
+        </div>
+        <p id="student-history-status" role="status"></p>
+        <button id="student-history-more" type="button" class="btn btn-secondary" hidden>Xem thêm</button>
+      </section>
+
+      <section id="view-accounts" aria-labelledby="account-title" hidden>
+        <h2 id="account-title">Tài khoản giáo viên</h2>
+        <p>Giao lớp để giáo viên xem và xuất điểm. Chọn quyền Chỉnh sửa để giáo viên sửa họ tên hoặc lớp của học sinh. Nhập các lớp cách nhau bằng dấu phẩy, ví dụ 3A1, 4A2.</p>
+        <form id="account-form">
+          <fieldset id="account-fields" class="lesson-editor-question">
+            <legend id="account-form-title">Tạo tài khoản</legend>
+            <div class="lesson-editor-grid">
+              <label class="form-group">Tên đăng nhập
+                <input name="username" minlength="3" maxlength="40" autocapitalize="none" spellcheck="false" autocomplete="off" required>
+              </label>
+              <label class="form-group">Tên hiển thị trên bài học
+                <input name="displayName" maxlength="100" placeholder="Ví dụ Nguyễn Văn An">
+              </label>
+              <label class="form-group">Môn dạy
+                <input name="subject" maxlength="120" placeholder="Tin học, Công nghệ" required>
+              </label>
+              <label class="form-group">Lớp phụ trách
+                <input name="classes" maxlength="2500" placeholder="3A1, 4A2">
+              </label>
+              <label class="form-group">Quyền thông tin học sinh
+                <select name="studentPermission">
+                  <option value="view">Chỉ xem</option>
+                  <option value="edit">Chỉnh sửa</option>
+                </select>
+              </label>
+              <label class="form-group"><span id="account-password-label">Mật khẩu (ít nhất 12 ký tự)</span>
+                <input name="password" type="password" minlength="12" maxlength="128" autocomplete="new-password" required>
+              </label>
+              <label class="form-group" id="account-active-label" hidden>Trạng thái
+                <select name="active">
+                  <option value="true">Đang hoạt động</option>
+                  <option value="false">Đã khóa</option>
+                </select>
+              </label>
+            </div>
+            <div class="lesson-editor-actions">
+              <button id="account-save" class="btn btn-primary" type="submit">Tạo tài khoản</button>
+              <button id="account-cancel" class="btn btn-secondary" type="button" hidden>Hủy chỉnh sửa</button>
+            </div>
+          </fieldset>
+        </form>
+        <p id="account-status" role="status"></p>
+        <ul id="account-list" aria-label="Danh sách tài khoản giáo viên"></ul>
+      </section>
+
+      <section id="view-create" aria-labelledby="lesson-create-title" hidden>
+        <h2 id="lesson-create-title">Thêm bài học</h2>
+        <p>Bài mới xuất hiện trên trang học sinh ngay sau khi lưu. Mỗi bài có 4 phương án mỗi câu và tổng điểm tối đa là 10.</p>
+        <div class="lesson-editor-actions" aria-label="Cách thêm bài học">
+          <button id="lesson-mode-manual" class="btn btn-secondary" type="button" aria-pressed="true">Nhập trực tiếp</button>
+          <button id="lesson-mode-excel" class="btn btn-secondary" type="button" aria-pressed="false">Nhập từ Excel</button>
+        </div>
+        <form id="lesson-manual">
+          <div class="lesson-editor-grid">
+            <label class="form-group">Tên bài
+              <input name="title" maxlength="160" required>
+            </label>
+            <label class="form-group">Khối
+              <select name="grade" required>
+                <option value="3">Lớp 3</option>
+                <option value="4">Lớp 4</option>
+                <option value="5">Lớp 5</option>
+              </select>
+            </label>
+            <label class="form-group">Thời gian (phút)
+              <input name="minutes" type="number" min="1" max="120" step="1" value="15" required>
+            </label>
+          </div>
+          <div id="lesson-manual-questions"></div>
+          <div class="lesson-editor-actions">
+            <button id="lesson-add-question" class="btn btn-secondary" type="button">Thêm câu hỏi</button>
+            <button class="btn btn-primary" type="submit">Lưu bài học</button>
+          </div>
+        </form>
+        <template id="lesson-question-template">
+          <fieldset class="lesson-editor-question">
+            <legend></legend>
+            <label class="form-group">Câu hỏi <input name="question" maxlength="500" required></label>
+            <div class="lesson-question-options">
+              <label class="form-group">Phương án A <input name="a" maxlength="300" required></label>
+              <label class="form-group">Phương án B <input name="b" maxlength="300" required></label>
+              <label class="form-group">Phương án C <input name="c" maxlength="300" required></label>
+              <label class="form-group">Phương án D <input name="d" maxlength="300" required></label>
+            </div>
+            <div class="lesson-editor-grid">
+              <label class="form-group">Đáp án đúng
+                <select name="correct" required>
+                  <option value="">Chọn A, B, C hoặc D</option>
+                  <option value="0">A</option><option value="1">B</option>
+                  <option value="2">C</option><option value="3">D</option>
+                </select>
+              </label>
+              <label class="form-group">Giải thích (không bắt buộc) <input name="explanation" maxlength="1000"></label>
+            </div>
+            <button class="btn btn-secondary lesson-remove-question" type="button">Bỏ câu này</button>
+          </fieldset>
+        </template>
+        <form id="lesson-excel" hidden>
+          <p>Mỗi dòng là một câu hỏi. Lặp lại khối, tên bài và thời gian ở các dòng cùng bài. Điền đáp án đúng bằng chữ A, B, C hoặc D.</p>
+          <div class="lesson-editor-actions">
+            <button id="lesson-download-template" class="btn btn-secondary" type="button">Tải mẫu Excel</button>
+          </div>
+          <label class="form-group">Tệp Excel (.xlsx, tối đa 2 MB)
+            <input id="lesson-import-file" type="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+          </label>
+          <ul id="lesson-import-preview" aria-label="Các bài sẽ lưu"></ul>
+          <button id="lesson-import-submit" class="btn btn-primary" type="submit" disabled>Lưu các bài trong tệp</button>
+        </form>
+        <p id="lesson-create-status" role="status" aria-live="polite"></p>
+      </section>
 
       <!-- VIEW 1: KẾT QUẢ THEO BÀI HỌC -->
       <div id="view-lessons">
@@ -688,7 +952,7 @@
                 <th scope="col"><button type="button" class="ranking-sort" data-table-sort="level">Xếp loại <span aria-hidden="true">↕</span></button></th>
                 <th scope="col"><button type="button" class="ranking-sort" data-table-sort="duration">Thời gian làm bài <span aria-hidden="true">↕</span></button></th>
                 <th scope="col"><button type="button" class="ranking-sort" data-table-sort="submitted">Thời gian nộp <span aria-hidden="true">↕</span></button></th>
-                <th style="text-align: center;">Hành động</th>
+                <th id="result-actions-heading" scope="col" style="text-align: center;" data-edit-mode hidden>Hành động</th>
               </tr>
             </thead>
             <tbody id="rows"></tbody>
@@ -851,8 +1115,9 @@
         <input id="student-edit-name" type="text" style="width: 100%; min-width: 0;" maxlength="100" required autofocus>
       </div>
       <div class="filter-item">
-        <label for="student-edit-class">Lớp</label>
+        <label id="student-edit-class-label" for="student-edit-class">Lớp</label>
         <input id="student-edit-class" type="text" style="width: 100%; min-width: 0;" maxlength="30" required>
+        <select id="student-edit-class-choice" style="width: 100%; min-width: 0;" required hidden disabled></select>
       </div>
       <p id="student-edit-status" role="status"></p>
       <div style="display: flex; flex-wrap: wrap; gap: 8px;">

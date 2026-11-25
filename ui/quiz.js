@@ -1,4 +1,5 @@
 import './compat.js';
+import { lessonDisplayTitle } from './lesson-title.js';
 import { getScoreLevel } from '../lib/score-levels.js';
     import { selectIncorrectQuestions } from '../lib/retry-questions.js';
 function createAttemptId() {
@@ -17,13 +18,12 @@ async function initializeQuiz() {
      */
     const lessonId = new URLSearchParams(location.search).get("bai") || "lop-4-bai-6";
     if (!/^[a-z0-9-]+$/.test(lessonId)) throw new Error("Mã bài học không hợp lệ");
-    const lessonResponse = await fetch(`/lessons/${lessonId}.json`);
+    const lessonUrl = `/api/lessons?id=${encodeURIComponent(lessonId)}`;
+    const lessonResponse = await fetch(lessonUrl);
     if (!lessonResponse.ok) throw new Error("Không tải được bài học");
     const lesson = await lessonResponse.json();
-    if (!Array.isArray(lesson.questions) || !lesson.questions.length || lesson.questions.some(q => !Array.isArray(q.options) || q.correctIndex < 0 || q.correctIndex >= q.options.length)) throw new Error("Dữ liệu câu hỏi không hợp lệ");
-    if (lesson.lessonTitle) {
-      document.title = `${lesson.lessonTitle} - Chinh phục Tin học`;
-    }
+    if (!Array.isArray(lesson.questions) || !lesson.questions.length || lesson.questions.some(q => !Array.isArray(q.options))) throw new Error("Dữ liệu câu hỏi không hợp lệ");
+    const displayTitle = lessonDisplayTitle(lesson);
     /**
      * =========================================================================
      * 1. CẤU HÌNH BÀI HỌC (20 câu trắc nghiệm • 10 phút • 0,5 điểm/câu)
@@ -62,10 +62,7 @@ async function initializeQuiz() {
         return {
           originalQuestionIndex: origQIdx,
           question: q.question,
-          explanation: q.explanation,
           options: optionOrder.map(i => q.options[i]),
-          // Vị trí mới của đáp án đúng sau khi xáo trộn
-          correctIndex: optionOrder.indexOf(q.correctIndex),
           // Ánh xạ: shuffledOptIdx -> originalOptIdx
           originalOptionIndices: optionOrder
         };
@@ -174,7 +171,7 @@ async function initializeQuiz() {
     const OPTION_LABELS = ["A", "B", "C", "D"];
 
     function formatScoreVN(num) {
-      return Number(num).toFixed(1).replace(".", ",");
+      return Number(num).toFixed(2).replace(/0$/, '').replace(".", ",");
     }
 
     function formatTimeMMSS(totalSeconds) {
@@ -185,15 +182,15 @@ async function initializeQuiz() {
     }
 
     function initApp() {
-      document.title = `${LESSON_CONFIG.lessonTitle} - Chinh phục Tin học`;
+      document.title = `${displayTitle} - Chinh phục Tin học`;
       document.getElementById("header-subject-badge").textContent = LESSON_CONFIG.subjectBadge;
-      document.getElementById("header-lesson-title").textContent = LESSON_CONFIG.lessonTitle;
+      document.getElementById("header-lesson-title").textContent = displayTitle;
       document.getElementById("welcome-main-title").textContent = LESSON_CONFIG.gameTitle;
-      document.getElementById("welcome-lesson-subtitle").textContent = LESSON_CONFIG.lessonTitle;
+      document.getElementById("welcome-lesson-subtitle").textContent = displayTitle;
 
       const totalQ = QUESTIONS.length;
       const mins = Math.floor(LESSON_CONFIG.timeLimitSeconds / 60);
-      const maxScore = totalQ * LESSON_CONFIG.pointsPerQuestion;
+      const maxScore = Math.round(totalQ * LESSON_CONFIG.pointsPerQuestion * 100) / 100;
 
       document.getElementById("info-card-questions").textContent = `${totalQ} câu trắc nghiệm`;
       document.getElementById("info-card-time").textContent = `${mins} phút (${LESSON_CONFIG.timeLimitSeconds} giây)`;
@@ -355,7 +352,7 @@ async function initializeQuiz() {
         const answerRecord = state.userAnswers[idx];
 
         let classes = "h-6 sm:h-7 rounded-md flex items-center justify-center text-[10px] sm:text-xs font-extrabold transition-all ";
-        if (answerRecord) {
+        if (answerRecord?.isCorrect !== undefined) {
           classes += answerRecord.isCorrect
             ? "bg-[#10b981] text-white"
             : "bg-red-500 text-white";
@@ -399,41 +396,76 @@ async function initializeQuiz() {
           <span class="option-letter w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#ecfdf5] border border-[#6ee7b7] text-[#059669] font-black text-sm flex items-center justify-center shrink-0">
             ${OPTION_LABELS[idx]}
           </span>
-          <span class="font-bold text-slate-800 text-xs sm:text-sm md:text-base leading-snug">
-            ${optText}
-          </span>
+          <span class="option-text font-bold text-slate-800 text-xs sm:text-sm md:text-base leading-snug"></span>
         `;
+        btn.querySelector(".option-text").textContent = optText;
 
         optionsContainer.appendChild(btn);
       });
     }
 
-    function selectAnswer(selectedIdx) {
+    function setQuestionFeedback(question, feedback) {
+      question.correctIndex = question.originalOptionIndices.indexOf(feedback.correctIndex);
+      question.explanation = feedback.explanation;
+    }
+
+    function updateScore() {
+      const correctCount = state.userAnswers.filter(answer => answer?.isCorrect).length;
+      state.score = Number((correctCount * LESSON_CONFIG.pointsPerQuestion).toFixed(2));
+    }
+
+    async function selectAnswer(selectedIdx) {
       if (state.answered) return;
       state.answered = true;
 
       const qObj = shuffledQuestions[state.currentIndex];
+      const answer = { selectedIndex: selectedIdx };
+      state.userAnswers[state.currentIndex] = answer;
+      const buttons = document.querySelectorAll("#options-container button");
+      buttons.forEach(btn => { btn.disabled = true; });
+
+      const feedbackBox = document.getElementById("feedback-box");
+      const feedbackIcon = document.getElementById("feedback-icon");
+      const feedbackTitle = document.getElementById("feedback-title");
+      const feedbackExplanation = document.getElementById("feedback-explanation");
+      feedbackBox.classList.remove("hidden", "bg-green-50", "border-green-400", "text-green-900", "bg-amber-50", "border-amber-400", "text-amber-950");
+
+      const nextBtn = document.getElementById("next-question-btn");
+      document.getElementById("next-btn-label").textContent = state.currentIndex < shuffledQuestions.length - 1 ? "Câu tiếp theo" : "Hoàn thành & Xem điểm";
+
+      if (qObj.correctIndex === undefined) {
+        feedbackIcon.textContent = "";
+        feedbackTitle.textContent = "Đang tải phản hồi...";
+        feedbackExplanation.textContent = "";
+        // Giữ luồng làm bài khi mạng chậm. Kết quả chính thức được chấm khi nộp.
+        nextBtn.classList.remove("hidden");
+        try {
+          const response = await fetch(`${lessonUrl}&question=${qObj.originalQuestionIndex}`);
+          if (!response.ok) throw new Error("Không tải được phản hồi");
+          setQuestionFeedback(qObj, await response.json());
+        } catch {
+          if (!state.submitted && state.userAnswers[state.currentIndex] === answer) {
+            feedbackTitle.textContent = "Em có thể tiếp tục và xem đáp án sau khi nộp bài.";
+          }
+          return;
+        }
+        if (!state.userAnswers.includes(answer) || state.submitted) return;
+      }
+
       const isCorrect = selectedIdx === qObj.correctIndex;
+      answer.isCorrect = isCorrect;
+      updateScore();
+      document.getElementById("quiz-score-text").textContent = `Điểm luyện tập: ${formatScoreVN(state.score)}`;
+      renderDotsBar();
+      if (state.userAnswers[state.currentIndex] !== answer) return;
 
       if (isCorrect) {
-        state.score = Math.round((state.score + LESSON_CONFIG.pointsPerQuestion) * 10) / 10;
         soundFX.playCorrect();
       } else {
         soundFX.playWrong();
       }
 
-      state.userAnswers[state.currentIndex] = {
-        questionIndex: state.currentIndex,
-        selectedIndex: selectedIdx,
-        isCorrect
-      };
-
-      document.getElementById("quiz-score-text").textContent = `Điểm luyện tập: ${formatScoreVN(state.score)}`;
-      renderDotsBar();
-
-      const buttons = document.querySelectorAll("#options-container button");
       buttons.forEach((btn, idx) => {
-        btn.disabled = true;
         btn.classList.add("cursor-default");
         const letterBadge = btn.querySelector(".option-letter");
 
@@ -450,13 +482,6 @@ async function initializeQuiz() {
         }
       });
 
-      const feedbackBox = document.getElementById("feedback-box");
-      const feedbackIcon = document.getElementById("feedback-icon");
-      const feedbackTitle = document.getElementById("feedback-title");
-      const feedbackExplanation = document.getElementById("feedback-explanation");
-
-      feedbackBox.classList.remove("hidden", "bg-green-50", "border-green-400", "text-green-900", "bg-amber-50", "border-amber-400", "text-amber-950");
-
       if (isCorrect) {
         feedbackBox.classList.add("bg-green-50", "border-green-400", "text-green-900");
         feedbackIcon.textContent = "🎉";
@@ -469,9 +494,6 @@ async function initializeQuiz() {
 
       feedbackExplanation.textContent = qObj.explanation;
 
-      const nextBtn = document.getElementById("next-question-btn");
-      const nextLabel = document.getElementById("next-btn-label");
-      nextLabel.textContent = state.currentIndex < shuffledQuestions.length - 1 ? "Câu tiếp theo" : "Hoàn thành & Xem điểm";
       nextBtn.classList.remove("hidden");
     }
 
@@ -493,36 +515,53 @@ async function initializeQuiz() {
       soundFX.playVictory();
       launchConfetti();
 
-      const totalQuestions = shuffledQuestions.length;
-      const maxScore = totalQuestions * LESSON_CONFIG.pointsPerQuestion;
-      const correctCount = state.userAnswers.filter(a => a && a.isCorrect).length;
       const timeUsedSeconds = LESSON_CONFIG.timeLimitSeconds - Math.max(0, state.timeLeft);
-      const timeUsedFormatted = formatTimeMMSS(timeUsedSeconds);
-      const finalScoreStr = formatScoreVN(state.score);
-
       document.getElementById("result-student-name").textContent = state.studentName;
       document.getElementById("result-student-class").textContent = state.studentClass;
-      document.getElementById("result-correct-count").textContent = `${correctCount} / ${totalQuestions}`;
-      document.getElementById("result-time-taken").textContent = timeUsedFormatted;
-      document.getElementById("result-score").textContent = `${finalScoreStr} / ${maxScore}`;
+      document.getElementById("result-time-taken").textContent = formatTimeMMSS(timeUsedSeconds);
+      document.getElementById("result-timeout-banner").classList.toggle("hidden", !state.timedOut);
+      renderResults();
+
+      const statusBanner = document.getElementById("result-submit-status");
+      document.getElementById('resend-result-btn').hidden = true;
+      if (state.retryMode) {
+        statusBanner.textContent = '🎯 Lượt ôn lại chỉ để luyện tập, không ghi thêm vào bảng điểm.';
+        statusBanner.className = 'mt-3 text-center text-xs font-extrabold text-[#047857]';
+        return;
+      }
+      pendingSubmission = {
+        payload: buildSubmission(state.studentName, state.studentClass, timeUsedSeconds),
+        sending: false
+      };
+      await sendPendingSubmission();
+    }
+
+    function renderResults() {
+      const totalQuestions = shuffledQuestions.length;
+      const maxScore = Math.round(totalQuestions * LESSON_CONFIG.pointsPerQuestion * 100) / 100;
+      const waitingForScore = state.userAnswers.some(answer => answer && answer.isCorrect === undefined);
+      const reviewReady = shuffledQuestions.every(question => question.correctIndex !== undefined);
+      const correctCount = state.userAnswers.filter(answer => answer?.isCorrect).length;
+      const finalScoreStr = formatScoreVN(state.score);
+
+      document.getElementById("result-correct-count").textContent = waitingForScore ? "—" : `${correctCount} / ${totalQuestions}`;
+      document.getElementById("result-score").textContent = waitingForScore ? "—" : `${finalScoreStr} / ${maxScore}`;
       const remaining = selectIncorrectQuestions(shuffledQuestions, state.userAnswers);
       const retryButton = document.getElementById('retry-wrong-btn');
-      retryButton.classList.toggle('hidden', remaining.length === 0);
+      retryButton.classList.toggle('hidden', !reviewReady || remaining.length === 0);
       document.getElementById('retry-wrong-text').textContent = `Ôn lại ${remaining.length} câu chưa đúng`;
-
-      const timeoutBanner = document.getElementById("result-timeout-banner");
-      if (state.timedOut) {
-        timeoutBanner.classList.remove("hidden");
-      } else {
-        timeoutBanner.classList.add("hidden");
-      }
+      document.getElementById('toggle-review-btn').disabled = !reviewReady;
 
       const starsEl = document.getElementById("result-stars");
       const titleEl = document.getElementById("result-title");
       const subtitleEl = document.getElementById("result-subtitle");
 
       const level = getScoreLevel(state.score);
-      if (level === 3) {
+      if (waitingForScore) {
+        starsEl.textContent = "";
+        titleEl.textContent = "Bài làm đã hoàn thành";
+        subtitleEl.textContent = "Điểm sẽ xuất hiện sau khi bài được chấm.";
+      } else if (level === 3) {
         starsEl.innerHTML = "⭐⭐⭐";
         titleEl.textContent = `Xuất sắc! Chúc mừng ${state.studentName}!`;
         subtitleEl.textContent = "Em đã nắm rất vững nội dung bài học!";
@@ -540,21 +579,7 @@ async function initializeQuiz() {
         subtitleEl.textContent = "Không sao cả! Em hãy đọc phần giải thích bên dưới và thử chinh phục lại từ đầu nhé!";
       }
 
-      renderReviewList();
-
-
-      const statusBanner = document.getElementById("result-submit-status");
-      document.getElementById('resend-result-btn').hidden = true;
-      if (state.retryMode) {
-        statusBanner.textContent = '🎯 Lượt ôn lại chỉ để luyện tập, không ghi thêm vào bảng điểm.';
-        statusBanner.className = 'mt-3 text-center text-xs font-extrabold text-[#047857]';
-        return;
-      }
-      pendingSubmission = {
-        payload: buildSubmission(state.studentName, state.studentClass, timeUsedSeconds),
-        sending: false
-      };
-      await sendPendingSubmission();
+      if (reviewReady) renderReviewList();
     }
 
     async function sendPendingSubmission() {
@@ -574,6 +599,13 @@ async function initializeQuiz() {
       resend.hidden = result.ok || !result.retryable;
       if (result.ok) {
         pendingSubmission = null;
+        shuffledQuestions.forEach((question, index) => {
+          setQuestionFeedback(question, result.data.review[question.originalQuestionIndex]);
+          const answer = state.userAnswers[index];
+          if (answer) answer.isCorrect = answer.selectedIndex === question.correctIndex;
+        });
+        state.score = result.data.score;
+        renderResults();
         statusBanner.textContent = '✅ Đã gửi kết quả thành công tới thầy/cô giáo!';
         statusBanner.className = 'mt-3 text-center text-xs font-extrabold text-[#059669]';
       } else {
@@ -618,17 +650,21 @@ async function initializeQuiz() {
 
         item.innerHTML = `
           <div class="flex items-center justify-between gap-2 mb-1.5">
-            <span class="font-black text-xs sm:text-sm text-[#064e3b]">Câu ${idx + 1}: ${qObj.question}</span>
+            <span class="review-question font-black text-xs sm:text-sm text-[#064e3b]"></span>
             <span class="text-xs font-extrabold px-2.5 py-0.5 rounded-full shrink-0 ${isCorrect ? "bg-green-200 text-green-900" : "bg-red-200 text-red-900"}">
               ${isCorrect ? `✓ Đúng (+${formatScoreVN(LESSON_CONFIG.pointsPerQuestion)})` : "✕ Sai"}
             </span>
           </div>
           <p class="text-xs sm:text-sm font-bold text-slate-700 mb-1">
-            • Em đã chọn: <span class="${isCorrect ? "text-green-700" : "text-red-700"}">${userChoiceText}</span>
+            • Em đã chọn: <span class="review-choice ${isCorrect ? "text-green-700" : "text-red-700"}"></span>
           </p>
-          ${!isCorrect ? `<p class="text-xs sm:text-sm font-bold text-green-800 mb-1">• Đáp án đúng: <span>${correctText}</span></p>` : ""}
-          <p class="text-xs text-slate-600 font-semibold italic mt-1">💡 ${qObj.explanation}</p>
+          ${!isCorrect ? '<p class="text-xs sm:text-sm font-bold text-green-800 mb-1">• Đáp án đúng: <span class="review-correct"></span></p>' : ""}
+          ${qObj.explanation ? '<p class="review-explanation text-xs text-slate-600 font-semibold italic mt-1"></p>' : ""}
         `;
+        item.querySelector(".review-question").textContent = `Câu ${idx + 1}: ${qObj.question}`;
+        item.querySelector(".review-choice").textContent = userChoiceText;
+        if (!isCorrect) item.querySelector(".review-correct").textContent = correctText;
+        if (qObj.explanation) item.querySelector(".review-explanation").textContent = `💡 ${qObj.explanation}`;
 
         list.appendChild(item);
       });
@@ -648,7 +684,7 @@ async function initializeQuiz() {
         }
       });
       return {
-        id: createAttemptId(), lessonId, name, className, answers,
+        id: createAttemptId(), lessonId, name, className, answers, includeReview: true,
         timeTakenSeconds: Math.max(0, Math.round(timeUsedSeconds))
       };
     }
@@ -661,7 +697,8 @@ async function initializeQuiz() {
           body: JSON.stringify(payload)
         });
         const rateLimited = response.status === 429;
-        return { ok: response.ok, rateLimited, retryable: rateLimited || response.status >= 500 };
+        const data = response.ok ? await response.json() : null;
+        return { ok: response.ok, data, rateLimited, retryable: rateLimited || response.status >= 500 };
       } catch (error) {
         console.error('Không thể gửi kết quả:', error);
         return { ok: false, rateLimited: false, retryable: true };

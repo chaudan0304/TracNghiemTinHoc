@@ -4,9 +4,7 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/lib/server.js", "destination": "/404" },
+    { "source": "/lessons/:path*", "destination": "/404" },
     { "source": "/test/:path*", "destination": "/404" }
-  ],
-  "functions": {
-    "api/*.js": { "includeFiles": "lessons/**" }
-  }
+  ]
 }
